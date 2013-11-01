@@ -8,6 +8,6 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface VolumeView : MPVolumeView
+@interface VolumeView : MPVolumeView 
 
 @end

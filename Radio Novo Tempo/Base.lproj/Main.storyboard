@@ -121,6 +121,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblCurrentRadio" destination="JQv-zi-Qod" id="kql-IT-1fc"/>
                         <outlet property="pauseButton" destination="Dve-hW-92G" id="BDH-R9-wYk"/>
                         <outlet property="playButton" destination="BM9-hR-PvH" id="j0m-2x-1Cd"/>
                         <outlet property="volumeCanvas" destination="bsX-J8-Rmr" id="4EG-HN-xbQ"/>
