@@ -12,18 +12,20 @@
 #import "CoreLocation/CoreLocation.h"
 
 
-@interface MainViewController : UIViewController<CLLocationManagerDelegate>
+@interface MainViewController : UIViewController<CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
     MPMoviePlayerController *player;
     IBOutlet UIButton *playButton;
     IBOutlet UIButton *pauseButton;
     IBOutlet UIView * volumeCanvas;
-    IBOutlet UILabel * lblCurrentRadio;
+    IBOutlet UIButton * btnCurrentRadio;
+    NSArray * globallistRadios;
     BOOL locationExist;
     
 }
+@property (weak, nonatomic) IBOutlet UIView *pickRadioListView;
 
-@property(nonatomic,retain)IBOutlet UILabel * lblCurrentRadio;
+@property(nonatomic,retain)IBOutlet UIButton * btnCurrentRadio;
 @property (weak, nonatomic) IBOutlet UISlider *sliderVolume;
 @property(nonatomic,retain)IBOutlet UIView * volumeCanvas;
 @property (nonatomic, retain) MPMoviePlayerController *player;
@@ -37,6 +39,8 @@
 
 - (IBAction)playButtonPressed:(id)button;
 - (IBAction)pauseButtonPressed:(id)button;
+- (IBAction)showRadioList:(id)button;
+- (IBAction)hideRadioList:(id)button;
 - (void) playAudio;
 - (void) pauseAudio;
 @end

@@ -18,7 +18,8 @@
 @synthesize sliderVolume;
 @synthesize currentLocation;
 @synthesize locationManager;
-@synthesize lblCurrentRadio;
+@synthesize btnCurrentRadio;
+@synthesize pickRadioListView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    globallistRadios = [[NSArray alloc] initWithObjects:@"Employed", @"Student", @"Retired", @"Homemaker", @"Self-employed", @"Unemployed", @"Other", nil];
     
     self.navigationItem.title=@"";
     locationExist = YES;
@@ -139,11 +142,19 @@
     // retry
         
     } else {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
-                                                        message:[error description]
+        
+//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops! retrieving location"
+//                                                        message:[error description]
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops!"
+                                                        message:@"Não conseguimos localizar a rádio mais próxima a você. Vá em 'Ajustes' e certifique-se que este app esteja habilitado para usar o serviço de localização do Iphone."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
+        
         [alert show];
     }
 }
@@ -158,32 +169,65 @@
     [locationManager stopUpdatingLocation];
 }
 
+
+- (IBAction)showRadioList:(id)button{
+    pickRadioListView.hidden = NO;
+}
+
+- (IBAction)hideRadioList:(id)button{
+    pickRadioListView.hidden = YES;
+}
+
 -(void)callNovoTempoService{
    
     //Create Request Values
-    NSString * action = @"radio";
+    NSString * action = @"radiolist";
     NSString * language = @"pt";
     
     
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&latitude=%f&longitude=%f&hl=%@",action,self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude,language];
+    
+    NSLog(@"%@",adress);
     NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
     
     NSError *error;
     NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
                                                           options:NSJSONReadingMutableContainers error:&error];
     
-    //lblCurrentRadio.text = [resultados objectAtIndex:1];
-    lblCurrentRadio.text = [NSString stringWithFormat:@"%@",[resultados objectForKey:@"name"]];
+    NSArray * radioList = [resultados objectForKey:@"radios"];
+
     
-    NSString * stringUrl = [NSString stringWithFormat:@"%@",[resultados objectForKey:@"streamIOS"]];
+    NSDictionary * radioDefault =  [radioList objectAtIndex:0];
+    
+    [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
+    
+    NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
     NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
     
-    [NSString stringWithFormat:@"%@",[resultados objectForKey:@"streamIOS"]];
+    [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
     
     player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
     
 
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    //One column
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    //set number of rows
+    return globallistRadios.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    //set item per row
+    return [globallistRadios objectAtIndex:row];
 }
 
 @end
