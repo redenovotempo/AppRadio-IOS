@@ -19,7 +19,8 @@
 @synthesize currentLocation;
 @synthesize locationManager;
 @synthesize btnCurrentRadio;
-@synthesize pickRadioListView;
+@synthesize viewRadioList;
+@synthesize globallistRadios;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -29,6 +30,8 @@
 }
 
 #pragma mark - View lifecycle
+#define MAX_SIZE CGRectMake(0, 335, 320, 233);
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -36,8 +39,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    viewRadioListMinrect = viewRadioList.frame;
+    [player prepareToPlay];
     
-    globallistRadios = [[NSArray alloc] initWithObjects:@"Employed", @"Student", @"Retired", @"Homemaker", @"Self-employed", @"Unemployed", @"Other", nil];
+    
+    //Update ArrowImage and Title Position BY radio Name;
+    [self refreshButtonSizeByTitle];
+    
     
     self.navigationItem.title=@"";
     locationExist = YES;
@@ -51,7 +59,6 @@
         player.backgroundView.backgroundColor = [UIColor clearColor];
         player.view.backgroundColor = [UIColor clearColor];
         [self.view addSubview:player.view];
-
     }
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
@@ -76,12 +83,18 @@
 
 
 - (void) playAudio {
+    playButton.hidden = YES;
+    pauseButton.hidden = NO;
+    
     if (player.playbackState != MPMoviePlaybackStatePlaying){
         [player play];
     }
 }
 
 - (void) pauseAudio {
+    playButton.hidden = NO;
+    pauseButton.hidden = YES;
+    
     if (player.playbackState == MPMoviePlaybackStatePlaying) {
         [player pause];
     }
@@ -89,15 +102,10 @@
 
 - (IBAction)playButtonPressed:(id)button {
     [self playAudio];
-    playButton.hidden = YES;
-    pauseButton.hidden = NO;
 }
 
 - (IBAction)pauseButtonPressed:(id)button {
     [self pauseAudio];
-    playButton.hidden = NO;
-    pauseButton.hidden = YES;
-    
 }
 
 - (void)viewDidUnload
@@ -121,9 +129,6 @@
 //Core Location Refresh Method
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     
-    //NSLog(@"New location: %f, %f",self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude);
-    //if(newLocation.horizontalAccuracy <= 100.0f) { [locationManager stopUpdatingLocation]; }
-    
     self.currentLocation = newLocation;
     if (currentLocation.coordinate.longitude && currentLocation.coordinate.latitude && locationExist) {
         //Consuming Novo Tempo`s Service.
@@ -137,24 +142,14 @@
     
     if(error.code == kCLErrorDenied) {
         [locationManager stopUpdatingLocation];
-    
-    //} else if(error.code == kCLErrorLocationUnknown) {
-    // retry
         
     } else {
-        
-//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops! retrieving location"
-//                                                        message:[error description]
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"OK"
-//                                              otherButtonTitles:nil];
         
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops!"
                                                         message:@"Não conseguimos localizar a rádio mais próxima a você. Vá em 'Ajustes' e certifique-se que este app esteja habilitado para usar o serviço de localização do Iphone."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        
         [alert show];
     }
 }
@@ -169,14 +164,6 @@
     [locationManager stopUpdatingLocation];
 }
 
-
-- (IBAction)showRadioList:(id)button{
-    pickRadioListView.hidden = NO;
-}
-
-- (IBAction)hideRadioList:(id)button{
-    pickRadioListView.hidden = YES;
-}
 
 -(void)callNovoTempoService{
    
@@ -195,21 +182,24 @@
     NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
                                                           options:NSJSONReadingMutableContainers error:&error];
     
-    NSArray * radioList = [resultados objectForKey:@"radios"];
+    NSMutableArray * radioList = [resultados objectForKey:@"radios"];
 
+    globallistRadios = radioList;
+    [self.pickerViewRadioList reloadAllComponents];
+    
     
     NSDictionary * radioDefault =  [radioList objectAtIndex:0];
     
     [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
     
+    
+    //Update ArrowImage and Title Position BY radio Name;
+    [self refreshButtonSizeByTitle];
+    
     NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
     NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
-    
-    [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
-    
     player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
     
-
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -221,13 +211,72 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     //set number of rows
-    return globallistRadios.count;
+    return [globallistRadios count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     //set item per row
-    return [globallistRadios objectAtIndex:row];
+    NSDictionary * dictRecipient = [[NSDictionary alloc]init];
+    dictRecipient = [globallistRadios objectAtIndex:row];
+    return [dictRecipient objectForKey:@"name"];
 }
+
+
+- (IBAction)showRadioList:(id)button{
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDuration:0.2f];
+    
+    if (CGRectEqualToRect(viewRadioList.frame, viewRadioListMinrect)) {
+        viewRadioList.frame = MAX_SIZE;
+        
+    }
+    [UIView commitAnimations];
+    
+}
+
+- (IBAction)hideRadioList:(id)button{
+    
+    
+    int row = [self.pickerViewRadioList selectedRowInComponent:0];
+    NSDictionary * selectedRadio = [globallistRadios objectAtIndex:row];
+    [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
+    
+    
+    if (selectedRadio) {
+        NSString * stringUrl = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"streamIOS"]];
+        NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
+        player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+        [self playAudio];
+    }
+    
+    //Update ArrowImage and Title Position BY radio Name;
+    [self refreshButtonSizeByTitle];
+
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDuration:0.2f];
+    
+    CGRect  cgrectMaxPosition ;
+    cgrectMaxPosition = MAX_SIZE;
+    
+    
+    if (CGRectEqualToRect(viewRadioList.frame, cgrectMaxPosition)) {
+        viewRadioList.frame = viewRadioListMinrect;
+        
+    }
+    
+    [UIView commitAnimations];
+}
+
+-(void)refreshButtonSizeByTitle{
+    int btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18 + 20;
+    [btnCurrentRadio setImageEdgeInsets:UIEdgeInsetsMake(0.0, btnCurrentRadioTextWidth, 0.0, 0.0)];
+    [btnCurrentRadio setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 20)];
+}
+
 
 @end

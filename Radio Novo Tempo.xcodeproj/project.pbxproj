@@ -30,6 +30,7 @@
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
+		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		550C12BE1813B60A00CD48E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				550C12F51813C5D000CD48E2 /* play.png */,
 				550C12F11813C13700CD48E2 /* bg.png */,
 				550C12F31813C37A00CD48E2 /* logo.png */,
@@ -247,6 +250,7 @@
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12F41813C37A00CD48E2 /* logo.png in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
+				A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */,
 				550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */,
 				550C13001813CE7A00CD48E2 /* pause.png in Resources */,
 				550C12C21813B60A00CD48E2 /* InfoPlist.strings in Resources */,

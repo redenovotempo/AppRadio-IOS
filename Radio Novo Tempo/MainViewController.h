@@ -19,11 +19,16 @@
     IBOutlet UIButton *pauseButton;
     IBOutlet UIView * volumeCanvas;
     IBOutlet UIButton * btnCurrentRadio;
-    NSArray * globallistRadios;
+    NSMutableArray * globallistRadios;
     BOOL locationExist;
     
+    //animation
+    CGRect viewRadioListMinrect;
+    
 }
-@property (weak, nonatomic) IBOutlet UIView *pickRadioListView;
+@property (nonatomic,retain)NSMutableArray * globallistRadios;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerViewRadioList;
+@property (weak, nonatomic) IBOutlet UIView *viewRadioList;
 
 @property(nonatomic,retain)IBOutlet UIButton * btnCurrentRadio;
 @property (weak, nonatomic) IBOutlet UISlider *sliderVolume;
@@ -35,6 +40,7 @@
 //Core Location values
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
+
 
 
 - (IBAction)playButtonPressed:(id)button;
