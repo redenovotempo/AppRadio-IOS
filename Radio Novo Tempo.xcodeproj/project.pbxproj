@@ -31,6 +31,8 @@
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
+		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
+		A5FB35F1183EEC43000844F2 /* bg_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35F0183EEC43000844F2 /* bg_iPad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		A5FB35EC183EE7ED000844F2 /* Radio Novo Tempo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Radio Novo Tempo copy-Info.plist"; path = "/Users/michellopes/Documents/Dev./RadioNovoTempo/Radio Novo Tempo copy-Info.plist"; sourceTree = "<absolute>"; };
+		A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		A5FB35F0183EEC43000844F2 /* bg_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_iPad.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,7 @@
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
 				550C12B51813B60A00CD48E2 /* Products */,
+				A5FB35EC183EE7ED000844F2 /* Radio Novo Tempo copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +149,7 @@
 				550C12ED1813B9D300CD48E2 /* MainViewController.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
 				550C12CF1813B60A00CD48E2 /* Images.xcassets */,
+				A5FB35EF183EEAA2000844F2 /* iPad */,
 				550C12BE1813B60A00CD48E2 /* Supporting Files */,
 			);
 			path = "Radio Novo Tempo";
@@ -166,6 +173,15 @@
 				550C12C51813B60A00CD48E2 /* Radio Novo Tempo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A5FB35EF183EEAA2000844F2 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */,
+				A5FB35F0183EEC43000844F2 /* bg_iPad.png */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,10 +266,12 @@
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12F41813C37A00CD48E2 /* logo.png in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
+				A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */,
 				A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */,
 				550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */,
 				550C13001813CE7A00CD48E2 /* pause.png in Resources */,
 				550C12C21813B60A00CD48E2 /* InfoPlist.strings in Resources */,
+				A5FB35F1183EEC43000844F2 /* bg_iPad.png in Resources */,
 				550C12F81813C73100CD48E2 /* lineBg.png in Resources */,
 				550C12F21813C13700CD48E2 /* bg.png in Resources */,
 				550C12FA1813C88500CD48E2 /* logo.com.png in Resources */,
@@ -408,6 +426,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -426,6 +445,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

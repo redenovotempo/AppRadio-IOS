@@ -36,10 +36,15 @@
     return UIStatusBarStyleLightContent;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     viewRadioListMinrect = viewRadioList.frame;
+    
+    
     [player prepareToPlay];
     
     
@@ -223,11 +228,25 @@
 }
 
 
+
 - (IBAction)showRadioList:(id)button{
 
+//    Realinhando viewRadioList de acordo com o tamanho da tela.
+//    CGRect screenBound = [[UIScreen mainScreen] bounds];
+//    CGSize screenSize = screenBound.size;
+//    CGFloat screenHeight = screenSize.height;
+//    CGRect frame = viewRadioList.frame;
+//    frame.origin.y = screenHeight - 233;
+//    viewRadioList.frame = frame;
+    
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDuration:0.2f];
+    
+
+
+    
     
     if (CGRectEqualToRect(viewRadioList.frame, viewRadioListMinrect)) {
         viewRadioList.frame = MAX_SIZE;
