@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@class Reachability;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    Reachability *internetReach;
+}
+@property (strong, nonatomic) UIWindow * window;
+@property(nonatomic,assign)BOOL hasInternet;
+-(BOOL)CheckInternetConnection;
 @end

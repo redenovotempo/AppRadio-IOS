@@ -10,6 +10,7 @@
 #import "MediaPlayer/MediaPlayer.h"
 #import "VolumeView.h"
 #import "CoreLocation/CoreLocation.h"
+#import "AppDelegate.h"
 
 
 @interface MainViewController : UIViewController<CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
@@ -21,9 +22,6 @@
     IBOutlet UIButton * btnCurrentRadio;
     NSMutableArray * globallistRadios;
     BOOL locationExist;
-    
-    //animation
-    CGRect viewRadioListMinrect;
     
 }
 @property (nonatomic,retain)NSMutableArray * globallistRadios;

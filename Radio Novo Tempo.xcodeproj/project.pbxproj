@@ -31,6 +31,8 @@
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
+		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
+		A5A6F87518455D990085BCA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A6F87418455D990085BCA8 /* Reachability.m */; };
 		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
 		A5FB35F1183EEC43000844F2 /* bg_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35F0183EEC43000844F2 /* bg_iPad.png */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,9 @@
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A5A6F87318455D990085BCA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A5A6F87418455D990085BCA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A5FB35EC183EE7ED000844F2 /* Radio Novo Tempo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Radio Novo Tempo copy-Info.plist"; path = "/Users/michellopes/Documents/Dev./RadioNovoTempo/Radio Novo Tempo copy-Info.plist"; sourceTree = "<absolute>"; };
 		A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		A5FB35F0183EEC43000844F2 /* bg_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_iPad.png; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */,
 				554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */,
 				550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */,
 				550C12BA1813B60A00CD48E2 /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +134,7 @@
 		550C12B61813B60A00CD48E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */,
 				554CD5CD1823284C00487501 /* CoreLocation.framework */,
 				550C12EF1813BA4900CD48E2 /* AVFoundation.framework */,
 				550C12B71813B60A00CD48E2 /* Foundation.framework */,
@@ -147,6 +154,8 @@
 				5507B5781813F474002B2368 /* VolumeView.m */,
 				550C12EC1813B9D300CD48E2 /* MainViewController.h */,
 				550C12ED1813B9D300CD48E2 /* MainViewController.m */,
+				A5A6F87318455D990085BCA8 /* Reachability.h */,
+				A5A6F87418455D990085BCA8 /* Reachability.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
 				550C12CF1813B60A00CD48E2 /* Images.xcassets */,
 				A5FB35EF183EEAA2000844F2 /* iPad */,
@@ -298,6 +307,7 @@
 				550C12EE1813B9D300CD48E2 /* MainViewController.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
+				A5A6F87518455D990085BCA8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +384,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -396,7 +407,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -407,6 +418,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -425,7 +437,7 @@
 				INFOPLIST_FILE = "Radio Novo Tempo/Radio Novo Tempo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,7 +456,7 @@
 				INFOPLIST_FILE = "Radio Novo Tempo/Radio Novo Tempo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

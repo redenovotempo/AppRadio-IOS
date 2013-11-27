@@ -10,6 +10,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 
+
 @implementation MainViewController
 @synthesize player;
 @synthesize playButton;
@@ -30,7 +31,6 @@
 }
 
 #pragma mark - View lifecycle
-#define MAX_SIZE CGRectMake(0, 335, 320, 233);
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -41,36 +41,9 @@
 {
     [super viewDidLoad];
     
-    
-    viewRadioListMinrect = viewRadioList.frame;
-    
-    
-    [player prepareToPlay];
-    
-    
-    //Update ArrowImage and Title Position BY radio Name;
-    [self refreshButtonSizeByTitle];
-    
-    
-    self.navigationItem.title=@"";
-    locationExist = YES;
-    // Do any additional setup after loading the view from its nib.
-    
-    if (!self.player) {
-        player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://50.22.36.40:1935/radio/novotempo/playlist.m3u8"]];
-        player.movieSourceType = MPMovieSourceTypeStreaming;
-        player.controlStyle  = MPMovieControlStyleNone;
-        player.view.frame = CGRectMake(55, 180, 200, 30);
-        player.backgroundView.backgroundColor = [UIColor clearColor];
-        player.view.backgroundColor = [UIColor clearColor];
-        [self.view addSubview:player.view];
-    }
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                           error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES
-                                        error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    //Realocate viewRadioList Position.
+    viewRadioList.frame = [self SetViewRadioListCGRect: NO];
+
     
     
     //Customize Uislider Volume.
@@ -80,19 +53,73 @@
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
     volumeCanvas.backgroundColor = [UIColor clearColor];
     
-    //Find Device Location.
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    [locationManager startUpdatingLocation];
+    //ExecuteMainAction
+    [self ExecuteMainAction];
+}
+
+-(void)ExecuteMainAction{
+
+    if ([self CheckInternetConnection]) {
+      
+        //Prepare to Play
+        [player prepareToPlay];
+        
+        //Update ArrowImage and Title Position BY radio Name;
+        [self refreshButtonSizeByTitle];
+        
+        
+        self.navigationItem.title=@"";
+        locationExist = YES;
+        // Do any additional setup after loading the view from its nib.
+        
+        if (!self.player) {
+            
+            player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://50.22.36.40:1935/radio/novotempo/playlist.m3u8"]];
+            player.movieSourceType = MPMovieSourceTypeStreaming;
+            player.controlStyle  = MPMovieControlStyleNone;
+            player.view.frame = CGRectMake(55, 180, 200, 30);
+            player.backgroundView.backgroundColor = [UIColor clearColor];
+            player.view.backgroundColor = [UIColor clearColor];
+            [self.view addSubview:player.view];
+        }
+        
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                               error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES
+                                             error:nil];
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        
+        
+        //Find Device Location.
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        [locationManager startUpdatingLocation];
+        
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
+    
+
+}
+
+-(BOOL)CheckInternetConnection{
+
+    //Check Internet Connection.
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return apDel.CheckInternetConnection;
 }
 
 
 - (void) playAudio {
-    playButton.hidden = YES;
-    pauseButton.hidden = NO;
-    
-    if (player.playbackState != MPMoviePlaybackStatePlaying){
-        [player play];
+    if ([self CheckInternetConnection]) {
+        playButton.hidden = YES;
+        pauseButton.hidden = NO;
+        
+        if (player.playbackState != MPMoviePlaybackStatePlaying){
+            [player play];
+        }
+    }else{
+        [self InternetConnectionErrorMessage];
     }
 }
 
@@ -121,10 +148,10 @@
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
     switch (event.subtype) {
         case UIEventSubtypeRemoteControlPlay:
-            [player play];
+            [self playAudio];
             break;
         case UIEventSubtypeRemoteControlPause:
-            [player pause];
+            [self pauseAudio];
             break;
         default:
             break;
@@ -180,7 +207,6 @@
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&latitude=%f&longitude=%f&hl=%@",action,self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude,language];
     
-    NSLog(@"%@",adress);
     NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
     
     NSError *error;
@@ -228,28 +254,40 @@
 }
 
 
+-(CGRect)SetViewRadioListCGRect:(BOOL)IsClosed{
+
+    //Realinhando viewRadioList de acordo com o tamanho da tela.
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenHeight = screenSize.height;
+    CGFloat screenWidth = screenSize.width;
+    
+    CGRect frame = viewRadioList.frame;
+    frame.origin.y = screenHeight - 233;
+    viewRadioList.frame = frame;
+    
+    CGRect Position;
+    
+    if (IsClosed){
+        Position = CGRectMake(0, screenHeight - 233, screenWidth, 233);
+    }else{
+        Position = CGRectMake(0, screenHeight + 233, screenWidth, 233);
+    }
+    
+    return Position;
+}
+
 
 - (IBAction)showRadioList:(id)button{
 
-//    Realinhando viewRadioList de acordo com o tamanho da tela.
-//    CGRect screenBound = [[UIScreen mainScreen] bounds];
-//    CGSize screenSize = screenBound.size;
-//    CGFloat screenHeight = screenSize.height;
-//    CGRect frame = viewRadioList.frame;
-//    frame.origin.y = screenHeight - 233;
-//    viewRadioList.frame = frame;
-    
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDuration:0.2f];
     
-
-
     
-    
-    if (CGRectEqualToRect(viewRadioList.frame, viewRadioListMinrect)) {
-        viewRadioList.frame = MAX_SIZE;
+    if (CGRectEqualToRect(viewRadioList.frame, [self SetViewRadioListCGRect: NO])) {
+        viewRadioList.frame = [self SetViewRadioListCGRect:YES];
         
     }
     [UIView commitAnimations];
@@ -263,8 +301,8 @@
     NSDictionary * selectedRadio = [globallistRadios objectAtIndex:row];
     [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
     
-    
     if (selectedRadio) {
+        [player stop];
         NSString * stringUrl = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"streamIOS"]];
         NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
         player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
@@ -274,17 +312,16 @@
     //Update ArrowImage and Title Position BY radio Name;
     [self refreshButtonSizeByTitle];
 
-    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDuration:0.2f];
     
     CGRect  cgrectMaxPosition ;
-    cgrectMaxPosition = MAX_SIZE;
+    cgrectMaxPosition = [self SetViewRadioListCGRect:(NO)];
     
     
-    if (CGRectEqualToRect(viewRadioList.frame, cgrectMaxPosition)) {
-        viewRadioList.frame = viewRadioListMinrect;
+    if (CGRectEqualToRect(viewRadioList.frame, [self SetViewRadioListCGRect: YES])) {
+        viewRadioList.frame = [self SetViewRadioListCGRect: NO];
         
     }
     
@@ -295,6 +332,18 @@
     int btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18 + 20;
     [btnCurrentRadio setImageEdgeInsets:UIEdgeInsetsMake(0.0, btnCurrentRadioTextWidth, 0.0, 0.0)];
     [btnCurrentRadio setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 20)];
+}
+
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self ExecuteMainAction];
+    }
 }
 
 

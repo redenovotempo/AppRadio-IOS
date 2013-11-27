@@ -7,6 +7,7 @@
 //
  
 #import "AppDelegate.h"
+#import "Reachability.h"
 
 @implementation AppDelegate
 
@@ -36,11 +37,37 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(BOOL)CheckInternetConnection{
+    internetReach = [Reachability reachabilityForInternetConnection];
+    [internetReach startNotifier];
+    
+    NetworkStatus netStatus = [internetReach currentReachabilityStatus];
+    
+    switch (netStatus){
+        case ReachableViaWWAN:{
+            _hasInternet=YES;
+            break;
+        }
+        case ReachableViaWiFi:{
+            _hasInternet=YES;
+            break;
+        }
+        case NotReachable:{
+            _hasInternet=NO;
+            break;
+        }
+    }
+    
+    return _hasInternet;
 }
 
 @end
