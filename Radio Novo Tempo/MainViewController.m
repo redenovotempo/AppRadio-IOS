@@ -65,7 +65,7 @@
         [player prepareToPlay];
         
         //Update ArrowImage and Title Position BY radio Name;
-        [self refreshButtonSizeByTitle];
+        //[self refreshButtonSizeByTitle];
         
         
         self.navigationItem.title=@"";
@@ -221,11 +221,14 @@
     
     NSDictionary * radioDefault =  [radioList objectAtIndex:0];
     
-    [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
+    if ([radioDefault objectForKey:@"name"]) {
+        [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
+    }
+    
     
     
     //Update ArrowImage and Title Position BY radio Name;
-    [self refreshButtonSizeByTitle];
+    //[self refreshButtonSizeByTitle];
     
     NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
     NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
@@ -299,7 +302,10 @@
     
     int row = [self.pickerViewRadioList selectedRowInComponent:0];
     NSDictionary * selectedRadio = [globallistRadios objectAtIndex:row];
-    [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
+    
+    if ([selectedRadio objectForKey:@"name"]) {
+        [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
+    }
     
     if (selectedRadio) {
         [player stop];
@@ -310,7 +316,7 @@
     }
     
     //Update ArrowImage and Title Position BY radio Name;
-    [self refreshButtonSizeByTitle];
+    //[self refreshButtonSizeByTitle];
 
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -329,7 +335,7 @@
 }
 
 -(void)refreshButtonSizeByTitle{
-    int btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18 + 20;
+    int btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18;
     [btnCurrentRadio setImageEdgeInsets:UIEdgeInsetsMake(0.0, btnCurrentRadioTextWidth, 0.0, 0.0)];
     [btnCurrentRadio setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 20)];
 }

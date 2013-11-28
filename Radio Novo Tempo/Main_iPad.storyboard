@@ -47,7 +47,7 @@
                                     <action selector="pauseButtonPressed:" destination="Rch-6M-ktD" eventType="touchUpInside" id="qr9-cz-jB5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="você ouve agora Clube da Música" textAlignment="center" lineBreakMode="middleTruncation" adjustsFontSizeToFit="NO" id="5hP-TJ-mda">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="você ouve agora Clube da Música" textAlignment="center" lineBreakMode="middleTruncation" adjustsFontSizeToFit="NO" id="5hP-TJ-mda">
                                 <rect key="frame" x="36" y="635" width="711" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>

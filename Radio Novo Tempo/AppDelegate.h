@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Flurry.h"
 
 @class Reachability;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{

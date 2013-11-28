@@ -30,6 +30,8 @@
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
+		A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFB71847F937000BAB46 /* AdSupport.framework */; };
+		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
 		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
 		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
 		A5A6F87518455D990085BCA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A6F87418455D990085BCA8 /* Reachability.m */; };
@@ -76,11 +78,15 @@
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A51DAE871847F62E000BAB46 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A51DAE881847F65A000BAB46 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A51DAFB71847F937000BAB46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A51DAFBA1847FA4D000BAB46 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
 		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
 		A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A5A6F87318455D990085BCA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A5A6F87418455D990085BCA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		A5FB35EC183EE7ED000844F2 /* Radio Novo Tempo copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Radio Novo Tempo copy-Info.plist"; path = "/Users/michellopes/Documents/Dev./RadioNovoTempo/Radio Novo Tempo copy-Info.plist"; sourceTree = "<absolute>"; };
 		A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		A5FB35F0183EEC43000844F2 /* bg_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_iPad.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,10 +96,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */,
 				A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */,
 				554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */,
 				550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */,
 				550C12BA1813B60A00CD48E2 /* CoreGraphics.framework in Frameworks */,
+				A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */,
 				550C12BC1813B60A00CD48E2 /* UIKit.framework in Frameworks */,
 				550C12B81813B60A00CD48E2 /* Foundation.framework in Frameworks */,
 			);
@@ -118,7 +126,7 @@
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
 				550C12B51813B60A00CD48E2 /* Products */,
-				A5FB35EC183EE7ED000844F2 /* Radio Novo Tempo copy-Info.plist */,
+				A51DAFB91847FA4D000BAB46 /* Flurry */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +142,7 @@
 		550C12B61813B60A00CD48E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A51DAFB71847F937000BAB46 /* AdSupport.framework */,
 				A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */,
 				554CD5CD1823284C00487501 /* CoreLocation.framework */,
 				550C12EF1813BA4900CD48E2 /* AVFoundation.framework */,
@@ -182,6 +191,15 @@
 				550C12C51813B60A00CD48E2 /* Radio Novo Tempo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A51DAFB91847FA4D000BAB46 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				A51DAFBA1847FA4D000BAB46 /* Flurry.h */,
+				A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		A5FB35EF183EEAA2000844F2 /* iPad */ = {
@@ -255,6 +273,8 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				pt,
 			);
 			mainGroup = 550C12AB1813B60A00CD48E2;
 			productRefGroup = 550C12B51813B60A00CD48E2 /* Products */;
@@ -333,6 +353,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				550C12C11813B60A00CD48E2 /* en */,
+				A51DAE871847F62E000BAB46 /* es */,
+				A51DAE881847F65A000BAB46 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -436,8 +458,14 @@
 				GCC_PREFIX_HEADER = "Radio Novo Tempo/Radio Novo Tempo-Prefix.pch";
 				INFOPLIST_FILE = "Radio Novo Tempo/Radio Novo Tempo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/Flurry",
+					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/FlurryAds",
+					/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
+				PROVISIONING_PROFILE = "79B39DD9-3EDE-42B1-B337-10AED37D3EFF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,8 +483,14 @@
 				GCC_PREFIX_HEADER = "Radio Novo Tempo/Radio Novo Tempo-Prefix.pch";
 				INFOPLIST_FILE = "Radio Novo Tempo/Radio Novo Tempo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/Flurry",
+					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/FlurryAds",
+					/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "23EF95F0-8429-49E7-843A-0C78829F3E3C";
+				PROVISIONING_PROFILE = "79B39DD9-3EDE-42B1-B337-10AED37D3EFF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
