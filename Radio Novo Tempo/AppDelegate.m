@@ -15,7 +15,7 @@
 {
     
     [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"D4CVN2SKK8GDZVT2M76F"];
+    [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
     
     // Override point for customization after application launch.
     return YES;
