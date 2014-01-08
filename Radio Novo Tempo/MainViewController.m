@@ -11,6 +11,7 @@
 
 
 
+
 @implementation MainViewController
 @synthesize player;
 @synthesize playButton;
@@ -108,6 +109,9 @@
     AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     return apDel.CheckInternetConnection;
 }
+
+
+
 
 
 - (void) playAudio {
@@ -351,6 +355,14 @@
         [self ExecuteMainAction];
     }
 }
+
+- (IBAction)OpenMenuButtonPressed:(id)button{
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+
+    [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
 
 
 @end

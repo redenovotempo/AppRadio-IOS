@@ -8,6 +8,9 @@
  
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "MMDrawerController.h"
+#import "MainViewController.h"
+#import "MenuViewController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +19,28 @@
     
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
+    
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    
+    
+    MenuViewController * menu = (MenuViewController*)[mainStoryboard
+                                                          instantiateViewControllerWithIdentifier: @"Menu"];
+
+    MainViewController * main = (MainViewController*)[mainStoryboard
+                                                        instantiateViewControllerWithIdentifier: @"Main"];
+
+    
+    self.drawerController = [[MMDrawerController alloc]
+                                             initWithCenterViewController:main
+                                             leftDrawerViewController:menu
+                                             rightDrawerViewController:nil];
+    
+    
+    self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
+    
+    self.window.rootViewController = self.drawerController;
     
     // Override point for customization after application launch.
     return YES;
@@ -73,5 +98,6 @@
     
     return _hasInternet;
 }
+     
 
 @end

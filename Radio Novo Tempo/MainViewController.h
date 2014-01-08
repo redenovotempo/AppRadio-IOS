@@ -47,4 +47,9 @@
 - (IBAction)hideRadioList:(id)button;
 - (void) playAudio;
 - (void) pauseAudio;
+
+//menu
+
+- (IBAction)OpenMenuButtonPressed:(id)button;
+
 @end
