@@ -7,12 +7,15 @@
 //
 
 #import "MenuViewController.h"
+#import "MuralViewController.h"
 
 @interface MenuViewController ()
 
 @end
 
 @implementation MenuViewController
+
+@synthesize menuTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Equipe",@"Filosofia",nil];
 
 }
 
@@ -34,6 +39,71 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [menuArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"MenuCell";
+    
+    MenuCell * cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.lblText.text = [menuArray objectAtIndex:indexPath.row];
+
+    //Limpando cor de fundo
+    cell.backgroundColor = [UIColor clearColor];
+    
+    //Criando cor de seleçao
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor colorWithRed:(52/255.0) green:(141/255.0) blue:(185/255.0) alpha:0.6];
+    bgColorView.layer.masksToBounds = YES;
+    [cell setSelectedBackgroundView:bgColorView];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    
+    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                              bundle: nil];
+    
+    MenuViewController * menu = (MenuViewController*)[mainStoryboard
+                                                      instantiateViewControllerWithIdentifier: @"Menu"];
+    
+    MuralViewController * mural = (MuralViewController*)[mainStoryboard
+                                                         instantiateViewControllerWithIdentifier: @"Mural"];
+    
+    appDel.drawerController = [[MMDrawerController alloc]
+                               initWithCenterViewController:mural
+                               leftDrawerViewController:menu
+                               rightDrawerViewController:nil];
+    
+    appDel.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
+    
+    
+    
+    
+    [appDel.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
+        appDel.window.rootViewController = appDel.drawerController;
+        [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    }];
+
+   
+    
 }
 
 @end

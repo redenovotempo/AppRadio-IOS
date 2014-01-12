@@ -34,6 +34,8 @@
 		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
 		A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A547877E187CCDA200AA3ECB /* MenuViewController.m */; };
 		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
+		A57A07AD1882592100C28542 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A07AC1882592100C28542 /* MenuCell.m */; };
+		A57A07B21882653500C28542 /* MuralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A07B11882653500C28542 /* MuralViewController.m */; };
 		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
 		A5A6F87518455D990085BCA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A6F87418455D990085BCA8 /* Reachability.m */; };
 		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
@@ -90,6 +92,10 @@
 		A547877D187CCDA200AA3ECB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		A547877E187CCDA200AA3ECB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		A57A07AB1882592100C28542 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		A57A07AC1882592100C28542 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		A57A07B01882653500C28542 /* MuralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralViewController.h; sourceTree = "<group>"; };
+		A57A07B11882653500C28542 /* MuralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralViewController.m; sourceTree = "<group>"; };
 		A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A5A6F87318455D990085BCA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A5A6F87418455D990085BCA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -174,6 +180,8 @@
 				550C12ED1813B9D300CD48E2 /* MainViewController.m */,
 				A547877D187CCDA200AA3ECB /* MenuViewController.h */,
 				A547877E187CCDA200AA3ECB /* MenuViewController.m */,
+				A57A07B01882653500C28542 /* MuralViewController.h */,
+				A57A07B11882653500C28542 /* MuralViewController.m */,
 				A5A6F87318455D990085BCA8 /* Reachability.h */,
 				A5A6F87418455D990085BCA8 /* Reachability.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
@@ -187,6 +195,7 @@
 		550C12BE1813B60A00CD48E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A57A07AE1882592D00C28542 /* Cells */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				550C12F51813C5D000CD48E2 /* play.png */,
 				550C12F11813C13700CD48E2 /* bg.png */,
@@ -211,6 +220,15 @@
 				A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */,
 			);
 			path = Flurry;
+			sourceTree = "<group>";
+		};
+		A57A07AE1882592D00C28542 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A57A07AB1882592100C28542 /* MenuCell.h */,
+				A57A07AC1882592100C28542 /* MenuCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		A5FB35EF183EEAA2000844F2 /* iPad */ = {
@@ -369,7 +387,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57A07B21882653500C28542 /* MuralViewController.m in Sources */,
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
+				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* MainViewController.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,

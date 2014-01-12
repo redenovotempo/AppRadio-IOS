@@ -16,6 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //trocando a cor da barra de status
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
@@ -98,6 +101,11 @@
     
     return _hasInternet;
 }
+
+-(void)GoMural{
+
+}
+
      
 
 @end

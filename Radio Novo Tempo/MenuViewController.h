@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "MenuCell.h"
 
-@interface MenuViewController : UIViewController{
+@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    NSMutableArray * menuArray;
 }
-
+@property (nonatomic,retain) IBOutlet UITableView * menuTableView;
 @end

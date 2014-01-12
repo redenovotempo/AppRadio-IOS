@@ -19,4 +19,5 @@
 @property (strong, nonatomic) UIWindow * window;
 @property(nonatomic,assign)BOOL hasInternet;
 -(BOOL)CheckInternetConnection;
+-(void)GoMural;
 @end
