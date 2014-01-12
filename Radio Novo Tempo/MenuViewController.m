@@ -31,7 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Equipe",@"Filosofia",nil];
+    menuArray = [NSMutableArray arrayWithObjects:@"Player",@"Mural",@"Equipe",@"Filosofia",nil];
 
 }
 
@@ -71,39 +71,13 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    
-    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                              bundle: nil];
-    
-    MenuViewController * menu = (MenuViewController*)[mainStoryboard
-                                                      instantiateViewControllerWithIdentifier: @"Menu"];
-    
-    MuralViewController * mural = (MuralViewController*)[mainStoryboard
-                                                         instantiateViewControllerWithIdentifier: @"Mural"];
-    
-    appDel.drawerController = [[MMDrawerController alloc]
-                               initWithCenterViewController:mural
-                               leftDrawerViewController:menu
-                               rightDrawerViewController:nil];
-    
-    appDel.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
-    
-    
-    
-    
-    [appDel.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
-        appDel.window.rootViewController = appDel.drawerController;
-        [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    }];
+    MenuCell * cell = (MenuCell *)[menuTableView cellForRowAtIndexPath:indexPath];
 
-   
-    
+    [appDel ChangeRootViewController:cell.lblText.text];
+
 }
 
 @end

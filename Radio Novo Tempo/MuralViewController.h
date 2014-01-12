@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MuralTwitterCell.h"
+#import "AppDelegate.h"
 
-@interface MuralViewController : UIViewController
+@interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+
+}
+@property(nonatomic,retain)IBOutlet UITableView * muralTableView;
+
+//menu
+- (IBAction)OpenMenuButtonPressed:(id)button;
 
 @end

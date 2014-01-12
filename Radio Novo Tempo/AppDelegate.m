@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "Reachability.h"
 #import "MMDrawerController.h"
-#import "MainViewController.h"
+#import "PlayerViewController.h"
 #import "MenuViewController.h"
 
 @implementation AppDelegate
@@ -31,8 +31,8 @@
     MenuViewController * menu = (MenuViewController*)[mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
 
-    MainViewController * main = (MainViewController*)[mainStoryboard
-                                                        instantiateViewControllerWithIdentifier: @"Main"];
+    PlayerViewController * main = (PlayerViewController*)[mainStoryboard
+                                                        instantiateViewControllerWithIdentifier: @"Player"];
 
     
     self.drawerController = [[MMDrawerController alloc]
@@ -102,10 +102,49 @@
     return _hasInternet;
 }
 
--(void)GoMural{
+-(void)ChangeRootViewController:(NSString *)currentViewControllerName{
+    
+    //Encontrando Storyboard
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                              bundle: nil];
+ 
+    //Definindo ViewControlle de menu, sempre do lado esquerdo.
+    MenuViewController * menu = (MenuViewController*)[mainStoryboard
+                                                      instantiateViewControllerWithIdentifier: @"Menu"];
+  
+    //Mural
+    if ([currentViewControllerName isEqualToString:@"Mural"]) {
+        MuralViewController * current = (MuralViewController*)[mainStoryboard
+                                                               instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+    }
+    
+    //Main
+    if ([currentViewControllerName isEqualToString:@"Player"]) {
+        PlayerViewController * current = (PlayerViewController*)[mainStoryboard
+                                                               instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+    }
+    
+    
+    
+    //Habilitando interaçao do usuario na viewcontroller aberta.
+    self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
 
+    
+    //Abrindo a side para manter o efeito de fechamento.
+    [self.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
+        self.window.rootViewController = self.drawerController;
+        [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    }];
 }
-
-     
 
 @end

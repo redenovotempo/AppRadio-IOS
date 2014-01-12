@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Flurry.h"
 #import "MMDrawerController.h"
+#import "MuralViewController.h"
 
 @class Reachability;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
@@ -19,5 +20,5 @@
 @property (strong, nonatomic) UIWindow * window;
 @property(nonatomic,assign)BOOL hasInternet;
 -(BOOL)CheckInternetConnection;
--(void)GoMural;
+-(void)ChangeRootViewController:(NSString *)currentViewControllerName;
 @end

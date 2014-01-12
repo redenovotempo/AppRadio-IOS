@@ -19,7 +19,7 @@
 		550C12D71813B60A00CD48E2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12D61813B60A00CD48E2 /* XCTest.framework */; };
 		550C12D81813B60A00CD48E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12B71813B60A00CD48E2 /* Foundation.framework */; };
 		550C12D91813B60A00CD48E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12BB1813B60A00CD48E2 /* UIKit.framework */; };
-		550C12EE1813B9D300CD48E2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550C12ED1813B9D300CD48E2 /* MainViewController.m */; };
+		550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550C12ED1813B9D300CD48E2 /* PlayerViewController.m */; };
 		550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12EF1813BA4900CD48E2 /* AVFoundation.framework */; };
 		550C12F21813C13700CD48E2 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F11813C13700CD48E2 /* bg.png */; };
 		550C12F41813C37A00CD48E2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F31813C37A00CD48E2 /* logo.png */; };
@@ -32,6 +32,10 @@
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFB71847F937000BAB46 /* AdSupport.framework */; };
 		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
+		A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5961882CF3B001BDD94 /* menuIcon@2x.png */; };
+		A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5981882CFE5001BDD94 /* logoMini@2x.png */; };
+		A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */; };
+		A543D59E1882D51A001BDD94 /* separator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D59D1882D519001BDD94 /* separator@2x.png */; };
 		A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A547877E187CCDA200AA3ECB /* MenuViewController.m */; };
 		A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A55AFCF618394D3300D8DC86 /* downArrow.png */; };
 		A57A07AD1882592100C28542 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A07AC1882592100C28542 /* MenuCell.m */; };
@@ -71,8 +75,8 @@
 		550C12CF1813B60A00CD48E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		550C12D51813B60A00CD48E2 /* Radio Novo TempoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Radio Novo TempoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550C12D61813B60A00CD48E2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		550C12EC1813B9D300CD48E2 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		550C12ED1813B9D300CD48E2 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		550C12EC1813B9D300CD48E2 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		550C12ED1813B9D300CD48E2 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		550C12EF1813BA4900CD48E2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		550C12F11813C13700CD48E2 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		550C12F31813C37A00CD48E2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -89,6 +93,11 @@
 		A51DAFB71847F937000BAB46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A51DAFBA1847FA4D000BAB46 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
+		A543D5961882CF3B001BDD94 /* menuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuIcon@2x.png"; sourceTree = "<group>"; };
+		A543D5981882CFE5001BDD94 /* logoMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoMini@2x.png"; sourceTree = "<group>"; };
+		A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralTwitterCell.h; sourceTree = "<group>"; };
+		A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralTwitterCell.m; sourceTree = "<group>"; };
+		A543D59D1882D519001BDD94 /* separator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "separator@2x.png"; sourceTree = "<group>"; };
 		A547877D187CCDA200AA3ECB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		A547877E187CCDA200AA3ECB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		A55AFCF618394D3300D8DC86 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
@@ -176,8 +185,8 @@
 				550C12C71813B60A00CD48E2 /* AppDelegate.m */,
 				5507B5771813F474002B2368 /* VolumeView.h */,
 				5507B5781813F474002B2368 /* VolumeView.m */,
-				550C12EC1813B9D300CD48E2 /* MainViewController.h */,
-				550C12ED1813B9D300CD48E2 /* MainViewController.m */,
+				550C12EC1813B9D300CD48E2 /* PlayerViewController.h */,
+				550C12ED1813B9D300CD48E2 /* PlayerViewController.m */,
 				A547877D187CCDA200AA3ECB /* MenuViewController.h */,
 				A547877E187CCDA200AA3ECB /* MenuViewController.m */,
 				A57A07B01882653500C28542 /* MuralViewController.h */,
@@ -197,10 +206,13 @@
 			children = (
 				A57A07AE1882592D00C28542 /* Cells */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
+				A543D59D1882D519001BDD94 /* separator@2x.png */,
 				550C12F51813C5D000CD48E2 /* play.png */,
 				550C12F11813C13700CD48E2 /* bg.png */,
+				A543D5981882CFE5001BDD94 /* logoMini@2x.png */,
 				550C12F31813C37A00CD48E2 /* logo.png */,
 				550C12F71813C73100CD48E2 /* lineBg.png */,
+				A543D5961882CF3B001BDD94 /* menuIcon@2x.png */,
 				550C12F91813C88500CD48E2 /* logo.com.png */,
 				550C12FF1813CE7A00CD48E2 /* pause.png */,
 				550C12FB1813C9AF00CD48E2 /* soundMax.png */,
@@ -227,6 +239,8 @@
 			children = (
 				A57A07AB1882592100C28542 /* MenuCell.h */,
 				A57A07AC1882592100C28542 /* MenuCell.m */,
+				A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */,
+				A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -323,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */,
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12F41813C37A00CD48E2 /* logo.png in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
@@ -332,7 +347,9 @@
 				550C13001813CE7A00CD48E2 /* pause.png in Resources */,
 				550C12C21813B60A00CD48E2 /* InfoPlist.strings in Resources */,
 				A5FB35F1183EEC43000844F2 /* bg_iPad.png in Resources */,
+				A543D59E1882D51A001BDD94 /* separator@2x.png in Resources */,
 				550C12F81813C73100CD48E2 /* lineBg.png in Resources */,
+				A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */,
 				550C12F21813C13700CD48E2 /* bg.png in Resources */,
 				550C12FA1813C88500CD48E2 /* logo.com.png in Resources */,
 				550C12CB1813B60A00CD48E2 /* Main.storyboard in Resources */,
@@ -391,8 +408,9 @@
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
 				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
-				550C12EE1813B9D300CD48E2 /* MainViewController.m in Sources */,
+				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
+				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
 				A5A6F87518455D990085BCA8 /* Reachability.m in Sources */,
 			);

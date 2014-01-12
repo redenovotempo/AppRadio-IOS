@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 
 
-@interface MainViewController : UIViewController<CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+@interface PlayerViewController : UIViewController<CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
     MPMoviePlayerController *player;
     IBOutlet UIButton *playButton;
@@ -49,7 +49,6 @@
 - (void) pauseAudio;
 
 //menu
-
 - (IBAction)OpenMenuButtonPressed:(id)button;
 
 @end

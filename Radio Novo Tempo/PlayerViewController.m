@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Novo Tempo. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "PlayerViewController.h"
 #import "AVFoundation/AVFoundation.h"
 
 
 
 
-@implementation MainViewController
+@implementation PlayerViewController
 @synthesize player;
 @synthesize playButton;
 @synthesize pauseButton;
