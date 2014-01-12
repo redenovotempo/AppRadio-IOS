@@ -22,8 +22,8 @@
     IBOutlet UIButton * btnCurrentRadio;
     NSMutableArray * globallistRadios;
     BOOL locationExist;
-    
 }
+
 @property (nonatomic,retain)NSMutableArray * globallistRadios;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewRadioList;
 @property (weak, nonatomic) IBOutlet UIView *viewRadioList;
@@ -31,6 +31,8 @@
 @property(nonatomic,retain)IBOutlet UIButton * btnCurrentRadio;
 @property (weak, nonatomic) IBOutlet UISlider *sliderVolume;
 @property(nonatomic,retain)IBOutlet UIView * volumeCanvas;
+
+//Player
 @property (nonatomic, retain) MPMoviePlayerController *player;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
 @property (nonatomic, retain) IBOutlet UIButton *pauseButton;
@@ -45,8 +47,8 @@
 - (IBAction)pauseButtonPressed:(id)button;
 - (IBAction)showRadioList:(id)button;
 - (IBAction)hideRadioList:(id)button;
-- (void) playAudio;
-- (void) pauseAudio;
+- (void) PlayAudio;
+- (void) PauseAudio;
 
 //menu
 - (IBAction)OpenMenuButtonPressed:(id)button;

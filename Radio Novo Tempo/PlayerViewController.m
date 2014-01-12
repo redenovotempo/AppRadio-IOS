@@ -42,9 +42,18 @@
 {
     [super viewDidLoad];
     
+    
     //Realocate viewRadioList Position.
     viewRadioList.frame = [self SetViewRadioListCGRect: NO];
-
+    
+    //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(CheckPlayerState)
+                                                name:UIApplicationDidBecomeActiveNotification
+                                              object:nil];
+    
+    [self CheckPlayerState];
+    
     
     
     //Customize Uislider Volume.
@@ -53,57 +62,49 @@
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMaximumValueImage:[UIImage imageNamed:@"soundMax.png"]];
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
     volumeCanvas.backgroundColor = [UIColor clearColor];
-    
+
     //ExecuteMainAction
     [self ExecuteMainAction];
 }
 
--(void)ExecuteMainAction{
+-(void)CheckPlayerState
+{
+    //Verificando se a radio ja esta tocando.
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Nome da radio atual que esta tocando
+    if ([appDel.lblRadioName.text length] != 0) {
+        [btnCurrentRadio setTitle:appDel.lblRadioName.text forState:UIControlStateNormal];
+    }
+    
+    //Estado dos botoes
+    if (appDel.isPlayerStarted) {
+        [self PlayAudioState];
+    }else{
+        [self PauseAudioState];
+    }
 
+}
+
+-(void)ExecuteMainAction{
+    
     if ([self CheckInternetConnection]) {
-      
-        //Prepare to Play
-        [player prepareToPlay];
-        
-        //Update ArrowImage and Title Position BY radio Name;
-        //[self refreshButtonSizeByTitle];
-        
         
         self.navigationItem.title=@"";
         locationExist = YES;
         // Do any additional setup after loading the view from its nib.
         
-        if (!self.player) {
-            
-            player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://50.22.36.40:1935/radio/novotempo/playlist.m3u8"]];
-            player.movieSourceType = MPMovieSourceTypeStreaming;
-            player.controlStyle  = MPMovieControlStyleNone;
-            player.view.frame = CGRectMake(55, 180, 200, 30);
-            player.backgroundView.backgroundColor = [UIColor clearColor];
-            player.view.backgroundColor = [UIColor clearColor];
-            [self.view addSubview:player.view];
-        }
-        
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
-                                               error:nil];
-        [[AVAudioSession sharedInstance] setActive:YES
-                                             error:nil];
-        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        
-        
         //Find Device Location.
         locationManager = [[CLLocationManager alloc] init];
         locationManager.delegate = self;
+        //Verificando a necessidade de acessar o GPS novamente para descobrir a localizaçao.
         [locationManager startUpdatingLocation];
         
     }else{
         [self InternetConnectionErrorMessage];
     }
     
-
 }
-
-
 
 -(BOOL)CheckInternetConnection{
 
@@ -114,36 +115,52 @@
 
 
 
-
-
-- (void) playAudio {
+- (void) PlayAudio {
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     if ([self CheckInternetConnection]) {
-        playButton.hidden = YES;
-        pauseButton.hidden = NO;
+            [self PlayAudioState];
         
-        if (player.playbackState != MPMoviePlaybackStatePlaying){
-            [player play];
+        if (apDel.player.playbackState != MPMoviePlaybackStatePlaying){
+            [apDel PlayAudio];
         }
     }else{
         [self InternetConnectionErrorMessage];
     }
 }
 
-- (void) pauseAudio {
-    playButton.hidden = NO;
-    pauseButton.hidden = YES;
+
+
+- (void) PauseAudio {
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if (player.playbackState == MPMoviePlaybackStatePlaying) {
-        [player pause];
+    [self PauseAudioState];
+    
+    if (apDel.player.playbackState == MPMoviePlaybackStatePlaying) {
+        AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [apDel PauseAudio];
     }
 }
 
+- (void) PlayAudioState
+{
+    playButton.hidden = YES;
+    pauseButton.hidden = NO;
+}
+
+- (void) PauseAudioState
+{
+    playButton.hidden = NO;
+    pauseButton.hidden = YES;
+
+}
+
 - (IBAction)playButtonPressed:(id)button {
-    [self playAudio];
+    [self PlayAudio];
 }
 
 - (IBAction)pauseButtonPressed:(id)button {
-    [self pauseAudio];
+    [self PauseAudio];
 }
 
 - (void)viewDidUnload
@@ -151,25 +168,11 @@
     [super viewDidUnload];
 }
 
-- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
-    switch (event.subtype) {
-        case UIEventSubtypeRemoteControlPlay:
-            [self playAudio];
-            break;
-        case UIEventSubtypeRemoteControlPause:
-            [self pauseAudio];
-            break;
-        default:
-            break;
-    }
-}
 
 //Core Location Refresh Method
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    
     self.currentLocation = newLocation;
     if (currentLocation.coordinate.longitude && currentLocation.coordinate.latitude && locationExist) {
-        //Consuming Novo Tempo`s Service.
         [self callNovoTempoService];
         [locationManager stopUpdatingLocation];
         locationExist = NO;
@@ -194,7 +197,7 @@
 
 - (void)viewWillAppear {
     
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
     [self becomeFirstResponder];
 }
 
@@ -205,6 +208,8 @@
 
 -(void)callNovoTempoService{
    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     //Create Request Values
     NSString * action = @"radiolist";
     NSString * language = @"pt";
@@ -227,18 +232,20 @@
     
     NSDictionary * radioDefault =  [radioList objectAtIndex:0];
     
-    if ([radioDefault objectForKey:@"name"]) {
+    if ([radioDefault objectForKey:@"name"] && [appDel.lblRadioName.text length] == 0) {
         [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
     }
     
-    
-    
-    //Update ArrowImage and Title Position BY radio Name;
-    //[self refreshButtonSizeByTitle];
-    
     NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
-    NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
-    player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+    
+    
+    
+    
+    if (appDel.needReloadCurrentStreamUrl) {
+        [appDel ChangePlayerStreamUrl:stringUrl];
+        appDel.needReloadCurrentStreamUrl = NO;
+    }
+    
     
 }
 
@@ -304,21 +311,28 @@
 }
 
 - (IBAction)hideRadioList:(id)button{
-    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     
     int row = [self.pickerViewRadioList selectedRowInComponent:0];
     NSDictionary * selectedRadio = [globallistRadios objectAtIndex:row];
     
     if ([selectedRadio objectForKey:@"name"]) {
         [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
+        
+        appDel.lblRadioName.text = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]];
     }
     
     if (selectedRadio) {
         [player stop];
         NSString * stringUrl = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"streamIOS"]];
-        NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
-        player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
-        [self playAudio];
+        
+        //NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
+        //player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+        
+               [appDel ChangePlayerStreamUrl:stringUrl];
+        
+        [self PlayAudio];
     }
     
     //Update ArrowImage and Title Position BY radio Name;

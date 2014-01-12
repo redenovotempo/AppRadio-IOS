@@ -7,18 +7,23 @@
 //
  
 #import "AppDelegate.h"
-#import "Reachability.h"
-#import "MMDrawerController.h"
-#import "PlayerViewController.h"
-#import "MenuViewController.h"
+
 
 @implementation AppDelegate
+@synthesize player;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //trocando a cor da barra de status
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    //Trocando a cor da barra de status
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
+    //Autorizando o GPS a iniciar uma localização.
+    self.needReloadCurrentStreamUrl = YES;
+    self.lblRadioName = [[UILabel alloc]init];
+    
+    
     
     [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
@@ -45,6 +50,10 @@
     
     self.window.rootViewController = self.drawerController;
     
+    
+    //player
+    [self CreatePlayer];
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -70,6 +79,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+
 
 }
 
@@ -138,7 +148,6 @@
     
     //Habilitando interaçao do usuario na viewcontroller aberta.
     self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
-
     
     //Abrindo a side para manter o efeito de fechamento.
     [self.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
@@ -146,5 +155,52 @@
         [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
     }];
 }
+
+- (void)PlayAudio {
+    [player play];
+    self.isPlayerStarted = YES;
+}
+
+- (void)PauseAudio {
+    [player pause];
+    self.isPlayerStarted = NO;
+}
+
+-(void)CreatePlayer {
+    
+    [player prepareToPlay];
+    
+    player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://stream.novotempo.com:1935/radio/smil:radionuevotiempo.smil/playlist.m3u8"]];
+    player.movieSourceType = MPMovieSourceTypeStreaming;
+    player.controlStyle  = MPMovieControlStyleNone;
+    player.view.frame = CGRectMake(55, 180, 200, 30);
+    player.backgroundView.backgroundColor = [UIColor clearColor];
+    player.view.backgroundColor = [UIColor clearColor];
+
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES
+                                         error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+}
+
+- (void) ChangePlayerStreamUrl: (NSString *) url{
+    NSURL * serviceUrl = [NSURL URLWithString:url];
+    player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [self PlayAudio];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [self PauseAudio];
+            break;
+        default:
+            break;
+    }
+}
+
 
 @end
