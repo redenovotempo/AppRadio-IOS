@@ -50,7 +50,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"MuralTwitterCell";
+    NSString *cellIdentifier = [[NSString alloc] init];
+    
+    
+    if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {
+        
+        cellIdentifier = @"MuralBlogCell";
+        
+        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        //Limpando cor de fundo
+        cell.backgroundColor = [UIColor clearColor];
+        
+        //Criando separator
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+        
+        [cell.contentView addSubview:separatorLineView];
+    
+        return cell;
+    }
+    
+    if (indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 8) {
+        
+        cellIdentifier = @"MuralInstagramCell";
+        
+        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        //Limpando cor de fundo
+        cell.backgroundColor = [UIColor clearColor];
+        
+        //Criando separator
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+        
+        [cell.contentView addSubview:separatorLineView];
+        
+        return cell;
+    }
+    
+    
+    cellIdentifier = @"MuralTwitterCell";
     
     MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -63,10 +103,40 @@
     
     [cell.contentView addSubview:separatorLineView];
     
-
     
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    
+    if (indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 8) {
+        
+        NSString * cellIdentifier = @"MuralInstagramCell";
+        
+        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        return cell.contentView.frame.size.height;
+
+    }
+    
+    if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {
+        
+       NSString * cellIdentifier = @"MuralBlogCell";
+        
+        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        return cell.contentView.frame.size.height;
+    }
+    
+    NSString * cellIdentifier = @"MuralTwitterCell";
+    
+    MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
+    
+    return cell.contentView.frame.size.height;
+
 }
 
 

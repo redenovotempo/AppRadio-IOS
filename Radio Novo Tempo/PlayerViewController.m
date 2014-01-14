@@ -239,8 +239,6 @@
     NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
     
     
-    
-    
     if (appDel.needReloadCurrentStreamUrl) {
         [appDel ChangePlayerStreamUrl:stringUrl];
         appDel.needReloadCurrentStreamUrl = NO;

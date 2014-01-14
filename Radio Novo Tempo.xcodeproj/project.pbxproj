@@ -32,6 +32,13 @@
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFB71847F937000BAB46 /* AdSupport.framework */; };
 		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
+		A53B6E48188579FB00FA0BD9 /* iconTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E47188579FB00FA0BD9 /* iconTwitter.png */; };
+		A53B6E4A18857E7800FA0BD9 /* iconBlog.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E4918857E7800FA0BD9 /* iconBlog.png */; };
+		A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E4B1885830600FA0BD9 /* imageFake.png */; };
+		A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E4E1885843F00FA0BD9 /* MuralBlogCell.m */; };
+		A53B6E5118858DB800FA0BD9 /* imageFake2.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E5018858DB800FA0BD9 /* imageFake2.png */; };
+		A53B6E531885917400FA0BD9 /* iconInstagram.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E521885917400FA0BD9 /* iconInstagram.png */; };
+		A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */; };
 		A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5961882CF3B001BDD94 /* menuIcon@2x.png */; };
 		A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5981882CFE5001BDD94 /* logoMini@2x.png */; };
 		A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */; };
@@ -93,6 +100,15 @@
 		A51DAFB71847F937000BAB46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A51DAFBA1847FA4D000BAB46 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
+		A53B6E47188579FB00FA0BD9 /* iconTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTwitter.png; sourceTree = "<group>"; };
+		A53B6E4918857E7800FA0BD9 /* iconBlog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBlog.png; sourceTree = "<group>"; };
+		A53B6E4B1885830600FA0BD9 /* imageFake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageFake.png; sourceTree = "<group>"; };
+		A53B6E4D1885843F00FA0BD9 /* MuralBlogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralBlogCell.h; sourceTree = "<group>"; };
+		A53B6E4E1885843F00FA0BD9 /* MuralBlogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralBlogCell.m; sourceTree = "<group>"; };
+		A53B6E5018858DB800FA0BD9 /* imageFake2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageFake2.png; sourceTree = "<group>"; };
+		A53B6E521885917400FA0BD9 /* iconInstagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInstagram.png; sourceTree = "<group>"; };
+		A53B6E541885923F00FA0BD9 /* MuralInstagramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralInstagramCell.h; sourceTree = "<group>"; };
+		A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralInstagramCell.m; sourceTree = "<group>"; };
 		A543D5961882CF3B001BDD94 /* menuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuIcon@2x.png"; sourceTree = "<group>"; };
 		A543D5981882CFE5001BDD94 /* logoMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoMini@2x.png"; sourceTree = "<group>"; };
 		A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralTwitterCell.h; sourceTree = "<group>"; };
@@ -205,18 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				A57A07AE1882592D00C28542 /* Cells */,
-				A55AFCF618394D3300D8DC86 /* downArrow.png */,
-				A543D59D1882D519001BDD94 /* separator@2x.png */,
-				550C12F51813C5D000CD48E2 /* play.png */,
-				550C12F11813C13700CD48E2 /* bg.png */,
-				A543D5981882CFE5001BDD94 /* logoMini@2x.png */,
-				550C12F31813C37A00CD48E2 /* logo.png */,
-				550C12F71813C73100CD48E2 /* lineBg.png */,
-				A543D5961882CF3B001BDD94 /* menuIcon@2x.png */,
-				550C12F91813C88500CD48E2 /* logo.com.png */,
-				550C12FF1813CE7A00CD48E2 /* pause.png */,
-				550C12FB1813C9AF00CD48E2 /* soundMax.png */,
-				550C12FC1813C9AF00CD48E2 /* soundMin.png */,
+				A53B6E45188579B400FA0BD9 /* Images */,
 				550C12BF1813B60A00CD48E2 /* Radio Novo Tempo-Info.plist */,
 				550C12C01813B60A00CD48E2 /* InfoPlist.strings */,
 				550C12C31813B60A00CD48E2 /* main.m */,
@@ -234,6 +239,38 @@
 			path = Flurry;
 			sourceTree = "<group>";
 		};
+		A53B6E45188579B400FA0BD9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A53B6E46188579E800FA0BD9 /* Mural */,
+				A55AFCF618394D3300D8DC86 /* downArrow.png */,
+				A543D59D1882D519001BDD94 /* separator@2x.png */,
+				550C12F51813C5D000CD48E2 /* play.png */,
+				550C12F11813C13700CD48E2 /* bg.png */,
+				A543D5981882CFE5001BDD94 /* logoMini@2x.png */,
+				550C12F31813C37A00CD48E2 /* logo.png */,
+				550C12F71813C73100CD48E2 /* lineBg.png */,
+				A543D5961882CF3B001BDD94 /* menuIcon@2x.png */,
+				550C12F91813C88500CD48E2 /* logo.com.png */,
+				550C12FF1813CE7A00CD48E2 /* pause.png */,
+				550C12FB1813C9AF00CD48E2 /* soundMax.png */,
+				550C12FC1813C9AF00CD48E2 /* soundMin.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		A53B6E46188579E800FA0BD9 /* Mural */ = {
+			isa = PBXGroup;
+			children = (
+				A53B6E521885917400FA0BD9 /* iconInstagram.png */,
+				A53B6E5018858DB800FA0BD9 /* imageFake2.png */,
+				A53B6E4B1885830600FA0BD9 /* imageFake.png */,
+				A53B6E4918857E7800FA0BD9 /* iconBlog.png */,
+				A53B6E47188579FB00FA0BD9 /* iconTwitter.png */,
+			);
+			name = Mural;
+			sourceTree = "<group>";
+		};
 		A57A07AE1882592D00C28542 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +278,10 @@
 				A57A07AC1882592100C28542 /* MenuCell.m */,
 				A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */,
 				A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */,
+				A53B6E4D1885843F00FA0BD9 /* MuralBlogCell.h */,
+				A53B6E4E1885843F00FA0BD9 /* MuralBlogCell.m */,
+				A53B6E541885923F00FA0BD9 /* MuralInstagramCell.h */,
+				A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -337,17 +378,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53B6E4A18857E7800FA0BD9 /* iconBlog.png in Resources */,
 				A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */,
+				A53B6E5118858DB800FA0BD9 /* imageFake2.png in Resources */,
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12F41813C37A00CD48E2 /* logo.png in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
 				A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */,
+				A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */,
 				A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */,
 				550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */,
 				550C13001813CE7A00CD48E2 /* pause.png in Resources */,
+				A53B6E531885917400FA0BD9 /* iconInstagram.png in Resources */,
 				550C12C21813B60A00CD48E2 /* InfoPlist.strings in Resources */,
 				A5FB35F1183EEC43000844F2 /* bg_iPad.png in Resources */,
 				A543D59E1882D51A001BDD94 /* separator@2x.png in Resources */,
+				A53B6E48188579FB00FA0BD9 /* iconTwitter.png in Resources */,
 				550C12F81813C73100CD48E2 /* lineBg.png in Resources */,
 				A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */,
 				550C12F21813C13700CD48E2 /* bg.png in Resources */,
@@ -406,11 +452,13 @@
 			files = (
 				A57A07B21882653500C28542 /* MuralViewController.m in Sources */,
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
+				A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */,
 				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
+				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
 				A5A6F87518455D990085BCA8 /* Reachability.m in Sources */,
 			);

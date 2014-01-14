@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MuralTwitterCell.h"
+#import "MuralBlogCell.h"
+#import "MuralInstagramCell.h"
 #import "AppDelegate.h"
 
 @interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
