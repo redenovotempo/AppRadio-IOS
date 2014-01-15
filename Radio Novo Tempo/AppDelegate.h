@@ -10,25 +10,38 @@
 #import "Flurry.h"
 #import "Reachability.h"
 #import "MMDrawerController.h"
+#import "AVFoundation/AVFoundation.h"
 #import "PlayerViewController.h"
 #import "MenuViewController.h"
 #import "MMDrawerController.h"
 #import "MuralViewController.h"
-#import "AVFoundation/AVFoundation.h"
+#import "Radio.h"
+
 
 
 @class Reachability;
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>{
+    
     Reachability *internetReach;
     MPMoviePlayerController *player;
+    BOOL locationExist;
     
 }
 @property(strong,nonatomic)MMDrawerController * drawerController;
 @property (strong, nonatomic) UIWindow * window;
 @property(nonatomic,assign)BOOL hasInternet;
+@property(strong,nonatomic)Radio * radioCurrent;
+@property(strong,nonatomic)NSMutableArray * globallistRadios;
 
 -(BOOL)CheckInternetConnection;
 -(void)ChangeRootViewController:(NSString *)currentViewControllerName;
+
+//GetRadioList
+-(void)ExecuteMainAction;
+
+//Core Location values
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
 
 //player
 @property (nonatomic, retain) MPMoviePlayerController *player;

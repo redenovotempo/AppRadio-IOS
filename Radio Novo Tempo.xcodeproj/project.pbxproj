@@ -39,6 +39,14 @@
 		A53B6E5118858DB800FA0BD9 /* imageFake2.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E5018858DB800FA0BD9 /* imageFake2.png */; };
 		A53B6E531885917400FA0BD9 /* iconInstagram.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E521885917400FA0BD9 /* iconInstagram.png */; };
 		A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */; };
+		A53B6E5A1885CFF100FA0BD9 /* MuralTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E591885CFF100FA0BD9 /* MuralTwitter.m */; };
+		A53B6E5E1885D01F00FA0BD9 /* MuralBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E5D1885D01F00FA0BD9 /* MuralBlog.m */; };
+		A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E601885D03D00FA0BD9 /* MuralInstagram.m */; };
+		A53B6E641885D05600FA0BD9 /* MuralYoutube.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E631885D05600FA0BD9 /* MuralYoutube.m */; };
+		A53B6E671885D07100FA0BD9 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E661885D07100FA0BD9 /* Radio.m */; };
+		A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6E6A1885DB2A00FA0BD9 /* MuralYoutubeCell.m */; };
+		A53B6E6D1885DE8A00FA0BD9 /* imageYoutube.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E6C1885DE8A00FA0BD9 /* imageYoutube.png */; };
+		A53B6E6F1885DF4900FA0BD9 /* iconYoutube.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E6E1885DF4900FA0BD9 /* iconYoutube.png */; };
 		A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5961882CF3B001BDD94 /* menuIcon@2x.png */; };
 		A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A543D5981882CFE5001BDD94 /* logoMini@2x.png */; };
 		A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */; };
@@ -109,6 +117,20 @@
 		A53B6E521885917400FA0BD9 /* iconInstagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconInstagram.png; sourceTree = "<group>"; };
 		A53B6E541885923F00FA0BD9 /* MuralInstagramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralInstagramCell.h; sourceTree = "<group>"; };
 		A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralInstagramCell.m; sourceTree = "<group>"; };
+		A53B6E581885CFF100FA0BD9 /* MuralTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralTwitter.h; sourceTree = "<group>"; };
+		A53B6E591885CFF100FA0BD9 /* MuralTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralTwitter.m; sourceTree = "<group>"; };
+		A53B6E5C1885D01F00FA0BD9 /* MuralBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralBlog.h; sourceTree = "<group>"; };
+		A53B6E5D1885D01F00FA0BD9 /* MuralBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralBlog.m; sourceTree = "<group>"; };
+		A53B6E5F1885D03D00FA0BD9 /* MuralInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralInstagram.h; sourceTree = "<group>"; };
+		A53B6E601885D03D00FA0BD9 /* MuralInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralInstagram.m; sourceTree = "<group>"; };
+		A53B6E621885D05600FA0BD9 /* MuralYoutube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralYoutube.h; sourceTree = "<group>"; };
+		A53B6E631885D05600FA0BD9 /* MuralYoutube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralYoutube.m; sourceTree = "<group>"; };
+		A53B6E651885D07100FA0BD9 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Radio.h; sourceTree = "<group>"; };
+		A53B6E661885D07100FA0BD9 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radio.m; sourceTree = "<group>"; };
+		A53B6E691885DB2A00FA0BD9 /* MuralYoutubeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralYoutubeCell.h; sourceTree = "<group>"; };
+		A53B6E6A1885DB2A00FA0BD9 /* MuralYoutubeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralYoutubeCell.m; sourceTree = "<group>"; };
+		A53B6E6C1885DE8A00FA0BD9 /* imageYoutube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageYoutube.png; sourceTree = "<group>"; };
+		A53B6E6E1885DF4900FA0BD9 /* iconYoutube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconYoutube.png; sourceTree = "<group>"; };
 		A543D5961882CF3B001BDD94 /* menuIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuIcon@2x.png"; sourceTree = "<group>"; };
 		A543D5981882CFE5001BDD94 /* logoMini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoMini@2x.png"; sourceTree = "<group>"; };
 		A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralTwitterCell.h; sourceTree = "<group>"; };
@@ -220,6 +242,7 @@
 		550C12BE1813B60A00CD48E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A53B6E571885CF9700FA0BD9 /* Objects */,
 				A57A07AE1882592D00C28542 /* Cells */,
 				A53B6E45188579B400FA0BD9 /* Images */,
 				550C12BF1813B60A00CD48E2 /* Radio Novo Tempo-Info.plist */,
@@ -262,6 +285,8 @@
 		A53B6E46188579E800FA0BD9 /* Mural */ = {
 			isa = PBXGroup;
 			children = (
+				A53B6E6E1885DF4900FA0BD9 /* iconYoutube.png */,
+				A53B6E6C1885DE8A00FA0BD9 /* imageYoutube.png */,
 				A53B6E521885917400FA0BD9 /* iconInstagram.png */,
 				A53B6E5018858DB800FA0BD9 /* imageFake2.png */,
 				A53B6E4B1885830600FA0BD9 /* imageFake.png */,
@@ -271,17 +296,52 @@
 			name = Mural;
 			sourceTree = "<group>";
 		};
-		A57A07AE1882592D00C28542 /* Cells */ = {
+		A53B6E571885CF9700FA0BD9 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				A57A07AB1882592100C28542 /* MenuCell.h */,
-				A57A07AC1882592100C28542 /* MenuCell.m */,
+				A53B6E5B1885CFF800FA0BD9 /* Mural */,
+				A53B6E651885D07100FA0BD9 /* Radio.h */,
+				A53B6E661885D07100FA0BD9 /* Radio.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		A53B6E5B1885CFF800FA0BD9 /* Mural */ = {
+			isa = PBXGroup;
+			children = (
+				A53B6E581885CFF100FA0BD9 /* MuralTwitter.h */,
+				A53B6E591885CFF100FA0BD9 /* MuralTwitter.m */,
+				A53B6E5C1885D01F00FA0BD9 /* MuralBlog.h */,
+				A53B6E5D1885D01F00FA0BD9 /* MuralBlog.m */,
+				A53B6E5F1885D03D00FA0BD9 /* MuralInstagram.h */,
+				A53B6E601885D03D00FA0BD9 /* MuralInstagram.m */,
+				A53B6E621885D05600FA0BD9 /* MuralYoutube.h */,
+				A53B6E631885D05600FA0BD9 /* MuralYoutube.m */,
+			);
+			name = Mural;
+			sourceTree = "<group>";
+		};
+		A53B6E681885DADE00FA0BD9 /* Mural */ = {
+			isa = PBXGroup;
+			children = (
 				A543D59A1882D2C0001BDD94 /* MuralTwitterCell.h */,
 				A543D59B1882D2C0001BDD94 /* MuralTwitterCell.m */,
 				A53B6E4D1885843F00FA0BD9 /* MuralBlogCell.h */,
 				A53B6E4E1885843F00FA0BD9 /* MuralBlogCell.m */,
 				A53B6E541885923F00FA0BD9 /* MuralInstagramCell.h */,
 				A53B6E551885923F00FA0BD9 /* MuralInstagramCell.m */,
+				A53B6E691885DB2A00FA0BD9 /* MuralYoutubeCell.h */,
+				A53B6E6A1885DB2A00FA0BD9 /* MuralYoutubeCell.m */,
+			);
+			name = Mural;
+			sourceTree = "<group>";
+		};
+		A57A07AE1882592D00C28542 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A53B6E681885DADE00FA0BD9 /* Mural */,
+				A57A07AB1882592100C28542 /* MenuCell.h */,
+				A57A07AC1882592100C28542 /* MenuCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -378,9 +438,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53B6E6F1885DF4900FA0BD9 /* iconYoutube.png in Resources */,
 				A53B6E4A18857E7800FA0BD9 /* iconBlog.png in Resources */,
 				A543D5991882CFE5001BDD94 /* logoMini@2x.png in Resources */,
 				A53B6E5118858DB800FA0BD9 /* imageFake2.png in Resources */,
+				A53B6E6D1885DE8A00FA0BD9 /* imageYoutube.png in Resources */,
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12F41813C37A00CD48E2 /* logo.png in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
@@ -450,12 +512,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53B6E5E1885D01F00FA0BD9 /* MuralBlog.m in Sources */,
+				A53B6E671885D07100FA0BD9 /* Radio.m in Sources */,
 				A57A07B21882653500C28542 /* MuralViewController.m in Sources */,
+				A53B6E5A1885CFF100FA0BD9 /* MuralTwitter.m in Sources */,
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
+				A53B6E641885D05600FA0BD9 /* MuralYoutube.m in Sources */,
 				A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */,
 				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
+				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
+				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
 				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,

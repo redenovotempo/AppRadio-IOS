@@ -11,17 +11,18 @@
 #import "VolumeView.h"
 #import "CoreLocation/CoreLocation.h"
 #import "AppDelegate.h"
+#import "Radio.h"
 
 
 @interface PlayerViewController : UIViewController<CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 {
-    MPMoviePlayerController *player;
     IBOutlet UIButton *playButton;
     IBOutlet UIButton *pauseButton;
     IBOutlet UIView * volumeCanvas;
     IBOutlet UIButton * btnCurrentRadio;
-    NSMutableArray * globallistRadios;
+    //NSMutableArray * globallistRadios;
     BOOL locationExist;
+    Radio * radioSelected;
 }
 
 @property (nonatomic,retain)NSMutableArray * globallistRadios;

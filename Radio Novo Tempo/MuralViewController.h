@@ -10,6 +10,7 @@
 #import "MuralTwitterCell.h"
 #import "MuralBlogCell.h"
 #import "MuralInstagramCell.h"
+#import "MuralYoutubeCell.h"
 #import "AppDelegate.h"
 
 @interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{

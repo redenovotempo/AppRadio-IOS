@@ -351,8 +351,101 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuralYoutubeCell" rowHeight="401" id="iZQ-xy-7al" customClass="MuralYoutubeCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="401"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iZQ-xy-7al" id="cXT-P1-nZM">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="401"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHS-9H-a0q">
+                                                    <rect key="frame" x="0.0" y="18" width="320" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.80392156859999997" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="ikB-H5-Qhc"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwI-Gi-JBs">
+                                                    <rect key="frame" x="0.0" y="400" width="320" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.80392156859999997" green="0.80392156859999997" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="xEn-nJ-gEa"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconYoutube.png" translatesAutoresizingMaskIntoConstraints="NO" id="mcT-JW-T7d">
+                                                    <rect key="frame" x="19" y="34" width="28" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmD-L6-fAY">
+                                                    <rect key="frame" x="51" y="34" width="152" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text" base64-UTF8="YES">
+bm92b3RlbXBvcmFkaW8AA
+</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="às 10h25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzh-sg-X9j">
+                                                    <rect key="frame" x="229" y="33" width="71" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47Q-y1-PAw">
+                                                    <rect key="frame" x="20" y="251" width="280" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text" base64-UTF8="YES">
+RGlzdGFudGUgRGFxdWkgLSBtw7pzaWNhIG5vdmEgY29tIERvdWdsYXMgZSBNYXJjZWxsZQA
+</string>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjh-nc-WT8">
+                                                    <rect key="frame" x="19" y="304" width="280" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text" base64-UTF8="YES">
+RSB4Y2x1c2l2YSBwYXJhIHZvY8OqIHF1ZSBhY29tcGFuaGEgbm9zc28gYmxvZyBub3ZvdGVtcG8uY29t
+IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
+</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imageYoutube.png" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
+                                                    <rect key="frame" x="0.0" y="63" width="320" height="180"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="KwI-Gi-JBs" secondAttribute="bottom" id="GjS-8X-4gQ"/>
+                                                <constraint firstItem="KwI-Gi-JBs" firstAttribute="leading" secondItem="ZHS-9H-a0q" secondAttribute="leading" id="MHo-b4-uec"/>
+                                                <constraint firstItem="KwI-Gi-JBs" firstAttribute="leading" secondItem="cXT-P1-nZM" secondAttribute="leading" id="Q2D-Wk-bvm"/>
+                                                <constraint firstItem="KwI-Gi-JBs" firstAttribute="trailing" secondItem="ZHS-9H-a0q" secondAttribute="trailing" id="cHY-gr-SH6"/>
+                                                <constraint firstItem="ZHS-9H-a0q" firstAttribute="top" secondItem="cXT-P1-nZM" secondAttribute="top" constant="18" id="ksZ-XM-IAY"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZHS-9H-a0q" secondAttribute="trailing" id="lVe-eO-KkI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="imgViewIcon" destination="mcT-JW-T7d" id="zZx-GF-quQ"/>
+                                            <outlet property="imgViewImage" destination="lPM-bm-bG8" id="lAP-Jt-0Ps"/>
+                                            <outlet property="lblDate" destination="vzh-sg-X9j" id="Ty0-o6-K1S"/>
+                                            <outlet property="txtViewContent" destination="Jjh-nc-WT8" id="YmH-Rn-Caz"/>
+                                            <outlet property="txtviewContentTitle" destination="47Q-y1-PAw" id="6pt-W4-Py7"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuralInstagramCell" rowHeight="491" id="aX5-zd-xo8" customClass="MuralInstagramCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="491"/>
+                                        <rect key="frame" x="0.0" y="423" width="320" height="491"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aX5-zd-xo8" id="tAC-S9-TKB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="491"/>
@@ -429,7 +522,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuralBlogCell" rowHeight="401" id="OI7-cc-3ha" customClass="MuralBlogCell">
-                                        <rect key="frame" x="0.0" y="513" width="320" height="401"/>
+                                        <rect key="frame" x="0.0" y="914" width="320" height="401"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OI7-cc-3ha" id="mvh-HW-BJ7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="401"/>
@@ -514,7 +607,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuralTwitterCell" rowHeight="167" id="y1Q-ND-uAN" customClass="MuralTwitterCell">
-                                        <rect key="frame" x="0.0" y="914" width="320" height="167"/>
+                                        <rect key="frame" x="0.0" y="1315" width="320" height="167"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y1Q-ND-uAN" id="L9Q-Uo-20u">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
@@ -668,8 +761,10 @@
         <image name="iconBlog.png" width="31" height="31"/>
         <image name="iconInstagram.png" width="29" height="29"/>
         <image name="iconTwitter.png" width="41" height="33"/>
+        <image name="iconYoutube.png" width="29" height="29"/>
         <image name="imageFake.png" width="640" height="360"/>
         <image name="imageFake2.png" width="320" height="320"/>
+        <image name="imageYoutube.png" width="320" height="180"/>
         <image name="lineBg.png" width="640" height="57"/>
         <image name="logo.com.png" width="211" height="22"/>
         <image name="logo.png" width="156" height="213"/>

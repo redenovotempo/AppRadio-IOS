@@ -10,10 +10,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 
-
-
 @implementation PlayerViewController
-@synthesize player;
 @synthesize playButton;
 @synthesize pauseButton;
 @synthesize volumeCanvas;
@@ -22,7 +19,7 @@
 @synthesize locationManager;
 @synthesize btnCurrentRadio;
 @synthesize viewRadioList;
-@synthesize globallistRadios;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,12 +34,11 @@
     return UIStatusBarStyleLightContent;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
+
     //Realocate viewRadioList Position.
     viewRadioList.frame = [self SetViewRadioListCGRect: NO];
     
@@ -52,9 +48,8 @@
                                                 name:UIApplicationDidBecomeActiveNotification
                                               object:nil];
     
+    //Verificando se a radio ja esta tocando.
     [self CheckPlayerState];
-    
-    
     
     //Customize Uislider Volume.
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumTrackTintColor:[UIColor whiteColor]];
@@ -62,10 +57,19 @@
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMaximumValueImage:[UIImage imageNamed:@"soundMax.png"]];
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
     volumeCanvas.backgroundColor = [UIColor clearColor];
-
-    //ExecuteMainAction
-    [self ExecuteMainAction];
+    
+    //Atualizando lista a cada 60 porcausa do delay GPS
+    [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(ReloadPickerViewContent) userInfo:nil repeats:YES];
 }
+
+-(void)ReloadPickerViewContent{
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+     if (!appDel.globallistRadios) {
+         [self.pickerViewRadioList reloadAllComponents];
+     }
+}
+
 
 -(void)CheckPlayerState
 {
@@ -83,28 +87,8 @@
     }else{
         [self PauseAudioState];
     }
-
 }
 
--(void)ExecuteMainAction{
-    
-    if ([self CheckInternetConnection]) {
-        
-        self.navigationItem.title=@"";
-        locationExist = YES;
-        // Do any additional setup after loading the view from its nib.
-        
-        //Find Device Location.
-        locationManager = [[CLLocationManager alloc] init];
-        locationManager.delegate = self;
-        //Verificando a necessidade de acessar o GPS novamente para descobrir a localizaçao.
-        [locationManager startUpdatingLocation];
-        
-    }else{
-        [self InternetConnectionErrorMessage];
-    }
-    
-}
 
 -(BOOL)CheckInternetConnection{
 
@@ -169,32 +153,6 @@
 }
 
 
-//Core Location Refresh Method
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    self.currentLocation = newLocation;
-    if (currentLocation.coordinate.longitude && currentLocation.coordinate.latitude && locationExist) {
-        [self callNovoTempoService];
-        [locationManager stopUpdatingLocation];
-        locationExist = NO;
-    }
-}
-//Core Location Error Method
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    
-    if(error.code == kCLErrorDenied) {
-        [locationManager stopUpdatingLocation];
-        
-    } else {
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops!"
-                                                        message:@"Não conseguimos localizar a rádio mais próxima a você. Vá em 'Ajustes' e certifique-se que este app esteja habilitado para usar o serviço de localização do Iphone."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-}
-
 - (void)viewWillAppear {
     
 
@@ -205,48 +163,6 @@
     [locationManager stopUpdatingLocation];
 }
 
-
--(void)callNovoTempoService{
-   
-    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    //Create Request Values
-    NSString * action = @"radiolist";
-    NSString * language = @"pt";
-    
-    
-    //Chamando JSON
-    NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&latitude=%f&longitude=%f&hl=%@",action,self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude,language];
-    
-    NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
-    
-    NSError *error;
-    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
-                                                          options:NSJSONReadingMutableContainers error:&error];
-    
-    NSMutableArray * radioList = [resultados objectForKey:@"radios"];
-
-    globallistRadios = radioList;
-    [self.pickerViewRadioList reloadAllComponents];
-    
-    
-    NSDictionary * radioDefault =  [radioList objectAtIndex:0];
-    
-    if ([radioDefault objectForKey:@"name"] && [appDel.lblRadioName.text length] == 0) {
-        [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"name"]] forState:UIControlStateNormal];
-    }
-    
-    NSString * stringUrl = [NSString stringWithFormat:@"%@",[radioDefault objectForKey:@"streamIOS"]];
-    
-    
-    if (appDel.needReloadCurrentStreamUrl) {
-        [appDel ChangePlayerStreamUrl:stringUrl];
-        appDel.needReloadCurrentStreamUrl = NO;
-    }
-    
-    
-}
-
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     //One column
@@ -255,15 +171,19 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     //set number of rows
-    return [globallistRadios count];
+    return [appDel.globallistRadios count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     //set item per row
     NSDictionary * dictRecipient = [[NSDictionary alloc]init];
-    dictRecipient = [globallistRadios objectAtIndex:row];
+    dictRecipient = [appDel.globallistRadios objectAtIndex:row];
     return [dictRecipient objectForKey:@"name"];
 }
 
@@ -310,31 +230,28 @@
 
 - (IBAction)hideRadioList:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
+    
     
     int row = [self.pickerViewRadioList selectedRowInComponent:0];
-    NSDictionary * selectedRadio = [globallistRadios objectAtIndex:row];
+    Radio * selectedRadio = [Radio getFromDictionary:[appDel.globallistRadios objectAtIndex:row]];
     
-    if ([selectedRadio objectForKey:@"name"]) {
-        [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]]forState:UIControlStateNormal];
+    if (selectedRadio.name) {
+        [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",selectedRadio.name]forState:UIControlStateNormal];
         
-        appDel.lblRadioName.text = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"name"]];
+        appDel.lblRadioName.text = [NSString stringWithFormat:@"%@",selectedRadio.name];
     }
     
     if (selectedRadio) {
-        [player stop];
-        NSString * stringUrl = [NSString stringWithFormat:@"%@",[selectedRadio objectForKey:@"streamIOS"]];
+        [appDel.player stop];
         
-        //NSURL * serviceUrl = [NSURL URLWithString:stringUrl];
-        //player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+        NSString * stringUrl = [NSString stringWithFormat:@"%@",selectedRadio.streamIOS];
+        [appDel ChangePlayerStreamUrl:stringUrl];
         
-               [appDel ChangePlayerStreamUrl:stringUrl];
-        
+        //Alterando radio default da aplicaçao.
+        appDel.radioCurrent = selectedRadio;
         [self PlayAudio];
     }
     
-    //Update ArrowImage and Title Position BY radio Name;
-    //[self refreshButtonSizeByTitle];
 
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
@@ -366,14 +283,13 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [alertView cancelButtonIndex]) {
-        [self ExecuteMainAction];
+        AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDel ExecuteMainAction];
     }
 }
 
 - (IBAction)OpenMenuButtonPressed:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-
     [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 

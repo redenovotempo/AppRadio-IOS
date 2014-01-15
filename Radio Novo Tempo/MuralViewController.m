@@ -71,7 +71,25 @@
         return cell;
     }
     
-    if (indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 8) {
+    if (indexPath.row == 8) {
+        
+        cellIdentifier = @"MuralYoutubeCell";
+        
+        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        //Limpando cor de fundo
+        cell.backgroundColor = [UIColor clearColor];
+        
+        //Criando separator
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+        
+        [cell.contentView addSubview:separatorLineView];
+        
+        return cell;
+    }
+    
+    if (indexPath.row == 2 || indexPath.row == 4 ) {
         
         cellIdentifier = @"MuralInstagramCell";
         
@@ -111,7 +129,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     
-    if (indexPath.row == 2 || indexPath.row == 4 || indexPath.row == 8) {
+    if (indexPath.row == 2 || indexPath.row == 4) {
         
         NSString * cellIdentifier = @"MuralInstagramCell";
         
@@ -119,6 +137,15 @@
         
         return cell.contentView.frame.size.height;
 
+    }
+    
+    if (indexPath.row == 8) {
+        
+        NSString *  cellIdentifier = @"MuralYoutubeCell";
+        
+        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        return cell.contentView.frame.size.height;
     }
     
     if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {

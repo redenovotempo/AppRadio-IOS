@@ -14,6 +14,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Carregando lista da API.
+    [self CallNovoTempoService];
+    
+    [self ExecuteMainAction];
+    
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     //Trocando a cor da barra de status
@@ -80,7 +85,10 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
 
+}
 
+-(void)didReceiveMemoryWarning{
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -200,6 +208,99 @@
         default:
             break;
     }
+}
+
+
+-(void)ExecuteMainAction{
+    
+    if ([self CheckInternetConnection]) {
+        
+        locationExist = YES;
+        // Do any additional setup after loading the view from its nib.
+        
+        //Find Device Location.
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        //Verificando a necessidade de acessar o GPS novamente para descobrir a localizaçao.
+        [self.locationManager startUpdatingLocation];
+        
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
+    
+}
+
+//Core Location Refresh Method
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    self.currentLocation = newLocation;
+    if (self.currentLocation.coordinate.longitude && self.currentLocation.coordinate.latitude && locationExist) {
+        [self CallNovoTempoService];
+        [self.locationManager stopUpdatingLocation];
+        locationExist = NO;
+    }
+}
+//Core Location Error Method
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    
+    if(error.code == kCLErrorDenied) {
+        [self.locationManager stopUpdatingLocation];
+        
+    } else {
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ops!"
+                                                         message:@"Não conseguimos localizar a rádio mais próxima a você. Vá em 'Ajustes' e certifique-se que este app esteja habilitado para usar o serviço de localização do Iphone."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self ExecuteMainAction];
+    }
+}
+
+
+-(void)CallNovoTempoService{
+    
+    //Create Request Values
+    NSString * action = @"radiolist";
+    NSString * language = @"pt";
+    
+    
+    //Chamando JSON
+    NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&latitude=%f&longitude=%f&hl=%@",action,self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude,language];
+    
+    NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
+    
+    NSError *error;
+    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
+                                                               options:NSJSONReadingMutableContainers error:&error];
+    
+    NSMutableArray * radioList = [resultados objectForKey:@"radios"];
+    
+    self.globallistRadios = radioList;
+    
+    Radio * radioDefault = [Radio getFromDictionary:[radioList objectAtIndex:0]];
+    
+    NSString * stringUrl = [NSString stringWithFormat:@"%@",radioDefault.streamIOS];
+    
+    
+    if (self.needReloadCurrentStreamUrl) {
+        [self ChangePlayerStreamUrl:stringUrl];
+        self.needReloadCurrentStreamUrl = NO;
+    }
+    
+    //Alterando radio atual da aplicaçao.
+    self.radioCurrent = radioDefault;
 }
 
 
