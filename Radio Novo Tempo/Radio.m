@@ -12,7 +12,7 @@
 
 +(Radio *)getFromDictionary: (NSDictionary *)dict{
     Radio * radio = [[Radio alloc] init];
-    [radio setRadioId:[dict objectForKey:@"radioId"]];
+    [radio setRadioId:[dict objectForKey:@"id"]];
     [radio setName:[dict objectForKey:@"name"]];
     [radio setStreamIOS:[dict objectForKey:@"streamIOS"]];
     [radio setStreamAndroid:[dict objectForKey:@"streamAndroid"]];

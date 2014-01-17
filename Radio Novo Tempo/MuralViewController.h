@@ -7,15 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "MuralTwitterCell.h"
 #import "MuralBlogCell.h"
 #import "MuralInstagramCell.h"
 #import "MuralYoutubeCell.h"
-#import "AppDelegate.h"
+#import "MuralTwitter.h"
+#import "MuralBlog.h"
+#import "MuralInstagram.h"
+#import "MuralYoutube.h"
+#import "MuralFacebook.h"
+
+
+
 
 @interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+   
+    NSMutableArray * muralItensArray;
 
 }
+
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
 
 //menu

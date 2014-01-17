@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self CallMuralJsonData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +53,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = [[NSString alloc] init];
+    
+    
+    for (NSMutableDictionary * item in muralItensArray){
+        
+        if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
+            MuralTwitter * muraltwitter = [MuralTwitter getFromDictionary:item];
+        }
+        if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
+            MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:item];
+        }
+        if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
+            MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:item];
+        }
+        if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
+            MuralBlog * muralBlog = [MuralBlog getFromDictionary:item];
+        }
+    }
+    
+    
     
     
     if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {
@@ -172,6 +193,30 @@
     
     [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
+
+
+-(void)CallMuralJsonData{
+    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    //Create Request Values
+    NSString * action = @"mural";
+    NSNumber * idRadio = appDel.radioCurrent.radioId;
+    
+    
+    //Chamando JSON
+    NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@",action,idRadio];
+    
+    NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
+    
+    NSError *error;
+    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
+                                                               options:NSJSONReadingMutableContainers error:&error];
+    
+    muralItensArray = [resultados objectForKey:@"mural"];
+}
+
 
 
 @end
