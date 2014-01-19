@@ -56,6 +56,7 @@
 		A57A07AD1882592100C28542 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A07AC1882592100C28542 /* MenuCell.m */; };
 		A57A07B21882653500C28542 /* MuralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A57A07B11882653500C28542 /* MuralViewController.m */; };
 		A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = A58E948E1889A41B009E7071 /* MuralFacebook.m */; };
+		A5935AEE188B1DF500EF749D /* MiniPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */; };
 		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
 		A5A6F87518455D990085BCA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A6F87418455D990085BCA8 /* Reachability.m */; };
 		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
@@ -146,6 +147,8 @@
 		A57A07B11882653500C28542 /* MuralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralViewController.m; sourceTree = "<group>"; };
 		A58E948D1889A41B009E7071 /* MuralFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralFacebook.h; sourceTree = "<group>"; };
 		A58E948E1889A41B009E7071 /* MuralFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralFacebook.m; sourceTree = "<group>"; };
+		A5935AEC188B1DF500EF749D /* MiniPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPlayerViewController.h; sourceTree = "<group>"; };
+		A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPlayerViewController.m; sourceTree = "<group>"; };
 		A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A5A6F87318455D990085BCA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A5A6F87418455D990085BCA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 				A547877E187CCDA200AA3ECB /* MenuViewController.m */,
 				A57A07B01882653500C28542 /* MuralViewController.h */,
 				A57A07B11882653500C28542 /* MuralViewController.m */,
+				A5935AEC188B1DF500EF749D /* MiniPlayerViewController.h */,
+				A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */,
 				A5A6F87318455D990085BCA8 /* Reachability.h */,
 				A5A6F87418455D990085BCA8 /* Reachability.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
@@ -530,6 +535,7 @@
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
 				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,
+				A5935AEE188B1DF500EF749D /* MiniPlayerViewController.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
 				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,

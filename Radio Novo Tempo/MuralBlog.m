@@ -17,11 +17,11 @@
     [muralBlog setType:[dict objectForKey:@"type"]];
     [muralBlog setIcon:[dict objectForKey:@"icon"]];
     [muralBlog setData:[dict objectForKey:@"data"]];
-    [muralBlog setTitle:[dict objectForKey:@"title"]];
-    [muralBlog setDescription:[dict objectForKey:@"description"]];
-    [muralBlog setImage:[dict objectForKey:@"image"]];
-    [muralBlog setUrl:[dict objectForKey:@"url"]];
-    [muralBlog setCreatedDate:[dict objectForKey:@"createdDate"]];
+    [muralBlog setTitle:[muralBlog.data objectForKey:@"title"]];
+    [muralBlog setDescription:[muralBlog.data objectForKey:@"description"]];
+    [muralBlog setImage:[muralBlog.data objectForKey:@"image"]];
+    [muralBlog setUrl:[muralBlog.data objectForKey:@"url"]];
+    [muralBlog setCreatedDate:[muralBlog.data objectForKey:@"createdDate"]];
     
     return muralBlog;
 }

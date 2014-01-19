@@ -17,9 +17,9 @@
     [muralInstagram setType:[dict objectForKey:@"type"]];
     [muralInstagram setIcon:[dict objectForKey:@"icon"]];
     [muralInstagram setData:[dict objectForKey:@"data"]];
-    [muralInstagram setUsername:[dict objectForKey:@"username"]];
-    [muralInstagram setDescription:[dict objectForKey:@"description"]];
-    [muralInstagram setImage:[dict objectForKey:@"image"]];
+    [muralInstagram setUsername:[[muralInstagram.data objectAtIndex:0] objectForKey:@"username"]];
+    [muralInstagram setDescription:[[muralInstagram.data objectAtIndex:0] objectForKey:@"description"]];
+    [muralInstagram setImage:[[muralInstagram.data objectAtIndex:0] objectForKey:@"image"]];
     
      return muralInstagram;
 }

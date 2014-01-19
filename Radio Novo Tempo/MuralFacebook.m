@@ -17,11 +17,11 @@
     [muralFacebook setType:[dict objectForKey:@"type"]];
     [muralFacebook setIcon:[dict objectForKey:@"icon"]];
     [muralFacebook setData:[dict objectForKey:@"data"]];
-    [muralFacebook setName:[dict objectForKey:@"name"]];
-    [muralFacebook setMessage:[dict objectForKey:@"message"]];
-    [muralFacebook setPicture:[dict objectForKey:@"picture"]];
-    [muralFacebook setCreatedDate:[dict objectForKey:@"createdDate"]];
-    [muralFacebook setLikes:[dict objectForKey:@"likes"]];
+    [muralFacebook setName:[muralFacebook.data objectForKey:@"name"]];
+    [muralFacebook setMessage:[muralFacebook.data objectForKey:@"message"]];
+    [muralFacebook setPicture:[muralFacebook.data objectForKey:@"picture"]];
+    [muralFacebook setCreatedDate:[muralFacebook.data objectForKey:@"createdDate"]];
+    [muralFacebook setLikes:[muralFacebook.data objectForKey:@"likes"]];
     
     return muralFacebook;
 }

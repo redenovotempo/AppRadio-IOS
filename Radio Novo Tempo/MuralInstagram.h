@@ -12,7 +12,7 @@
 
 @property(nonatomic,strong)NSString * type;
 @property(nonatomic,strong)NSString * icon;
-@property(nonatomic,strong)NSMutableDictionary * data;
+@property(nonatomic,strong)NSMutableArray * data;
 
 //Data
 @property(nonatomic,strong)NSString * username;

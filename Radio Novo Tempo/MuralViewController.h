@@ -17,6 +17,7 @@
 #import "MuralInstagram.h"
 #import "MuralYoutube.h"
 #import "MuralFacebook.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 
@@ -28,6 +29,7 @@
 }
 
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
+@property(nonatomic,retain)IBOutlet UIButton * playUiButton;
 
 //menu
 - (IBAction)OpenMenuButtonPressed:(id)button;

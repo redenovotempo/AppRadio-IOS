@@ -14,10 +14,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Carregando lista da API.
-    [self CallNovoTempoService];
     
-    [self ExecuteMainAction];
+    if ([self CheckInternetConnection]) {
+        //Carregando lista da API.
+        [self CallNovoTempoService];
+        [self ExecuteMainAction];
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
+    
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     

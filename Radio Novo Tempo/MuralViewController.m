@@ -47,144 +47,220 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [muralItensArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = [[NSString alloc] init];
+
+    
+    NSMutableDictionary * item = [muralItensArray objectAtIndex:indexPath.row];
     
     
-    for (NSMutableDictionary * item in muralItensArray){
-        
+        //Twitter
         if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
+            
+            //Cell utilizada.
+            NSString *cellIdentifier = @"MuralTwitterCell";
+            
+            MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            
+            //Serializando Objeto
             MuralTwitter * muraltwitter = [MuralTwitter getFromDictionary:item];
+            
+            //Limpando cor de fundo
+            cell.backgroundColor = [UIColor clearColor];
+            
+            //Criando separator
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+            separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+            [cell.contentView addSubview:separatorLineView];
+            
+            //Inserindo Valores
+            cell.lblAccount.text = muraltwitter.screenName;
+            cell.lblDate.text = muraltwitter.createdDate;
+            cell.txtViewContent.text = muraltwitter.message;
+           // cell.imgViewIcon.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muraltwitter.icon]]];
+            
+        
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muraltwitter.icon]
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
+            
+            
+            return cell;
+
         }
-        if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
+        
+        //Youtube
+        else if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
+            
+            //Cell utilizada.
+            NSString * cellIdentifier = @"MuralYoutubeCell";
+            MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            
+            //Serializando Objeto
             MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:item];
+            
+            //Limpando cor de fundo
+            cell.backgroundColor = [UIColor clearColor];
+            
+            //Criando separator
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+            separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+            [cell.contentView addSubview:separatorLineView];
+            
+            //Inserindo Valores
+            cell.lblDate.text = muralYoutube.createdDate;
+            cell.txtViewTitle.text = muralYoutube.title;
+            cell.txtViewContent.text = muralYoutube.content;
+            //cell.imgViewIcon.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralYoutube.icon]]];
+            //cell.imgViewImage.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralYoutube.image]]];
+            
+            
+            
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralYoutube.icon]
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+            
+            [cell.imgViewImage setImageWithURL:[NSURL URLWithString:muralYoutube.image]
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+            return cell;
         }
-        if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
+        
+        //Facebook
+        else if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
             MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:item];
+            
+            
         }
-        if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
+        
+        //Blog
+        else if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
+            
+            //Cell utilizada.
+            NSString * cellIdentifier = @"MuralBlogCell";
+            MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            
+            //Serializando Objeto
             MuralBlog * muralBlog = [MuralBlog getFromDictionary:item];
+            
+            //Limpando cor de fundo
+            cell.backgroundColor = [UIColor clearColor];
+            
+            //Criando separator
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+            separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+            [cell.contentView addSubview:separatorLineView];
+            
+            //Inserindo Valores
+            cell.lblDate.text = muralBlog.createdDate;
+            cell.txtViewTitle.text = muralBlog.title;
+            cell.txtViewContent.text = muralBlog.description;
+            //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.icon]]];
+            
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+            if ([muralBlog.image isEqual:[NSNull null]]) {
+                cell.imgViewBlog.hidden = YES;
+            }else{
+                //cell.imgViewBlog.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.image]]];
+                
+                [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
+                                 placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            }
+            
+           
+            
+            
+            return cell;
         }
+        
+        //Instagram
+        else if ([[item objectForKey:@"type"] isEqualToString:@"instagram"]) {
+            
+            //Cell utilizada.
+            NSString * cellIdentifier = @"MuralInstagramCell";
+            MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            
+            //Serializando Objeto
+            MuralInstagram * muralInstagram = [MuralInstagram getFromDictionary:item];
+            
+            //Limpando cor de fundo
+            cell.backgroundColor = [UIColor clearColor];
+            
+            //Criando separator
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+            separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+            [cell.contentView addSubview:separatorLineView];
+            
+            //Inserindo Valores
+            cell.lblAccount.text = muralInstagram.username;
+            cell.txtViewContent.text = muralInstagram.description;
+            //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralInstagram.icon]]];
+            //cell.imgViewContentImage.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralInstagram.image]]];
+            
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralInstagram.icon]
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+            [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:muralInstagram.image]
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+            
+   
+            return cell;
+
     }
     
+
+    UITableViewCell *cell = [muralTableView cellForRowAtIndexPath:indexPath];
     
-    
-    
-    if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {
+    // NOTE: Add some code like this to create a new cell if there are none to reuse
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc] init];
         
-        cellIdentifier = @"MuralBlogCell";
-        
-        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        //Limpando cor de fundo
-        cell.backgroundColor = [UIColor clearColor];
-        
-        //Criando separator
-        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
-        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
-        
-        [cell.contentView addSubview:separatorLineView];
-    
-        return cell;
     }
-    
-    if (indexPath.row == 8) {
-        
-        cellIdentifier = @"MuralYoutubeCell";
-        
-        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        //Limpando cor de fundo
-        cell.backgroundColor = [UIColor clearColor];
-        
-        //Criando separator
-        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
-        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
-        
-        [cell.contentView addSubview:separatorLineView];
-        
-        return cell;
-    }
-    
-    if (indexPath.row == 2 || indexPath.row == 4 ) {
-        
-        cellIdentifier = @"MuralInstagramCell";
-        
-        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        //Limpando cor de fundo
-        cell.backgroundColor = [UIColor clearColor];
-        
-        //Criando separator
-        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
-        separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
-        
-        [cell.contentView addSubview:separatorLineView];
-        
-        return cell;
-    }
-    
-    
-    cellIdentifier = @"MuralTwitterCell";
-    
-    MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    //Limpando cor de fundo
-    cell.backgroundColor = [UIColor clearColor];
-    
-    //Criando separator
-    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
-    separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
-    
-    [cell.contentView addSubview:separatorLineView];
-    
-    
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     
-    if (indexPath.row == 2 || indexPath.row == 4) {
-        
-        NSString * cellIdentifier = @"MuralInstagramCell";
-        
-        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        return cell.contentView.frame.size.height;
 
-    }
+    NSDictionary * dict = [muralItensArray objectAtIndex:indexPath.row];
     
-    if (indexPath.row == 8) {
-        
-        NSString *  cellIdentifier = @"MuralYoutubeCell";
-        
-        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
+    //Twitter
+    if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
+        MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralTwitterCell"];
         return cell.contentView.frame.size.height;
     }
     
-    if (indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 5) {
-        
-       NSString * cellIdentifier = @"MuralBlogCell";
-        
-        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
+    //Youtube
+    if ([[dict objectForKey:@"type"] isEqualToString:@"youtube"]) {
+        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralYoutubeCell"];
         return cell.contentView.frame.size.height;
     }
     
-    NSString * cellIdentifier = @"MuralTwitterCell";
+    //Instagram
+    if ([[dict objectForKey:@"type"] isEqualToString:@"instagram"]) {
+        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralInstagramCell"];
+        return cell.contentView.frame.size.height;
+    }
     
-    MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
+    //Blog
+    if ([[dict objectForKey:@"type"] isEqualToString:@"blog"]) {
+        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralBlogCell"];
+        return cell.contentView.frame.size.height;
+    }
     
-    return cell.contentView.frame.size.height;
-
+    return 0;
+    
+  
 }
 
 
@@ -216,6 +292,8 @@
     
     muralItensArray = [resultados objectForKey:@"mural"];
 }
+
+
 
 
 

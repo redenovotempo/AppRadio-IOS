@@ -14,7 +14,7 @@
 @property(weak,nonatomic) IBOutlet UILabel * lblBlogName;
 @property(weak,nonatomic) IBOutlet UILabel * lblDate;
 @property(weak,nonatomic) IBOutlet UIImageView * imgViewBlog;
-@property(weak,nonatomic) IBOutlet UITextView * txtviewContentTitle;
+@property(weak,nonatomic) IBOutlet UITextView * txtViewTitle;
 @property(weak,nonatomic) IBOutlet UITextView * txtViewContent;
 
 @end

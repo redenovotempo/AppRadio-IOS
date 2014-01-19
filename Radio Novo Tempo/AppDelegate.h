@@ -34,6 +34,7 @@
 @property(strong,nonatomic)NSMutableArray * globallistRadios;
 
 -(BOOL)CheckInternetConnection;
+-(void)InternetConnectionErrorMessage;
 -(void)ChangeRootViewController:(NSString *)currentViewControllerName;
 
 //GetRadioList
