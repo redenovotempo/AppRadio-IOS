@@ -16,6 +16,7 @@
 @implementation MuralViewController
 
 @synthesize muralTableView;
+@synthesize imgLoading;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +32,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+//    UIView * vi = [[UIView alloc]init];
+//    UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading1.png"]];
+//    [vi addSubview:img];
+//     [self.view addSubview: vi];
+//[self runSpinAnimationOnView:vi duration:2 rotations:1 repeat:YES];
+    
+
+
+
     [self CallMuralJsonData];
 }
 
@@ -72,6 +82,9 @@
             //Limpando cor de fundo
             cell.backgroundColor = [UIColor clearColor];
             
+            //Instanciando Imagem pela Tag
+            cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
+            
             //Criando separator
             UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
             separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
@@ -106,6 +119,10 @@
             //Limpando cor de fundo
             cell.backgroundColor = [UIColor clearColor];
             
+            //Instanciando Imagem pela Tag
+            cell.imgViewImage  = (UIImageView*)[cell viewWithTag:100];
+            cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
+            
             //Criando separator
             UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
             separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
@@ -121,11 +138,11 @@
             
             
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralYoutube.icon]
-                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             
             
             [cell.imgViewImage setImageWithURL:[NSURL URLWithString:muralYoutube.image]
-                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             
             return cell;
         }
@@ -143,10 +160,13 @@
             //Cell utilizada.
             NSString * cellIdentifier = @"MuralBlogCell";
             MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            
-            
+                
             //Serializando Objeto
             MuralBlog * muralBlog = [MuralBlog getFromDictionary:item];
+            
+            //Instanciando Imagem pela Tag
+            cell.imgViewBlog  = (UIImageView*)[cell viewWithTag:100];
+            cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
             
             //Limpando cor de fundo
             cell.backgroundColor = [UIColor clearColor];
@@ -163,19 +183,17 @@
             //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.icon]]];
             
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
-                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
+            
             
             if ([muralBlog.image isEqual:[NSNull null]]) {
-                cell.imgViewBlog.hidden = YES;
+                cell.imgViewBlog.image = nil;
             }else{
-                //cell.imgViewBlog.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.image]]];
                 
                 [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-            }
-            
+                                 placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
            
-            
+            }
             
             return cell;
         }
@@ -190,6 +208,11 @@
             
             //Serializando Objeto
             MuralInstagram * muralInstagram = [MuralInstagram getFromDictionary:item];
+            
+            
+            //Instanciando Imagem pela Tag
+            cell.imgViewContentImage  = (UIImageView*)[cell viewWithTag:100];
+            cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
             
             //Limpando cor de fundo
             cell.backgroundColor = [UIColor clearColor];
@@ -206,10 +229,10 @@
             //cell.imgViewContentImage.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralInstagram.image]]];
             
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralInstagram.icon]
-                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
             [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:muralInstagram.image]
-                             placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                             placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
    
             return cell;
@@ -291,6 +314,18 @@
                                                                options:NSJSONReadingMutableContainers error:&error];
     
     muralItensArray = [resultados objectForKey:@"mural"];
+    
+}
+
+-(IBAction)rotate:(id)sender{
+    [UIView animateWithDuration:1.5 delay:2.0 options:UIViewAnimationOptionRepeat animations:^{
+        [UIView setAnimationRepeatCount:20];
+        // Animate the alpha value of your imageView from 1.0 to 0.0 here
+        imgLoading.transform = CGAffineTransformRotate(imgLoading.transform, 180.0);
+    } completion:^(BOOL finished) {
+        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        //imgLoading.hidden = YES;
+    }];
 }
 
 

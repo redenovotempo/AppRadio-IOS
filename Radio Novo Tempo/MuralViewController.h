@@ -28,8 +28,13 @@
 
 }
 
+
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
 @property(nonatomic,retain)IBOutlet UIButton * playUiButton;
+
+//Loading
+@property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
+-(IBAction)rotate:(id)sender;
 
 //menu
 - (IBAction)OpenMenuButtonPressed:(id)button;
