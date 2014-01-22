@@ -18,6 +18,8 @@
 @synthesize muralTableView;
 @synthesize imgLoading;
 @synthesize loadingView;
+@synthesize urlConnection;
+@synthesize urlData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,25 +33,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     
-//    UIView * vi = [[UIView alloc]init];
-//    UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading1.png"]];
-//    [vi addSubview:img];
-//     [self.view addSubview: vi];
-//[self runSpinAnimationOnView:vi duration:2 rotations:1 repeat:YES];
-    [self CallMuralJsonData];
+    if (muralItensArray.count == 0) {
+        [self CallMuralJsonData];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
-    //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(StartLoading) userInfo:nil repeats:YES];
+
+    
+  //  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(StartLoading) userInfo:nil repeats:YES];
     
 
 }
 
 - (IBAction)StartButtonPressed:(id)button{
-    [self StartLoading];
+    [self CallMuralJsonData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -304,28 +305,60 @@
 
 -(void)CallMuralJsonData{
     
-    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //Iniciando View de loading
+    [self StartLoading];
     
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //Create Request Values
     NSString * action = @"mural";
     NSNumber * idRadio = appDel.radioCurrent.radioId;
     
-    
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@",action,idRadio];
     
-    NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
+    NSString * post = [[NSString alloc]init];
+    NSData * postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:adress]];
+    [request setHTTPMethod:@"POST"]; // 1
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"]; // 2
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
     
-    NSError *error;
-    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:adressData
-                                                               options:NSJSONReadingMutableContainers error:&error];
+
     
-    muralItensArray = [resultados objectForKey:@"mural"];
-    
-   
+    urlConnection = [[NSURLConnection alloc]init];
+    urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+
     
 }
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    urlData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [urlData appendData:data];
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSError *jsonParsingError = nil;
+    
+    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&jsonParsingError];
+    
+    if (jsonParsingError)
+        NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
+        
+    muralItensArray = [resultados objectForKey:@"mural"];
+    [muralTableView reloadData];
+
+    //Terminando View de loading
+    [loadingView removeFromSuperview];
+}
+
 
 
 -(void)StartLoading{

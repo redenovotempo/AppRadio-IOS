@@ -25,16 +25,20 @@
 @interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
    
     NSMutableArray * muralItensArray;
+    NSMutableData  * urlData;
 
 }
 
 
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
 @property(nonatomic,retain)IBOutlet UIButton * playUiButton;
+@property(nonatomic,retain)NSData * urlData;
+
 
 //Loading
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
 @property(nonatomic,retain)UIView * loadingView;
+@property(nonatomic,retain)NSURLConnection * urlConnection;
 - (IBAction)StartButtonPressed:(id)button;
 
 //menu
