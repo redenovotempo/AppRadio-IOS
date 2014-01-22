@@ -34,7 +34,8 @@
 
 //Loading
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
--(IBAction)rotate:(id)sender;
+@property(nonatomic,retain)UIView * loadingView;
+- (IBAction)StartButtonPressed:(id)button;
 
 //menu
 - (IBAction)OpenMenuButtonPressed:(id)button;

@@ -687,18 +687,14 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                     <segue destination="Sbt-oH-sFq" kind="embed" id="Wx6-4e-Uox"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loading1.png" translatesAutoresizingMaskIntoConstraints="NO" id="DZa-Mv-Mc2">
-                                <rect key="frame" x="226" y="13" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-Uc-Bos">
-                                <rect key="frame" x="65" y="6" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-9m-Yik">
+                                <rect key="frame" x="249" y="27" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="rotate:" destination="z3M-s3-4VP" eventType="touchUpInside" id="kHr-w7-lxu"/>
+                                    <action selector="StartButtonPressed:" destination="z3M-s3-4VP" eventType="touchUpInside" id="vYt-tF-xgu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -721,7 +717,6 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgLoading" destination="DZa-Mv-Mc2" id="AbL-3l-3Cq"/>
                         <outlet property="muralTableView" destination="V0N-vs-Cc4" id="ntO-hv-O3S"/>
                     </connections>
                 </viewController>
@@ -793,7 +788,6 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         <image name="imageFake2.png" width="320" height="320"/>
         <image name="imageYoutube.png" width="320" height="180"/>
         <image name="lineBg.png" width="640" height="57"/>
-        <image name="loading1.png" width="121" height="121"/>
         <image name="logo.com.png" width="211" height="22"/>
         <image name="logo.png" width="156" height="213"/>
         <image name="logoMini.png" width="75" height="69"/>

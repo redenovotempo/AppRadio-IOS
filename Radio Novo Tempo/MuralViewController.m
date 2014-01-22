@@ -17,6 +17,7 @@
 
 @synthesize muralTableView;
 @synthesize imgLoading;
+@synthesize loadingView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,11 +38,18 @@
 //    [vi addSubview:img];
 //     [self.view addSubview: vi];
 //[self runSpinAnimationOnView:vi duration:2 rotations:1 repeat:YES];
+    [self CallMuralJsonData];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(StartLoading) userInfo:nil repeats:YES];
     
 
+}
 
-
-    [self CallMuralJsonData];
+- (IBAction)StartButtonPressed:(id)button{
+    [self StartLoading];
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,7 +191,7 @@
             //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.icon]]];
             
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
-                             placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
+                             placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             
             if ([muralBlog.image isEqual:[NSNull null]]) {
@@ -315,21 +323,62 @@
     
     muralItensArray = [resultados objectForKey:@"mural"];
     
-}
-
--(IBAction)rotate:(id)sender{
-    [UIView animateWithDuration:1.5 delay:2.0 options:UIViewAnimationOptionRepeat animations:^{
-        [UIView setAnimationRepeatCount:20];
-        // Animate the alpha value of your imageView from 1.0 to 0.0 here
-        imgLoading.transform = CGAffineTransformRotate(imgLoading.transform, 180.0);
-    } completion:^(BOOL finished) {
-        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-        //imgLoading.hidden = YES;
-    }];
+   
+    
 }
 
 
+-(void)StartLoading{
+    
+    //Iniciando LoadingView
+    loadingView = [[UIView alloc]init];
+    
+    //Criando componentes
+    UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
+    UILabel * txt = [[UILabel alloc]init];
+    txt.text = @"Carregando...";
+    txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
 
+
+    //Criando animaçao
+    CABasicAnimation *rotate;
+    rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.fromValue = [NSNumber numberWithFloat:0];
+    rotate.toValue = [NSNumber numberWithFloat: M_PI * 2.0  * 1 * 10 ];
+    rotate.duration = 10;
+    rotate.repeatCount = INFINITY;
+    rotate.delegate = self;
+    rotate.fillMode = kCAFillModeForwards;
+    rotate.removedOnCompletion = NO;
+    
+    //Alinhando Componentes
+    img.center = muralTableView.center;
+    img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 120, img.frame.size.width, img.frame.size.height);
+    [img.layer addAnimation:rotate forKey:@"10"];
+    txt.frame = CGRectMake(img.frame.origin.x + 10, img.frame.origin.y + 100, img.frame.size.width, img.frame.size.height);
+    
+    //Inserindo Componentes na LoadingView
+    [loadingView addSubview:txt];
+    [loadingView addSubview:img];
+    
+    
+    //Alinhando LoadingView
+    loadingView.center = muralTableView.center;
+    loadingView.frame = muralTableView.frame;
+    
+    //Alterando Cor de Fundo da LoadingView
+    loadingView.backgroundColor = [UIColor whiteColor];
+
+    //Inserindo LoadingView na View principal
+    [self.view addSubview: loadingView];
+    
+}
+
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    //Removebdo LoadingView da View principal.
+    //[loadingView removeFromSuperview];
+}
 
 
 @end
