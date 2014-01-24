@@ -13,7 +13,9 @@
 @property(weak,nonatomic) IBOutlet UIImageView * imgViewIcon;
 @property(weak,nonatomic) IBOutlet UILabel * lblDate;
 @property(weak,nonatomic) IBOutlet UIImageView * imgViewImage;
+@property(weak,nonatomic) IBOutlet UIButton * btnActionExecute;
 @property(weak,nonatomic) IBOutlet UITextView * txtViewTitle;
 @property(weak,nonatomic) IBOutlet UITextView * txtViewContent;
 
+-(void)PlayerExecuteWithUrl:(NSString *)url;
 @end

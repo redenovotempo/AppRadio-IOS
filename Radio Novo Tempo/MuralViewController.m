@@ -7,10 +7,12 @@
 //
 
 #import "MuralViewController.h"
+#define MAX_HEIGHT 2000;
 
 @interface MuralViewController ()
 
 @end
+
 
 
 @implementation MuralViewController
@@ -40,18 +42,7 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
 
-    
-  //  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(StartLoading) userInfo:nil repeats:YES];
-    
-
-}
-
-- (IBAction)StartButtonPressed:(id)button{
-    [self CallMuralJsonData];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -101,7 +92,7 @@
             
             //Inserindo Valores
             cell.lblAccount.text = muraltwitter.screenName;
-            cell.lblDate.text = muraltwitter.createdDate;
+            cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
             cell.txtViewContent.text = muraltwitter.message;
            // cell.imgViewIcon.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muraltwitter.icon]]];
             
@@ -137,21 +128,19 @@
             separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
             [cell.contentView addSubview:separatorLineView];
             
+            
             //Inserindo Valores
-            cell.lblDate.text = muralYoutube.createdDate;
-            cell.txtViewTitle.text = muralYoutube.title;
-            cell.txtViewContent.text = muralYoutube.content;
-            //cell.imgViewIcon.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralYoutube.icon]]];
-            //cell.imgViewImage.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralYoutube.image]]];
-            
-            
-            
+            cell.lblDate.text = [self dateFormat:muralYoutube.createdDate:@"dd/MM/yyyy"];
+            cell.txtViewContent.text = muralYoutube.title;
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralYoutube.icon]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
-            
-            
             [cell.imgViewImage setImageWithURL:[NSURL URLWithString:muralYoutube.image]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
+            
+            //Criando botao
+            [cell.btnActionExecute addTarget: self
+                      action: @selector(Plyer)
+            forControlEvents: UIControlEventTouchUpInside];
             
             return cell;
         }
@@ -186,23 +175,30 @@
             [cell.contentView addSubview:separatorLineView];
             
             //Inserindo Valores
-            cell.lblDate.text = muralBlog.createdDate;
+            cell.lblDate.text = [self dateFormat:muralBlog.createdDate :@"dd/MM/yyyy"];
             cell.txtViewTitle.text = muralBlog.title;
             cell.txtViewContent.text = muralBlog.description;
-            //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralBlog.icon]]];
-            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
-            
+            //Verificando se existe imagem no Blog
             if ([muralBlog.image isEqual:[NSNull null]]) {
-                cell.imgViewBlog.image = nil;
+                cell.imgViewBlog.hidden = YES;
             }else{
-                
+                cell.imgViewBlog.hidden = NO;
                 [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
-           
             }
+            
+            //Concertando altura dos textos de acordo com o texto
+            CGRect frameTxtViewContent = cell.txtViewContent.frame;
+            frameTxtViewContent.size.height = cell.txtViewContent.contentSize.height;
+            cell.txtViewContent.frame = frameTxtViewContent;
+            
+            //Concertando altura dos textos de acordo com o texto
+            CGRect frameTxtViewTitle = cell.txtViewTitle.frame;
+            frameTxtViewTitle.size.height = cell.txtViewTitle.contentSize.height;
+            cell.txtViewTitle.frame = frameTxtViewTitle;
             
             return cell;
         }
@@ -234,12 +230,8 @@
             //Inserindo Valores
             cell.lblAccount.text = muralInstagram.username;
             cell.txtViewContent.text = muralInstagram.description;
-            //cell.imgViewIcon.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralInstagram.icon]]];
-            //cell.imgViewContentImage.image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muralInstagram.image]]];
-            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralInstagram.icon]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
-            
             [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:muralInstagram.image]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
@@ -408,9 +400,20 @@
 }
 
 
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    //Removebdo LoadingView da View principal.
-    //[loadingView removeFromSuperview];
+//Metodo de criaçao de data.
+-(NSString *)dateFormat:(NSString *)dateString :(NSString *)format
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    dateFromString = [dateFormatter dateFromString:dateString];
+    [dateFormatter setDateFormat:format];
+    NSString *strDate = [dateFormatter stringFromDate:dateFromString];
+    return strDate;
+}
+
+-(void)Plyer{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=TCr-GCR0ios"]];
 }
 
 

@@ -39,9 +39,10 @@
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
 @property(nonatomic,retain)UIView * loadingView;
 @property(nonatomic,retain)NSURLConnection * urlConnection;
-- (IBAction)StartButtonPressed:(id)button;
+
 
 //menu
 - (IBAction)OpenMenuButtonPressed:(id)button;
+
 
 @end
