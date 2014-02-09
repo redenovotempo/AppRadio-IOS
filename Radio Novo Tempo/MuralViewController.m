@@ -154,13 +154,6 @@
             return cell;
         }
         
-        //Facebook
-        else if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
-            MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:item];
-            
-            
-        }
-        
         //Blog
         else if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
             
@@ -209,7 +202,52 @@
             
             return cell;
         }
-        
+    
+        //Facebook
+        else if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
+            
+            //Cell utilizada.
+            NSString * cellIdentifier = @"MuralFacebookCell";
+            MuralFacebookCell * cell = (MuralFacebookCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            
+            //Serializando Objeto
+            MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:item];
+            
+            //Instanciando Imagem pela Tag
+            cell.imgViewFacebook  = (UIImageView*)[cell viewWithTag:100];
+            cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
+            
+            //Limpando cor de fundo
+            cell.backgroundColor = [UIColor clearColor];
+            
+            //Criando separator
+            UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
+            separatorLineView.backgroundColor = [UIColor colorWithRed:(238/255.0) green:(238/255.0) blue:(238/255.0) alpha:1];
+            [cell.contentView addSubview:separatorLineView];
+            
+            //Inserindo Valores
+            cell.lblDate.text = [self dateFormat:muralFacebook.createdDate :@"dd/MM/yyyy"];
+            cell.txtViewContent.text = muralFacebook.message;
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralFacebook.icon]
+                             placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
+            
+            
+            //Verificando se existe imagem no Facebook
+            if ([muralFacebook.picture isEqual:[NSNull null]] || [muralFacebook.picture isEqualToString:@""]) {
+                cell.constraintImgHeight.constant = 0;
+                cell.imgViewFacebook.hidden = YES;
+                
+            }else{
+                cell.constraintImgHeight.constant = 180;
+                cell.imgViewFacebook.hidden = NO;
+                [cell.imgViewFacebook setImageWithURL:[NSURL URLWithString:muralFacebook.picture]
+                                 placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
+                
+            }
+            
+            return cell;
+        }
+    
         //Instagram
         else if ([[item objectForKey:@"type"] isEqualToString:@"instagram"]) {
             
@@ -459,8 +497,16 @@
     
     //Instagram
     if ([[dict objectForKey:@"type"] isEqualToString:@"instagram"]) {
-        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralInstagramCell"];
-        return cell.bounds.size.height;
+        
+        //Serializando Objeto
+        MuralInstagram * muralInstagram = [MuralInstagram getFromDictionary:dict];
+        
+        CGFloat IMG_SIZE = 320;
+        CGFloat REST_ELEMENTS_SIZE = 74;
+        CGFloat PADDING_BOTTOM = 40;
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralInstagram.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        
+        return IMG_SIZE+REST_ELEMENTS_SIZE+PADDING_BOTTOM+DESCRIPTION_SIZE;
     }
     
     //Blog
@@ -484,11 +530,47 @@
         return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM;
     }
     
+    //Facebook
+    if ([[dict objectForKey:@"type"] isEqualToString:@"facebook"]) {
+        
+        //Serializando Objeto
+        MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:dict];
+        
+        CGFloat IMG_SIZE = 180;
+        CGFloat REST_ELEMENTS_SIZE = 74;
+        CGFloat PADDING_BOTTOM = 40;
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralFacebook.message andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+    
+        
+        //Verificando se existe imagem no Blog
+        if ([muralFacebook.picture isEqual:[NSNull null]] || [muralFacebook.picture isEqualToString:@""]){
+            IMG_SIZE = 0;
+        }
+        return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+PADDING_BOTTOM;
+    }
+    
     return 0;
     
     
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    CGPoint offset = aScrollView.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    //Escondendo player
+    if(y >= h ) {
+        self.containerView.hidden = YES;
+    }else{
+        self.containerView.hidden = NO;
+    }
+    
+}
 
 
 @end

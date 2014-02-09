@@ -11,6 +11,8 @@
 #import "MuralTwitterCell.h"
 #import "MuralBlogCell.h"
 #import "MuralInstagramCell.h"
+#import "MuralFacebook.h"
+#import "MuralFacebookCell.h"
 #import "MuralYoutubeCell.h"
 #import "MuralTwitter.h"
 #import "MuralBlog.h"
@@ -22,7 +24,7 @@
 
 
 
-@interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate >{
    
     NSMutableArray * muralItensArray;
     NSMutableData  * urlData;
@@ -39,6 +41,9 @@
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
 @property(nonatomic,retain)UIView * loadingView;
 @property(nonatomic,retain)NSURLConnection * urlConnection;
+
+//ContainView
+@property(nonatomic,retain)IBOutlet UIView * containerView;
 
 
 
