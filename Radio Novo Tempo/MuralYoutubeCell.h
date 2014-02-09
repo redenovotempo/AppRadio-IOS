@@ -18,4 +18,7 @@
 @property(weak,nonatomic) IBOutlet UITextView * txtViewTitle;
 @property(weak,nonatomic) IBOutlet UITextView * txtViewContent;
 
+//Constraints
+@property(nonatomic,retain)IBOutlet NSLayoutConstraint * constraintTitleHeight;
+
 @end

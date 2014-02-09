@@ -67,6 +67,7 @@
 
     
     NSMutableDictionary * item = [muralItensArray objectAtIndex:indexPath.row];
+
     
     
         //Twitter
@@ -122,6 +123,10 @@
             //Instanciando Imagem pela Tag
             cell.imgViewImage  = (UIImageView*)[cell viewWithTag:100];
             cell.imgViewIcon  = (UIImageView*)[cell viewWithTag:101];
+            
+            
+            //Calculando altura do titulo
+            cell.constraintTitleHeight.constant = [self textViewHeightForAttributedText:muralYoutube.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
             
             //Criando separator
             UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 18)];
@@ -185,14 +190,21 @@
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
+            //Calculando altura do titulo
+            cell.constraintTitleHeight.constant = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+            
             
             //Verificando se existe imagem no Blog
             if ([muralBlog.image isEqual:[NSNull null]]) {
+                cell.constraintImgHeight.constant = 0;
                 cell.imgViewBlog.hidden = YES;
+                
             }else{
+                cell.constraintImgHeight.constant = 180;
                 cell.imgViewBlog.hidden = NO;
                 [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
+                
             }
             
             return cell;
@@ -242,7 +254,6 @@
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] init];
-        
     }
     
     return cell;
@@ -404,7 +415,7 @@
     
     CGSize sizeWithFont = [self text:textString sizeWithFont:font constrainedToSize:calculationView.frame.size];
     
-    return size.height + sizeWithFont.height+1.5;
+    return size.height + sizeWithFont.height+3.5;
 }
 
 
@@ -416,9 +427,18 @@
     
     //Twitter
     if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
-        MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralTwitterCell"];
         
-        return cell.contentView.frame.size.height;
+        //Serializando Objeto
+        MuralTwitter * muralTwitter = [MuralTwitter getFromDictionary:dict];
+        
+
+        CGFloat REST_ELEMENTS_SIZE = 60;
+        CGFloat PADDING_BOTTOM = 40;
+        
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralTwitter.message andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        
+        
+        return REST_ELEMENTS_SIZE+DESCRIPTION_SIZE+PADDING_BOTTOM;
     }
     
     //Youtube
@@ -427,11 +447,14 @@
         //Serializando Objeto
         MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:dict];
        
-        CGFloat ELEMENTS = 273;
-        CGFloat CONTENT_SIZE = [self textViewHeightForAttributedText:muralYoutube.content andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat IMG_SIZE = 180;
+        CGFloat REST_ELEMENTS_SIZE = 74;
+        CGFloat PADDING_BOTTOM = 40;
+        
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralYoutube.content andWidth:280 andFont:[UIFont systemFontOfSize:14]];
         CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralYoutube.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
 
-        return ELEMENTS+CONTENT_SIZE+TITLE_SIZE;
+         return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM;
     }
     
     //Instagram
@@ -446,11 +469,19 @@
         //Serializando Objeto
         MuralBlog * muralBlog = [MuralBlog getFromDictionary:dict];
         
-        CGFloat ELEMENTS = 273;
-        CGFloat CONTENT_SIZE = [self textViewHeightForAttributedText:muralBlog.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
-        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
         
-        return ELEMENTS+CONTENT_SIZE+TITLE_SIZE;
+        CGFloat IMG_SIZE = 180;
+        CGFloat REST_ELEMENTS_SIZE = 74;
+        CGFloat PADDING_BOTTOM = 40;
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralBlog.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+
+        
+        //Verificando se existe imagem no Blog
+        if ([muralBlog.image isEqual:[NSNull null]]) {
+            IMG_SIZE = 0;
+        }
+        return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM;
     }
     
     return 0;
