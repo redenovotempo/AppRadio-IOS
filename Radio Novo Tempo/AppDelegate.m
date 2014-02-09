@@ -284,6 +284,7 @@
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&latitude=%f&longitude=%f&hl=%@",action,self.currentLocation.coordinate.latitude,self.currentLocation.coordinate.longitude,language];
     
+      
     NSData * adressData = [NSData dataWithContentsOfURL: [NSURL URLWithString:adress]];
     
     NSError *error;

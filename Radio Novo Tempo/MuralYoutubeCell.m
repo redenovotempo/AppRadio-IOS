@@ -26,8 +26,5 @@
     // Configure the view for the selected state
 }
 
--(void)PlayerExecuteWithUrl:(NSString *)url{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-}
 
 @end

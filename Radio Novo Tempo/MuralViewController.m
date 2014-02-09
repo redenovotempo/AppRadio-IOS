@@ -35,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   
 
     
     if (muralItensArray.count == 0) {
@@ -94,13 +96,11 @@
             cell.lblAccount.text = muraltwitter.screenName;
             cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
             cell.txtViewContent.text = muraltwitter.message;
-           // cell.imgViewIcon.image  = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:muraltwitter.icon]]];
-            
-        
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muraltwitter.icon]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
             
+
             return cell;
 
         }
@@ -131,15 +131,19 @@
             
             //Inserindo Valores
             cell.lblDate.text = [self dateFormat:muralYoutube.createdDate:@"dd/MM/yyyy"];
-            cell.txtViewContent.text = muralYoutube.title;
+            cell.txtViewTitle.text = muralYoutube.title;
+            cell.txtViewContent.text = muralYoutube.content;
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralYoutube.icon]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             [cell.imgViewImage setImageWithURL:[NSURL URLWithString:muralYoutube.image]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             
+           
+            
             //Criando botao
+            cell.btnActionExecute.ArgString1 = muralYoutube.link;
             [cell.btnActionExecute addTarget: self
-                      action: @selector(Plyer)
+                                      action: @selector(ExecuteOnSafari:)
             forControlEvents: UIControlEventTouchUpInside];
             
             return cell;
@@ -253,40 +257,6 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-
-    NSDictionary * dict = [muralItensArray objectAtIndex:indexPath.row];
-    
-    //Twitter
-    if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
-        MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralTwitterCell"];
-        return cell.contentView.frame.size.height;
-    }
-    
-    //Youtube
-    if ([[dict objectForKey:@"type"] isEqualToString:@"youtube"]) {
-        MuralYoutubeCell * cell = (MuralYoutubeCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralYoutubeCell"];
-        return cell.contentView.frame.size.height;
-    }
-    
-    //Instagram
-    if ([[dict objectForKey:@"type"] isEqualToString:@"instagram"]) {
-        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralInstagramCell"];
-        return cell.contentView.frame.size.height;
-    }
-    
-    //Blog
-    if ([[dict objectForKey:@"type"] isEqualToString:@"blog"]) {
-        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralBlogCell"];
-        return cell.contentView.frame.size.height;
-    }
-    
-    return 0;
-    
-  
-}
-
 
 - (IBAction)OpenMenuButtonPressed:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -308,6 +278,8 @@
     
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@",action,idRadio];
+    
+    NSLog(@"%@",adress);
     
     NSString * post = [[NSString alloc]init];
     NSData * postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
@@ -412,9 +384,94 @@
     return strDate;
 }
 
--(void)Plyer{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=TCr-GCR0ios"]];
+-(void)ExecuteOnSafari:(id)sender{
+    ArgButton * argButton = (ArgButton *)sender;
+    if (argButton.ArgString1.length != 0 && argButton.ArgString1 != nil) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:argButton.ArgString1]];
+    }
 }
+
+
+- (CGSize)text:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+  return [text sizeWithFont:font constrainedToSize:size];
+
+}
+
+- (CGFloat)textViewHeightForAttributedText: (NSString*)textString andWidth: (CGFloat)width andFont:(UIFont *)font{
+    
+    NSData* data = [textString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSAttributedString *text = [[NSAttributedString alloc] initWithData:data
+                                                               options:nil
+                                                    documentAttributes:NULL
+                                                                 error:NULL];
+    
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setAttributedText:text];
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
+    
+    CGSize sizeWithFont = [self text:textString sizeWithFont:font constrainedToSize:calculationView.frame.size];
+    
+    return size.height + sizeWithFont.height;
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    NSDictionary * dict = [muralItensArray objectAtIndex:indexPath.row];
+    
+    
+    CGFloat TOP_HEIGHT = 63;
+    CGFloat FONT_SIZE = 13;
+    CGFloat BOTTOM_HEIGHT = 17;
+    
+    
+    //Twitter
+    if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
+        MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralTwitterCell"];
+        
+        //Serializando Objeto
+        MuralTwitter * muraltwitter = [MuralTwitter getFromDictionary:dict];
+        
+
+
+        
+        return cell.contentView.frame.size.height;
+    }
+    
+    //Youtube
+    if ([[dict objectForKey:@"type"] isEqualToString:@"youtube"]) {
+        
+        //Serializando Objeto
+        MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:dict];
+       
+        CGFloat ELEMENTS = 273;
+        CGFloat CONTENT_SIZE = [self textViewHeightForAttributedText:muralYoutube.content andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralYoutube.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+
+        return ELEMENTS+CONTENT_SIZE+TITLE_SIZE;
+    }
+    
+    //Instagram
+    if ([[dict objectForKey:@"type"] isEqualToString:@"instagram"]) {
+        MuralInstagramCell * cell = (MuralInstagramCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralInstagramCell"];
+        return cell.bounds.size.height;
+    }
+    
+    //Blog
+    if ([[dict objectForKey:@"type"] isEqualToString:@"blog"]) {
+        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralBlogCell"];
+        return cell.contentView.frame.size.height;
+    }
+    
+    return 0;
+    
+    
+}
+
 
 
 @end
