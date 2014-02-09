@@ -185,6 +185,7 @@
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
+            
             //Verificando se existe imagem no Blog
             if ([muralBlog.image isEqual:[NSNull null]]) {
                 cell.imgViewBlog.hidden = YES;
@@ -193,16 +194,6 @@
                 [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             }
-            
-            //Concertando altura dos textos de acordo com o texto
-            CGRect frameTxtViewContent = cell.txtViewContent.frame;
-            frameTxtViewContent.size.height = cell.txtViewContent.contentSize.height;
-            cell.txtViewContent.frame = frameTxtViewContent;
-            
-            //Concertando altura dos textos de acordo com o texto
-            CGRect frameTxtViewTitle = cell.txtViewTitle.frame;
-            frameTxtViewTitle.size.height = cell.txtViewTitle.contentSize.height;
-            cell.txtViewTitle.frame = frameTxtViewTitle;
             
             return cell;
         }
@@ -413,7 +404,7 @@
     
     CGSize sizeWithFont = [self text:textString sizeWithFont:font constrainedToSize:calculationView.frame.size];
     
-    return size.height + sizeWithFont.height;
+    return size.height + sizeWithFont.height+1.5;
 }
 
 
@@ -423,21 +414,9 @@
     
     NSDictionary * dict = [muralItensArray objectAtIndex:indexPath.row];
     
-    
-    CGFloat TOP_HEIGHT = 63;
-    CGFloat FONT_SIZE = 13;
-    CGFloat BOTTOM_HEIGHT = 17;
-    
-    
     //Twitter
     if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
         MuralTwitterCell * cell = (MuralTwitterCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralTwitterCell"];
-        
-        //Serializando Objeto
-        MuralTwitter * muraltwitter = [MuralTwitter getFromDictionary:dict];
-        
-
-
         
         return cell.contentView.frame.size.height;
     }
@@ -463,8 +442,15 @@
     
     //Blog
     if ([[dict objectForKey:@"type"] isEqualToString:@"blog"]) {
-        MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:@"MuralBlogCell"];
-        return cell.contentView.frame.size.height;
+       
+        //Serializando Objeto
+        MuralBlog * muralBlog = [MuralBlog getFromDictionary:dict];
+        
+        CGFloat ELEMENTS = 273;
+        CGFloat CONTENT_SIZE = [self textViewHeightForAttributedText:muralBlog.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+        
+        return ELEMENTS+CONTENT_SIZE+TITLE_SIZE;
     }
     
     return 0;
