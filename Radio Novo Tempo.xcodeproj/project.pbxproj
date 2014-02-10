@@ -35,6 +35,9 @@
 		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
 		A537129518A81F8900A21646 /* MuralFacebookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A537129418A81F8900A21646 /* MuralFacebookCell.m */; };
 		A537129718A820C800A21646 /* iconFacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = A537129618A820C800A21646 /* iconFacebook.png */; };
+		A53712A118A8321F00A21646 /* iconLoveBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A537129E18A8321F00A21646 /* iconLoveBlue@2x.png */; };
+		A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A537129F18A8321F00A21646 /* iconLove@2x.png */; };
+		A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A53712A018A8321F00A21646 /* iconShared@2x.png */; };
 		A53B6E48188579FB00FA0BD9 /* iconTwitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E47188579FB00FA0BD9 /* iconTwitter.png */; };
 		A53B6E4A18857E7800FA0BD9 /* iconBlog.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E4918857E7800FA0BD9 /* iconBlog.png */; };
 		A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */ = {isa = PBXBuildFile; fileRef = A53B6E4B1885830600FA0BD9 /* imageFake.png */; };
@@ -119,6 +122,9 @@
 		A537129318A81F8900A21646 /* MuralFacebookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralFacebookCell.h; sourceTree = "<group>"; };
 		A537129418A81F8900A21646 /* MuralFacebookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralFacebookCell.m; sourceTree = "<group>"; };
 		A537129618A820C800A21646 /* iconFacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFacebook.png; sourceTree = "<group>"; };
+		A537129E18A8321F00A21646 /* iconLoveBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLoveBlue@2x.png"; sourceTree = "<group>"; };
+		A537129F18A8321F00A21646 /* iconLove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconLove@2x.png"; sourceTree = "<group>"; };
+		A53712A018A8321F00A21646 /* iconShared@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconShared@2x.png"; sourceTree = "<group>"; };
 		A53B6E47188579FB00FA0BD9 /* iconTwitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTwitter.png; sourceTree = "<group>"; };
 		A53B6E4918857E7800FA0BD9 /* iconBlog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBlog.png; sourceTree = "<group>"; };
 		A53B6E4B1885830600FA0BD9 /* imageFake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageFake.png; sourceTree = "<group>"; };
@@ -311,6 +317,9 @@
 				A537129618A820C800A21646 /* iconFacebook.png */,
 				A53B6E6E1885DF4900FA0BD9 /* iconYoutube.png */,
 				A53B6E6C1885DE8A00FA0BD9 /* imageYoutube.png */,
+				A537129E18A8321F00A21646 /* iconLoveBlue@2x.png */,
+				A537129F18A8321F00A21646 /* iconLove@2x.png */,
+				A53712A018A8321F00A21646 /* iconShared@2x.png */,
 				A53B6E521885917400FA0BD9 /* iconInstagram.png */,
 				A53B6E5018858DB800FA0BD9 /* imageFake2.png */,
 				A53B6E4B1885830600FA0BD9 /* imageFake.png */,
@@ -486,6 +495,7 @@
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
 				A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */,
 				A537129718A820C800A21646 /* iconFacebook.png in Resources */,
+				A53712A118A8321F00A21646 /* iconLoveBlue@2x.png in Resources */,
 				A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */,
 				A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */,
 				A5009543188DB59F009A8059 /* loading@2x.png in Resources */,
@@ -501,6 +511,8 @@
 				550C12F21813C13700CD48E2 /* bg.png in Resources */,
 				550C12FA1813C88500CD48E2 /* logo.com.png in Resources */,
 				550C12CB1813B60A00CD48E2 /* Main.storyboard in Resources */,
+				A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */,
+				A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */,
 				550C12F61813C5D000CD48E2 /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

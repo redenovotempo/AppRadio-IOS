@@ -15,6 +15,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
+        
     }
     return self;
 }
@@ -24,6 +26,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(IBAction)likeAction:(id)sender{
+    NSLog(@"liked!!");
+}
+-(IBAction)shareAction:(id)sender{
+    NSLog(@"Shared!!");
 }
 
 @end

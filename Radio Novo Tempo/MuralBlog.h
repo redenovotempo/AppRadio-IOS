@@ -22,6 +22,7 @@
 @property(nonatomic,strong)NSString * createdDate;
 
 
+
 +(MuralBlog *)getFromDictionary: (NSDictionary *)dict;
 
 @end

@@ -19,7 +19,7 @@
 @property(nonatomic,strong)NSString * message;
 @property(nonatomic,strong)NSString * picture;
 @property(nonatomic,strong)NSString * createdDate;
-@property(nonatomic,strong)NSString * likes;
+@property(nonatomic,strong)NSNumber * likes;
 
 
 

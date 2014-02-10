@@ -183,6 +183,13 @@
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
+//            [cell.btnLikes setTitle:@"24" forState: UIControlStateNormal];
+//            cell.btnLikes.imageEdgeInsets =  UIEdgeInsetsMake(0, 0, 0, 11);
+//            
+//            UIImage *btnImage = [UIImage imageNamed:@"iconLoveBlue.png"];
+//            [cell.btnLikes  setImage:btnImage forState:UIControlStateNormal];
+            
+            
             //Calculando altura do titulo
             cell.constraintTitleHeight.constant = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
             
@@ -230,6 +237,17 @@
             cell.txtViewContent.text = muralFacebook.message;
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralFacebook.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
+            
+            //verificando likes
+            if ([muralFacebook.likes intValue] != 0) {
+                
+                [cell.btnLikes setTitle:[NSString stringWithFormat:@"%@",muralFacebook.likes] forState: UIControlStateNormal];
+                cell.btnLikes.imageEdgeInsets =  UIEdgeInsetsMake(0, 0, 0, 11);
+                
+                UIImage *btnImage = [UIImage imageNamed:@"iconLoveBlue.png"];
+                [cell.btnLikes  setImage:btnImage forState:UIControlStateNormal];
+            }
+            
             
             
             //Verificando se existe imagem no Facebook
@@ -519,6 +537,7 @@
         CGFloat IMG_SIZE = 180;
         CGFloat REST_ELEMENTS_SIZE = 74;
         CGFloat PADDING_BOTTOM = 40;
+        CGFloat BUTTONS = 40;
         CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralBlog.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
         CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
 
@@ -527,7 +546,7 @@
         if ([muralBlog.image isEqual:[NSNull null]]) {
             IMG_SIZE = 0;
         }
-        return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM;
+        return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM+BUTTONS;
     }
     
     //Facebook

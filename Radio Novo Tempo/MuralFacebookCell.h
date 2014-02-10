@@ -21,4 +21,8 @@
 @property(nonatomic,retain)IBOutlet NSLayoutConstraint * constraintImgHeight;
 
 
+//buttons
+@property(nonatomic,retain)IBOutlet UIButton * btnLikes;
+@property(nonatomic,retain)IBOutlet UIButton * btnShare;
+
 @end
