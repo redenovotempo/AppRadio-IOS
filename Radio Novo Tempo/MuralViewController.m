@@ -183,11 +183,8 @@
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
-//            [cell.btnLikes setTitle:@"24" forState: UIControlStateNormal];
-//            cell.btnLikes.imageEdgeInsets =  UIEdgeInsetsMake(0, 0, 0, 11);
-//            
-//            UIImage *btnImage = [UIImage imageNamed:@"iconLoveBlue.png"];
-//            [cell.btnLikes  setImage:btnImage forState:UIControlStateNormal];
+            //acao do share para os butons
+            [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
             
             //Calculando altura do titulo
@@ -237,6 +234,9 @@
             cell.txtViewContent.text = muralFacebook.message;
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralFacebook.icon]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
+            
+            //acao do share para os butons
+            [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
             //verificando likes
             if ([muralFacebook.likes intValue] != 0) {
@@ -408,9 +408,9 @@
     
     //Alinhando Componentes
     img.center = muralTableView.center;
-    img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 120, img.frame.size.width, img.frame.size.height);
+    img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 80, img.frame.size.width, img.frame.size.height);
     [img.layer addAnimation:rotate forKey:@"10"];
-    txt.frame = CGRectMake(img.frame.origin.x + 10, img.frame.origin.y + 100, img.frame.size.width, img.frame.size.height);
+    txt.frame = CGRectMake(img.frame.origin.x + 10, img.frame.origin.y + 85, img.frame.size.width, img.frame.size.height);
     
     //Inserindo Componentes na LoadingView
     [loadingView addSubview:txt];
@@ -418,8 +418,8 @@
     
     
     //Alinhando LoadingView
-    loadingView.center = muralTableView.center;
-    loadingView.frame = muralTableView.frame;
+    loadingView.center = self.view.center;
+    loadingView.frame =  CGRectMake(self.view.frame.origin.x, 73, self.view.frame.size.width, self.view.frame.size.height);
     
     //Alterando Cor de Fundo da LoadingView
     loadingView.backgroundColor = [UIColor whiteColor];
@@ -589,6 +589,19 @@
         self.containerView.hidden = NO;
     }
     
+}
+
+-(void)shareMuralItem:(id)sender{
+    
+    NSString* shareText = [NSString stringWithFormat:@"Compartilhando..."];
+    
+    NSArray* dataToShare = @[shareText];
+    
+    UIActivityViewController* activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:dataToShare
+                                      applicationActivities:nil];
+    
+    [self presentViewController:activityViewController animated:YES completion:^{}];
 }
 
 

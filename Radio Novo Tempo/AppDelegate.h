@@ -15,6 +15,7 @@
 #import "MenuViewController.h"
 #import "MMDrawerController.h"
 #import "MuralViewController.h"
+#import "FilosofiaViewController.h"
 #import "Radio.h"
 
 

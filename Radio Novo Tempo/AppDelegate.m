@@ -1,4 +1,4 @@
-//
+        //
 //  AppDelegate.m
 //  Radio Novo Tempo
 //
@@ -146,10 +146,20 @@
                                  rightDrawerViewController:nil];
     }
     
-    //Main
-    if ([currentViewControllerName isEqualToString:@"Player"]) {
+    //Player
+    else if ([currentViewControllerName isEqualToString:@"Player"]) {
         PlayerViewController * current = (PlayerViewController*)[mainStoryboard
                                                                instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+    }
+    //Filosofia
+    else if ([currentViewControllerName isEqualToString:@"Filosofia"]) {
+        FilosofiaViewController * current = (FilosofiaViewController*)[mainStoryboard
+                                                                 instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
                                  initWithCenterViewController:current
