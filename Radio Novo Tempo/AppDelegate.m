@@ -305,6 +305,11 @@
     
     self.globallistRadios = radioList;
     
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"ReloadPickerViewContent"
+     object:self];
+    
+    
     Radio * radioDefault = [Radio getFromDictionary:[radioList objectAtIndex:0]];
     
     NSString * stringUrl = [NSString stringWithFormat:@"%@",radioDefault.streamIOS];

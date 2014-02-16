@@ -557,7 +557,7 @@
         
         CGFloat IMG_SIZE = 180;
         CGFloat REST_ELEMENTS_SIZE = 74;
-        CGFloat PADDING_BOTTOM = 40;
+        CGFloat PADDING_BOTTOM = 50;
         CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralFacebook.message andWidth:280 andFont:[UIFont systemFontOfSize:14]];
     
         
@@ -583,10 +583,11 @@
     float h = size.height;
     
     //Escondendo player
-    if(y >= h ) {
+    if(y >= h-3) {
         self.containerView.hidden = YES;
     }else{
         self.containerView.hidden = NO;
+        //NSLog(@"%f = y e %f = h",y,h+3);
     }
     
 }

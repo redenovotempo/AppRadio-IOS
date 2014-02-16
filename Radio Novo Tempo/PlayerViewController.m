@@ -48,6 +48,16 @@
                                                 name:UIApplicationDidBecomeActiveNotification
                                               object:nil];
     
+    
+    //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(ReloadPickerViewContent)
+                                                name:@"ReloadPickerViewContent"
+                                              object:nil];
+    
+    
+    
+    
     //Verificando se a radio ja esta tocando.
     [self CheckPlayerState];
     
@@ -59,15 +69,11 @@
     volumeCanvas.backgroundColor = [UIColor clearColor];
     
     //Atualizando lista a cada 60 porcausa do delay GPS
-    [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(ReloadPickerViewContent) userInfo:nil repeats:YES];
+    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(ReloadPickerViewContent) userInfo:nil repeats:YES];
 }
 
 -(void)ReloadPickerViewContent{
-    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-     if (!appDel.globallistRadios) {
-         [self.pickerViewRadioList reloadAllComponents];
-     }
+    [self.pickerViewRadioList reloadAllComponents];
 }
 
 
@@ -182,9 +188,9 @@
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //set item per row
-    NSDictionary * dictRecipient = [[NSDictionary alloc]init];
-    dictRecipient = [appDel.globallistRadios objectAtIndex:row];
-    return [dictRecipient objectForKey:@"name"];
+    //NSDictionary * dictRecipient = [[NSDictionary alloc]init];
+    //dictRecipient = [appDel.globallistRadios objectAtIndex:row];
+    return [[appDel.globallistRadios objectAtIndex:row] objectForKey:@"name"];
 }
 
 
@@ -230,7 +236,6 @@
 
 - (IBAction)hideRadioList:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     
     int row = [self.pickerViewRadioList selectedRowInComponent:0];
     Radio * selectedRadio = [Radio getFromDictionary:[appDel.globallistRadios objectAtIndex:row]];
