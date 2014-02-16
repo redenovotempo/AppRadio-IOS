@@ -16,6 +16,7 @@
 #import "MMDrawerController.h"
 #import "MuralViewController.h"
 #import "FilosofiaViewController.h"
+#import "EquipeViewController.h"
 #import "Radio.h"
 
 

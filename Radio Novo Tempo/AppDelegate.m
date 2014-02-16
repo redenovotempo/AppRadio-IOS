@@ -166,6 +166,16 @@
                                  leftDrawerViewController:menu
                                  rightDrawerViewController:nil];
     }
+    //EQUIPE
+    else if ([currentViewControllerName isEqualToString:@"Equipe"]) {
+        EquipeViewController * current = (EquipeViewController*)[mainStoryboard
+                                                                       instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+    }
     
     
     

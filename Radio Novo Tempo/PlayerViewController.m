@@ -68,8 +68,6 @@
     [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
     volumeCanvas.backgroundColor = [UIColor clearColor];
     
-    //Atualizando lista a cada 60 porcausa do delay GPS
-    //[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(ReloadPickerViewContent) userInfo:nil repeats:YES];
 }
 
 -(void)ReloadPickerViewContent{
