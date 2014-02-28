@@ -30,10 +30,11 @@
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
+		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
 		A5009543188DB59F009A8059 /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A500953F188DB59F009A8059 /* loading@2x.png */; };
 		A502B27018B1582100636B7B /* EquipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A502B26F18B1582100636B7B /* EquipeViewController.m */; };
+		A502B27218B173A500636B7B /* person.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A502B27118B173A500636B7B /* person.jpg */; };
 		A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFB71847F937000BAB46 /* AdSupport.framework */; };
-		A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */; };
 		A537129518A81F8900A21646 /* MuralFacebookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A537129418A81F8900A21646 /* MuralFacebookCell.m */; };
 		A537129718A820C800A21646 /* iconFacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = A537129618A820C800A21646 /* iconFacebook.png */; };
 		A53712A118A8321F00A21646 /* iconLoveBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A537129E18A8321F00A21646 /* iconLoveBlue@2x.png */; };
@@ -114,15 +115,16 @@
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		55A8549318BFFEF700690C29 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
 		700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A500953F188DB59F009A8059 /* loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading@2x.png"; sourceTree = "<group>"; };
 		A502B26E18B1582100636B7B /* EquipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipeViewController.h; sourceTree = "<group>"; };
 		A502B26F18B1582100636B7B /* EquipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeViewController.m; sourceTree = "<group>"; };
+		A502B27118B173A500636B7B /* person.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person.jpg; sourceTree = "<group>"; };
 		A51DAE871847F62E000BAB46 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A51DAE881847F65A000BAB46 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A51DAFB71847F937000BAB46 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		A51DAFBA1847FA4D000BAB46 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.0.a; sourceTree = "<group>"; };
 		A537129318A81F8900A21646 /* MuralFacebookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuralFacebookCell.h; sourceTree = "<group>"; };
 		A537129418A81F8900A21646 /* MuralFacebookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuralFacebookCell.m; sourceTree = "<group>"; };
 		A537129618A820C800A21646 /* iconFacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFacebook.png; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 				554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */,
 				550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */,
 				550C12BA1813B60A00CD48E2 /* CoreGraphics.framework in Frameworks */,
-				A51DAFBC1847FA4D000BAB46 /* libFlurry_4.3.0.a in Frameworks */,
+				55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */,
 				550C12BC1813B60A00CD48E2 /* UIKit.framework in Frameworks */,
 				550C12B81813B60A00CD48E2 /* Foundation.framework in Frameworks */,
 				C8ABE635BDD945BDB9787A98 /* libPods.a in Frameworks */,
@@ -215,8 +217,8 @@
 			children = (
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
+				55A8549218BFFEF700690C29 /* Flurry */,
 				550C12B51813B60A00CD48E2 /* Products */,
-				A51DAFB91847FA4D000BAB46 /* Flurry */,
 				700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
@@ -288,13 +290,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A51DAFB91847FA4D000BAB46 /* Flurry */ = {
+		55A8549218BFFEF700690C29 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
-				A51DAFBA1847FA4D000BAB46 /* Flurry.h */,
-				A51DAFBB1847FA4D000BAB46 /* libFlurry_4.3.0.a */,
+				55A8549318BFFEF700690C29 /* Flurry.h */,
+				55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */,
 			);
-			path = Flurry;
+			name = Flurry;
+			path = "Radio Novo Tempo/Flurry";
 			sourceTree = "<group>";
 		};
 		A53B6E45188579B400FA0BD9 /* Images */ = {
@@ -302,6 +305,7 @@
 			children = (
 				A53B6E46188579E800FA0BD9 /* Mural */,
 				A500953F188DB59F009A8059 /* loading@2x.png */,
+				A502B27118B173A500636B7B /* person.jpg */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				A543D59D1882D519001BDD94 /* separator@2x.png */,
 				550C12F51813C5D000CD48E2 /* play.png */,
@@ -508,6 +512,7 @@
 				A53712A118A8321F00A21646 /* iconLoveBlue@2x.png in Resources */,
 				A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */,
 				A55AFCF718394D3300D8DC86 /* downArrow.png in Resources */,
+				A502B27218B173A500636B7B /* person.jpg in Resources */,
 				A5009543188DB59F009A8059 /* loading@2x.png in Resources */,
 				550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */,
 				550C13001813CE7A00CD48E2 /* pause.png in Resources */,
@@ -730,9 +735,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/Flurry",
-					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/FlurryAds",
-					/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry,
+					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -758,9 +761,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/Flurry",
-					"/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry4.3.0/Flurry-iOS-4.3.0/FlurryAds",
-					/Users/michellopes/Documents/Dev./RadioNovoTempo/Flurry,
+					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -50,7 +50,7 @@
 @property (nonatomic, retain) MPMoviePlayerController *player;
 @property(nonatomic,strong)UILabel * lblRadioName;
 @property(nonatomic,assign)BOOL needReloadCurrentStreamUrl;
-@property(nonatomic,assign)BOOL isPlayerStarted;
+@property(nonatomic,assign)BOOL isPlayerStarted; 
 
 - (void) PlayAudio;
 - (void) PauseAudio;

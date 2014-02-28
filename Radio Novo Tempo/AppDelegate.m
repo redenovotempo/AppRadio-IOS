@@ -220,6 +220,7 @@
 - (void) ChangePlayerStreamUrl: (NSString *) url{
     NSURL * serviceUrl = [NSURL URLWithString:url];
     player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
+    NSLog(@"%@",serviceUrl);
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {

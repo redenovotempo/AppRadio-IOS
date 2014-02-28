@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface EquipeViewController : UIViewController
+@interface EquipeViewController : UIViewController<UIScrollViewDelegate>
+
 
 @end
