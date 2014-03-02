@@ -32,6 +32,7 @@
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
+		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
 		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
 		A5009543188DB59F009A8059 /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A500953F188DB59F009A8059 /* loading@2x.png */; };
 		A502B27018B1582100636B7B /* EquipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A502B26F18B1582100636B7B /* EquipeViewController.m */; };
@@ -121,6 +122,8 @@
 		55A7623A18C37E460084570E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		55A7624018C392450084570E /* UIViewPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewPerson.h; sourceTree = "<group>"; };
 		55A7624118C392450084570E /* UIViewPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewPerson.m; sourceTree = "<group>"; };
+		55A7624318C3C84E0084570E /* EquipeDadosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipeDadosCell.h; sourceTree = "<group>"; };
+		55A7624418C3C84E0084570E /* EquipeDadosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeDadosCell.m; sourceTree = "<group>"; };
 		55A8549318BFFEF700690C29 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
 		700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				55A7623A18C37E460084570E /* Person.m */,
 				55A7624018C392450084570E /* UIViewPerson.h */,
 				55A7624118C392450084570E /* UIViewPerson.m */,
+				55A7624318C3C84E0084570E /* EquipeDadosCell.h */,
+				55A7624418C3C84E0084570E /* EquipeDadosCell.m */,
 			);
 			name = Equipe;
 			sourceTree = "<group>";
@@ -607,6 +612,7 @@
 				A537129518A81F8900A21646 /* MuralFacebookCell.m in Sources */,
 				A53B6E641885D05600FA0BD9 /* MuralYoutube.m in Sources */,
 				A502B27018B1582100636B7B /* EquipeViewController.m in Sources */,
+				55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */,
 				A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */,
 				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
 				A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */,

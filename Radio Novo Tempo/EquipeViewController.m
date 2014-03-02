@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Person.h"
 #import "UIViewPerson.h"
+#import "EquipeDadosCell.h"
 
 int widthOfPage = 100;
 int heightOfPage = 100;
@@ -33,12 +34,12 @@ BOOL isScrollNeedMove = YES;
 //Elementos
 @property(nonatomic,strong)NSMutableArray * equipeArray;
 @property(nonatomic,strong)Person * selectedPerson;
+@property(nonatomic,strong)NSArray * selectedPersonDataArray;
 
 //Elementos visuais
 @property (weak, nonatomic) IBOutlet UITextView *textViewPersonRecord;
-@property (weak, nonatomic) IBOutlet UILabel *lblCity;
-@property (weak, nonatomic) IBOutlet UILabel *lblAge;
-@property (weak, nonatomic) IBOutlet UILabel *lblMaritalStatus;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightText;
+@property (weak, nonatomic) IBOutlet UITableView *tableSelectedPersonData;
 
 
 @end
@@ -68,6 +69,7 @@ BOOL isScrollNeedMove = YES;
     screenSize = (self.view.frame.size.width/2);
     
     [self CallEquipJsonData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -287,14 +289,60 @@ BOOL isScrollNeedMove = YES;
 
 
 -(void)updateDataWidthSelectedPerson{
+    
     //Atualizando texto de recado
     self.textViewPersonRecord.text = self.selectedPerson.umrecadoparaosouvintes;
-    //Atualizando cidade
-    self.lblCity.text = self.selectedPerson.cidadenatal;
-    //Atualizando idade
-    self.lblAge.text = self.selectedPerson.idade;
-    //Atualizando estado civil
-    self.lblMaritalStatus.text = self.selectedPerson.estadocivil;
+    self.constraintHeightText.constant = [self textViewHeightForAttributedText:self.selectedPerson.umrecadoparaosouvintes andWidth:320 andFont:[UIFont systemFontOfSize:15]];
+    
+    //Atualizando dados
+    NSDictionary * cidadenatal =@{@"value": self.selectedPerson.cidadenatal,@"name": @"cidade natal"};
+    NSDictionary * conhecidocomo =@{@"value": self.selectedPerson.conhecidocomo,@"name": @"conhecido como"};
+    //NSDictionary * description =@{@"value": self.selectedPerson.description,@"name": @"description"};
+    NSDictionary * estadocivil =@{@"value": self.selectedPerson.estadocivil,@"name": @"estado civil"};
+    NSDictionary * familia =@{@"value": self.selectedPerson.familia,@"name": @"familia"};
+    //NSDictionary * _id =@{@"value": self.selectedPerson._id,@"name": @"_id"};
+    NSDictionary * idade =@{@"value": self.selectedPerson.idade,@"name": @"idade"};
+    //NSDictionary * image =@{@"value": self.selectedPerson.image,@"name": @"image"};
+    NSDictionary * name =@{@"value": self.selectedPerson.name,@"name": @"name"};
+    NSDictionary * naogostade =@{@"value": self.selectedPerson.naogostade,@"name": @"nao gosta de"};
+    NSDictionary * naosaidecasasem =@{@"value": self.selectedPerson.naosaidecasasem,@"name": @"nao sai de casa sem"};
+    NSDictionary * ondejatrabalhou =@{@"value": self.selectedPerson.ondejatrabalhou,@"name": @"onde ja trabalhou"};
+    NSDictionary * radionovotempo =@{@"value": self.selectedPerson.radionovotempo,@"name": @"radio novotempo"};
+    NSDictionary * senaotrabalhassenanovotemposeria =@{@"value": self.selectedPerson.senaotrabalhassenanovotemposeria,@"name": @"se nao trabalhasse na novotempo seria"};
+    NSDictionary * suafuncaonaradiont =@{@"value": self.selectedPerson.suafuncaonaradiont,@"name": @"sua funcao na radio nt"};
+    NSDictionary * umadatainesquecivel =@{@"value": self.selectedPerson.umadatainesquecivel,@"name": @"uma data inesquecivel"};
+    NSDictionary * umamusica =@{@"value": self.selectedPerson.umamusica,@"name": @"uma musica"};
+    NSDictionary * umaviagem =@{@"value": self.selectedPerson.umaviagem,@"name": @"uma viagem"};
+    NSDictionary * umpresente =@{@"value": self.selectedPerson.umpresente,@"name": @"um presente"};
+    NSDictionary * umrecadoparaosouvintes =@{@"value": self.selectedPerson.umrecadoparaosouvintes,@"name": @"um recado para os ouvintes"};
+    NSDictionary * umsonho =@{@"value": self.selectedPerson.umsonho,@"name": @"um sonho"};
+    
+    //Inserindo lista no array
+    self.selectedPersonDataArray = @[
+    cidadenatal,
+    conhecidocomo,
+    //description,
+    estadocivil,
+    familia,
+    //_id,
+    idade,
+    //image,
+    name,
+    naogostade,
+    naosaidecasasem,
+    ondejatrabalhou,
+    radionovotempo,
+    senaotrabalhassenanovotemposeria,
+    suafuncaonaradiont,
+    umadatainesquecivel,
+    umamusica,
+    umaviagem,
+    umpresente,
+    umrecadoparaosouvintes,
+    umsonho];
+    
+    [self.tableSelectedPersonData reloadData];
+    
 }
 
 -(float)scrollStartPositionOnCenterItem{
@@ -312,6 +360,30 @@ BOOL isScrollNeedMove = YES;
     float result = item.center.x-8;
     
     return result;
+}
+
+- (CGFloat)textViewHeightForAttributedText: (NSString*)textString andWidth: (CGFloat)width andFont:(UIFont *)font{
+    
+    NSData* data = [textString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSAttributedString *text = [[NSAttributedString alloc] initWithData:data
+                                                                options:nil
+                                                     documentAttributes:NULL
+                                                                  error:NULL];
+    
+    UITextView *calculationView = [[UITextView alloc] init];
+    [calculationView setAttributedText:text];
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(width, FLT_MAX)];
+    
+    CGSize sizeWithFont = [self text:textString sizeWithFont:font constrainedToSize:calculationView.frame.size];
+    
+    return size.height + sizeWithFont.height+3.5;
+}
+
+- (CGSize)text:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+    return [text sizeWithFont:font constrainedToSize:size];
+    
 }
 
 
@@ -362,7 +434,42 @@ BOOL isScrollNeedMove = YES;
     
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.selectedPersonDataArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableDictionary * item = [self.selectedPersonDataArray objectAtIndex:indexPath.row];
+    
+    NSString *cellIdentifier = @"EquipeDadosCell";
+    EquipeDadosCell * cell = (EquipeDadosCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.lblName.text = [[item objectForKey:@"name"] capitalizedString];
+    cell.txtValue.text = [item objectForKey:@"value"];
+    
+    //Calculando altura do titulo
+    cell.heightConstraint.constant = [self textViewHeightForAttributedText:[item objectForKey:@"value"] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    NSDictionary * item = [self.selectedPersonDataArray objectAtIndex:indexPath.row];
+    
+    float value = [self textViewHeightForAttributedText:[item objectForKey:@"value"] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+    float title = 18;
+    
+    return value + title;
+}
 
 
 @end
