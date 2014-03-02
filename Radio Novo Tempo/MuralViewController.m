@@ -21,7 +21,6 @@
 @synthesize imgLoading;
 @synthesize loadingView;
 @synthesize urlConnection;
-@synthesize urlData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

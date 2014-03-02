@@ -34,7 +34,6 @@
 
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
 @property(nonatomic,retain)IBOutlet UIButton * playUiButton;
-@property(nonatomic,retain)NSData * urlData;
 
 
 //Loading
