@@ -12,15 +12,16 @@
 #import "UIViewPerson.h"
 #import "EquipeDadosCell.h"
 
+
+BOOL abortGDCProcess = NO;
+#define CheckerGDCProcess if ( abortGDCProcess ) { goto endProcess; }
+
 int widthOfPage = 100;
 int heightOfPage = 100;
 int screenSize = 0;
 CGFloat PADDING_LEFT = 50;
-BOOL isScrollNeedMove = YES;
-BOOL canUpdateSelectedPersonElements = YES;
 
 @interface EquipeViewController ()
-
 
 //Loading
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
@@ -31,16 +32,21 @@ BOOL canUpdateSelectedPersonElements = YES;
 //Scroll
 @property(nonatomic)UIButton * btnMain;
 @property(nonatomic)UIScrollView * scroll;
+@property(nonatomic)NSNumber * lastCodeUpdated;
+@property(nonatomic)BOOL isScrollNeedMove;
 
 //Elementos
 @property(nonatomic,strong)NSMutableArray * equipeArray;
 @property(nonatomic,strong)Person * selectedPerson;
-@property(nonatomic,strong)NSArray * selectedPersonDataArray;
+@property(nonatomic,retain)NSArray * selectedPersonDataArray;
 @property(nonatomic,retain)UITextView * calculationView;
 
 //Elementos visuais
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightText;
 @property (weak, nonatomic) IBOutlet UITableView *tableSelectedPersonData;
+
+//Thread
+@property(nonatomic)BOOL canUpdateSelectedPersonElements;
 
 
 @end
@@ -56,9 +62,7 @@ BOOL canUpdateSelectedPersonElements = YES;
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-
-    
+-(void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)viewDidLoad
@@ -66,8 +70,12 @@ BOOL canUpdateSelectedPersonElements = YES;
     [super viewDidLoad];
     
     
+    self.isScrollNeedMove = YES;
+    self.canUpdateSelectedPersonElements = YES;
+    
     //instanciando txtview de altura
     self.calculationView = [[UITextView alloc]init];
+    self.lastCodeUpdated = [[NSNumber alloc]init];
     
     //Pegando tamanho da tela
     screenSize = (self.view.frame.size.width/2);
@@ -86,10 +94,6 @@ BOOL canUpdateSelectedPersonElements = YES;
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
-
-
-
-
 
 
 
@@ -149,7 +153,6 @@ BOOL canUpdateSelectedPersonElements = YES;
     }else{
         [self.loadingView removeFromSuperview];
         [self createScrollElements];
-        NSLog(@"%@",resultados);
     }
 }
 
@@ -159,6 +162,7 @@ BOOL canUpdateSelectedPersonElements = YES;
     CGRect frame = CGRectMake(0, 73, self.view.frame.size.width, 150);
     self.scroll = [[UIScrollView alloc]initWithFrame:frame];
     self.scroll.delegate = self;
+    self.scroll.tag = 22;
     //self.scroll.backgroundColor = [UIColor redColor];
     self.scroll.pagingEnabled = NO;
     self.scroll.showsHorizontalScrollIndicator = NO;
@@ -236,81 +240,106 @@ BOOL canUpdateSelectedPersonElements = YES;
     self.scroll.contentSize = CGSizeMake((self.equipeArray.count*widthOfPage)+((self.equipeArray.count+1)*(PADDING_LEFT+15))+(screenSize * 2)-widthOfPage, 1);
     [self.view addSubview:self.scroll];
     
+    //atualizando posiçao do scroll.
+    [self updateScrollPosition];
+}
+
+-(void)updateScrollPosition{
     //Mandando scroll pro quadrado default
-    if (isScrollNeedMove) {
+    if (self.isScrollNeedMove) {
         [self.scroll setContentOffset:CGPointMake([self scrollStartPositionOnCenterItem], 0) animated:NO];
-        isScrollNeedMove = NO;
+        self.isScrollNeedMove = NO;
     }
+
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
     
+    //Parando scroll da tabela e mandando pro top.
+    if (aScrollView.tag == 22) {
+        [self.tableSelectedPersonData setContentOffset:CGPointZero animated:NO];
+    }
+    
     int scrollPosition = aScrollView.contentOffset.x;
     NSArray * views =  aScrollView.subviews;
-    NSNumber * lastCodeUpdated = nil;
-    
+    BOOL isFetchedOnePerson = NO;
+
     //Varrendo items do array
     for (UIView * viewItem in views) {
         
         //Conferindo tipo dos items que estao vindo do scroll.
-        if ([viewItem isKindOfClass:[UIViewPerson class]] && canUpdateSelectedPersonElements){
+        if ([viewItem isKindOfClass:[UIViewPerson class]] && self.canUpdateSelectedPersonElements){
             UIViewPerson * viewItemPerson = (UIViewPerson *)viewItem;
             
             //encontrou o item selecionado
             if (((scrollPosition + screenSize) <= viewItemPerson.center.x + (widthOfPage/2)) && ((scrollPosition+ screenSize) >= viewItemPerson.center.x - (widthOfPage/2))) {
                 
+                isFetchedOnePerson = YES;
+                
                 //Verificando se o item selecionado existe
                 if (viewItemPerson) {
+                    self.selectedPerson = nil;
+                    abortGDCProcess = YES;
+                    
                     //Verificando se o item tem um codigo
-                    if (viewItemPerson.code && viewItemPerson.code != lastCodeUpdated) {
-                        
-                       
-                        
-                        //Criando imagem do item
-                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                            //Background Thread
+                    if (viewItemPerson.code) {
+                    
+                        if (viewItemPerson.code != self.lastCodeUpdated) {
                             
-                            //Travando thread
-                            canUpdateSelectedPersonElements = NO;
-                            
-                            //Buscando item com o codigo
-                            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.id == %d",[viewItemPerson.code intValue]];
-                            NSArray *filtered = [self.equipeArray filteredArrayUsingPredicate:predicate];
-                            
-                            //Pegando item selecionado
-                            self.selectedPerson = [Person getFromDictionary:filtered[0]];
-                            
-                            
-                            dispatch_async(dispatch_get_main_queue(), ^(void){
-                                //Run UI Updates
-                               
-                                //Aumentando item encontrado
-                                [UIView animateWithDuration:0.2 animations:^{
-                                    viewItemPerson.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
-                                }];
-                                
-                                //Chamando metodo que atualiza dados da tela de acordo com o item selecionado.
-                                [self updateDataWidthSelectedPerson];
+                            //Criando imagem do item
+                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                                //Background Thread
                                 
                                 //Travando thread
-                                canUpdateSelectedPersonElements = YES;
+                                self.canUpdateSelectedPersonElements = NO;
+                                
+                                //Buscando item com o codigo
+                                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.id == %d",[viewItemPerson.code intValue]];
+                                NSArray *filtered = [self.equipeArray filteredArrayUsingPredicate:predicate];
+                                
+                                //Pegando item selecionado
+                                self.selectedPerson = [Person getFromDictionary:filtered[0]];
+                                
+                                
+                                dispatch_async(dispatch_get_main_queue(), ^(void){
+                                    //Run UI Updates
+                                   
+                                    //Aumentando item encontrado
+                                    [UIView animateWithDuration:0.2 animations:^{
+                                        viewItemPerson.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5, 1.5);
+                                    }];
+                                    
+                                    //Chamando metodo que atualiza dados da tela de acordo com o item selecionado.
+                                    abortGDCProcess = NO;
+                                    [self updateDataWidthSelectedPerson];
+                                    
+                                    //Travando thread
+                                    self.canUpdateSelectedPersonElements = YES;
 
+                                });
                             });
-                        });
-                        
-                        
-                        lastCodeUpdated = viewItemPerson.code;
+                            
+                        }
+                        //Guardando codigo do ultimo item selecionado para nao repetir o processo a cada pixel percorrido pelo scroll
+                        self.lastCodeUpdated = viewItemPerson.code;
                     }
                 }
             }
             else{
+                //Diminuindo itens que nao estao no centro
                 [UIView animateWithDuration:0.2 animations:^{
                     viewItem.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
                 }];
             }
         }
     }
+    
+    //Verificando de algum item foi encontrado no centro para zerar o ultimo item.
+    if (!isFetchedOnePerson) {
+        self.lastCodeUpdated = nil;
+    }
+
 }
 
 
@@ -319,80 +348,109 @@ BOOL canUpdateSelectedPersonElements = YES;
 
 -(void)updateDataWidthSelectedPerson{
 
-    //Atualizando texto de recado
-    if (![self.selectedPerson.description isEqual:@""]) {
-        self.tableSelectedPersonData.tableHeaderView = nil;
-        UITextView * txtView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,  [self textViewHeightForAttributedText:self.selectedPerson.description andWidth:320 andFont:[UIFont systemFontOfSize:15]] + 20)];
-        [txtView setFont:[UIFont systemFontOfSize:15]];
-        txtView.textAlignment = NSTextAlignmentCenter;
-        txtView.textColor = [UIColor grayColor];
-        txtView.text = self.selectedPerson.description;
-        self.tableSelectedPersonData.tableHeaderView = txtView;
-    }
+  
     
-    
-        //Atualizando dados
-        NSDictionary * cidadenatal =@{@"value": self.selectedPerson.cidadenatal,@"name": @"cidade natal"};
-        NSDictionary * conhecidocomo =@{@"value": self.selectedPerson.conhecidocomo,@"name": @"conhecido como"};
-        //NSDictionary * description =@{@"value": self.selectedPerson.description,@"name": @"description"};
-        NSDictionary * estadocivil =@{@"value": self.selectedPerson.estadocivil,@"name": @"estado civil"};
-        NSDictionary * familia =@{@"value": self.selectedPerson.familia,@"name": @"familia"};
-        //NSDictionary * _id =@{@"value": self.selectedPerson._id,@"name": @"_id"};
-        NSDictionary * idade =@{@"value": self.selectedPerson.idade,@"name": @"idade"};
-        //NSDictionary * image =@{@"value": self.selectedPerson.image,@"name": @"image"};
-        NSDictionary * name =@{@"value": self.selectedPerson.name,@"name": @"name"};
-        NSDictionary * naogostade =@{@"value": self.selectedPerson.naogostade,@"name": @"nao gosta de"};
-        NSDictionary * naosaidecasasem =@{@"value": self.selectedPerson.naosaidecasasem,@"name": @"nao sai de casa sem"};
-        NSDictionary * ondejatrabalhou =@{@"value": self.selectedPerson.ondejatrabalhou,@"name": @"onde ja trabalhou"};
-        NSDictionary * radionovotempo =@{@"value": self.selectedPerson.radionovotempo,@"name": @"radio novotempo"};
-        NSDictionary * senaotrabalhassenanovotemposeria =@{@"value": self.selectedPerson.senaotrabalhassenanovotemposeria,@"name": @"se nao trabalhasse na novotempo seria"};
-        NSDictionary * suafuncaonaradiont =@{@"value": self.selectedPerson.suafuncaonaradiont,@"name": @"sua funcao na radio nt"};
-        NSDictionary * umadatainesquecivel =@{@"value": self.selectedPerson.umadatainesquecivel,@"name": @"uma data inesquecivel"};
-        NSDictionary * umamusica =@{@"value": self.selectedPerson.umamusica,@"name": @"uma musica"};
-        NSDictionary * umaviagem =@{@"value": self.selectedPerson.umaviagem,@"name": @"uma viagem"};
-        NSDictionary * umpresente =@{@"value": self.selectedPerson.umpresente,@"name": @"um presente"};
-        NSDictionary * umrecadoparaosouvintes =@{@"value": self.selectedPerson.umrecadoparaosouvintes,@"name": @"um recado para os ouvintes"};
-        NSDictionary * umsonho =@{@"value": self.selectedPerson.umsonho,@"name": @"um sonho"};
-    
-    //Criando imagem do item
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        //Atualizando texto de recado
+        if (![_selectedPerson.description isEqual:@""]) {
+            self.tableSelectedPersonData.tableHeaderView = nil;
+            UITextView * txtView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,  [self textViewHeightForAttributedText:_selectedPerson.description andWidth:320 andFont:[UIFont systemFontOfSize:15]] + 20)];
+            [txtView setFont:[UIFont systemFontOfSize:15]];
+            txtView.textAlignment = NSTextAlignmentCenter;
+            txtView.textColor = [UIColor grayColor];
+            txtView.text = _selectedPerson.description;
+            self.tableSelectedPersonData.tableHeaderView = txtView;
+        }
+        
+        
+        //Criando imagem do item
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            
+        CheckerGDCProcess
+        {
+            
+            //Atualizando dados
+            NSDictionary * cidadenatal =@{@"value": _selectedPerson.cidadenatal,@"name": @"cidade natal"};
+            CheckerGDCProcess
+            NSDictionary * conhecidocomo =@{@"value": _selectedPerson.conhecidocomo,@"name": @"conhecido como"};
+            CheckerGDCProcess
+            //NSDictionary * description =@{@"value": self.selectedPerson.description,@"name": @"description"};
+            CheckerGDCProcess
+            NSDictionary * estadocivil =@{@"value": _selectedPerson.estadocivil,@"name": @"estado civil"};
+            CheckerGDCProcess
+            NSDictionary * familia =@{@"value": _selectedPerson.familia,@"name": @"familia"};
+            CheckerGDCProcess
+            //NSDictionary * _id =@{@"value": self.selectedPerson._id,@"name": @"_id"};
+            CheckerGDCProcess
+            NSDictionary * idade =@{@"value": _selectedPerson.idade,@"name": @"idade"};
+            CheckerGDCProcess
+            //NSDictionary * image =@{@"value": self.selectedPerson.image,@"name": @"image"};
+            CheckerGDCProcess
+            NSDictionary * name =@{@"value": _selectedPerson.name,@"name": @"name"};
+            CheckerGDCProcess
+            NSDictionary * naogostade =@{@"value": _selectedPerson.naogostade,@"name": @"nao gosta de"};
+            CheckerGDCProcess
+            NSDictionary * naosaidecasasem =@{@"value": _selectedPerson.naosaidecasasem,@"name": @"nao sai de casa sem"};
+            CheckerGDCProcess
+            NSDictionary * ondejatrabalhou =@{@"value": _selectedPerson.ondejatrabalhou,@"name": @"onde ja trabalhou"};
+            CheckerGDCProcess
+            NSDictionary * radionovotempo =@{@"value": _selectedPerson.radionovotempo,@"name": @"radio novotempo"};
+            CheckerGDCProcess
+            NSDictionary * senaotrabalhassenanovotemposeria =@{@"value": _selectedPerson.senaotrabalhassenanovotemposeria,@"name": @"se nao trabalhasse na novotempo seria"};
+            CheckerGDCProcess
+            NSDictionary * suafuncaonaradiont =@{@"value": _selectedPerson.suafuncaonaradiont,@"name": @"sua funcao na radio nt"};
+            CheckerGDCProcess
+            NSDictionary * umadatainesquecivel =@{@"value": _selectedPerson.umadatainesquecivel,@"name": @"uma data inesquecivel"};
+            CheckerGDCProcess
+            NSDictionary * umamusica =@{@"value": _selectedPerson.umamusica,@"name": @"uma musica"};
+            CheckerGDCProcess
+            NSDictionary * umaviagem =@{@"value": _selectedPerson.umaviagem,@"name": @"uma viagem"};
+            CheckerGDCProcess
+            NSDictionary * umpresente =@{@"value": _selectedPerson.umpresente,@"name": @"um presente"};
+            CheckerGDCProcess
+            NSDictionary * umrecadoparaosouvintes =@{@"value": _selectedPerson.umrecadoparaosouvintes,@"name": @"um recado para os ouvintes"};
+            CheckerGDCProcess
+            NSDictionary * umsonho =@{@"value": _selectedPerson.umsonho,@"name": @"um sonho"};
 
-        
-        //Inserindo lista no array
-        self.selectedPersonDataArray = @[
-                                         cidadenatal,
-                                         conhecidocomo,
-                                         //description,
-                                         estadocivil,
-                                         familia,
-                                         //_id,
-                                         idade,
-                                         //image,
-                                         name,
-                                         naogostade,
-                                         naosaidecasasem,
-                                         ondejatrabalhou,
-                                         radionovotempo,
-                                         senaotrabalhassenanovotemposeria,
-                                         suafuncaonaradiont,
-                                         umadatainesquecivel,
-                                         umamusica,
-                                         umaviagem,
-                                         umpresente,
-                                         umrecadoparaosouvintes,
-                                         umsonho];
-        
-        
 
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            //Run UI Updates
-            [self.tableSelectedPersonData reloadData];
+            CheckerGDCProcess
+            //Inserindo lista no array
+            self.selectedPersonDataArray = @[
+                                             cidadenatal,
+                                             conhecidocomo,
+                                             //description,
+                                             estadocivil,
+                                             familia,
+                                             //_id,
+                                             idade,
+                                             //image,
+                                             name,
+                                             naogostade,
+                                             naosaidecasasem,
+                                             ondejatrabalhou,
+                                             radionovotempo,
+                                             senaotrabalhassenanovotemposeria,
+                                             suafuncaonaradiont,
+                                             umadatainesquecivel,
+                                             umamusica,
+                                             umaviagem,
+                                             umpresente,
+                                             umrecadoparaosouvintes,
+                                             umsonho];
+
+
+
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    //Run UI Updates
+                    [self.tableSelectedPersonData reloadData];
+
+                });
+            
+        }
+        endProcess:
+            //NSLog(@"Pulou processo!!");
+            return;
+            
         });
-    });
-    
-    
-    
-    
 }
 
 -(float)scrollStartPositionOnCenterItem{
