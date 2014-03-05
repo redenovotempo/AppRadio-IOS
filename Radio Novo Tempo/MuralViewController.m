@@ -35,9 +35,6 @@
 {
     [super viewDidLoad];
     
-   
-
-    
     if (muralItensArray.count == 0) {
         [self CallMuralJsonData];
     }
@@ -93,10 +90,10 @@
             [cell.contentView addSubview:separatorLineView];
             
             //Inserindo Valores
-            cell.lblAccount.text = muraltwitter.screenName;
+            cell.lblAccount.text =[self checkText:muraltwitter.screenName];
             cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
-            cell.txtViewContent.text = muraltwitter.message;
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muraltwitter.icon]
+            cell.txtViewContent.text = [self checkText:muraltwitter.message];
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muraltwitter.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
             
@@ -135,17 +132,17 @@
             
             //Inserindo Valores
             cell.lblDate.text = [self dateFormat:muralYoutube.createdDate:@"dd/MM/yyyy"];
-            cell.txtViewTitle.text = muralYoutube.title;
-            cell.txtViewContent.text = muralYoutube.content;
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralYoutube.icon]
+            cell.txtViewTitle.text = [self checkText:muralYoutube.title];
+            cell.txtViewContent.text =[self checkText:muralYoutube.content];
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
-            [cell.imgViewImage setImageWithURL:[NSURL URLWithString:muralYoutube.image]
+            [cell.imgViewImage setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.image]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             
            
             
             //Criando botao
-            cell.btnActionExecute.ArgString1 = muralYoutube.link;
+            cell.btnActionExecute.ArgString1 = [self checkText:muralYoutube.link];
             [cell.btnActionExecute addTarget: self
                                       action: @selector(ExecuteOnSafari:)
             forControlEvents: UIControlEventTouchUpInside];
@@ -176,10 +173,10 @@
             [cell.contentView addSubview:separatorLineView];
             
             //Inserindo Valores
-            cell.lblDate.text = [self dateFormat:muralBlog.createdDate :@"dd/MM/yyyy"];
-            cell.txtViewTitle.text = muralBlog.title;
-            cell.txtViewContent.text = muralBlog.description;
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralBlog.icon]
+            cell.lblDate.text = [self dateFormat:[self checkText:muralBlog.createdDate] :@"dd/MM/yyyy"];
+            cell.txtViewTitle.text = [self checkText:muralBlog.title];
+            cell.txtViewContent.text = [self checkText:muralBlog.description];
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
@@ -187,18 +184,18 @@
             
             
             //Calculando altura do titulo
-            cell.constraintTitleHeight.constant = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+            cell.constraintTitleHeight.constant = [self textViewHeightForAttributedText:[self checkText:muralBlog.title] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
             
             
             //Verificando se existe imagem no Blog
-            if ([muralBlog.image isEqual:[NSNull null]]) {
+            if ([muralBlog.image isEqual:[NSNull null]] || [muralBlog.image isEqual:@""]) {
                 cell.constraintImgHeight.constant = 0;
                 cell.imgViewBlog.hidden = YES;
                 
             }else{
                 cell.constraintImgHeight.constant = 180;
                 cell.imgViewBlog.hidden = NO;
-                [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:muralBlog.image]
+                [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.image]]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
                 
             }
@@ -229,9 +226,9 @@
             [cell.contentView addSubview:separatorLineView];
             
             //Inserindo Valores
-            cell.lblDate.text = [self dateFormat:muralFacebook.createdDate :@"dd/MM/yyyy"];
-            cell.txtViewContent.text = muralFacebook.message;
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralFacebook.icon]
+            cell.lblDate.text = [self dateFormat:[self checkText:muralFacebook.createdDate]:@"dd/MM/yyyy"];
+            cell.txtViewContent.text = [self checkText:muralFacebook.message];
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralFacebook.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
@@ -290,11 +287,11 @@
             [cell.contentView addSubview:separatorLineView];
             
             //Inserindo Valores
-            cell.lblAccount.text = muralInstagram.username;
-            cell.txtViewContent.text = muralInstagram.description;
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:muralInstagram.icon]
+            cell.lblAccount.text = [self checkText:muralInstagram.username];
+            cell.txtViewContent.text = [self checkText:muralInstagram.description];
+            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.icon]]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
-            [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:muralInstagram.image]
+            [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.image]]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
    
@@ -335,8 +332,7 @@
     
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@",action,idRadio];
-    
-    //NSLog(@"%@",adress);
+    NSLog(@"%@",adress);
     
     NSString * post = [[NSString alloc]init];
     NSData * postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
@@ -370,16 +366,28 @@
     
     NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&jsonParsingError];
     
-    if (jsonParsingError)
-        NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
-        
     muralItensArray = [resultados objectForKey:@"mural"];
-    [muralTableView reloadData];
 
     //Terminando View de loading
     [loadingView removeFromSuperview];
+    
+    if (jsonParsingError || !muralItensArray){
+        NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
+    }else{
+        [muralTableView reloadData];
+    }
 }
 
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self CallMuralJsonData];
+    }
+}
 
 
 -(void)StartLoading{
@@ -457,6 +465,12 @@
 
 - (CGFloat)textViewHeightForAttributedText: (NSString*)textString andWidth: (CGFloat)width andFont:(UIFont *)font{
     
+    
+    if ([textString isEqual:[NSNull null]] || [textString isEqual:@""] || !textString) {
+        return 5;
+    }
+    
+    
     NSData* data = [textString dataUsingEncoding:NSUTF8StringEncoding];
     
     NSAttributedString *text = [[NSAttributedString alloc] initWithData:data
@@ -490,7 +504,7 @@
         CGFloat REST_ELEMENTS_SIZE = 60;
         CGFloat PADDING_BOTTOM = 40;
         
-        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralTwitter.message andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:[self checkText:muralTwitter.message] andWidth:280 andFont:[UIFont systemFontOfSize:14]];
         
         
         return REST_ELEMENTS_SIZE+DESCRIPTION_SIZE+PADDING_BOTTOM;
@@ -506,8 +520,8 @@
         CGFloat REST_ELEMENTS_SIZE = 74;
         CGFloat PADDING_BOTTOM = 40;
         
-        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralYoutube.content andWidth:280 andFont:[UIFont systemFontOfSize:14]];
-        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralYoutube.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:[self checkText:muralYoutube.content] andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:[self checkText:muralYoutube.title] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
 
          return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM;
     }
@@ -521,7 +535,7 @@
         CGFloat IMG_SIZE = 320;
         CGFloat REST_ELEMENTS_SIZE = 74;
         CGFloat PADDING_BOTTOM = 40;
-        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralInstagram.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:[self checkText:muralInstagram.description] andWidth:280 andFont:[UIFont systemFontOfSize:14]];
         
         return IMG_SIZE+REST_ELEMENTS_SIZE+PADDING_BOTTOM+DESCRIPTION_SIZE;
     }
@@ -537,12 +551,12 @@
         CGFloat REST_ELEMENTS_SIZE = 74;
         CGFloat PADDING_BOTTOM = 40;
         CGFloat BUTTONS = 40;
-        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralBlog.description andWidth:280 andFont:[UIFont systemFontOfSize:14]];
-        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:muralBlog.title andWidth:280 andFont:[UIFont systemFontOfSize:15]];
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:[self checkText:muralBlog.description] andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat TITLE_SIZE = [self textViewHeightForAttributedText:[self checkText:muralBlog.title] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
 
         
         //Verificando se existe imagem no Blog
-        if ([muralBlog.image isEqual:[NSNull null]]) {
+        if ([muralBlog.image isEqual:[NSNull null]] || [muralBlog.image isEqual:@""]) {
             IMG_SIZE = 0;
         }
         return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+TITLE_SIZE+PADDING_BOTTOM+BUTTONS;
@@ -556,8 +570,8 @@
         
         CGFloat IMG_SIZE = 180;
         CGFloat REST_ELEMENTS_SIZE = 74;
-        CGFloat PADDING_BOTTOM = 50;
-        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:muralFacebook.message andWidth:280 andFont:[UIFont systemFontOfSize:14]];
+        CGFloat PADDING_BOTTOM = 70;
+        CGFloat DESCRIPTION_SIZE = [self textViewHeightForAttributedText:[self checkText:muralFacebook.message] andWidth:280 andFont:[UIFont systemFontOfSize:14]];
     
         
         //Verificando se existe imagem no Blog
@@ -602,6 +616,16 @@
                                       applicationActivities:nil];
     
     [self presentViewController:activityViewController animated:YES completion:^{}];
+}
+
+
+-(NSString * )checkText:(NSString *)text{
+    
+    if ([text isEqual:[NSNull null]] || [text isEqual:@""]) {
+        return @"";
+    }
+    
+    return text;
 }
 
 

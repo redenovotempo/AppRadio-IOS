@@ -559,7 +559,7 @@ CGFloat PADDING_LEFT = 50;
     NSString *cellIdentifier = @"EquipeDadosCell";
     EquipeDadosCell * cell = (EquipeDadosCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    cell.lblName.text = [[item objectForKey:@"name"] capitalizedString];
+    cell.lblName.text = [[item objectForKey:@"name"] uppercaseString];
     cell.txtValue.text = [item objectForKey:@"value"];
     
     //Calculando altura do titulo

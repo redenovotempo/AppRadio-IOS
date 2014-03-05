@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface FilosofiaViewController : UIViewController<UIWebViewDelegate>
+@interface HistoryViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;

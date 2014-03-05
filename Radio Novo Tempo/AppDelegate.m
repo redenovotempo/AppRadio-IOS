@@ -156,9 +156,9 @@
                                  leftDrawerViewController:menu
                                  rightDrawerViewController:nil];
     }
-    //Filosofia
-    else if ([currentViewControllerName isEqualToString:@"Filosofia"]) {
-        FilosofiaViewController * current = (FilosofiaViewController*)[mainStoryboard
+    //history
+    else if ([currentViewControllerName isEqualToString:@"História da Rádio"]) {
+        HistoryViewController * current = (HistoryViewController*)[mainStoryboard
                                                                  instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
