@@ -39,9 +39,13 @@
     [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
     
     
+    
+    
+    
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle: nil];
     
+    //mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
     
     MenuViewController * menu = (MenuViewController*)[mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
@@ -49,7 +53,6 @@
     PlayerViewController * main = (PlayerViewController*)[mainStoryboard
                                                         instantiateViewControllerWithIdentifier: @"Player"];
 
-    
     self.drawerController = [[MMDrawerController alloc]
                                              initWithCenterViewController:main
                                              leftDrawerViewController:menu
