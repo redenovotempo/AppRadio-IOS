@@ -8,6 +8,11 @@
  
 #import "AppDelegate.h"
 
+@interface AppDelegate()
+
+@property(nonatomic)UIStoryboard * mainStoryboard;
+
+@end
 
 @implementation AppDelegate
 @synthesize player;
@@ -41,16 +46,15 @@
     
     
     
+    //Declarando storyboard
+    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
     
-    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle: nil];
     
-    //mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
-    
-    MenuViewController * menu = (MenuViewController*)[mainStoryboard
+    MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
 
-    PlayerViewController * main = (PlayerViewController*)[mainStoryboard
+    PlayerViewController * main = (PlayerViewController*)[self.mainStoryboard
                                                         instantiateViewControllerWithIdentifier: @"Player"];
 
     self.drawerController = [[MMDrawerController alloc]
@@ -130,17 +134,15 @@
 
 -(void)ChangeRootViewController:(NSString *)currentViewControllerName{
     
-    //Encontrando Storyboard
-    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                              bundle: nil];
+
  
     //Definindo ViewControlle de menu, sempre do lado esquerdo.
-    MenuViewController * menu = (MenuViewController*)[mainStoryboard
+    MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
                                                       instantiateViewControllerWithIdentifier: @"Menu"];
   
     //Mural
     if ([currentViewControllerName isEqualToString:@"Mural"]) {
-        MuralViewController * current = (MuralViewController*)[mainStoryboard
+        MuralViewController * current = (MuralViewController*)[self.mainStoryboard
                                                                instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
@@ -151,7 +153,7 @@
     
     //Player
     else if ([currentViewControllerName isEqualToString:@"Player"]) {
-        PlayerViewController * current = (PlayerViewController*)[mainStoryboard
+        PlayerViewController * current = (PlayerViewController*)[self.mainStoryboard
                                                                instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
@@ -161,7 +163,7 @@
     }
     //history
     else if ([currentViewControllerName isEqualToString:@"História da Rádio"]) {
-        HistoryViewController * current = (HistoryViewController*)[mainStoryboard
+        HistoryViewController * current = (HistoryViewController*)[self.mainStoryboard
                                                                  instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
@@ -171,7 +173,7 @@
     }
     //EQUIPE
     else if ([currentViewControllerName isEqualToString:@"Equipe"]) {
-        EquipeViewController * current = (EquipeViewController*)[mainStoryboard
+        EquipeViewController * current = (EquipeViewController*)[self.mainStoryboard
                                                                        instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]

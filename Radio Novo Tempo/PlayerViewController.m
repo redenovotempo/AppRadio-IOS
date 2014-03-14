@@ -38,9 +38,8 @@
 {
     [super viewDidLoad];
     
-
-    //Realocate viewRadioList Position.
-    viewRadioList.frame = [self SetViewRadioListCGRect: NO];
+    
+   
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -55,9 +54,6 @@
                                                 name:@"ReloadPickerViewContent"
                                               object:nil];
     
-    
-    
-    
     //Verificando se a radio ja esta tocando.
     [self CheckPlayerState];
     
@@ -70,6 +66,7 @@
     
 }
 
+
 -(void)ReloadPickerViewContent{
     [self.pickerViewRadioList reloadAllComponents];
 }
@@ -79,11 +76,14 @@
 {
     //Verificando se a radio ja esta tocando.
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
+
     //Nome da radio atual que esta tocando
     if ([appDel.lblRadioName.text length] != 0) {
         [btnCurrentRadio setTitle:appDel.lblRadioName.text forState:UIControlStateNormal];
     }
+    
+
+
     
     //Estado dos botoes
     if (appDel.isPlayerStarted) {
@@ -91,6 +91,8 @@
     }else{
         [self PauseAudioState];
     }
+    
+   
 }
 
 
@@ -156,10 +158,11 @@
     [super viewDidUnload];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+     viewRadioList.frame =  [self SetViewRadioListCGRect: NO];
+}
 
 - (void)viewWillAppear {
-    
-
     [self becomeFirstResponder];
 }
 
@@ -200,9 +203,9 @@
     CGFloat screenHeight = screenSize.height;
     CGFloat screenWidth = screenSize.width;
     
-    CGRect frame = viewRadioList.frame;
+    CGRect frame = viewRadioList.bounds;
     frame.origin.y = screenHeight - 233;
-    viewRadioList.frame = frame;
+    viewRadioList.bounds = frame;
     
     CGRect Position;
     
@@ -211,6 +214,7 @@
     }else{
         Position = CGRectMake(0, screenHeight + 233, screenWidth, 233);
     }
+    
     
     return Position;
 }

@@ -27,7 +27,7 @@
 
 @property (nonatomic,retain)NSMutableArray * globallistRadios;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewRadioList;
-@property (weak, nonatomic) IBOutlet UIView *viewRadioList;
+@property (strong, nonatomic) IBOutlet UIView *viewRadioList;
 
 @property(nonatomic,retain)IBOutlet UIButton * btnCurrentRadio;
 @property (weak, nonatomic) IBOutlet UISlider *sliderVolume;

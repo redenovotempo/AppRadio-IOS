@@ -130,7 +130,7 @@
                         <outlet property="pauseButton" destination="9cD-3a-lTf" id="UsE-NS-71X"/>
                         <outlet property="pickerViewRadioList" destination="zG9-BB-C2p" id="VNJ-kV-teS"/>
                         <outlet property="playButton" destination="8Rk-Do-Vax" id="UgA-ee-ENT"/>
-                        <outlet property="viewRadioList" destination="lwZ-K9-EPe" id="bDo-fC-pDZ"/>
+                        <outlet property="viewRadioList" destination="lwZ-K9-EPe" id="NfI-vV-3Cd"/>
                         <outlet property="volumeCanvas" destination="Im6-LV-QoU" id="qJy-w5-4w9"/>
                     </connections>
                 </viewController>
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghl-3U-icd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-835" y="186"/>
+            <point key="canvasLocation" x="-839" y="30"/>
         </scene>
     </scenes>
     <resources>
