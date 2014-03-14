@@ -47,8 +47,8 @@
     
     
     //Declarando storyboard
-    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
+    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
     
     
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
@@ -289,8 +289,8 @@
 
 
 -(void)InternetConnectionErrorMessage{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+//    [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

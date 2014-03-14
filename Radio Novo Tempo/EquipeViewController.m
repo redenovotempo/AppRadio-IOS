@@ -465,8 +465,9 @@ CGFloat PADDING_LEFT = 50;
     UIView * item = scrollItems[startScrollPositionItem-1];
     
     //retornando o centro do item do meio
-    float result = item.center.x-8;
+    float result = (self.scroll.bounds.size.width - item.frame.size.width / 2.0f - 21);
     
+    //CGRectGetMidX(item.bounds); //item.center.x-8;
     return result;
 }
 
