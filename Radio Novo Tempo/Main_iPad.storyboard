@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_iPad.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-nB-Ve6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_iPad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-nB-Ve6">
                                 <rect key="frame" x="0.0" y="0.0" width="774" height="1029"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -150,14 +150,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_iPad.png" translatesAutoresizingMaskIntoConstraints="NO" id="yHE-l4-kns">
-                                <rect key="frame" x="-169" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="RLC-Uq-Urn">
-                                <rect key="frame" x="35" y="954" width="211" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r24-vy-8bh">
                                 <rect key="frame" x="0.0" y="291" width="280" height="628"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,17 +194,12 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.22352941179999999" green="0.61568627450000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.023529411760000001" green="0.16862745100000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="r24-vy-8bh" firstAttribute="top" secondItem="4Ic-RS-Dm4" secondAttribute="bottom" constant="73" id="6Pd-bF-lL6"/>
                             <constraint firstItem="r24-vy-8bh" firstAttribute="centerX" secondItem="4Ic-RS-Dm4" secondAttribute="centerX" id="ACd-y7-Idi"/>
-                            <constraint firstItem="r24-vy-8bh" firstAttribute="leading" secondItem="yHE-l4-kns" secondAttribute="leading" constant="169" id="Dtg-YU-dgG"/>
                             <constraint firstItem="r24-vy-8bh" firstAttribute="leading" secondItem="m58-j4-YJC" secondAttribute="leading" id="Ey0-cQ-UPm"/>
                             <constraint firstItem="r24-vy-8bh" firstAttribute="top" secondItem="m58-j4-YJC" secondAttribute="top" constant="291" id="Hc6-9x-g7V"/>
-                            <constraint firstAttribute="bottom" secondItem="yHE-l4-kns" secondAttribute="bottom" id="JYN-uY-bmL"/>
-                            <constraint firstItem="r24-vy-8bh" firstAttribute="centerX" secondItem="RLC-Uq-Urn" secondAttribute="centerX" id="j9F-OG-MlY"/>
-                            <constraint firstItem="RLC-Uq-Urn" firstAttribute="top" secondItem="r24-vy-8bh" secondAttribute="bottom" constant="35" id="oQi-M7-O0F"/>
-                            <constraint firstItem="yHE-l4-kns" firstAttribute="top" secondItem="m58-j4-YJC" secondAttribute="top" id="zaE-Lv-CHW"/>
                         </constraints>
                     </view>
                     <connections>
@@ -221,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghl-3U-icd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="30"/>
+            <point key="canvasLocation" x="-843" y="30"/>
         </scene>
         <!--Mural View Controller-->
         <scene sceneID="gUs-F8-nWf">
@@ -235,7 +222,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_iPad.png" translatesAutoresizingMaskIntoConstraints="NO" id="RRr-PC-lXR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_ipad_top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RRr-PC-lXR">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -799,7 +786,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A5248043-53FE-4D3E-B24E-825DFFE29D47" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3B0FA660-0919-479C-AA2A-B6B3D0B46012" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
@@ -881,19 +868,19 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="4A5-nI-ghE" firstAttribute="leading" secondItem="RRr-PC-lXR" secondAttribute="leading" id="27X-bh-lf1"/>
                             <constraint firstItem="Sha-Lb-fjk" firstAttribute="bottom" secondItem="4A5-nI-ghE" secondAttribute="bottom" id="3gU-fG-jXi"/>
                             <constraint firstItem="Sha-Lb-fjk" firstAttribute="top" secondItem="H1J-Xr-kvD" secondAttribute="bottom" constant="20" id="CFd-KL-qk4"/>
                             <constraint firstItem="Sha-Lb-fjk" firstAttribute="centerX" secondItem="4A5-nI-ghE" secondAttribute="centerX" id="DSE-O0-GIx"/>
                             <constraint firstItem="WmG-uE-Q6d" firstAttribute="leading" secondItem="SY8-Vf-EZU" secondAttribute="leading" constant="20" symbolic="YES" id="Ik6-IK-W89"/>
                             <constraint firstItem="4A5-nI-ghE" firstAttribute="top" secondItem="SY8-Vf-EZU" secondAttribute="top" constant="961" id="Ill-jg-jRX"/>
-                            <constraint firstItem="RRr-PC-lXR" firstAttribute="centerX" secondItem="H1J-Xr-kvD" secondAttribute="centerX" id="Jov-Rg-lf0"/>
-                            <constraint firstItem="RRr-PC-lXR" firstAttribute="centerY" secondItem="H1J-Xr-kvD" secondAttribute="centerY" id="Ni8-eA-PLl"/>
                             <constraint firstItem="WmG-uE-Q6d" firstAttribute="top" secondItem="SY8-Vf-EZU" secondAttribute="top" constant="23" id="Rsm-Zt-vGY"/>
+                            <constraint firstItem="RRr-PC-lXR" firstAttribute="centerY" secondItem="H1J-Xr-kvD" secondAttribute="centerY" id="UTw-US-cKI"/>
+                            <constraint firstItem="RRr-PC-lXR" firstAttribute="leading" secondItem="SY8-Vf-EZU" secondAttribute="leading" id="XUz-Mg-86b"/>
                             <constraint firstItem="H1J-Xr-kvD" firstAttribute="centerY" secondItem="WmG-uE-Q6d" secondAttribute="centerY" constant="-7" id="br4-P2-fio"/>
+                            <constraint firstItem="RRr-PC-lXR" firstAttribute="trailing" secondItem="4A5-nI-ghE" secondAttribute="trailing" id="m0W-Qq-ezu"/>
+                            <constraint firstItem="RRr-PC-lXR" firstAttribute="leading" secondItem="4A5-nI-ghE" secondAttribute="leading" id="ugg-jh-gkA"/>
                             <constraint firstItem="H1J-Xr-kvD" firstAttribute="leading" secondItem="SY8-Vf-EZU" secondAttribute="leading" constant="365" id="wAW-aB-E28"/>
                             <constraint firstAttribute="bottom" secondItem="Sha-Lb-fjk" secondAttribute="bottom" id="ylO-QG-vrg"/>
-                            <constraint firstItem="RRr-PC-lXR" firstAttribute="top" secondItem="SY8-Vf-EZU" secondAttribute="top" id="zJB-Nd-ek1"/>
                             <constraint firstItem="Sha-Lb-fjk" firstAttribute="centerX" secondItem="H1J-Xr-kvD" secondAttribute="centerX" id="zfl-3d-y4q"/>
                         </constraints>
                     </view>
@@ -937,7 +924,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-hb-BNh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_iPad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-hb-BNh">
                                 <rect key="frame" x="0.0" y="-4" width="768" height="1028"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1010,7 +997,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_iPad.png" translatesAutoresizingMaskIntoConstraints="NO" id="pwd-fS-NtM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_iPad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pwd-fS-NtM">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1135,7 +1122,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="A5248043-53FE-4D3E-B24E-825DFFE29D47" width="320" height="180">
+        <image name="3B0FA660-0919-479C-AA2A-B6B3D0B46012" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -5047,8 +5034,8 @@ AAOSUAADklMAA5JYAAOSZwADkmsAA5JyAAOSegADkocAA5KMAAOSjgADkpAAA5KVAAOSnQADkqAAA5Kl
 AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
 </mutableData>
         </image>
-        <image name="bg.png" width="320" height="572"/>
-        <image name="bg_iPad.png" width="768" height="1004"/>
+        <image name="bg_iPad.jpg" width="1152" height="1536"/>
+        <image name="bg_ipad_top.jpg" width="1152" height="76"/>
         <image name="downArrow.png" width="20" height="11"/>
         <image name="iconBlog.png" width="31" height="31"/>
         <image name="iconFacebook.png" width="15" height="31"/>

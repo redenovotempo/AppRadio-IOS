@@ -47,8 +47,8 @@
     
     
     //Declarando storyboard
-    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
+    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
     
     
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
