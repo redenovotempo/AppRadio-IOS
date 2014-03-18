@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArgButton.h"
 
 @interface MuralFacebookCell : UITableViewCell
 
@@ -23,6 +24,6 @@
 
 //buttons
 @property(nonatomic,retain)IBOutlet UIButton * btnLikes;
-@property(nonatomic,retain)IBOutlet UIButton * btnShare;
+@property(nonatomic,retain)IBOutlet ArgButton * btnShare;
 
 @end

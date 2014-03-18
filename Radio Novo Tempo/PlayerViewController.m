@@ -82,9 +82,6 @@
         [btnCurrentRadio setTitle:appDel.lblRadioName.text forState:UIControlStateNormal];
     }
     
-
-
-    
     //Estado dos botoes
     if (appDel.isPlayerStarted) {
         [self PlayAudioState];
@@ -239,7 +236,7 @@
 - (IBAction)hideRadioList:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    int row = [self.pickerViewRadioList selectedRowInComponent:0];
+    long row = [self.pickerViewRadioList selectedRowInComponent:0];
     Radio * selectedRadio = [Radio getFromDictionary:[appDel.globallistRadios objectAtIndex:row]];
     
     if (selectedRadio.name) {
@@ -277,7 +274,7 @@
 }
 
 -(void)refreshButtonSizeByTitle{
-    int btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18;
+    long btnCurrentRadioTextWidth =btnCurrentRadio.titleLabel.text.length * 18;
     [btnCurrentRadio setImageEdgeInsets:UIEdgeInsetsMake(0.0, btnCurrentRadioTextWidth, 0.0, 0.0)];
     [btnCurrentRadio setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, 0.0, 20)];
 }

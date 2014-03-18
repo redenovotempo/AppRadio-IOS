@@ -30,6 +30,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(CheckPlayerState)
+                                                name:UIApplicationDidBecomeActiveNotification
+                                              object:nil];
+    
+    
+    [self CheckPlayerState];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +59,8 @@
         if (apDel.player.playbackState != MPMoviePlaybackStatePlaying){
             [apDel PlayAudio];
         }
+        
+        [self CheckPlayerState];
     }else{
         [apDel InternetConnectionErrorMessage];
     }
@@ -87,5 +99,33 @@
 - (IBAction)pauseButtonPressed:(id)button {
     [self PauseAudio];
 }
+
+- (IBAction)btnRadioNamePressed:(id)button{
+    
+     AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+     [apDel ChangeRootViewController:@"Player" needCloseEffect:NO];
+
+}
+
+-(void)CheckPlayerState
+{
+    //Verificando se a radio ja esta tocando.
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Nome da radio atual que esta tocando
+    if ([appDel.lblRadioName.text length] != 0) {
+        [self.btnRadioName setTitle:appDel.lblRadioName.text forState:UIControlStateNormal];
+    }
+    
+    //Estado dos botoes
+    if (appDel.isPlayerStarted) {
+        [self PlayAudioState];
+    }else{
+        [self PauseAudioState];
+    }
+    
+    
+}
+
 
 @end

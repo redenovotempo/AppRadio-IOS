@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArgButton.h"
 
 @interface MuralBlogCell : UITableViewCell
 
@@ -23,7 +24,7 @@
 
 //buttons
 @property(nonatomic,retain)IBOutlet UIButton * btnLikes;
-@property(nonatomic,retain)IBOutlet UIButton * btnShare;
+@property(nonatomic,strong)IBOutlet ArgButton * btnShare;
 
 -(IBAction)likeAction:(id)sender;
 -(IBAction)shareAction:(id)sender;

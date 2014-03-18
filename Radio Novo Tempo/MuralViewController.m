@@ -11,6 +11,8 @@
 
 @interface MuralViewController ()
 
+@property(nonatomic)NSString * sharedText;
+
 @end
 
 
@@ -34,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.sharedText = [[NSString alloc]init];
     
     if (muralItensArray.count == 0) {
         [self CallMuralJsonData];
@@ -180,6 +184,10 @@
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
+//            cell.btnShare = [[ArgButton alloc]init];
+//            cell.btnShare.tag = 501;
+//            cell.btnShare.ArgString1 = muralBlog.url;
+            self.sharedText = muralBlog.url;
             [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
             
@@ -232,6 +240,7 @@
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
+            self.sharedText = muralFacebook.message;
             [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
             //verificando likes
@@ -606,15 +615,17 @@
 
 -(void)shareMuralItem:(id)sender{
     
-    NSString* shareText = [NSString stringWithFormat:@"Compartilhando..."];
+    if (self.sharedText) {
+        
+        NSArray* dataToShare = @[self.sharedText];
+        UIActivityViewController* activityViewController =
+        [[UIActivityViewController alloc] initWithActivityItems:dataToShare
+                                          applicationActivities:nil];
+        
+        [self presentViewController:activityViewController animated:YES completion:^{}];
+    }
     
-    NSArray* dataToShare = @[shareText];
     
-    UIActivityViewController* activityViewController =
-    [[UIActivityViewController alloc] initWithActivityItems:dataToShare
-                                      applicationActivities:nil];
-    
-    [self presentViewController:activityViewController animated:YES completion:^{}];
 }
 
 
@@ -627,5 +638,39 @@
     return text;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSMutableDictionary * item = [muralItensArray objectAtIndex:indexPath.row];
+    NSString * link = [[NSString alloc]init];
+    
+    //Twitter
+    if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
+        //MuralTwitter * muralTwitter = [MuralTwitter getFromDictionary:item];
+    }//Youtube
+    else if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
+        MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:item];
+        link  = muralYoutube.link;
+    }//Blog
+    else if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
+        MuralBlog * muralBlog = [MuralBlog getFromDictionary:item];
+        link = muralBlog.url;
+    }//Facebook
+    else if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
+        //MuralFacebook * muralFacebook = [MuralFacebook getFromDictionary:item];
+    }//Instagram
+    else if ([[item objectForKey:@"type"] isEqualToString:@"instagram"]) {
+        //MuralInstagram * muralInstagram = [MuralInstagram getFromDictionary:item];
+    }
+
+    if (link) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+    }
+    
+    UITableViewCell *cell = [muralTableView cellForRowAtIndexPath:indexPath];
+    cell.selected = NO;
+    
+    
+}
 
 @end

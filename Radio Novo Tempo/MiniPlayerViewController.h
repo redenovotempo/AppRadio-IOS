@@ -13,9 +13,12 @@
 
 @property(nonatomic,retain)IBOutlet UIButton * playButton;
 @property(nonatomic,retain)IBOutlet UIButton * pauseButton;
+@property(nonatomic,retain)IBOutlet UIButton * btnRadioName;
 
 
 - (IBAction)playButtonPressed:(id)button;
 - (IBAction)pauseButtonPressed:(id)button;
+- (IBAction)btnRadioNamePressed:(id)button;
+
 
 @end

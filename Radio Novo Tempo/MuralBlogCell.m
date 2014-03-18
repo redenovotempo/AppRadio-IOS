@@ -15,7 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
+        self.btnShare = [[ArgButton alloc]init];
         
     }
     return self;

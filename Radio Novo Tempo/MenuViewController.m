@@ -76,7 +76,7 @@
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     MenuCell * cell = (MenuCell *)[menuTableView cellForRowAtIndexPath:indexPath];
 
-    [appDel ChangeRootViewController:cell.lblText.text];
+    [appDel ChangeRootViewController:cell.lblText.text needCloseEffect:YES];
 
 }
 

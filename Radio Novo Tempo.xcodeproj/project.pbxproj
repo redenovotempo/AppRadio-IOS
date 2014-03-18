@@ -21,7 +21,6 @@
 		550C12D91813B60A00CD48E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12BB1813B60A00CD48E2 /* UIKit.framework */; };
 		550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 550C12ED1813B9D300CD48E2 /* PlayerViewController.m */; };
 		550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550C12EF1813BA4900CD48E2 /* AVFoundation.framework */; };
-		550C12F21813C13700CD48E2 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F11813C13700CD48E2 /* bg.png */; };
 		550C12F41813C37A00CD48E2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F31813C37A00CD48E2 /* logo.png */; };
 		550C12F61813C5D000CD48E2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F51813C5D000CD48E2 /* play.png */; };
 		550C12F81813C73100CD48E2 /* lineBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12F71813C73100CD48E2 /* lineBg.png */; };
@@ -32,6 +31,7 @@
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
+		55A14D9C18D7997000A583E6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55A14D9B18D7997000A583E6 /* bg.jpg */; };
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
 		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
@@ -110,7 +110,6 @@
 		550C12EC1813B9D300CD48E2 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		550C12ED1813B9D300CD48E2 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		550C12EF1813BA4900CD48E2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		550C12F11813C13700CD48E2 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		550C12F31813C37A00CD48E2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		550C12F51813C5D000CD48E2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		550C12F71813C73100CD48E2 /* lineBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineBg.png; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		556B291D18D78B82009B696F /* bg_iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_iPad.jpg; sourceTree = "<group>"; };
 		556B291F18D78C1B009B696F /* bg_ipad_top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ipad_top.jpg; sourceTree = "<group>"; };
+		55A14D9B18D7997000A583E6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		55A7623918C37E460084570E /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		55A7623A18C37E460084570E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		55A7624018C392450084570E /* UIViewPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewPerson.h; sourceTree = "<group>"; };
@@ -332,8 +332,8 @@
 				A502B27118B173A500636B7B /* person.jpg */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				A543D59D1882D519001BDD94 /* separator@2x.png */,
+				55A14D9B18D7997000A583E6 /* bg.jpg */,
 				550C12F51813C5D000CD48E2 /* play.png */,
-				550C12F11813C13700CD48E2 /* bg.png */,
 				A543D5981882CFE5001BDD94 /* logoMini@2x.png */,
 				550C12F31813C37A00CD48E2 /* logo.png */,
 				550C12F71813C73100CD48E2 /* lineBg.png */,
@@ -487,7 +487,7 @@
 		550C12AC1813B60A00CD48E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Novo Tempo";
 				TargetAttributes = {
 					550C12B31813B60A00CD48E2 = {
@@ -549,12 +549,12 @@
 				556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */,
 				550C12F81813C73100CD48E2 /* lineBg.png in Resources */,
 				A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */,
-				550C12F21813C13700CD48E2 /* bg.png in Resources */,
 				550C12FA1813C88500CD48E2 /* logo.com.png in Resources */,
 				556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */,
 				550C12CB1813B60A00CD48E2 /* Main.storyboard in Resources */,
 				A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */,
 				A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */,
+				55A14D9C18D7997000A583E6 /* bg.jpg in Resources */,
 				550C12F61813C5D000CD48E2 /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,7 +678,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -719,7 +718,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -754,7 +752,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -779,7 +776,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -804,7 +800,6 @@
 		550C12EA1813B60A00CD48E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Radio Novo Tempo.app/Radio Novo Tempo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -827,7 +822,6 @@
 		550C12EB1813B60A00CD48E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Radio Novo Tempo.app/Radio Novo Tempo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

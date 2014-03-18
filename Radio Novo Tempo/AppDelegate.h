@@ -37,7 +37,7 @@
 
 -(BOOL)CheckInternetConnection;
 -(void)InternetConnectionErrorMessage;
--(void)ChangeRootViewController:(NSString *)currentViewControllerName;
+-(void)ChangeRootViewController:(NSString *)currentViewControllerName needCloseEffect:(BOOL)needEffect;
 
 //GetRadioList
 -(void)ExecuteMainAction;

@@ -47,8 +47,8 @@
     
     
     //Declarando storyboard
-    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
+    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
     
     
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
@@ -132,7 +132,7 @@
     return _hasInternet;
 }
 
--(void)ChangeRootViewController:(NSString *)currentViewControllerName{
+-(void)ChangeRootViewController:(NSString *)currentViewControllerName needCloseEffect:(BOOL)needEffect{
     
 
  
@@ -187,11 +187,17 @@
     //Habilitando interaçao do usuario na viewcontroller aberta.
     self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
     
-    //Abrindo a side para manter o efeito de fechamento.
-    [self.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
+    if (needEffect) {
+        //Abrindo a side para manter o efeito de fechamento.
+        [self.drawerController openDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished){
+            self.window.rootViewController = self.drawerController;
+            [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+        }];
+    }else{
         self.window.rootViewController = self.drawerController;
-        [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-    }];
+    }
+    
+
 }
 
 - (void)PlayAudio {
