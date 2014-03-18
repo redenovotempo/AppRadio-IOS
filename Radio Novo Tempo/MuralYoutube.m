@@ -22,6 +22,8 @@
     [muralYoutube setContent:[[muralYoutube.data objectAtIndex:0] objectForKey:@"content"]];
     [muralYoutube setImage:[[muralYoutube.data objectAtIndex:0] objectForKey:@"image"]];
     [muralYoutube setCreatedDate:[[muralYoutube.data objectAtIndex:0] objectForKey:@"createdDate"]];
+    [muralYoutube setLink:[[muralYoutube.data objectAtIndex:0] objectForKey:@"link"]];
+
     
     return muralYoutube;
 }

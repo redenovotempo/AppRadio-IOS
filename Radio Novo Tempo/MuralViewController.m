@@ -402,15 +402,15 @@
 -(void)StartLoading{
     
     //Iniciando LoadingView
-    loadingView = [[UIView alloc]init];
+    self.loadingView = [[UIView alloc]init];
     
     //Criando componentes
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
     UILabel * txt = [[UILabel alloc]init];
     txt.text = @"Carregando...";
     txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
-
-
+    
+    
     //Criando animaçao
     CABasicAnimation *rotate;
     rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
@@ -423,25 +423,25 @@
     rotate.removedOnCompletion = NO;
     
     //Alinhando Componentes
-    img.center = muralTableView.center;
+    img.center = self.view.center;
     img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 80, img.frame.size.width, img.frame.size.height);
     [img.layer addAnimation:rotate forKey:@"10"];
     txt.frame = CGRectMake(img.frame.origin.x + 10, img.frame.origin.y + 85, img.frame.size.width, img.frame.size.height);
     
     //Inserindo Componentes na LoadingView
-    [loadingView addSubview:txt];
-    [loadingView addSubview:img];
+    [self.loadingView addSubview:txt];
+    [self.loadingView addSubview:img];
     
     
     //Alinhando LoadingView
-    loadingView.center = self.view.center;
-    loadingView.frame =  CGRectMake(self.view.frame.origin.x, 73, self.view.frame.size.width, self.view.frame.size.height);
+    self.loadingView.center = self.view.center;
+    self.loadingView.frame =  CGRectMake(self.view.frame.origin.x, 73, self.view.frame.size.width, self.view.frame.size.height);
     
     //Alterando Cor de Fundo da LoadingView
-    loadingView.backgroundColor = [UIColor whiteColor];
-
+    self.loadingView.backgroundColor = [UIColor whiteColor];
+    
     //Inserindo LoadingView na View principal
-    [self.view addSubview: loadingView];
+    [self.view addSubview: self.loadingView];
     
 }
 
@@ -658,7 +658,7 @@
             link = [urls_ objectForKey:@"url"];
         }
         
-            }//Youtube
+    }//Youtube
     else if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
         MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:item];
         link  = muralYoutube.link;

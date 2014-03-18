@@ -575,7 +575,7 @@ CGFloat PADDING_LEFT = 50;
     NSDictionary * item = [self.selectedPersonDataArray objectAtIndex:indexPath.row];
     
     float value = [self textViewHeightForAttributedText:[item objectForKey:@"value"] andWidth:280 andFont:[UIFont systemFontOfSize:15]];
-    float title = 20;
+    float title = 23;
     
     return value + title;
 }
