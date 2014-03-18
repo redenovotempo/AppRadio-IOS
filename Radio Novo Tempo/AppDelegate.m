@@ -44,12 +44,15 @@
     [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
     
     
-    
-    
     //Declarando storyboard
-    self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    //self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
-    
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+          self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    }else{
+        self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle: nil];
+
+    }
+
     
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
