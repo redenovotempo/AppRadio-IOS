@@ -37,8 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
    
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.

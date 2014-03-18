@@ -20,7 +20,7 @@
 @property(nonatomic,strong)NSString * screenName;
 @property(nonatomic,strong)NSString * message;
 @property(nonatomic,strong)NSString * createdDate;
-@property(nonatomic,strong)NSMutableArray * urlsArray;
+@property(nonatomic,strong)NSMutableDictionary * urlsArray;
 
 //Urls
 //@property(nonatomic,strong)NSMutableArray * hashtags;

@@ -45,7 +45,6 @@
     
     
     //Declarando storyboard
-
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
           self.mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     }else{

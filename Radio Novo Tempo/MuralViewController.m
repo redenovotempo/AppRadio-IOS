@@ -646,8 +646,19 @@
     
     //Twitter
     if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
-        //MuralTwitter * muralTwitter = [MuralTwitter getFromDictionary:item];
-    }//Youtube
+        MuralTwitter * muralTwitter = [MuralTwitter getFromDictionary:item];
+        NSMutableArray * urlsDict = [muralTwitter.urlsArray objectForKey:@"urls"];
+        NSMutableDictionary * urls_;
+        
+        if (urlsDict) {
+           urls_  = [urlsDict objectAtIndex:0];
+        }
+        
+        if (urls_) {
+            link = [urls_ objectForKey:@"url"];
+        }
+        
+            }//Youtube
     else if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
         MuralYoutube * muralYoutube = [MuralYoutube getFromDictionary:item];
         link  = muralYoutube.link;
