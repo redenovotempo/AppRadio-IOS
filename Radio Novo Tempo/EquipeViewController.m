@@ -69,18 +69,30 @@ CGFloat PADDING_LEFT = 50;
 {
     [super viewDidLoad];
     
+    [self MainExecution];
     
-    self.isScrollNeedMove = YES;
-    self.canUpdateSelectedPersonElements = YES;
+}
+
+-(void)MainExecution{
     
-    //instanciando txtview de altura
-    self.calculationView = [[UITextView alloc]init];
-    self.lastCodeUpdated = [[NSNumber alloc]init];
-    
-    //Pegando tamanho da tela
-    screenSize = (self.view.frame.size.width/2);
-    
-    [self CallEquipJsonData];
+   
+    if ([self CheckInternetConnection]) {
+        
+        self.isScrollNeedMove = YES;
+        self.canUpdateSelectedPersonElements = YES;
+        
+        //instanciando txtview de altura
+        self.calculationView = [[UITextView alloc]init];
+        self.lastCodeUpdated = [[NSNumber alloc]init];
+        
+        //Pegando tamanho da tela
+        screenSize = (self.view.frame.size.width/2);
+        
+        [self CallEquipJsonData];
+        
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
     
 }
 
@@ -461,8 +473,9 @@ CGFloat PADDING_LEFT = 50;
     }
     //pegando posiçao do meio
     int startScrollPositionItem = (int)(scrollItems.count/2);
+    
     //pegando item da posicao
-    UIView * item = scrollItems[startScrollPositionItem-1];
+    UIView * item = scrollItems[startScrollPositionItem];
     
     //retornando o centro do item do meio
     float result = (self.scroll.bounds.size.width - item.frame.size.width / 2.0f - 21);
@@ -578,6 +591,24 @@ CGFloat PADDING_LEFT = 50;
     float title = 23;
     
     return value + title;
+}
+
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self MainExecution];
+    }
+}
+
+-(BOOL)CheckInternetConnection{
+    
+    //Check Internet Connection.
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return apDel.CheckInternetConnection;
 }
 
 

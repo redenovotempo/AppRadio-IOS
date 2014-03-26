@@ -37,8 +37,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self CallFilosofiaJsonData];
+    [self MainExecution];
+}
 
+-(void)MainExecution{
+    
+    if ([self CheckInternetConnection]) {
+        [self CallFilosofiaJsonData];
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -190,6 +198,25 @@
     }
     
     return text;
+}
+
+
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self MainExecution];
+    }
+}
+
+-(BOOL)CheckInternetConnection{
+    
+    //Check Internet Connection.
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return apDel.CheckInternetConnection;
 }
 
 @end

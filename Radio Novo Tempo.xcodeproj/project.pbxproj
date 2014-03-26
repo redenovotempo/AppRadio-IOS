@@ -28,6 +28,7 @@
 		550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FB1813C9AF00CD48E2 /* soundMax.png */; };
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
+		5549378018E26C06004D2F04 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5549377F18E26C06004D2F04 /* Reachability.m */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
@@ -72,7 +73,6 @@
 		A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = A58E948E1889A41B009E7071 /* MuralFacebook.m */; };
 		A5935AEE188B1DF500EF749D /* MiniPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */; };
 		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
-		A5A6F87518455D990085BCA8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A6F87418455D990085BCA8 /* Reachability.m */; };
 		A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AE62D41892B78E00CF757B /* ArgButton.m */; };
 		A5AE62D71892C9BA00CF757B /* playMuralIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5AE62D61892C9BA00CF757B /* playMuralIcon.png */; };
 		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
@@ -117,6 +117,8 @@
 		550C12FB1813C9AF00CD48E2 /* soundMax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMax.png; sourceTree = "<group>"; };
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		5549377E18E26C06004D2F04 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5549377F18E26C06004D2F04 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		556B291D18D78B82009B696F /* bg_iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_iPad.jpg; sourceTree = "<group>"; };
 		556B291F18D78C1B009B696F /* bg_ipad_top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ipad_top.jpg; sourceTree = "<group>"; };
@@ -185,8 +187,6 @@
 		A5935AEC188B1DF500EF749D /* MiniPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniPlayerViewController.h; sourceTree = "<group>"; };
 		A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniPlayerViewController.m; sourceTree = "<group>"; };
 		A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A5A6F87318455D990085BCA8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		A5A6F87418455D990085BCA8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A5AE62D31892B78E00CF757B /* ArgButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgButton.h; sourceTree = "<group>"; };
 		A5AE62D41892B78E00CF757B /* ArgButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgButton.m; sourceTree = "<group>"; };
 		A5AE62D61892C9BA00CF757B /* playMuralIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playMuralIcon.png; sourceTree = "<group>"; };
@@ -276,9 +276,9 @@
 				A502B26F18B1582100636B7B /* EquipeViewController.m */,
 				A57CB6E718AAFE9F003B3A4D /* HistoryViewController.h */,
 				A57CB6E818AAFE9F003B3A4D /* HistoryViewController.m */,
-				A5A6F87318455D990085BCA8 /* Reachability.h */,
-				A5A6F87418455D990085BCA8 /* Reachability.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
+				5549377E18E26C06004D2F04 /* Reachability.h */,
+				5549377F18E26C06004D2F04 /* Reachability.m */,
 				550C12CF1813B60A00CD48E2 /* Images.xcassets */,
 				A5FB35EF183EEAA2000844F2 /* iPad */,
 				550C12BE1813B60A00CD48E2 /* Supporting Files */,
@@ -606,6 +606,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5549378018E26C06004D2F04 /* Reachability.m in Sources */,
 				55A7624218C392450084570E /* UIViewPerson.m in Sources */,
 				A53B6E5E1885D01F00FA0BD9 /* MuralBlog.m in Sources */,
 				A53B6E671885D07100FA0BD9 /* Radio.m in Sources */,
@@ -631,7 +632,6 @@
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
 				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
-				A5A6F87518455D990085BCA8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +765,7 @@
 					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3823641E-E3D0-46D7-9FA1-526AAEFC2805";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -790,7 +790,7 @@
 					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ACD28BE9-542D-4CBB-9AD8-E9918B17435E";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -23,7 +23,6 @@
 
 
 
-
 @interface MuralViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,UIAlertViewDelegate >{
    
     NSMutableArray * muralItensArray;

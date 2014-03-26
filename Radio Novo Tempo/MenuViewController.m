@@ -57,6 +57,7 @@
     
     MenuCell * cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    
     cell.lblText.text = [menuArray objectAtIndex:indexPath.row];
 
     //Limpando cor de fundo

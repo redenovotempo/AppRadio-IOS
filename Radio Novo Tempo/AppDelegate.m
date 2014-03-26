@@ -22,7 +22,6 @@
     
     if ([self CheckInternetConnection]) {
         //Carregando lista da API.
-        [self CallNovoTempoService];
         [self ExecuteMainAction];
     }else{
         [self InternetConnectionErrorMessage];
@@ -254,6 +253,8 @@
     
     if ([self CheckInternetConnection]) {
         
+        [self CallNovoTempoService];
+        
         locationExist = YES;
         // Do any additional setup after loading the view from its nib.
         
@@ -262,6 +263,7 @@
         self.locationManager.delegate = self;
         //Verificando a necessidade de acessar o GPS novamente para descobrir a localizaçao.
         [self.locationManager startUpdatingLocation];
+        
         
     }else{
         [self InternetConnectionErrorMessage];
@@ -297,8 +299,8 @@
 
 
 -(void)InternetConnectionErrorMessage{
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
-//    [alert show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -346,6 +348,7 @@
     
     //Alterando radio atual da aplicaçao.
     self.radioCurrent = radioDefault;
+    
 }
 
 

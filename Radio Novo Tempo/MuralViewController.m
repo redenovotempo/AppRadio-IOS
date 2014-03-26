@@ -36,15 +36,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.sharedText = [[NSString alloc]init];
     
-    if (muralItensArray.count == 0) {
-        [self CallMuralJsonData];
+    
+    [self MainExecution];
+    
+    
+
+}
+
+-(void)MainExecution{
+    
+    if (![self CheckInternetConnection]) {
+        [self InternetConnectionErrorMessage];
+    }else{
+        if (muralItensArray.count == 0) {
+            [self CallMuralJsonData];
+        }
     }
 }
 
 
+-(BOOL)CheckInternetConnection{
+    
+    //Check Internet Connection.
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return apDel.CheckInternetConnection;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -382,6 +400,7 @@
     
     if (jsonParsingError || !muralItensArray){
         NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
+        [self InternetConnectionErrorMessage];
     }else{
         [muralTableView reloadData];
     }
@@ -394,7 +413,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [alertView cancelButtonIndex]) {
-        [self CallMuralJsonData];
+        [self MainExecution];
     }
 }
 
@@ -648,9 +667,9 @@
     if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
         MuralTwitter * muralTwitter = [MuralTwitter getFromDictionary:item];
         NSMutableArray * urlsDict = [muralTwitter.urlsArray objectForKey:@"urls"];
-        NSMutableDictionary * urls_;
+        NSMutableDictionary * urls_ = [[NSMutableDictionary alloc]init];
         
-        if (urlsDict) {
+        if (urlsDict && urlsDict.count != 0) {
            urls_  = [urlsDict objectAtIndex:0];
         }
         

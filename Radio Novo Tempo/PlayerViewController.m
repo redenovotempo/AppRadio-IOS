@@ -46,7 +46,7 @@
                                               object:nil];
     
     
-    //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
+    //Refresh na lista de dados.
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(ReloadPickerViewContent)
                                                 name:@"ReloadPickerViewContent"
@@ -67,18 +67,25 @@
 
 -(void)ReloadPickerViewContent{
     [self.pickerViewRadioList reloadAllComponents];
+    [self ReloadRadioLabelName];
+}
+
+-(void)ReloadRadioLabelName{
+    //Verificando se a radio ja esta tocando.
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Nome da radio atual que esta tocando
+    if ([appDel.radioCurrent.name length] != 0) {
+        [btnCurrentRadio setTitle:appDel.radioCurrent.name forState:UIControlStateNormal];
+    }
 }
 
 
 -(void)CheckPlayerState
 {
-    //Verificando se a radio ja esta tocando.
+    [self ReloadRadioLabelName];
+    
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-    //Nome da radio atual que esta tocando
-    if ([appDel.lblRadioName.text length] != 0) {
-        [btnCurrentRadio setTitle:appDel.lblRadioName.text forState:UIControlStateNormal];
-    }
     
     //Estado dos botoes
     if (appDel.isPlayerStarted) {
@@ -186,6 +193,7 @@
     //set item per row
     //NSDictionary * dictRecipient = [[NSDictionary alloc]init];
     //dictRecipient = [appDel.globallistRadios objectAtIndex:row];
+    [self ReloadRadioLabelName];
     return [[appDel.globallistRadios objectAtIndex:row] objectForKey:@"name"];
 }
 
