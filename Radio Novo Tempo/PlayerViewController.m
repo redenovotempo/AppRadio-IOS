@@ -262,7 +262,12 @@
         [self PlayAudio];
     }
     
+    [self hideRadioListElements];
+    
+}
 
+
+-(void)hideRadioListElements{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDuration:0.2f];
@@ -301,6 +306,38 @@
 - (IBAction)OpenMenuButtonPressed:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
+
+
+- (IBAction)hidePlayer:(id)sender {
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [apDel ChangeRootViewController:@"Mural" needCloseEffect:NO];
+}
+
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    
+    if ([[touch view] isKindOfClass:[UIImageView class]])
+    {
+        [self hideRadioListElements];
+    }
+    
+}
+
+- (IBAction)nextRadioListItem:(id)sender {
+    
+    self.currentPickerViewItem = [self.pickerViewRadioList selectedRowInComponent:0];
+    [self.pickerViewRadioList selectRow:self.currentPickerViewItem-1 inComponent:0 animated:YES];
+    
+}
+
+- (IBAction)previousRadioListItem:(id)sender{
+    self.currentPickerViewItem = [self.pickerViewRadioList selectedRowInComponent:0];
+    [self.pickerViewRadioList selectRow:self.currentPickerViewItem+1 inComponent:0 animated:YES];
 }
 
 

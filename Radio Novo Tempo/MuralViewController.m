@@ -114,7 +114,17 @@
             //Inserindo Valores
             cell.lblAccount.text =[self checkText:muraltwitter.screenName];
             cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
-            cell.txtViewContent.text = [self checkText:muraltwitter.message];
+            
+            //Identificando Links.
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeAll;
+            
+            NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[[self checkText:muraltwitter.message] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+            
+            cell.txtViewContent.attributedText = attributedString;
+            cell.txtViewContent.font = [UIFont systemFontOfSize:14];
+            
+            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muraltwitter.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             

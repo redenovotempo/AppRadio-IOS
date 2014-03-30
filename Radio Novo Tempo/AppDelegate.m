@@ -64,7 +64,9 @@
                                              rightDrawerViewController:nil];
     
     
+    //Habilitando interaçao do usuario na viewcontroller aberta.
     self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
+    
     
     self.window.rootViewController = self.drawerController;
     
@@ -150,6 +152,11 @@
                                  initWithCenterViewController:current
                                  leftDrawerViewController:menu
                                  rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     }
     
     //Player
@@ -171,6 +178,11 @@
                                  initWithCenterViewController:current
                                  leftDrawerViewController:menu
                                  rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     }
     //EQUIPE
     else if ([currentViewControllerName isEqualToString:@"Equipe"]) {
@@ -181,12 +193,19 @@
                                  initWithCenterViewController:current
                                  leftDrawerViewController:menu
                                  rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     }
     
     
     
     //Habilitando interaçao do usuario na viewcontroller aberta.
     self.drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeFull;
+
+
     
     if (needEffect) {
         //Abrindo a side para manter o efeito de fechamento.
@@ -202,12 +221,13 @@
 }
 
 - (void)PlayAudio {
+    [player stop];
     [player play];
     self.isPlayerStarted = YES;
 }
 
 - (void)PauseAudio {
-    [player pause];
+    [player stop];
     self.isPlayerStarted = NO;
 }
 

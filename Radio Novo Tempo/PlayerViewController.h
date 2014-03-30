@@ -25,6 +25,18 @@
     Radio * radioSelected;
 }
 
+//Pular pro mural
+- (IBAction)hidePlayer:(id)sender;
+
+//Controle do RadioList
+@property(nonatomic)long currentPickerViewItem;
+
+- (IBAction)nextRadioListItem:(id)sender;
+- (IBAction)previousRadioListItem:(id)sender;
+
+
+
+
 @property (nonatomic,retain)NSMutableArray * globallistRadios;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewRadioList;
 @property (strong, nonatomic) IBOutlet UIView *viewRadioList;
