@@ -153,6 +153,7 @@
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
     UILabel * txt = [[UILabel alloc]init];
     txt.text = @"Carregando...";
+    txt.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
     
     

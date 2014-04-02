@@ -20,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    
     if ([self CheckInternetConnection]) {
         //Carregando lista da API.
         [self ExecuteMainAction];

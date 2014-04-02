@@ -27,6 +27,7 @@
 
 //Pular pro mural
 - (IBAction)hidePlayer:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *jumtButton;
 
 //Controle do RadioList
 @property(nonatomic)long currentPickerViewItem;

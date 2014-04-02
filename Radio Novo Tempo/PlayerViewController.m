@@ -37,7 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    self.jumtButton.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
+    btnCurrentRadio.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -77,6 +78,7 @@
     //Nome da radio atual que esta tocando
     if ([appDel.radioCurrent.name length] != 0) {
         [btnCurrentRadio setTitle:appDel.radioCurrent.name forState:UIControlStateNormal];
+        
     }
 }
 
@@ -247,6 +249,7 @@
     
     if (selectedRadio.name) {
         [btnCurrentRadio setTitle:[NSString stringWithFormat:@"%@",selectedRadio.name]forState:UIControlStateNormal];
+        
         
         appDel.lblRadioName.text = [NSString stringWithFormat:@"%@",selectedRadio.name];
     }

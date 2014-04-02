@@ -28,6 +28,10 @@
 		550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FB1813C9AF00CD48E2 /* soundMax.png */; };
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
+		55403C4818EBACF4008EDAB8 /* CustomLabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */; };
+		55403C5018EBB08B008EDAB8 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */; };
+		55403C5318EBB2A5008EDAB8 /* CustomTextViewFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */; };
+		55403C5618EBB409008EDAB8 /* CustomBoldTextViewFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 55403C5518EBB409008EDAB8 /* CustomBoldTextViewFont.m */; };
 		5549378018E26C06004D2F04 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5549377F18E26C06004D2F04 /* Reachability.m */; };
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		55677B0E18E7ECC000DF3FCF /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 55677B0C18E7ECC000DF3FCF /* previous.png */; };
@@ -119,6 +123,13 @@
 		550C12FB1813C9AF00CD48E2 /* soundMax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMax.png; sourceTree = "<group>"; };
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		55403C4618EBACF4008EDAB8 /* CustomLabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabelFont.h; sourceTree = "<group>"; };
+		55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabelFont.m; sourceTree = "<group>"; };
+		55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		55403C5118EBB2A5008EDAB8 /* CustomTextViewFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextViewFont.h; sourceTree = "<group>"; };
+		55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextViewFont.m; sourceTree = "<group>"; };
+		55403C5418EBB409008EDAB8 /* CustomBoldTextViewFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBoldTextViewFont.h; sourceTree = "<group>"; };
+		55403C5518EBB409008EDAB8 /* CustomBoldTextViewFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBoldTextViewFont.m; sourceTree = "<group>"; };
 		5549377E18E26C06004D2F04 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5549377F18E26C06004D2F04 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -230,6 +241,7 @@
 		550C12AB1813B60A00CD48E2 = {
 			isa = PBXGroup;
 			children = (
+				55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */,
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
 				55A8549218BFFEF700690C29 /* Flurry */,
@@ -374,6 +386,12 @@
 		A53B6E571885CF9700FA0BD9 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				55403C4618EBACF4008EDAB8 /* CustomLabelFont.h */,
+				55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */,
+				55403C5418EBB409008EDAB8 /* CustomBoldTextViewFont.h */,
+				55403C5518EBB409008EDAB8 /* CustomBoldTextViewFont.m */,
+				55403C5118EBB2A5008EDAB8 /* CustomTextViewFont.h */,
+				55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */,
 				55A7623F18C391C10084570E /* Equipe */,
 				A53B6E5B1885CFF800FA0BD9 /* Mural */,
 				A53B6E651885D07100FA0BD9 /* Radio.h */,
@@ -530,6 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55403C5018EBB08B008EDAB8 /* ProximaNova-Light.otf in Resources */,
 				A53B6E6F1885DF4900FA0BD9 /* iconYoutube.png in Resources */,
 				A53B6E4A18857E7800FA0BD9 /* iconBlog.png in Resources */,
 				A5AE62D71892C9BA00CF757B /* playMuralIcon.png in Resources */,
@@ -619,6 +638,7 @@
 				A53B6E5E1885D01F00FA0BD9 /* MuralBlog.m in Sources */,
 				A53B6E671885D07100FA0BD9 /* Radio.m in Sources */,
 				A57A07B21882653500C28542 /* MuralViewController.m in Sources */,
+				55403C5318EBB2A5008EDAB8 /* CustomTextViewFont.m in Sources */,
 				A57CB6E918AAFE9F003B3A4D /* HistoryViewController.m in Sources */,
 				A53B6E5A1885CFF100FA0BD9 /* MuralTwitter.m in Sources */,
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
@@ -631,6 +651,7 @@
 				A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */,
+				55403C4818EBACF4008EDAB8 /* CustomLabelFont.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
 				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,
@@ -639,6 +660,7 @@
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,
 				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,
+				55403C5618EBB409008EDAB8 /* CustomBoldTextViewFont.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

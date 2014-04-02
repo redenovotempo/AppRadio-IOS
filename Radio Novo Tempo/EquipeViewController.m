@@ -218,6 +218,7 @@ CGFloat PADDING_LEFT = 50;
 
         //Criando label
         UILabel * lblName = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, viewItem.frame.size.width + (viewItem.frame.size.width/2), 20)];
+        lblName.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
         lblName.center = CGPointMake(CGRectGetMidX(viewItem.bounds), imgThumb.frame.origin.y + imgThumb.frame.size.height + lblName.frame.size.height);
         lblName.font = [lblName.font fontWithSize:15];
         lblName.textAlignment = NSTextAlignmentCenter;
@@ -519,6 +520,7 @@ CGFloat PADDING_LEFT = 50;
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
     UILabel * txt = [[UILabel alloc]init];
     txt.text = @"Carregando...";
+    txt.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
     
     

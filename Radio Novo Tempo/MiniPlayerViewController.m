@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.btnRadioName.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
