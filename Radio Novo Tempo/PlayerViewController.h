@@ -31,6 +31,7 @@
 
 //Controle do RadioList
 @property(nonatomic)long currentPickerViewItem;
+@property (weak, nonatomic) IBOutlet UIButton *btnOkPickerView;
 
 - (IBAction)nextRadioListItem:(id)sender;
 - (IBAction)previousRadioListItem:(id)sender;

@@ -39,6 +39,7 @@
     [super viewDidLoad];
     self.jumtButton.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     btnCurrentRadio.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
+    self.btnOkPickerView.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light-Bold" size:18];
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -174,6 +175,8 @@
     [locationManager stopUpdatingLocation];
 }
 
+
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     //One column
@@ -188,17 +191,23 @@
     return [appDel.globallistRadios count];
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    //set item per row
-    //NSDictionary * dictRecipient = [[NSDictionary alloc]init];
-    //dictRecipient = [appDel.globallistRadios objectAtIndex:row];
-    [self ReloadRadioLabelName];
-    return [[appDel.globallistRadios objectAtIndex:row] objectForKey:@"name"];
-}
 
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [self ReloadRadioLabelName];
+    
+    UILabel* tView = (UILabel*)view;
+    if (!tView){
+        
+        tView = [[UILabel alloc] init];
+        tView.text = [[appDel.globallistRadios objectAtIndex:row] objectForKey:@"name"];
+        tView.font = [UIFont fontWithName:@"ProximaNova-Light" size:20];
+        tView.textAlignment = NSTextAlignmentCenter;
+    }
+    return tView;
+}
 
 -(CGRect)SetViewRadioListCGRect:(BOOL)IsClosed{
 
