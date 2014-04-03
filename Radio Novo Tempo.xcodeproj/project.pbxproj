@@ -125,7 +125,7 @@
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		55403C4618EBACF4008EDAB8 /* CustomLabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabelFont.h; sourceTree = "<group>"; };
 		55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabelFont.m; sourceTree = "<group>"; };
-		55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Light.otf"; path = "../ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		55403C5118EBB2A5008EDAB8 /* CustomTextViewFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextViewFont.h; sourceTree = "<group>"; };
 		55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextViewFont.m; sourceTree = "<group>"; };
 		55403C5418EBB409008EDAB8 /* CustomBoldTextViewFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBoldTextViewFont.h; sourceTree = "<group>"; };
@@ -241,7 +241,6 @@
 		550C12AB1813B60A00CD48E2 = {
 			isa = PBXGroup;
 			children = (
-				55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */,
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
 				55A8549218BFFEF700690C29 /* Flurry */,
@@ -305,6 +304,7 @@
 		550C12BE1813B60A00CD48E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */,
 				A5AE62D21892B71000CF757B /* Buttons */,
 				A53B6E571885CF9700FA0BD9 /* Objects */,
 				A57A07AE1882592D00C28542 /* Cells */,

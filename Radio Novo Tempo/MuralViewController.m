@@ -13,6 +13,7 @@
 
 @property(nonatomic)NSString * sharedText;
 
+
 @end
 
 
@@ -37,7 +38,6 @@
 {
     [super viewDidLoad];
     self.sharedText = [[NSString alloc]init];
-    
     
     [self MainExecution];
     
@@ -115,22 +115,22 @@
             cell.lblAccount.text =[self checkText:muraltwitter.screenName];
             cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
             
-            //Identificando Links.
-            cell.txtViewContent.editable = NO;
-            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeAll;
             
-//            NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[[self checkText:muraltwitter.message] dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//            
-//            cell.txtViewContent.attributedText = attributedString;
-//            
-            //btnCurrentRadio.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
+            
+            //Identificando Links.
+            cell.txtViewContent.text = nil;
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.delegate = self;
+            cell.txtViewContent.userInteractionEnabled  = YES;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
+            cell.txtViewContent.text = [self checkText:muraltwitter.message];
+            
             
             
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muraltwitter.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
             
-
             return cell;
 
         }
@@ -166,7 +166,17 @@
             //Inserindo Valores
             cell.lblDate.text = [self dateFormat:muralYoutube.createdDate:@"dd/MM/yyyy"];
             cell.txtViewTitle.text = [self checkText:muralYoutube.title];
-            cell.txtViewContent.text =[self checkText:muralYoutube.content];
+            
+            //Identificando Links.
+            cell.txtViewContent.text = nil;
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.delegate = self;
+            cell.txtViewContent.userInteractionEnabled  = YES;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
+            cell.txtViewContent.text = [self checkText:muralYoutube.content];
+
+            
+            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             [cell.imgViewImage setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.image]]
@@ -208,14 +218,22 @@
             //Inserindo Valores
             cell.lblDate.text = [self dateFormat:[self checkText:muralBlog.createdDate] :@"dd/MM/yyyy"];
             cell.txtViewTitle.text = [self checkText:muralBlog.title];
+            
+            //Identificando Links.
+            cell.txtViewContent.text = nil;
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.delegate = self;
+            cell.txtViewContent.userInteractionEnabled  = YES;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
             cell.txtViewContent.text = [self checkText:muralBlog.description];
+            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
-//            cell.btnShare = [[ArgButton alloc]init];
-//            cell.btnShare.tag = 501;
-//            cell.btnShare.ArgString1 = muralBlog.url;
+            cell.btnShare = [[ArgButton alloc]init];
+            cell.btnShare.tag = 501;
+            cell.btnShare.ArgString1 = muralBlog.url;
             self.sharedText = muralBlog.url;
             [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -264,7 +282,15 @@
             
             //Inserindo Valores
             cell.lblDate.text = [self dateFormat:[self checkText:muralFacebook.createdDate]:@"dd/MM/yyyy"];
+            
+            //Identificando Links.
+            cell.txtViewContent.text = nil;
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.delegate = self;
+            cell.txtViewContent.userInteractionEnabled  = YES;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
             cell.txtViewContent.text = [self checkText:muralFacebook.message];
+            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralFacebook.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
@@ -326,7 +352,16 @@
             
             //Inserindo Valores
             cell.lblAccount.text = [self checkText:muralInstagram.username];
+            
+            //Identificando Links.
+            cell.txtViewContent.text = nil;
+            cell.txtViewContent.editable = NO;
+            cell.txtViewContent.delegate = self;
+            cell.txtViewContent.userInteractionEnabled  = YES;
+            cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
             cell.txtViewContent.text = [self checkText:muralInstagram.description];
+            
+            
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.icon]]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.image]]
@@ -488,14 +523,6 @@
     NSString *strDate = [dateFormatter stringFromDate:dateFromString];
     return strDate;
 }
-
--(void)ExecuteOnSafari:(id)sender{
-    ArgButton * argButton = (ArgButton *)sender;
-    if (argButton.ArgString1.length != 0 && argButton.ArgString1 != nil) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:argButton.ArgString1]];
-    }
-}
-
 
 - (CGSize)text:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
@@ -712,7 +739,20 @@
     UITableViewCell *cell = [muralTableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
     
-    
 }
+
+
+-(void)ExecuteOnSafari:(id)sender{
+    ArgButton * argButton = (ArgButton *)sender;
+    if (argButton.ArgString1.length != 0 && argButton.ArgString1 != nil) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:argButton.ArgString1]];
+    }
+}
+
+
+-(BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange{
+    return YES;
+}
+
 
 @end
