@@ -32,6 +32,7 @@
 	// Do any additional setup after loading the view.
     self.btnRadioName.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     
+
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
     [[NSNotificationCenter defaultCenter]addObserver:self
@@ -41,6 +42,18 @@
     
     
     [self CheckPlayerState];
+    [self ReloadRadioLabelName];
+}
+
+
+-(void)ReloadRadioLabelName{
+    //Verificando se a radio ja esta tocando.
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Nome da radio atual que esta tocando
+    if ([appDel.radioCurrent.name length] != 0) {
+        [self.btnRadioName setTitle:appDel.radioCurrent.name forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning

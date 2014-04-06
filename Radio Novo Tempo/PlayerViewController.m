@@ -73,6 +73,11 @@
 }
 
 -(void)ReloadRadioLabelName{
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"ReloadRadioLabelName"
+     object:self];
+    
     //Verificando se a radio ja esta tocando.
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     

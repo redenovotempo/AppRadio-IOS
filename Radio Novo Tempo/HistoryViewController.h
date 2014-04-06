@@ -11,9 +11,10 @@
 
 @interface HistoryViewController : UIViewController<UIWebViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
-
+@property(nonatomic)BOOL needResetAnimation;
 
 - (IBAction)OpenMenuButtonPressed:(id)button;
 

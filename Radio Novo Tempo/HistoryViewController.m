@@ -8,6 +8,8 @@
 
 #import "HistoryViewController.h"
 
+
+
 @interface HistoryViewController ()
 
 //Loading
@@ -20,6 +22,8 @@
 @property(nonatomic,strong)NSDictionary * filosofiaDictionary;
 
 @end
+
+
 
 @implementation HistoryViewController
 
@@ -36,6 +40,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //Observando Framework de menu para quando abrir chamar este metodo
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(rotateBtnOpenMenu)
+                                                 name:@"GestureOpenMenu"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(unRotateBtnOpenMenu)
+                                                 name:@"GestureCloseMenu"
+                                               object:nil];
+    
+    //Need To reset Animation
+    self.needResetAnimation = NO;
     
     [self MainExecution];
 }
@@ -219,5 +237,32 @@
     AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     return apDel.CheckInternetConnection;
 }
+
+
+-(void)rotateBtnOpenMenu{
+    
+    //Criando animaçao
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
+        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        
+    }];
+    
+    self.needResetAnimation = YES;
+}
+
+
+-(void)unRotateBtnOpenMenu{
+    
+    if (self.needResetAnimation) {
+        //Criando animaçao
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
+            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        }];
+    }
+    
+}
+
 
 @end

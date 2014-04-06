@@ -11,5 +11,7 @@
 
 @interface EquipeViewController : UIViewController<UIScrollViewDelegate,UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
+@property(nonatomic)BOOL needResetAnimation;
 
 @end

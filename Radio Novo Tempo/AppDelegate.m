@@ -19,7 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
     
+
     
     if ([self CheckInternetConnection]) {
         //Carregando lista da API.
@@ -139,6 +141,8 @@
 -(void)ChangeRootViewController:(NSString *)currentViewControllerName needCloseEffect:(BOOL)needEffect{
     
 
+    
+    
  
     //Definindo ViewControlle de menu, sempre do lado esquerdo.
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
@@ -253,7 +257,7 @@
 - (void) ChangePlayerStreamUrl: (NSString *) url{
     NSURL * serviceUrl = [NSURL URLWithString:url];
     player = [[MPMoviePlayerController alloc] initWithContentURL:serviceUrl];
-    NSLog(@"%@",serviceUrl);
+    //NSLog(@"%@",serviceUrl);
 }
 
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event {
@@ -371,6 +375,8 @@
     self.radioCurrent = radioDefault;
     
 }
+
+
 
 
 @end

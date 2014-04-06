@@ -21,6 +21,9 @@ int heightOfPage = 100;
 int screenSize = 0;
 CGFloat PADDING_LEFT = 50;
 
+
+
+
 @interface EquipeViewController ()
 
 //Loading
@@ -51,6 +54,8 @@ CGFloat PADDING_LEFT = 50;
 
 @end
 
+
+
 @implementation EquipeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,6 +73,21 @@ CGFloat PADDING_LEFT = 50;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Observando Framework de menu para quando abrir chamar este metodo
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(rotateBtnOpenMenu)
+                                                 name:@"GestureOpenMenu"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(unRotateBtnOpenMenu)
+                                                 name:@"GestureCloseMenu"
+                                               object:nil];
+    
+    
+    //Need To reset Animation
+    self.needResetAnimation = NO;
     
     [self MainExecution];
     
@@ -611,6 +631,31 @@ CGFloat PADDING_LEFT = 50;
     //Check Internet Connection.
     AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     return apDel.CheckInternetConnection;
+}
+
+-(void)rotateBtnOpenMenu{
+    
+    //Criando animaçao
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
+        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        
+    }];
+    
+    self.needResetAnimation = YES;
+}
+
+
+-(void)unRotateBtnOpenMenu{
+    
+    if (self.needResetAnimation) {
+        //Criando animaçao
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
+            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        }];
+    }
+    
 }
 
 

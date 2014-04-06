@@ -32,6 +32,7 @@
 @property(strong,nonatomic)MMDrawerController * drawerController;
 @property (strong, nonatomic) UIWindow * window;
 @property(nonatomic,assign)BOOL hasInternet;
+@property(nonatomic,assign)BOOL menuIsOpen;
 @property(strong,nonatomic)Radio * radioCurrent;
 @property(strong,nonatomic)NSMutableArray * globallistRadios;
 
