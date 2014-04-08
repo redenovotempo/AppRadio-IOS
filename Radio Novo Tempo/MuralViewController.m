@@ -22,6 +22,7 @@
 
 @implementation MuralViewController
 
+@synthesize muralTableView2;
 @synthesize muralTableView;
 @synthesize imgLoading;
 @synthesize loadingView;
@@ -389,8 +390,16 @@
 
     }
     
-
-    UITableViewCell *cell = [muralTableView cellForRowAtIndexPath:indexPath];
+    
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    
+    if (tableView == muralTableView) {
+        cell = [muralTableView cellForRowAtIndexPath:indexPath];
+    }else{
+        cell = [muralTableView2 cellForRowAtIndexPath:indexPath];
+    }
+    
     
     // NOTE: Add some code like this to create a new cell if there are none to reuse
     if(cell == nil)
@@ -468,6 +477,7 @@
         [self InternetConnectionErrorMessage];
     }else{
         [muralTableView reloadData];
+        [muralTableView2 reloadData];
     }
 }
 

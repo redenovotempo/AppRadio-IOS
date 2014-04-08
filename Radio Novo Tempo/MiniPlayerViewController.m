@@ -40,7 +40,6 @@
                                                 name:UIApplicationDidBecomeActiveNotification
                                               object:nil];
     
-    
     [self CheckPlayerState];
     [self ReloadRadioLabelName];
 }

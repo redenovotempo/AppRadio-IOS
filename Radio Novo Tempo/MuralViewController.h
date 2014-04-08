@@ -33,7 +33,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
 @property(nonatomic)BOOL needResetAnimation;
 
+//Tabelas
 @property(nonatomic,retain)IBOutlet UITableView * muralTableView;
+
+@property (weak, nonatomic) IBOutlet UITableView *muralTableView2;
+
 @property(nonatomic,retain)IBOutlet UIButton * playUiButton;
 
 
