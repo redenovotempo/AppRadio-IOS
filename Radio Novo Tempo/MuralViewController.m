@@ -22,8 +22,6 @@
 
 @implementation MuralViewController
 
-@synthesize muralTableView2;
-@synthesize muralTableView;
 @synthesize imgLoading;
 @synthesize loadingView;
 @synthesize urlConnection;
@@ -55,7 +53,6 @@
     //Need To reset Animation
     self.needResetAnimation = NO;
     
-    
     self.sharedText = [[NSString alloc]init];
     [self MainExecution];
     
@@ -68,7 +65,7 @@
     if (![self CheckInternetConnection]) {
         [self InternetConnectionErrorMessage];
     }else{
-        if (muralItensArray.count == 0) {
+        if (self.muralItensArray.count == 0) {
             [self CallMuralJsonData];
         }
     }
@@ -95,15 +92,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [muralItensArray count];
+    if (tableView == self.muralTableView) {
+        return [self.muralItensArray count];
+    }else{
+        return [self.muralItensArray2 count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+    NSMutableDictionary * item = [[NSMutableDictionary alloc]init];
     
-    NSMutableDictionary * item = [muralItensArray objectAtIndex:indexPath.row];
-
+    if (tableView == self.muralTableView) {
+        item = [self.muralItensArray objectAtIndex:indexPath.row];
+    }else{
+        item = [self.muralItensArray2 objectAtIndex:indexPath.row];
+    }
     
     
         //Twitter
@@ -394,10 +399,10 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     
-    if (tableView == muralTableView) {
-        cell = [muralTableView cellForRowAtIndexPath:indexPath];
+    if (tableView == self.muralTableView) {
+        cell = [self.muralTableView cellForRowAtIndexPath:indexPath];
     }else{
-        cell = [muralTableView2 cellForRowAtIndexPath:indexPath];
+        cell = [self.muralTableView2 cellForRowAtIndexPath:indexPath];
     }
     
     
@@ -467,17 +472,39 @@
     
     NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:&jsonParsingError];
     
-    muralItensArray = [resultados objectForKey:@"mural"];
+    
+    //Tratar items para ipad em duas colunas ou iphone em uma coluna.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        //self.muralItensArray = [resultados objectForKey:@"mural"];
+        NSMutableArray * tempArray = [resultados objectForKey:@"mural"];
+        
+    
+        for (NSDictionary * item in tempArray) {
+            //aqui faz a troca se for par vai pro array 1 e se for impar vai pro array 2.
+        }
+
+        
+        
+//        self.muralItensArray2 = [self.muralItensArray mutableCopy];
+//        [self.muralItensArray2 removeLastObject];
+        
+        
+    }else{
+        
+        self.muralItensArray = [resultados objectForKey:@"mural"];
+    }
+
 
     //Terminando View de loading
     [loadingView removeFromSuperview];
     
-    if (jsonParsingError || !muralItensArray){
+    if (jsonParsingError || !self.muralItensArray){
         NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
         [self InternetConnectionErrorMessage];
     }else{
-        [muralTableView reloadData];
-        [muralTableView2 reloadData];
+        [self.muralTableView reloadData];
+        [self.muralTableView2 reloadData];
     }
 }
 
@@ -588,7 +615,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    NSDictionary * dict = [muralItensArray objectAtIndex:indexPath.row];
+    NSDictionary * dict = [self.muralItensArray objectAtIndex:indexPath.row];
     
     //Twitter
     if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
@@ -728,7 +755,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSMutableDictionary * item = [muralItensArray objectAtIndex:indexPath.row];
+    NSMutableDictionary * item = [self.muralItensArray objectAtIndex:indexPath.row];
     NSString * link = [[NSString alloc]init];
     
     //Twitter
@@ -765,7 +792,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
     }
     
-    UITableViewCell *cell = [muralTableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.muralTableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
     
 }

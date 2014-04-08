@@ -25,10 +25,13 @@
 
 @interface MuralViewController : UIViewController<UITableViewDelegate,UITextViewDelegate, UITableViewDataSource, UIScrollViewDelegate,UIAlertViewDelegate >{
    
-    NSMutableArray * muralItensArray;
     NSMutableData  * urlData;
 
 }
+
+
+@property(nonatomic,strong)NSMutableArray * muralItensArray;
+@property(nonatomic,strong)NSMutableArray * muralItensArray2;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
 @property(nonatomic)BOOL needResetAnimation;
