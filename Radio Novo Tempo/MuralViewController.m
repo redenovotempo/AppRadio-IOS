@@ -39,6 +39,12 @@
 {
     [super viewDidLoad];
     
+    //Instanciando valores
+    self.muralItensArray = [[NSMutableArray alloc]init];
+    self.muralItensArray2 = [[NSMutableArray alloc]init];
+    
+    
+    
     //Observando Framework de menu para quando abrir chamar este metodo
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(rotateBtnOpenMenu)
@@ -479,17 +485,15 @@
         //self.muralItensArray = [resultados objectForKey:@"mural"];
         NSMutableArray * tempArray = [resultados objectForKey:@"mural"];
         
-    
+        //Varrendo array e separando numeros impares de pares nas duas listas do Ipad.
         for (NSDictionary * item in tempArray) {
-            //aqui faz a troca se for par vai pro array 1 e se for impar vai pro array 2.
+            if ([tempArray indexOfObject:item]%2) {
+                [self.muralItensArray addObject:item];
+            }else{
+                [self.muralItensArray2 addObject:item];
+            }
         }
-
-        
-        
-//        self.muralItensArray2 = [self.muralItensArray mutableCopy];
-//        [self.muralItensArray2 removeLastObject];
-        
-        
+ 
     }else{
         
         self.muralItensArray = [resultados objectForKey:@"mural"];
@@ -614,8 +618,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSDictionary * dict = [[NSDictionary alloc]init];
     
-    NSDictionary * dict = [self.muralItensArray objectAtIndex:indexPath.row];
+    if (tableView == self.muralTableView) {
+        dict = [self.muralItensArray objectAtIndex:indexPath.row];
+    }else{
+        dict = [self.muralItensArray2 objectAtIndex:indexPath.row];
+    }
+    
     
     //Twitter
     if ([[dict objectForKey:@"type"] isEqualToString:@"twitter"]) {
@@ -709,22 +719,84 @@
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
-    CGPoint offset = aScrollView.contentOffset;
-    CGRect bounds = aScrollView.bounds;
-    CGSize size = aScrollView.contentSize;
-    UIEdgeInsets inset = aScrollView.contentInset;
-    float y = offset.y + bounds.size.height - inset.bottom;
-    float h = size.height;
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
-    //Escondendo player
-    if(y >= h-3) {
-        self.containerView.hidden = YES;
-    }else{
-        self.containerView.hidden = NO;
-        //NSLog(@"%f = y e %f = h",y,h+3);
+   
+    //Criando apenas um scrol para as duas tabelas no ipad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    
+        CGPoint offset = scrollView.contentOffset;
+        
+        CGRect bounds = scrollView.bounds;
+        CGSize size = scrollView.contentSize;
+        UIEdgeInsets inset = scrollView.contentInset;
+        float y = offset.y + bounds.size.height - inset.bottom;
+        float h = size.height;
+        
+        
+        BOOL isMuralTable2Biggest = (self.muralTableView2.contentSize.height >= self.muralTableView.contentSize.height)? YES : NO;
+        
+        //Escondendo player
+        if (scrollView == self.muralTableView2 || scrollView == self.muralTableView) {
+            if(y >= h-3) {
+                
+                if (isMuralTable2Biggest) {
+                    CGPoint  maxoffSet = CGPointMake(0, self.muralTableView2.frame.size.height+20);
+                    [self.muralTableView setContentOffset:maxoffSet animated:YES];
+                }else{
+                    CGPoint  maxoffSet = CGPointMake(0, self.muralTableView.frame.size.height+20);
+                    [self.muralTableView2 setContentOffset:maxoffSet animated:YES];
+                }
+                
+            }
+        }
     }
     
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+
+        CGPoint offset = aScrollView.contentOffset;
+    
+        CGRect bounds = aScrollView.bounds;
+        CGSize size = aScrollView.contentSize;
+        UIEdgeInsets inset = aScrollView.contentInset;
+        float y = offset.y + bounds.size.height - inset.bottom;
+        float h = size.height;
+        
+        //Escondendo player
+        if(y >= h-3) {
+            self.containerView.hidden = YES;
+            
+        }else{
+            self.containerView.hidden = NO;
+        }
+    
+    
+    
+    //Criando apenas um scrol para as duas tabelas no ipad
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+
+        if (aScrollView == self.muralTableView) {
+            
+            //Retirando o scrol da tabela do delegate
+            CGRect scrollBounds = self.muralTableView2.bounds;
+            scrollBounds.origin = offset;
+            self.muralTableView2.bounds = scrollBounds;
+            [self.muralTableView2 setContentOffset:offset animated:NO];
+
+        }else if (aScrollView == self.muralTableView2){
+            
+            //Retirando o scrol da tabela do delegate
+            CGRect scrollBounds = self.muralTableView.bounds;
+            scrollBounds.origin = offset;
+            self.muralTableView.bounds = scrollBounds;
+            [self.muralTableView setContentOffset:offset animated:NO];
+        }
+    }
+    
+        
 }
 
 -(void)shareMuralItem:(id)sender{
