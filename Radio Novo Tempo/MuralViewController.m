@@ -19,7 +19,6 @@
 @end
 
 
-
 @implementation MuralViewController
 
 @synthesize imgLoading;
@@ -35,6 +34,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,7 +43,10 @@
     self.muralItensArray = [[NSMutableArray alloc]init];
     self.muralItensArray2 = [[NSMutableArray alloc]init];
     
-    
+    //inserindo padding no bottom das tabelas
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [self incressPaddingBottomOnTablesOnIpad];
+    }
     
     //Observando Framework de menu para quando abrir chamar este metodo
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -64,6 +67,18 @@
     
 }
 
+-(void)incressPaddingBottomOnTablesOnIpad{
+    
+    self.muralTableView.contentInset = UIEdgeInsetsMake(self.muralTableView.contentInset.top,
+                                                         self.muralTableView.contentInset.left,
+                                                         self.muralTableView.contentInset.bottom+18,
+                                                         self.muralTableView.contentInset.right);
+    
+    self.muralTableView2.contentInset = UIEdgeInsetsMake(self.muralTableView2.contentInset.top,
+                                                         self.muralTableView2.contentInset.left,
+                                                         self.muralTableView2.contentInset.bottom+18,
+                                                         self.muralTableView2.contentInset.right);
+}
 
 
 -(void)MainExecution{
@@ -116,6 +131,7 @@
         item = [self.muralItensArray2 objectAtIndex:indexPath.row];
     }
     
+
     
         //Twitter
         if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
@@ -418,6 +434,7 @@
         cell = [[UITableViewCell alloc] init];
     }
     
+    
     return cell;
 }
 
@@ -714,6 +731,7 @@
         return REST_ELEMENTS_SIZE+IMG_SIZE+DESCRIPTION_SIZE+PADDING_BOTTOM;
     }
     
+    
     return 0;
     
 }
@@ -721,7 +739,6 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
-   
     //Criando apenas um scrol para as duas tabelas no ipad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
     
@@ -733,26 +750,28 @@
         float y = offset.y + bounds.size.height - inset.bottom;
         float h = size.height;
         
-        
+        //Descobrindo qual tabela é a maior no ipad
         BOOL isMuralTable2Biggest = (self.muralTableView2.contentSize.height >= self.muralTableView.contentSize.height)? YES : NO;
         
-        //Escondendo player
+        //Descobrindo se o usuario chegou no fim da tabela.
         if (scrollView == self.muralTableView2 || scrollView == self.muralTableView) {
             if(y >= h-3) {
                 
                 if (isMuralTable2Biggest) {
-                    CGPoint  maxoffSet = CGPointMake(0, self.muralTableView2.frame.size.height+20);
-                    [self.muralTableView setContentOffset:maxoffSet animated:YES];
+                    //Levando o scrol para o fim da tabela maior
+                    NSIndexPath* ipath = [NSIndexPath indexPathForRow:[self.muralItensArray2 count]-1 inSection:1-1];
+                    [self.muralTableView2 scrollToRowAtIndexPath:ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
+
                 }else{
-                    CGPoint  maxoffSet = CGPointMake(0, self.muralTableView.frame.size.height+20);
-                    [self.muralTableView2 setContentOffset:maxoffSet animated:YES];
+                    //Levando o scrol para o fim da tabela maior
+                    NSIndexPath* ipath = [NSIndexPath indexPathForRow:[self.muralItensArray count]-1 inSection:1-1];
+                    [self.muralTableView scrollToRowAtIndexPath:ipath atScrollPosition: UITableViewScrollPositionTop animated:YES];
                 }
-                
             }
         }
     }
-    
 }
+
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
@@ -827,7 +846,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSMutableDictionary * item = [self.muralItensArray objectAtIndex:indexPath.row];
+    NSMutableDictionary * item = [[NSMutableDictionary alloc]init];
+    
+    if (tableView == self.muralTableView) {
+        item = [self.muralItensArray objectAtIndex:indexPath.row];
+    }else{
+        item = [self.muralItensArray2 objectAtIndex:indexPath.row];
+    }
+    
     NSString * link = [[NSString alloc]init];
     
     //Twitter

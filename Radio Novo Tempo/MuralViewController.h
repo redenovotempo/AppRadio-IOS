@@ -23,6 +23,8 @@
 
 
 
+
+
 @interface MuralViewController : UIViewController<UITableViewDelegate,UITextViewDelegate, UITableViewDataSource, UIScrollViewDelegate,UIAlertViewDelegate >{
    
     NSMutableData  * urlData;
