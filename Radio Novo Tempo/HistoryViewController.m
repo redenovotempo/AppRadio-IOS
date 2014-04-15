@@ -99,7 +99,7 @@
     //Chamando JSON
     NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@",action,idRadio];
     
-    NSLog(@"%@",adress);
+    //NSLog(@"%@",adress);
     
     NSString * post = [[NSString alloc]init];
     NSData * postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
