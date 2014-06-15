@@ -20,13 +20,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
-    
-    //Verificando estados do player a cada 3 segundos.
-    [NSTimer scheduledTimerWithTimeInterval:3
-                                     target:self
-                                   selector:@selector(checkPlayerState)
-                                   userInfo:nil
-                                    repeats:YES];
 
     
     if ([self CheckInternetConnection]) {
@@ -382,19 +375,6 @@
     
 }
 
-
--(void)checkPlayerState{
-//    
-//    if(player)
-//    {
-//        NSLog(@"Tocando...");
-//    }else{
-//        NSLog(@"**ERROR**");
-//        [self PlayAudio];
-//    }
-    
-    
-}
 
 
 @end
