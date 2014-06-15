@@ -10,8 +10,8 @@
 
 @interface ArgButton : UIButton
 
-@property(nonatomic,weak)NSString * ArgString1;
-@property(nonatomic,weak)NSString * ArgString2;
-@property(nonatomic,weak)NSNumber * ArgNumber1;
+@property(nonatomic,strong)NSString * ArgString1;
+@property(nonatomic,strong)NSString * ArgString2;
+@property(nonatomic,strong)NSNumber * ArgNumber1;
 
 @end

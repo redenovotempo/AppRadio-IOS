@@ -13,7 +13,7 @@
 
 @interface MuralViewController ()
 
-@property(nonatomic)NSString * sharedText;
+@property(nonatomic,strong)NSString * sharedText;
 
 
 @end
@@ -39,6 +39,8 @@
 {
     [super viewDidLoad];
     
+   
+    
     //Instanciando valores
     self.muralItensArray = [[NSMutableArray alloc]init];
     self.muralItensArray2 = [[NSMutableArray alloc]init];
@@ -62,7 +64,6 @@
     //Need To reset Animation
     self.needResetAnimation = NO;
     
-    self.sharedText = [[NSString alloc]init];
     [self MainExecution];
     
 }
@@ -136,6 +137,9 @@
         //Twitter
         if ([[item objectForKey:@"type"] isEqualToString:@"twitter"]) {
             
+            
+             self.sharedText = [[NSString alloc]init];
+            
             //Cell utilizada.
             NSString *cellIdentifier = @"MuralTwitterCell";
             
@@ -181,6 +185,8 @@
         
         //Youtube
         else if ([[item objectForKey:@"type"] isEqualToString:@"youtube"]) {
+            
+             self.sharedText = [[NSString alloc]init];
             
             //Cell utilizada.
             NSString * cellIdentifier = @"MuralYoutubeCell";
@@ -240,6 +246,7 @@
         //Blog
         else if ([[item objectForKey:@"type"] isEqualToString:@"blog"]) {
             
+            
             //Cell utilizada.
             NSString * cellIdentifier = @"MuralBlogCell";
             MuralBlogCell * cell = (MuralBlogCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -274,11 +281,10 @@
             [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
+            
             //acao do share para os butons
-            cell.btnShare = [[ArgButton alloc]init];
-            cell.btnShare.tag = 501;
-            cell.btnShare.ArgString1 = muralBlog.url;
-            self.sharedText = muralBlog.url;
+            cell.btnShare = (ArgButton*)[cell viewWithTag:501];            
+            cell.btnShare.ArgString1 = [NSString stringWithFormat:@"%@ %@",muralBlog.title,muralBlog.description];
             [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
             
             
@@ -304,6 +310,8 @@
     
         //Facebook
         else if ([[item objectForKey:@"type"] isEqualToString:@"facebook"]) {
+            
+             self.sharedText = [[NSString alloc]init];
             
             //Cell utilizada.
             NSString * cellIdentifier = @"MuralFacebookCell";
@@ -339,8 +347,11 @@
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
-            self.sharedText = muralFacebook.message;
+            cell.btnShare = (ArgButton*)[cell viewWithTag:601];
+            cell.btnShare.ArgString1 = muralFacebook.message;
             [cell.btnShare addTarget:self action:@selector(shareMuralItem:) forControlEvents:UIControlEventTouchUpInside];
+
+            
             
             //verificando likes
             if ([muralFacebook.likes intValue] != 0) {
@@ -372,6 +383,9 @@
     
         //Instagram
         else if ([[item objectForKey:@"type"] isEqualToString:@"instagram"]) {
+            
+             self.sharedText = [[NSString alloc]init];
+            
             
             //Cell utilizada.
             NSString * cellIdentifier = @"MuralInstagramCell";
@@ -822,12 +836,17 @@
 
 -(void)shareMuralItem:(id)sender{
     
-    if (self.sharedText) {
+    ArgButton * btnSender = (ArgButton *)sender;
+    
+    if (btnSender.ArgString1) {
         
-        NSArray* dataToShare = @[self.sharedText];
+        NSArray* dataToShare = @[btnSender.ArgString1];
         UIActivityViewController* activityViewController =
+        
         [[UIActivityViewController alloc] initWithActivityItems:dataToShare
                                           applicationActivities:nil];
+        
+         activityViewController.excludedActivityTypes = @[UIActivityTypeAirDrop];
         
         [self presentViewController:activityViewController animated:YES completion:^{}];
     }

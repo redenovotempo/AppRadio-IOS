@@ -21,6 +21,12 @@
 {
  
     
+    //Verificando estados do player a cada 3 segundos.
+    [NSTimer scheduledTimerWithTimeInterval:3
+                                     target:self
+                                   selector:@selector(checkPlayerState)
+                                   userInfo:nil
+                                    repeats:YES];
 
     
     if ([self CheckInternetConnection]) {
@@ -42,8 +48,8 @@
     
     
     
-//    [Flurry setCrashReportingEnabled:YES];
-//    [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
     
     
     //Declarando storyboard
@@ -377,6 +383,18 @@
 }
 
 
+-(void)checkPlayerState{
+//    
+//    if(player)
+//    {
+//        NSLog(@"Tocando...");
+//    }else{
+//        NSLog(@"**ERROR**");
+//        [self PlayAudio];
+//    }
+    
+    
+}
 
 
 @end
