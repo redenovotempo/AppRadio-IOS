@@ -42,8 +42,8 @@
     
     
     
-    [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
+//    [Flurry setCrashReportingEnabled:YES];
+//    [Flurry startSession:@"RZ23YG9WW7W854NX454T"];
     
     
     //Declarando storyboard

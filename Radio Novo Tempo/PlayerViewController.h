@@ -18,7 +18,7 @@
 {
     IBOutlet UIButton *playButton;
     IBOutlet UIButton *pauseButton;
-    IBOutlet UIView * volumeCanvas;
+    IBOutlet MPVolumeView * volumeCanvas;
     IBOutlet UIButton * btnCurrentRadio;
     //NSMutableArray * globallistRadios;
     BOOL locationExist;

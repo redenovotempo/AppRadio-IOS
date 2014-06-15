@@ -161,7 +161,6 @@
             cell.lblDate.text = [self dateFormat:muraltwitter.createdDate :@"dd/MM/yyyy"];
             
             
-            
             //Identificando Links.
             cell.txtViewContent.text = nil;
             cell.txtViewContent.editable = NO;
@@ -530,12 +529,15 @@
 }
 
 -(void)InternetConnectionErrorMessage{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet ou o conteúdo esteja indisponível, certifique-se disso." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Tentar Novamente" ,nil];
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == [alertView cancelButtonIndex]) {
+        AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [apDel ChangeRootViewController:@"Player" needCloseEffect:NO];
+    }else{
         [self MainExecution];
     }
 }

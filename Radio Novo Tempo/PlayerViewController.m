@@ -57,14 +57,15 @@
     //Verificando se a radio ja esta tocando.
     [self CheckPlayerState];
     
-    //Customize Uislider Volume.
-    [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumTrackTintColor:[UIColor whiteColor]];
-    [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMaximumTrackTintColor:[UIColor blackColor]];
-    [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMaximumValueImage:[UIImage imageNamed:@"soundMax.png"]];
-    [[UISlider appearanceWhenContainedIn:[MPVolumeView class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
     volumeCanvas.backgroundColor = [UIColor clearColor];
+
+    [[UISlider appearanceWhenContainedIn:[volumeCanvas class], nil] setMaximumValueImage:[UIImage imageNamed:@"soundMax.png"]];
+    [[UISlider appearanceWhenContainedIn:[volumeCanvas class], nil] setMinimumValueImage:[UIImage imageNamed:@"soundMin.png"]];
+    [volumeCanvas setMinimumVolumeSliderImage:[UIImage imageNamed:@"minSlider.png"] forState:UIControlStateNormal];
+    [volumeCanvas setMaximumVolumeSliderImage:[UIImage imageNamed:@"maxSlider.png"] forState:UIControlStateNormal];
     
 }
+
 
 
 -(void)ReloadPickerViewContent{
