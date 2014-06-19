@@ -57,7 +57,7 @@
     
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
-
+    
     PlayerViewController * main = (PlayerViewController*)[self.mainStoryboard
                                                         instantiateViewControllerWithIdentifier: @"Player"];
 

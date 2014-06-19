@@ -46,6 +46,9 @@
 		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
 		55C1F05A19525E6A00C88680 /* ProgramacaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */; };
 		55C1F05C1952655100C88680 /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F05B1952655100C88680 /* searchIcon.png */; };
+		55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0601952987D00C88680 /* favIconSearchBar.png */; };
+		55C1F0631952994F00C88680 /* favIconCrossSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */; };
+		55C1F0661952A1D700C88680 /* ProgramingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F0651952A1D700C88680 /* ProgramingItem.m */; };
 		55EEDC2D194D8D12006D12F7 /* maxSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEDC2C194D8D12006D12F7 /* maxSlider.png */; };
 		55EEDC2F194D8D18006D12F7 /* minSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEDC2E194D8D18006D12F7 /* minSlider.png */; };
 		A5009543188DB59F009A8059 /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A500953F188DB59F009A8059 /* loading@2x.png */; };
@@ -156,6 +159,10 @@
 		55C1F05819525E6A00C88680 /* ProgramacaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramacaoTableViewCell.h; sourceTree = "<group>"; };
 		55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramacaoTableViewCell.m; sourceTree = "<group>"; };
 		55C1F05B1952655100C88680 /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchIcon.png; sourceTree = "<group>"; };
+		55C1F0601952987D00C88680 /* favIconSearchBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favIconSearchBar.png; sourceTree = "<group>"; };
+		55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favIconCrossSearchBar.png; sourceTree = "<group>"; };
+		55C1F0641952A1D700C88680 /* ProgramingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramingItem.h; sourceTree = "<group>"; };
+		55C1F0651952A1D700C88680 /* ProgramingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramingItem.m; sourceTree = "<group>"; };
 		55EEDC2C194D8D12006D12F7 /* maxSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maxSlider.png; sourceTree = "<group>"; };
 		55EEDC2E194D8D18006D12F7 /* minSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minSlider.png; sourceTree = "<group>"; };
 		700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -368,10 +375,12 @@
 			children = (
 				A53B6E46188579E800FA0BD9 /* Mural */,
 				A500953F188DB59F009A8059 /* loading@2x.png */,
+				55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */,
 				55677B0C18E7ECC000DF3FCF /* previous.png */,
 				55C1F05B1952655100C88680 /* searchIcon.png */,
 				55677B0D18E7ECC000DF3FCF /* next.png */,
 				A502B27118B173A500636B7B /* person.jpg */,
+				55C1F0601952987D00C88680 /* favIconSearchBar.png */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				A543D59D1882D519001BDD94 /* separator@2x.png */,
 				55A14D9B18D7997000A583E6 /* bg.jpg */,
@@ -424,6 +433,8 @@
 				A53B6E661885D07100FA0BD9 /* Radio.m */,
 				A5935AEC188B1DF500EF749D /* MiniPlayerViewController.h */,
 				A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */,
+				55C1F0641952A1D700C88680 /* ProgramingItem.h */,
+				55C1F0651952A1D700C88680 /* ProgramingItem.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -606,10 +617,12 @@
 				550C12FA1813C88500CD48E2 /* logo.com.png in Resources */,
 				556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */,
 				550C12CB1813B60A00CD48E2 /* Main.storyboard in Resources */,
+				55C1F0631952994F00C88680 /* favIconCrossSearchBar.png in Resources */,
 				55677B0E18E7ECC000DF3FCF /* previous.png in Resources */,
 				55C1F05C1952655100C88680 /* searchIcon.png in Resources */,
 				A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */,
 				55677B0F18E7ECC000DF3FCF /* next.png in Resources */,
+				55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */,
 				A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */,
 				55A14D9C18D7997000A583E6 /* bg.jpg in Resources */,
 				550C12F61813C5D000CD48E2 /* play.png in Resources */,
@@ -679,6 +692,7 @@
 				55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */,
 				A53B6E561885923F00FA0BD9 /* MuralInstagramCell.m in Sources */,
 				A57A07AD1882592100C28542 /* MenuCell.m in Sources */,
+				55C1F0661952A1D700C88680 /* ProgramingItem.m in Sources */,
 				A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */,
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */,
