@@ -54,10 +54,6 @@
     
     [self setupScrollDays];
     
-    //_programingItems = @[@"Nisto Cremos",@"Tempos de Oração",@"Mais Perto",@"Cada dia"];
-
-    [self CallProgramJsonData:0];
-    
     //Observando Framework de menu para quando abrir chamar este metodo
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(rotateBtnOpenMenu)
@@ -124,6 +120,7 @@
             NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
         }else{
             [self.loadingView removeFromSuperview];
+            _scrollDays.userInteractionEnabled = YES;
             _searchButton.hidden = NO;
             [_tablePrograming reloadData];
         }
@@ -136,34 +133,50 @@
     _scrollDays.contentSize = CGSizeMake(50*7 + 15, 56);
     _scrollDays.showsHorizontalScrollIndicator = NO;
     
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    NSInteger weekday = [comps weekday];
+
+    
+    
     ArgButton * domingo = [[ArgButton alloc]initWithFrame:CGRectMake(0, 0, 70, 50)];
     domingo.ArgNumber1 = [NSNumber numberWithInt:1];
     domingo.ArgString1 = @"Dom";
     [self setupScrollDaysButton:domingo];
+    (weekday  == [domingo.ArgNumber1 integerValue])?[self callJsonPrograming:domingo]: nil;
     ArgButton * segunda = [[ArgButton alloc]initWithFrame:CGRectMake(50, 0, 70, 50)];
     segunda.ArgNumber1 = [NSNumber numberWithInt:2];
     segunda.ArgString1 = @"Seg";
     [self setupScrollDaysButton:segunda];
+    (weekday  == [segunda.ArgNumber1 integerValue])?[self callJsonPrograming:segunda]: nil;
     ArgButton * terca = [[ArgButton alloc]initWithFrame:CGRectMake(100, 0, 70, 50)];
     terca.ArgNumber1 = [NSNumber numberWithInt:3];
     terca.ArgString1 = @"Ter";
     [self setupScrollDaysButton:terca];
+    (weekday  == [terca.ArgNumber1 integerValue])?[self callJsonPrograming:terca]: nil;
     ArgButton * quarta = [[ArgButton alloc]initWithFrame:CGRectMake(150, 0, 70, 50)];
     quarta.ArgNumber1 = [NSNumber numberWithInt:4];
     quarta.ArgString1 = @"Qua";
     [self setupScrollDaysButton:quarta];
+    (weekday  == [quarta.ArgNumber1 integerValue])?[self callJsonPrograming:quarta]: nil;
     ArgButton * quinta = [[ArgButton alloc]initWithFrame:CGRectMake(200, 0, 70, 50)];
     quinta.ArgNumber1 = [NSNumber numberWithInt:5];
     quinta.ArgString1 = @"Qui";
     [self setupScrollDaysButton:quinta];
+    (weekday  == [quinta.ArgNumber1 integerValue])?[self callJsonPrograming:quinta]: nil;
     ArgButton * sexta = [[ArgButton alloc]initWithFrame:CGRectMake(250, 0, 70, 50)];
     sexta.ArgNumber1 = [NSNumber numberWithInt:6];
     sexta.ArgString1 = @"Sex";
     [self setupScrollDaysButton:sexta];
+    (weekday  == [sexta.ArgNumber1 integerValue])?[self callJsonPrograming:sexta]: nil;
     ArgButton * sabado = [[ArgButton alloc]initWithFrame:CGRectMake(300, 0, 70, 50)];
     sabado.ArgNumber1 = [NSNumber numberWithInt:7];
     sabado.ArgString1 = @"Sáb";
     [self setupScrollDaysButton:sabado];
+    if(weekday  == [sabado.ArgNumber1 integerValue]){
+        [self callJsonPrograming:sabado];
+        [_scrollDays setContentOffset:CGPointMake(_scrollDays.frame.origin.x+50, 0) animated:NO];
+    }
     
 }
 
@@ -299,6 +312,7 @@
     
     //Iniciando LoadingView
     self.loadingView = [[UIView alloc]init];
+    _scrollDays.userInteractionEnabled = NO;
     
     //Criando componentes
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
@@ -319,10 +333,19 @@
     rotate.fillMode = kCAFillModeForwards;
     rotate.removedOnCompletion = NO;
     
+    
+    //Alinhando LoadingView
+    self.loadingView.center = _tablePrograming.center; //self.view.center;
+    self.loadingView.frame =  CGRectMake(_tablePrograming.frame.origin.x, _tablePrograming.frame.origin.y, _tablePrograming.frame.size.width, self.view.frame.size.height-192);
+    
+    
     //Alinhando Componentes
-    img.center = self.view.center;
-    img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 80, img.frame.size.width, img.frame.size.height);
-    [img.layer addAnimation:rotate forKey:@"10"];
+    img.center = CGPointMake(CGRectGetMidX(self.loadingView.bounds), CGRectGetMidY(self.loadingView.bounds));
+    img.frame = CGRectMake(img.frame.origin.x, img.frame.origin.y - 30, img.frame.size.width, img.frame.size.height);
+   [img.layer addAnimation:rotate forKey:@"10"];
+   
+    
+    
     txt.frame = CGRectMake(img.frame.origin.x + 10, img.frame.origin.y + 85, img.frame.size.width, img.frame.size.height);
     
     //Inserindo Componentes na LoadingView
@@ -330,10 +353,7 @@
     [self.loadingView addSubview:img];
     
     
-    //Alinhando LoadingView
-    self.loadingView.center = self.view.center;
-    self.loadingView.frame =  CGRectMake(self.view.frame.origin.x, 73, self.view.frame.size.width, self.view.frame.size.height);
-    
+
     //Alterando Cor de Fundo da LoadingView
     self.loadingView.backgroundColor = [UIColor whiteColor];
     
