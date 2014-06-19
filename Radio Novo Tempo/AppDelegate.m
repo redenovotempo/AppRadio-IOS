@@ -58,8 +58,10 @@
     MenuViewController * menu = (MenuViewController*)[self.mainStoryboard
                                                           instantiateViewControllerWithIdentifier: @"Menu"];
     
-    PlayerViewController * main = (PlayerViewController*)[self.mainStoryboard
-                                                        instantiateViewControllerWithIdentifier: @"Player"];
+//    PlayerViewController * main = (PlayerViewController*)[self.mainStoryboard
+//                                                        instantiateViewControllerWithIdentifier: @"Player"];
+    
+    PedirMusicaViewController * main = (PedirMusicaViewController *)[self.mainStoryboard instantiateViewControllerWithIdentifier:@"Peça sua música"];
 
     self.drawerController = [[MMDrawerController alloc]
                                              initWithCenterViewController:main
@@ -168,6 +170,22 @@
     if ([currentViewControllerName isEqualToString:@"Programação"]) {
         ProgramacaoViewController * current = (ProgramacaoViewController*)[self.mainStoryboard
                                                                instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    }
+    
+    //Programação
+    if ([currentViewControllerName isEqualToString:@"Peça sua música"]) {
+        PedirMusicaViewController * current = (PedirMusicaViewController*)[self.mainStoryboard
+                                                                           instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
                                  initWithCenterViewController:current

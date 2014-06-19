@@ -44,6 +44,8 @@
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
 		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
 		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
+		55B0039B1953659A0097751E /* PedirMusicaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0039A1953659A0097751E /* PedirMusicaViewController.m */; };
+		55B0039D19536CE70097751E /* arrowUpBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B0039C19536CE70097751E /* arrowUpBlue.png */; };
 		55C1F05A19525E6A00C88680 /* ProgramacaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */; };
 		55C1F05C1952655100C88680 /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F05B1952655100C88680 /* searchIcon.png */; };
 		55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0601952987D00C88680 /* favIconSearchBar.png */; };
@@ -156,6 +158,9 @@
 		55A7624418C3C84E0084570E /* EquipeDadosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeDadosCell.m; sourceTree = "<group>"; };
 		55A8549318BFFEF700690C29 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
+		55B003991953659A0097751E /* PedirMusicaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedirMusicaViewController.h; sourceTree = "<group>"; };
+		55B0039A1953659A0097751E /* PedirMusicaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedirMusicaViewController.m; sourceTree = "<group>"; };
+		55B0039C19536CE70097751E /* arrowUpBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUpBlue.png; sourceTree = "<group>"; };
 		55C1F05819525E6A00C88680 /* ProgramacaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramacaoTableViewCell.h; sourceTree = "<group>"; };
 		55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramacaoTableViewCell.m; sourceTree = "<group>"; };
 		55C1F05B1952655100C88680 /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchIcon.png; sourceTree = "<group>"; };
@@ -312,6 +317,8 @@
 				A57CB6E818AAFE9F003B3A4D /* HistoryViewController.m */,
 				551DA132195248F20030DEF2 /* ProgramacaoViewController.h */,
 				551DA133195248F20030DEF2 /* ProgramacaoViewController.m */,
+				55B003991953659A0097751E /* PedirMusicaViewController.h */,
+				55B0039A1953659A0097751E /* PedirMusicaViewController.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
 				5549377E18E26C06004D2F04 /* Reachability.h */,
 				5549377F18E26C06004D2F04 /* Reachability.m */,
@@ -378,6 +385,7 @@
 				55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */,
 				55677B0C18E7ECC000DF3FCF /* previous.png */,
 				55C1F05B1952655100C88680 /* searchIcon.png */,
+				55B0039C19536CE70097751E /* arrowUpBlue.png */,
 				55677B0D18E7ECC000DF3FCF /* next.png */,
 				A502B27118B173A500636B7B /* person.jpg */,
 				55C1F0601952987D00C88680 /* favIconSearchBar.png */,
@@ -623,6 +631,7 @@
 				A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */,
 				55677B0F18E7ECC000DF3FCF /* next.png in Resources */,
 				55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */,
+				55B0039D19536CE70097751E /* arrowUpBlue.png in Resources */,
 				A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */,
 				55A14D9C18D7997000A583E6 /* bg.jpg in Resources */,
 				550C12F61813C5D000CD48E2 /* play.png in Resources */,
@@ -708,6 +717,7 @@
 				A53B6E4F1885843F00FA0BD9 /* MuralBlogCell.m in Sources */,
 				55403C5618EBB409008EDAB8 /* CustomBoldTextViewFont.m in Sources */,
 				550C12C41813B60A00CD48E2 /* main.m in Sources */,
+				55B0039B1953659A0097751E /* PedirMusicaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

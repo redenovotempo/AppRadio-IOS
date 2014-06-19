@@ -19,6 +19,7 @@
 #import "EquipeViewController.h"
 #import "ProgramacaoViewController.h"
 #import "Radio.h"
+#import "PedirMusicaViewController.h"
 
 
 
