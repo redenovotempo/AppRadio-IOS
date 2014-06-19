@@ -28,6 +28,7 @@
 		550C12FD1813C9AF00CD48E2 /* soundMax.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FB1813C9AF00CD48E2 /* soundMax.png */; };
 		550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FC1813C9AF00CD48E2 /* soundMin.png */; };
 		550C13001813CE7A00CD48E2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 550C12FF1813CE7A00CD48E2 /* pause.png */; };
+		551DA134195248F20030DEF2 /* ProgramacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551DA133195248F20030DEF2 /* ProgramacaoViewController.m */; };
 		55403C4818EBACF4008EDAB8 /* CustomLabelFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */; };
 		55403C5018EBB08B008EDAB8 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */; };
 		55403C5318EBB2A5008EDAB8 /* CustomTextViewFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */; };
@@ -43,6 +44,8 @@
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
 		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
 		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
+		55C1F05A19525E6A00C88680 /* ProgramacaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */; };
+		55C1F05C1952655100C88680 /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F05B1952655100C88680 /* searchIcon.png */; };
 		55EEDC2D194D8D12006D12F7 /* maxSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEDC2C194D8D12006D12F7 /* maxSlider.png */; };
 		55EEDC2F194D8D18006D12F7 /* minSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEDC2E194D8D18006D12F7 /* minSlider.png */; };
 		A5009543188DB59F009A8059 /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A500953F188DB59F009A8059 /* loading@2x.png */; };
@@ -125,6 +128,8 @@
 		550C12FB1813C9AF00CD48E2 /* soundMax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMax.png; sourceTree = "<group>"; };
 		550C12FC1813C9AF00CD48E2 /* soundMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundMin.png; sourceTree = "<group>"; };
 		550C12FF1813CE7A00CD48E2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		551DA132195248F20030DEF2 /* ProgramacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramacaoViewController.h; sourceTree = "<group>"; };
+		551DA133195248F20030DEF2 /* ProgramacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramacaoViewController.m; sourceTree = "<group>"; };
 		55403C4618EBACF4008EDAB8 /* CustomLabelFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabelFont.h; sourceTree = "<group>"; };
 		55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabelFont.m; sourceTree = "<group>"; };
 		55403C4F18EBB08B008EDAB8 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Light.otf"; path = "../ProximaNova-Light.otf"; sourceTree = "<group>"; };
@@ -148,6 +153,9 @@
 		55A7624418C3C84E0084570E /* EquipeDadosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeDadosCell.m; sourceTree = "<group>"; };
 		55A8549318BFFEF700690C29 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
+		55C1F05819525E6A00C88680 /* ProgramacaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramacaoTableViewCell.h; sourceTree = "<group>"; };
+		55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramacaoTableViewCell.m; sourceTree = "<group>"; };
+		55C1F05B1952655100C88680 /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchIcon.png; sourceTree = "<group>"; };
 		55EEDC2C194D8D12006D12F7 /* maxSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maxSlider.png; sourceTree = "<group>"; };
 		55EEDC2E194D8D18006D12F7 /* minSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minSlider.png; sourceTree = "<group>"; };
 		700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -295,6 +303,8 @@
 				A502B26F18B1582100636B7B /* EquipeViewController.m */,
 				A57CB6E718AAFE9F003B3A4D /* HistoryViewController.h */,
 				A57CB6E818AAFE9F003B3A4D /* HistoryViewController.m */,
+				551DA132195248F20030DEF2 /* ProgramacaoViewController.h */,
+				551DA133195248F20030DEF2 /* ProgramacaoViewController.m */,
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
 				5549377E18E26C06004D2F04 /* Reachability.h */,
 				5549377F18E26C06004D2F04 /* Reachability.m */,
@@ -344,12 +354,22 @@
 			path = "Radio Novo Tempo/Flurry";
 			sourceTree = "<group>";
 		};
+		55C1F05719525E4E00C88680 /* Programacao */ = {
+			isa = PBXGroup;
+			children = (
+				55C1F05819525E6A00C88680 /* ProgramacaoTableViewCell.h */,
+				55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */,
+			);
+			name = Programacao;
+			sourceTree = "<group>";
+		};
 		A53B6E45188579B400FA0BD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				A53B6E46188579E800FA0BD9 /* Mural */,
 				A500953F188DB59F009A8059 /* loading@2x.png */,
 				55677B0C18E7ECC000DF3FCF /* previous.png */,
+				55C1F05B1952655100C88680 /* searchIcon.png */,
 				55677B0D18E7ECC000DF3FCF /* next.png */,
 				A502B27118B173A500636B7B /* person.jpg */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
@@ -445,6 +465,7 @@
 		A57A07AE1882592D00C28542 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				55C1F05719525E4E00C88680 /* Programacao */,
 				A53B6E681885DADE00FA0BD9 /* Mural */,
 				A57A07AB1882592100C28542 /* MenuCell.h */,
 				A57A07AC1882592100C28542 /* MenuCell.m */,
@@ -586,6 +607,7 @@
 				556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */,
 				550C12CB1813B60A00CD48E2 /* Main.storyboard in Resources */,
 				55677B0E18E7ECC000DF3FCF /* previous.png in Resources */,
+				55C1F05C1952655100C88680 /* searchIcon.png in Resources */,
 				A53712A218A8321F00A21646 /* iconLove@2x.png in Resources */,
 				55677B0F18E7ECC000DF3FCF /* next.png in Resources */,
 				A53712A318A8321F00A21646 /* iconShared@2x.png in Resources */,
@@ -650,6 +672,7 @@
 				A57CB6E918AAFE9F003B3A4D /* HistoryViewController.m in Sources */,
 				A53B6E5A1885CFF100FA0BD9 /* MuralTwitter.m in Sources */,
 				550C12C81813B60A00CD48E2 /* AppDelegate.m in Sources */,
+				55C1F05A19525E6A00C88680 /* ProgramacaoTableViewCell.m in Sources */,
 				A537129518A81F8900A21646 /* MuralFacebookCell.m in Sources */,
 				A53B6E641885D05600FA0BD9 /* MuralYoutube.m in Sources */,
 				A502B27018B1582100636B7B /* EquipeViewController.m in Sources */,
@@ -660,6 +683,7 @@
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */,
 				55403C4818EBACF4008EDAB8 /* CustomLabelFont.m in Sources */,
+				551DA134195248F20030DEF2 /* ProgramacaoViewController.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
 				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,

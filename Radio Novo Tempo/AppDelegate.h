@@ -17,6 +17,7 @@
 #import "MuralViewController.h"
 #import "HistoryViewController.h"
 #import "EquipeViewController.h"
+#import "ProgramacaoViewController.h"
 #import "Radio.h"
 
 

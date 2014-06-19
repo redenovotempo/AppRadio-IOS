@@ -8,6 +8,7 @@
  
 #import "AppDelegate.h"
 
+
 @interface AppDelegate()
 
 @property(nonatomic)UIStoryboard * mainStoryboard;
@@ -150,6 +151,22 @@
     //Mural
     if ([currentViewControllerName isEqualToString:@"Mural"]) {
         MuralViewController * current = (MuralViewController*)[self.mainStoryboard
+                                                               instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    }
+    
+    //Programação
+    if ([currentViewControllerName isEqualToString:@"Programação"]) {
+        ProgramacaoViewController * current = (ProgramacaoViewController*)[self.mainStoryboard
                                                                instantiateViewControllerWithIdentifier:currentViewControllerName];
         
         self.drawerController = [[MMDrawerController alloc]
