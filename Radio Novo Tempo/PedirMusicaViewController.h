@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PedirMusicaViewController : UIViewController
-
+@interface PedirMusicaViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@property(nonatomic)BOOL needResetAnimation;
 @end
