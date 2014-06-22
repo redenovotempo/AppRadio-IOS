@@ -122,6 +122,7 @@
             [self.loadingView removeFromSuperview];
             _scrollDays.userInteractionEnabled = YES;
             _searchButton.hidden = NO;
+            _tablePrograming.hidden = NO;
             [_tablePrograming reloadData];
         }
 
@@ -248,6 +249,7 @@
 - (IBAction)OpenMenuButtonPressed:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDel.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    [_searchBar resignFirstResponder];
     
 }
 
@@ -313,6 +315,7 @@
     //Iniciando LoadingView
     self.loadingView = [[UIView alloc]init];
     _scrollDays.userInteractionEnabled = NO;
+    _tablePrograming.hidden = YES;
     
     //Criando componentes
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
@@ -387,7 +390,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
         self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
-        
+        [_searchBar resignFirstResponder];
     }];
     
     self.needResetAnimation = YES;
@@ -401,6 +404,7 @@
         [UIView animateWithDuration:0.5 animations:^{
             [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
             self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+            [_searchBar resignFirstResponder];
         }];
     }
     

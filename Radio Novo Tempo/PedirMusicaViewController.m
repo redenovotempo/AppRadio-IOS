@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgArrowOnBestMusicOfWeek;
+
+
 @property(nonatomic,strong)NSMutableArray * rankingList;
 
 //Loading
@@ -73,8 +76,12 @@
     [UIView animateWithDuration:0.3 animations:^{
         if (_viewPedirMusicaConstraint.constant == 0) {
             _viewPedirMusicaConstraint.constant = 185;
+            
+            _imgArrowOnBestMusicOfWeek.transform = CGAffineTransformMakeRotation(M_PI);
+            
         }else{
             _viewPedirMusicaConstraint.constant = 0;
+            _imgArrowOnBestMusicOfWeek.transform = CGAffineTransformMakeRotation(0);
         }
         
         [self.view layoutIfNeeded];
@@ -107,7 +114,7 @@
     
     
 
-    cell.numberlbl.text = [NSString stringWithFormat:@"%ld°",[_rankingList indexOfObject:item]+1];
+    cell.numberlbl.text = [NSString stringWithFormat:@"%lu°",[_rankingList indexOfObject:item]+1];
     cell.textlbl.text = [item objectForKey:@"music"];
     cell.detaillbl.text = [item objectForKey:@"artist"];
     return cell;
@@ -223,6 +230,8 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
         self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        [_musicTextField resignFirstResponder];
+        [_artistTextField resignFirstResponder];
         
     }];
     
@@ -237,6 +246,8 @@
         [UIView animateWithDuration:0.5 animations:^{
             [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
             self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+            [_musicTextField resignFirstResponder];
+            [_artistTextField resignFirstResponder];
         }];
     }
     

@@ -60,8 +60,6 @@
     
     PlayerViewController * main = (PlayerViewController*)[self.mainStoryboard
                                                         instantiateViewControllerWithIdentifier: @"Player"];
-//    
-//    PedirMusicaViewController * main = (PedirMusicaViewController *)[self.mainStoryboard instantiateViewControllerWithIdentifier:@"Peça sua música"];
 
     self.drawerController = [[MMDrawerController alloc]
                                              initWithCenterViewController:main
