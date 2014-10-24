@@ -56,6 +56,8 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 
+//Radio List
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *botomRadioListConstraint;
 
 
 - (IBAction)playButtonPressed:(id)button;

@@ -9,6 +9,7 @@
 #import "Person.h"
 
 @implementation Person
+@synthesize description;
 
 
 +(Person *)getFromDictionary: (NSDictionary *)dict{

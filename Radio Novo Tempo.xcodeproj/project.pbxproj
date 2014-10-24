@@ -44,9 +44,11 @@
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
 		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
-		55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */; };
 		55B0039B1953659A0097751E /* PedirMusicaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B0039A1953659A0097751E /* PedirMusicaViewController.m */; };
 		55B0039D19536CE70097751E /* arrowUpBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B0039C19536CE70097751E /* arrowUpBlue.png */; };
+		55BDED1119A9D22E0069BC82 /* libPods-Radio Novo Tempo-SDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDED0E19A9D22E0069BC82 /* libPods-Radio Novo Tempo-SDWebImage.a */; };
+		55BDED1419A9D2D20069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDED1319A9D2D20069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a */; };
+		55BDED1A19A9D4DC0069BC82 /* libFlurry_5.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55BDED1919A9D4DC0069BC82 /* libFlurry_5.3.0.a */; };
 		55C1F05A19525E6A00C88680 /* ProgramacaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */; };
 		55C1F05C1952655100C88680 /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F05B1952655100C88680 /* searchIcon.png */; };
 		55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0601952987D00C88680 /* favIconSearchBar.png */; };
@@ -93,7 +95,6 @@
 		A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AE62D41892B78E00CF757B /* ArgButton.m */; };
 		A5AE62D71892C9BA00CF757B /* playMuralIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5AE62D61892C9BA00CF757B /* playMuralIcon.png */; };
 		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
-		C8ABE635BDD945BDB9787A98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DBEBD8F387418CB15C75AE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,11 +160,16 @@
 		55A7624118C392450084570E /* UIViewPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewPerson.m; sourceTree = "<group>"; };
 		55A7624318C3C84E0084570E /* EquipeDadosCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipeDadosCell.h; sourceTree = "<group>"; };
 		55A7624418C3C84E0084570E /* EquipeDadosCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeDadosCell.m; sourceTree = "<group>"; };
-		55A8549318BFFEF700690C29 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.3.2.a; sourceTree = "<group>"; };
 		55B003991953659A0097751E /* PedirMusicaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedirMusicaViewController.h; sourceTree = "<group>"; };
 		55B0039A1953659A0097751E /* PedirMusicaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedirMusicaViewController.m; sourceTree = "<group>"; };
 		55B0039C19536CE70097751E /* arrowUpBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUpBlue.png; sourceTree = "<group>"; };
+		55BDED0D19A9D22E0069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Radio Novo Tempo-MMDrawerController.a"; path = "Pods/build/Debug-iphoneos/libPods-Radio Novo Tempo-MMDrawerController.a"; sourceTree = "<group>"; };
+		55BDED0E19A9D22E0069BC82 /* libPods-Radio Novo Tempo-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Radio Novo Tempo-SDWebImage.a"; path = "Pods/build/Debug-iphoneos/libPods-Radio Novo Tempo-SDWebImage.a"; sourceTree = "<group>"; };
+		55BDED0F19A9D22E0069BC82 /* libPods-Radio Novo Tempo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Radio Novo Tempo.a"; path = "Pods/build/Debug-iphoneos/libPods-Radio Novo Tempo.a"; sourceTree = "<group>"; };
+		55BDED1319A9D2D20069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Radio Novo Tempo-MMDrawerController.a"; path = "Pods/build/Debug-iphoneos/libPods-Radio Novo Tempo-MMDrawerController.a"; sourceTree = "<group>"; };
+		55BDED1519A9D32B0069BC82 /* libPods-Radio Novo Tempo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Radio Novo Tempo.a"; path = "Pods/build/Debug-iphoneos/libPods-Radio Novo Tempo.a"; sourceTree = "<group>"; };
+		55BDED1819A9D4DC0069BC82 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		55BDED1919A9D4DC0069BC82 /* libFlurry_5.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.3.0.a; sourceTree = "<group>"; };
 		55C1F05819525E6A00C88680 /* ProgramacaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramacaoTableViewCell.h; sourceTree = "<group>"; };
 		55C1F05919525E6A00C88680 /* ProgramacaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramacaoTableViewCell.m; sourceTree = "<group>"; };
 		55C1F05B1952655100C88680 /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchIcon.png; sourceTree = "<group>"; };
@@ -173,7 +179,8 @@
 		55C1F0651952A1D700C88680 /* ProgramingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramingItem.m; sourceTree = "<group>"; };
 		55EEDC2C194D8D12006D12F7 /* maxSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maxSlider.png; sourceTree = "<group>"; };
 		55EEDC2E194D8D18006D12F7 /* minSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minSlider.png; sourceTree = "<group>"; };
-		700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6C09A56AC4B64EC6B11FC512 /* libPods-Radio Novo Tempo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Radio Novo Tempo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B551FFF2DD4490B6E88B83 /* Pods-Radio Novo Tempo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio Novo Tempo.xcconfig"; path = "Pods/Pods-Radio Novo Tempo.xcconfig"; sourceTree = "<group>"; };
 		A500953F188DB59F009A8059 /* loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading@2x.png"; sourceTree = "<group>"; };
 		A502B26E18B1582100636B7B /* EquipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipeViewController.h; sourceTree = "<group>"; };
 		A502B26F18B1582100636B7B /* EquipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipeViewController.m; sourceTree = "<group>"; };
@@ -240,15 +247,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BDED1419A9D2D20069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a in Frameworks */,
+				55BDED1119A9D22E0069BC82 /* libPods-Radio Novo Tempo-SDWebImage.a in Frameworks */,
+				55BDED1A19A9D4DC0069BC82 /* libFlurry_5.3.0.a in Frameworks */,
 				A51DAFB81847F937000BAB46 /* AdSupport.framework in Frameworks */,
 				A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */,
 				554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */,
 				550C12F01813BA4900CD48E2 /* AVFoundation.framework in Frameworks */,
 				550C12BA1813B60A00CD48E2 /* CoreGraphics.framework in Frameworks */,
-				55A8549518BFFEF700690C29 /* libFlurry_4.3.2.a in Frameworks */,
 				550C12BC1813B60A00CD48E2 /* UIKit.framework in Frameworks */,
 				550C12B81813B60A00CD48E2 /* Foundation.framework in Frameworks */,
-				C8ABE635BDD945BDB9787A98 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,11 +276,11 @@
 		550C12AB1813B60A00CD48E2 = {
 			isa = PBXGroup;
 			children = (
+				55BDED1719A9D4DC0069BC82 /* Flurry */,
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
-				55A8549218BFFEF700690C29 /* Flurry */,
 				550C12B51813B60A00CD48E2 /* Products */,
-				700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */,
+				79B551FFF2DD4490B6E88B83 /* Pods-Radio Novo Tempo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,6 +296,11 @@
 		550C12B61813B60A00CD48E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55BDED1519A9D32B0069BC82 /* libPods-Radio Novo Tempo.a */,
+				55BDED1319A9D2D20069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a */,
+				55BDED0D19A9D22E0069BC82 /* libPods-Radio Novo Tempo-MMDrawerController.a */,
+				55BDED0E19A9D22E0069BC82 /* libPods-Radio Novo Tempo-SDWebImage.a */,
+				55BDED0F19A9D22E0069BC82 /* libPods-Radio Novo Tempo.a */,
 				A51DAFB71847F937000BAB46 /* AdSupport.framework */,
 				A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */,
 				554CD5CD1823284C00487501 /* CoreLocation.framework */,
@@ -297,6 +310,7 @@
 				550C12BB1813B60A00CD48E2 /* UIKit.framework */,
 				550C12D61813B60A00CD48E2 /* XCTest.framework */,
 				48DBEBD8F387418CB15C75AE /* libPods.a */,
+				6C09A56AC4B64EC6B11FC512 /* libPods-Radio Novo Tempo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,14 +384,13 @@
 			name = Equipe;
 			sourceTree = "<group>";
 		};
-		55A8549218BFFEF700690C29 /* Flurry */ = {
+		55BDED1719A9D4DC0069BC82 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
-				55A8549318BFFEF700690C29 /* Flurry.h */,
-				55A8549418BFFEF700690C29 /* libFlurry_4.3.2.a */,
+				55BDED1819A9D4DC0069BC82 /* Flurry.h */,
+				55BDED1919A9D4DC0069BC82 /* libFlurry_5.3.0.a */,
 			);
-			name = Flurry;
-			path = "Radio Novo Tempo/Flurry";
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		55C1F05719525E4E00C88680 /* Programacao */ = {
@@ -673,7 +686,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-Radio Novo Tempo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B17B38B11D364397A8F38FE2 /* Check Pods Manifest.lock */ = {
@@ -850,7 +863,7 @@
 		};
 		550C12E71813B60A00CD48E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */;
+			baseConfigurationReference = 79B551FFF2DD4490B6E88B83 /* Pods-Radio Novo Tempo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -862,7 +875,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
+					"$(PROJECT_DIR)/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3823641E-E3D0-46D7-9FA1-526AAEFC2805";
@@ -874,7 +887,7 @@
 		};
 		550C12E81813B60A00CD48E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 700B2D57638B4FF8A1AC0BBE /* Pods.xcconfig */;
+			baseConfigurationReference = 79B551FFF2DD4490B6E88B83 /* Pods-Radio Novo Tempo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -887,7 +900,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/macmichas/Dropbox/Dev./RadioNovoTempo/Radio\\ Novo\\ Tempo/Flurry",
+					"$(PROJECT_DIR)/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "BA320C83-EC6D-4033-ADC3-9C8DA7BFFFFB";

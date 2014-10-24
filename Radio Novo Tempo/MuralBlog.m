@@ -9,6 +9,7 @@
 #import "MuralBlog.h"
 
 @implementation MuralBlog
+@synthesize description;
 
 +(MuralBlog *)getFromDictionary: (NSDictionary *)dict{
     
@@ -18,7 +19,7 @@
     [muralBlog setIcon:[dict objectForKey:@"icon"]];
     [muralBlog setData:[dict objectForKey:@"data"]];
     [muralBlog setTitle:[muralBlog.data objectForKey:@"title"]];
-    [muralBlog setDescription:[muralBlog.data objectForKey:@"description"]];
+    muralBlog.description = [muralBlog.data objectForKey:@"description"];
     [muralBlog setImage:[muralBlog.data objectForKey:@"image"]];
     [muralBlog setUrl:[muralBlog.data objectForKey:@"url"]];
     [muralBlog setCreatedDate:[muralBlog.data objectForKey:@"createdDate"]];

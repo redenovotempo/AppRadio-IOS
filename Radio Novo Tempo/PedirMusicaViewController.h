@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MessageUI;
 
-@interface PedirMusicaViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface PedirMusicaViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic)BOOL needResetAnimation;
 @end

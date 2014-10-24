@@ -8,6 +8,7 @@
  
 #import "AppDelegate.h"
 
+@import Foundation;
 
 @interface AppDelegate()
 

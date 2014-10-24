@@ -175,7 +175,7 @@
             
             
             
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muraltwitter.icon]]
+            [cell.imgViewIcon sd_setImageWithURL:[NSURL URLWithString:[self checkText:muraltwitter.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
             
@@ -227,9 +227,9 @@
 
             
             
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.icon]]
+            [cell.imgViewIcon sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.icon]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
-            [cell.imgViewImage setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.image]]
+            [cell.imgViewImage sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralYoutube.image]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]options:SDWebImageRefreshCached];
             
            
@@ -278,7 +278,7 @@
             cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
             cell.txtViewContent.text = [self checkText:muralBlog.description];
             
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.icon]]
+            [cell.imgViewIcon sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             
@@ -300,7 +300,7 @@
             }else{
                 cell.constraintImgHeight.constant = 180;
                 cell.imgViewBlog.hidden = NO;
-                [cell.imgViewBlog setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.image]]
+                [cell.imgViewBlog sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralBlog.image]]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
                 
             }
@@ -343,7 +343,7 @@
             cell.txtViewContent.dataDetectorTypes = UIDataDetectorTypeLink;
             cell.txtViewContent.text = [self checkText:muralFacebook.message];
             
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralFacebook.icon]]
+            [cell.imgViewIcon sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralFacebook.icon]]
                              placeholderImage:[UIImage imageNamed:@"loading4.png"] options:SDWebImageRefreshCached];
             
             //acao do share para os butons
@@ -373,7 +373,7 @@
             }else{
                 cell.constraintImgHeight.constant = 180;
                 cell.imgViewFacebook.hidden = NO;
-                [cell.imgViewFacebook setImageWithURL:[NSURL URLWithString:muralFacebook.picture]
+                [cell.imgViewFacebook sd_setImageWithURL:[NSURL URLWithString:muralFacebook.picture]
                                  placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
                 
             }
@@ -420,9 +420,11 @@
             cell.txtViewContent.text = [self checkText:muralInstagram.description];
             
             
-            [cell.imgViewIcon setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.icon]]
+            [cell.imgViewIcon sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.icon]]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
-            [cell.imgViewContentImage setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.image]]
+            
+            
+            [cell.imgViewContentImage sd_setImageWithURL:[NSURL URLWithString:[self checkText:muralInstagram.image]]
                              placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:SDWebImageRefreshCached];
             
    

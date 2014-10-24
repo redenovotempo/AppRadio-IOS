@@ -34,9 +34,28 @@
     return UIStatusBarStyleLightContent;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //self.viewRadioList.backgroundColor = [UIColor redColor];
+    
+    
+//    NSDictionary * objects = @{@"picker":self.pickerViewRadioList};
+//    
+//    self.viewRadioList.translatesAutoresizingMaskIntoConstraints = YES;
+//    
+//    [self.viewRadioList addConstraints:[NSLayoutConstraint
+//                               constraintsWithVisualFormat:@"V:|[picker]"
+//                               options:0
+//                               metrics:0
+//                               views:objects]];
+    
+
+
+    
     self.jumtButton.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     btnCurrentRadio.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     self.btnOkPickerView.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light-Bold" size:18];
@@ -170,12 +189,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-     viewRadioList.frame =  [self SetViewRadioListCGRect: NO];
+    
 }
 
-- (void)viewWillAppear {
-    [self becomeFirstResponder];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
+
 
 -(void)didReceiveMemoryWarning{
     [locationManager stopUpdatingLocation];
@@ -215,45 +235,15 @@
     return tView;
 }
 
--(CGRect)SetViewRadioListCGRect:(BOOL)IsClosed{
 
-    //Realinhando viewRadioList de acordo com o tamanho da tela.
-    CGRect screenBound = [[UIScreen mainScreen] bounds];
-    CGSize screenSize = screenBound.size;
-    CGFloat screenHeight = screenSize.height;
-    CGFloat screenWidth = screenSize.width;
-    
-    CGRect frame = viewRadioList.bounds;
-    frame.origin.y = screenHeight - 233;
-    viewRadioList.bounds = frame;
-    
-    CGRect Position;
-    
-    if (IsClosed){
-        Position = CGRectMake(0, screenHeight - 233, screenWidth, 233);
-    }else{
-        Position = CGRectMake(0, screenHeight + 233, screenWidth, 233);
-    }
-    
-    
-    return Position;
-}
 
 
 - (IBAction)showRadioList:(id)button{
-
     
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDuration:0.2f];
-    
-    
-    if (CGRectEqualToRect(viewRadioList.frame, [self SetViewRadioListCGRect: NO])) {
-        viewRadioList.frame = [self SetViewRadioListCGRect:YES];
-        
-    }
-    [UIView commitAnimations];
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        _botomRadioListConstraint.constant = 0;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (IBAction)hideRadioList:(id)button{
@@ -286,20 +276,11 @@
 
 
 -(void)hideRadioListElements{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationDuration:0.2f];
-    
-    CGRect  cgrectMaxPosition ;
-    cgrectMaxPosition = [self SetViewRadioListCGRect:(NO)];
-    
-    
-    if (CGRectEqualToRect(viewRadioList.frame, [self SetViewRadioListCGRect: YES])) {
-        viewRadioList.frame = [self SetViewRadioListCGRect: NO];
-        
-    }
-    
-    [UIView commitAnimations];
+ 
+    [UIView animateWithDuration:0.3 animations:^{
+        _botomRadioListConstraint.constant = -233;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 -(void)refreshButtonSizeByTitle{

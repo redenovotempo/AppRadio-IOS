@@ -10,6 +10,7 @@
 #import "PedirMusicaTableViewCell.h"
 #import "AppDelegate.h"
 
+
 @interface PedirMusicaViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *enviarBtn;
 @property (weak, nonatomic) IBOutlet UITextField *musicTextField;
@@ -24,6 +25,9 @@
 
 
 @property(nonatomic,strong)NSMutableArray * rankingList;
+
+//Email
+@property(nonatomic,strong)MFMailComposeViewController * globalMail;
 
 //Loading
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
@@ -48,6 +52,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _globalMail = [[MFMailComposeViewController alloc]init];
     _enviarBtn.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:16];
     _enviarBtn.titleLabel.textColor = [UIColor colorWithRed:71.0f/255.0f green:152.0f/255.0f blue:203.0f/255.0f alpha:1];
     
@@ -65,6 +71,39 @@
                                                  name:@"GestureCloseMenu"
                                                object:nil];
     
+}
+
+
+-(IBAction)sendRequest:(id)sender{
+    _globalMail.delegate = self;
+    [_globalMail setSubject:@""];
+    [_globalMail setMessageBody:@"" isHTML:NO];
+    
+    [self presentViewController:_globalMail animated:YES completion:nil];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,9 +151,9 @@
     
     NSMutableDictionary * item = [_rankingList objectAtIndex:indexPath.row];
     
-    
+    NSNumber * number = [NSNumber numberWithLong:[_rankingList indexOfObject:item]+1];
 
-    cell.numberlbl.text = [NSString stringWithFormat:@"%lu°",[_rankingList indexOfObject:item]+1];
+    cell.numberlbl.text = [NSString stringWithFormat:@"%ld°",(long)[number integerValue]];
     cell.textlbl.text = [item objectForKey:@"music"];
     cell.detaillbl.text = [item objectForKey:@"artist"];
     return cell;

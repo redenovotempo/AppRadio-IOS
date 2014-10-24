@@ -8,7 +8,10 @@
 
 #import "MuralInstagram.h"
 
+
+
 @implementation MuralInstagram
+@synthesize description;
 
 +(MuralInstagram *)getFromDictionary: (NSDictionary *)dict{
     
