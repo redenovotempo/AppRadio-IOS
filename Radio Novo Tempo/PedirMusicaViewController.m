@@ -26,9 +26,6 @@
 
 @property(nonatomic,strong)NSMutableArray * rankingList;
 
-//Email
-@property(nonatomic,strong)MFMailComposeViewController * globalMail;
-
 //Loading
 @property(nonatomic,retain)IBOutlet UIImageView * imgLoading;
 @property(nonatomic,retain)UIView * loadingView;
@@ -53,7 +50,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _globalMail = [[MFMailComposeViewController alloc]init];
     _enviarBtn.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:16];
     _enviarBtn.titleLabel.textColor = [UIColor colorWithRed:71.0f/255.0f green:152.0f/255.0f blue:203.0f/255.0f alpha:1];
     
@@ -75,11 +71,22 @@
 
 
 -(IBAction)sendRequest:(id)sender{
-    _globalMail.delegate = self;
-    [_globalMail setSubject:@""];
-    [_globalMail setMessageBody:@"" isHTML:NO];
-    
-    [self presentViewController:_globalMail animated:YES completion:nil];
+
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:@"Sample Subject"];
+        [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
+        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
+        
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        NSLog(@"This device cannot send email");
+    }
+
 }
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
