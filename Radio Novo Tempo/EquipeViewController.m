@@ -638,7 +638,7 @@ CGFloat PADDING_LEFT = 50;
     //Criando animaçao
     [UIView animateWithDuration:0.5 animations:^{
         [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
-        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.frame),CGRectGetMidY(self.btnOpenMenu.frame));
         
     }];
     
@@ -652,7 +652,7 @@ CGFloat PADDING_LEFT = 50;
         //Criando animaçao
         [UIView animateWithDuration:0.5 animations:^{
             [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
-            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.frame),CGRectGetMidY(self.btnOpenMenu.frame));
         }];
     }
     

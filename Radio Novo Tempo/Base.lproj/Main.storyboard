@@ -829,7 +829,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0B86DDC2-5227-4728-9AD4-A97477327552" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0300C124-C8C6-4AD5-8680-EB3F9927DAA6" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="wuv-WZ-yWo"/>
@@ -1592,7 +1592,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowUpBlue.png" translatesAutoresizingMaskIntoConstraints="NO" id="e6C-oa-Cv5">
-                                        <rect key="frame" x="143.5" y="8" width="33" height="13"/>
+                                        <rect key="frame" x="144" y="8" width="33" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="33" id="HM5-XN-zzP"/>
                                             <constraint firstAttribute="height" constant="13" id="fMA-cH-fuv"/>
@@ -1736,7 +1736,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="0B86DDC2-5227-4728-9AD4-A97477327552" width="320" height="180">
+        <image name="0300C124-C8C6-4AD5-8680-EB3F9927DAA6" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

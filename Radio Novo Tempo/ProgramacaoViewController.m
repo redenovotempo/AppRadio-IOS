@@ -389,7 +389,7 @@
     //Criando animaçao
     [UIView animateWithDuration:0.5 animations:^{
         [self.btnOpenMenu setTransform:CGAffineTransformMakeRotation(M_PI / 2)];
-        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+        self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.frame),CGRectGetMidY(self.btnOpenMenu.frame));
         [_searchBar resignFirstResponder];
     }];
     
@@ -403,7 +403,7 @@
         //Criando animaçao
         [UIView animateWithDuration:0.5 animations:^{
             [self.btnOpenMenu setTransform:CGAffineTransformIdentity];
-            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.bounds),CGRectGetMidY(self.btnOpenMenu.bounds));
+            self.btnOpenMenu.center =  CGPointMake(CGRectGetMidX(self.btnOpenMenu.frame),CGRectGetMidY(self.btnOpenMenu.frame));
             [_searchBar resignFirstResponder];
         }];
     }
