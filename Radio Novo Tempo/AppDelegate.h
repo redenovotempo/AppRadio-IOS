@@ -38,6 +38,14 @@
 @property(strong,nonatomic)Radio * radioCurrent;
 @property(strong,nonatomic)NSMutableArray * globallistRadios;
 
+//Programação
+@property(nonatomic,retain)NSURLConnection * urlConnection;
+@property(nonatomic,retain)NSMutableData * urlProgramData;
+@property(nonatomic,strong) NSMutableArray * programingItems;
+@property(nonatomic,assign)BOOL hasProgramData;
+@property(nonatomic,strong)NSString * currentProgramName;
+
+
 -(BOOL)CheckInternetConnection;
 -(void)InternetConnectionErrorMessage;
 -(void)ChangeRootViewController:(NSString *)currentViewControllerName needCloseEffect:(BOOL)needEffect;
@@ -58,6 +66,6 @@
 - (void) PlayAudio;
 - (void) PauseAudio;
 - (void) ChangePlayerStreamUrl: (NSString *) url;
-
+- (void) CallProgramJsonByToday;
 
 @end

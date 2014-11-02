@@ -50,8 +50,12 @@
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //Nome da radio atual que esta tocando
-    if ([appDel.radioCurrent.name length] != 0) {
-        [self.btnRadioName setTitle:appDel.radioCurrent.name forState:UIControlStateNormal];
+    if (([appDel.currentProgramName length] != 0) && appDel.hasProgramData) {
+         [self.btnRadioName setTitle:appDel.currentProgramName forState:UIControlStateNormal];
+    }else{
+        if([appDel.radioCurrent.name length] != 0) {
+            [self.btnRadioName setTitle:appDel.radioCurrent.name forState:UIControlStateNormal];
+        }
     }
 }
 

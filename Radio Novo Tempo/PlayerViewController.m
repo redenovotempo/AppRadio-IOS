@@ -249,6 +249,7 @@
 - (IBAction)hideRadioList:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+   
     long row = [self.pickerViewRadioList selectedRowInComponent:0];
     Radio * selectedRadio = [Radio getFromDictionary:[appDel.globallistRadios objectAtIndex:row]];
     
@@ -271,6 +272,8 @@
     }
     
     [self hideRadioListElements];
+    
+    [appDel CallProgramJsonByToday];
     
 }
 

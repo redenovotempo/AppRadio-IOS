@@ -224,7 +224,12 @@
     if ([self isFilteredResultActive]) {
         return [_filteredprogramingItems count];
     } else {
-        return [_programingItems count];
+        
+        if (![_programingItems isKindOfClass:[NSNull class]]) {
+            return [_programingItems count];
+        }
+        
+        return 0;
     }
 }
 

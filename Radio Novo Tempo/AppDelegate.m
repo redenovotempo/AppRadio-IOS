@@ -7,6 +7,7 @@
 //
  
 #import "AppDelegate.h"
+#import "ProgramingItem.h"
 
 @import Foundation;
 
@@ -21,8 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
- 
-
+    
+    _programingItems = [[NSMutableArray alloc]init];
     
     if ([self CheckInternetConnection]) {
         //Carregando lista da API.
@@ -407,8 +408,136 @@
     //Alterando radio atual da aplicaçao.
     self.radioCurrent = radioDefault;
     
+    [self CallProgramJsonByToday];
+    
 }
 
+-(void)CallProgramJsonByToday{
+
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    NSInteger weekday = [comps weekday];
+    [self CallProgramJsonData:[NSNumber numberWithInteger:weekday]];
+}
+
+
+///Programação
+-(void)CallProgramJsonData:(NSNumber*)number{
+    
+    [_programingItems removeAllObjects];
+    
+    //Create Request Values
+    NSString * action = @"programing";
+    NSNumber * idRadio = self.radioCurrent.radioId;
+    
+    //Chamando JSON
+    NSString * adress = [NSString stringWithFormat:@"http://novotempo.com/api/radio/?action=%@&idRadio=%@&%d",action,idRadio,[number intValue]];
+    
+    NSString * post = [[NSString alloc]init];
+    NSData * postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:NO];
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:adress]];
+    [request setHTTPMethod:@"POST"]; // 1
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"]; // 2
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    self.urlConnection = [[NSURLConnection alloc]init];
+    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    self.urlProgramData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.urlProgramData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSError *jsonParsingError = nil;
+    
+    NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:self.urlProgramData options:NSJSONReadingMutableContainers error:&jsonParsingError];
+    
+    
+    if (![[resultados objectForKey:@"daySchedule"] isKindOfClass:[NSNull class]]) {
+        for (NSDictionary * item in [resultados objectForKey:@"daySchedule"]) {
+            ProgramingItem * currentItem = [ProgramingItem getFromDictionary:item];
+            [_programingItems addObject:currentItem];
+        }
+    }
+    
+    if (jsonParsingError || !_programingItems || _programingItems.count == 0){
+        NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
+        _hasProgramData = NO;
+    }else{
+        _hasProgramData = YES;
+        //_currentProgramName = [self getCurrentProgramName];
+        ProgramingItem * selectedItem =  _programingItems.lastObject;
+        _currentProgramName = selectedItem.program;
+    }
+}
+
+-(NSString *)getCurrentProgramName{
+    NSString * result = [[NSString alloc]init];
+    
+    
+    NSTimeInterval oldDiff = 0;
+    
+    ProgramingItem * currentSelectedNearItem = [[ProgramingItem alloc]init];
+    
+    for (ProgramingItem * item in _programingItems) {
+        
+        //Actual
+        NSInteger currentItemHour = [self getHourByProgramingItem:item];
+        NSInteger currentItemMinut = [self getMinutByProgramingItem:item];
+        NSDate * currentItemDate = [self getDateWithHour:currentItemHour andMinut:currentItemMinut];
+        
+        NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate:currentItemDate];
+        
+        if (diff < oldDiff || oldDiff == 0) {
+            oldDiff = diff;
+            currentSelectedNearItem = item;
+        }
+    }
+    
+    result = currentSelectedNearItem.program;
+    
+    return result;
+}
+
+-(NSInteger)getMinutByProgramingItem:(ProgramingItem *)item{
+    NSRange range = NSMakeRange(0,2);
+    NSString * resultWithOutMinut = [item.time stringByReplacingCharactersInRange:range withString:@""];
+    NSString * currentStringItemMinut = [resultWithOutMinut stringByReplacingOccurrencesOfString:@":" withString:@""];
+    NSInteger currentItemMinut = [currentStringItemMinut intValue];
+    
+    return currentItemMinut;
+}
+
+-(NSInteger)getHourByProgramingItem:(ProgramingItem *)item{
+    NSRange range = NSMakeRange(0,2);
+    NSString * resultWithOutMinut = [item.time stringByReplacingCharactersInRange:range withString:@""];
+    NSString * currentStringItemHour = [item.time stringByReplacingOccurrencesOfString:resultWithOutMinut withString:@""];
+    NSInteger currentItemHour = [currentStringItemHour intValue];
+    
+    return currentItemHour;
+}
+
+-(NSDate *)getDateWithHour:(NSInteger)hour andMinut:(NSInteger)minut{
+
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [calendar setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en-US"]];
+    
+    NSDateComponents *components = [calendar components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:[NSDate date]];
+    
+    [components setHour:hour];
+    [components setMinute:minut];
+    NSDate * resultDate = [calendar dateFromComponents:components];
+    
+    return resultDate;
+}
 
 
 @end
