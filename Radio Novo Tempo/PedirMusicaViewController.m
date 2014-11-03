@@ -74,10 +74,13 @@
 
     if ([MFMailComposeViewController canSendMail])
     {
+        NSString * content = [[NSString alloc]init];
+        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",_musicTextField.text,_artistTextField.text];
+        
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
-        [mail setSubject:@"Sample Subject"];
-        [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
+        [mail setSubject:@"Pedido de música"];
+        [mail setMessageBody:content isHTML:YES];
         [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
         
         [self presentViewController:mail animated:YES completion:NULL];
@@ -95,6 +98,8 @@
     {
         case MFMailComposeResultCancelled:
             NSLog(@"Mail cancelled");
+            _musicTextField.text = @"";
+            _artistTextField.text = @"";
             break;
         case MFMailComposeResultSaved:
             NSLog(@"Mail saved");
@@ -164,6 +169,33 @@
     cell.textlbl.text = [item objectForKey:@"music"];
     cell.detaillbl.text = [item objectForKey:@"artist"];
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSMutableDictionary * item = [_rankingList objectAtIndex:indexPath.row];
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        NSString * content = [[NSString alloc]init];
+        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",[item objectForKey:@"music"],[item objectForKey:@"artist"]];
+        
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:@"Pedido de música"];
+        [mail setMessageBody:content isHTML:YES];
+        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
+        
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        NSLog(@"This device cannot send email");
+    }
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
 -(void)CallProgramJsonData{
