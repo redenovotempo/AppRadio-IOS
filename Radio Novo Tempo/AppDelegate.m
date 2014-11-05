@@ -410,9 +410,13 @@
     
     [self CallProgramJsonByToday];
     
+    [NSTimer scheduledTimerWithTimeInterval:300.0f target:self selector:@selector(CallProgramJsonByToday) userInfo:nil repeats:YES];
+    
 }
 
 -(void)CallProgramJsonByToday{
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"needUpdateCurrentProgramName" object:self];
 
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
@@ -478,6 +482,10 @@
         _currentProgramName = selectedItem.program;
     }
 }
+
+
+///Função antiga para descobrir qual programação da radio NT
+///é a programação mais perto da hora atual do telefone.
 
 -(NSString *)getCurrentProgramName{
     NSString * result = [[NSString alloc]init];

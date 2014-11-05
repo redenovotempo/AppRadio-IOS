@@ -32,7 +32,12 @@
 	// Do any additional setup after loading the view.
     self.btnRadioName.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     
-
+    
+    //Verificando necessidade de atualizar o nome da programação atual.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(ReloadRadioLabelName)
+                                                 name:@"needUpdateCurrentProgramName"
+                                               object:nil];
     
     //Monitorando  aplicaçao caso o usuario use o controle remoto do player.
     [[NSNotificationCenter defaultCenter]addObserver:self
