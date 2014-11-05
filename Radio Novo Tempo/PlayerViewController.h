@@ -58,6 +58,7 @@
 
 //Radio List
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *botomRadioListConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *botomRadioListConstraintIpad;
 
 
 - (IBAction)playButtonPressed:(id)button;

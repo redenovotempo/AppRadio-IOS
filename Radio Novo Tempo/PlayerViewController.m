@@ -241,7 +241,11 @@
 - (IBAction)showRadioList:(id)button{
     
     [UIView animateWithDuration:0.3 animations:^{
-        _botomRadioListConstraint.constant = 0;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            _botomRadioListConstraintIpad.constant = 0;
+        }else{
+            _botomRadioListConstraint.constant = 0;
+        }
         [self.view layoutIfNeeded];
     }];
 }
@@ -281,7 +285,12 @@
 -(void)hideRadioListElements{
  
     [UIView animateWithDuration:0.3 animations:^{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        _botomRadioListConstraintIpad.constant = -233;
+    }
+    else{
         _botomRadioListConstraint.constant = -233;
+    }
         [self.view layoutIfNeeded];
     }];
 }

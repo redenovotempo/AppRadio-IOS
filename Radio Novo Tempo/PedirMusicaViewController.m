@@ -50,6 +50,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    _enviarBtn.hidden = YES;
     _enviarBtn.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:16];
     _enviarBtn.titleLabel.textColor = [UIColor colorWithRed:71.0f/255.0f green:152.0f/255.0f blue:203.0f/255.0f alpha:1];
     
@@ -72,10 +74,17 @@
 
 -(IBAction)sendRequest:(id)sender{
 
+    [self sendEmail:_musicTextField.text artist:_artistTextField.text];
+
+}
+
+
+-(void)sendEmail:(NSString *)music artist:(NSString *)artist{
+
     if ([MFMailComposeViewController canSendMail])
     {
         NSString * content = [[NSString alloc]init];
-        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",_musicTextField.text,_artistTextField.text];
+        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",music,artist];
         
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
@@ -87,7 +96,9 @@
     }
     else
     {
-        NSLog(@"This device cannot send email");
+        UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:@"Você não possui  uma conta de e-mail configurada." message:@"Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [alerta show];
     }
 
 }
@@ -129,10 +140,12 @@
             _viewPedirMusicaConstraint.constant = 185;
             
             _imgArrowOnBestMusicOfWeek.transform = CGAffineTransformMakeRotation(M_PI);
+            _enviarBtn.hidden = NO;
             
         }else{
             _viewPedirMusicaConstraint.constant = 0;
             _imgArrowOnBestMusicOfWeek.transform = CGAffineTransformMakeRotation(0);
+            _enviarBtn.hidden = YES;
         }
         
         [self.view layoutIfNeeded];
@@ -175,24 +188,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSMutableDictionary * item = [_rankingList objectAtIndex:indexPath.row];
-    
-    if ([MFMailComposeViewController canSendMail])
-    {
-        NSString * content = [[NSString alloc]init];
-        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",[item objectForKey:@"music"],[item objectForKey:@"artist"]];
-        
-        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-        mail.mailComposeDelegate = self;
-        [mail setSubject:@"Pedido de música"];
-        [mail setMessageBody:content isHTML:YES];
-        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
-        
-        [self presentViewController:mail animated:YES completion:NULL];
-    }
-    else
-    {
-        NSLog(@"This device cannot send email");
-    }
+
+    [self sendEmail:[item objectForKey:@"music"] artist:[item objectForKey:@"artist"]];
 
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -339,5 +336,26 @@
     
 }
 
+
+
+- (IBAction)tappedOnMoreMusics:(id)sender {
+    [self toggleRanking:self];
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    if ([_musicTextField.text isEqualToString:@""] && _artistTextField == textField) {
+        [_musicTextField becomeFirstResponder];
+        return NO;
+    }
+    else if ([_artistTextField.text isEqualToString:@""] && _musicTextField == textField) {
+        [_artistTextField becomeFirstResponder];
+        return NO;
+    }
+    
+    [self sendEmail:_musicTextField.text artist:_artistTextField.text];
+    return YES;
+}
 
 @end
