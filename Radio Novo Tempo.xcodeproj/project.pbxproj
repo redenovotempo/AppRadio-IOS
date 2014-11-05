@@ -37,6 +37,7 @@
 		554CD5CE1823284C00487501 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CD5CD1823284C00487501 /* CoreLocation.framework */; };
 		55677B0E18E7ECC000DF3FCF /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 55677B0C18E7ECC000DF3FCF /* previous.png */; };
 		55677B0F18E7ECC000DF3FCF /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 55677B0D18E7ECC000DF3FCF /* next.png */; };
+		5569560B1A0A5EF100C19A21 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5569560A1A0A5EF100C19A21 /* placeholder.png */; };
 		556B18831953B73A00A03843 /* PedirMusicaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */; };
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
@@ -149,6 +150,7 @@
 		554CD5CD1823284C00487501 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		55677B0C18E7ECC000DF3FCF /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
 		55677B0D18E7ECC000DF3FCF /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		5569560A1A0A5EF100C19A21 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		556B18811953B73A00A03843 /* PedirMusicaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedirMusicaTableViewCell.h; sourceTree = "<group>"; };
 		556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedirMusicaTableViewCell.m; sourceTree = "<group>"; };
 		556B291D18D78B82009B696F /* bg_iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_iPad.jpg; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				55677B0D18E7ECC000DF3FCF /* next.png */,
 				A502B27118B173A500636B7B /* person.jpg */,
 				55C1F0601952987D00C88680 /* favIconSearchBar.png */,
+				5569560A1A0A5EF100C19A21 /* placeholder.png */,
 				A55AFCF618394D3300D8DC86 /* downArrow.png */,
 				A543D59D1882D519001BDD94 /* separator@2x.png */,
 				55A14D9B18D7997000A583E6 /* bg.jpg */,
@@ -645,6 +648,7 @@
 				550C12C21813B60A00CD48E2 /* InfoPlist.strings in Resources */,
 				A543D59E1882D51A001BDD94 /* separator@2x.png in Resources */,
 				A53B6E48188579FB00FA0BD9 /* iconTwitter.png in Resources */,
+				5569560B1A0A5EF100C19A21 /* placeholder.png in Resources */,
 				556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */,
 				550C12F81813C73100CD48E2 /* lineBg.png in Resources */,
 				A543D5971882CF3B001BDD94 /* menuIcon@2x.png in Resources */,
