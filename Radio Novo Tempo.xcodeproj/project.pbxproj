@@ -41,6 +41,7 @@
 		556B18831953B73A00A03843 /* PedirMusicaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */; };
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
+		557E420C1A8BCCB1007FA95D /* MandeSeuAloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */; };
 		55A14D9C18D7997000A583E6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55A14D9B18D7997000A583E6 /* bg.jpg */; };
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
@@ -155,6 +156,8 @@
 		556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedirMusicaTableViewCell.m; sourceTree = "<group>"; };
 		556B291D18D78B82009B696F /* bg_iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_iPad.jpg; sourceTree = "<group>"; };
 		556B291F18D78C1B009B696F /* bg_ipad_top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ipad_top.jpg; sourceTree = "<group>"; };
+		557E420A1A8BCCB1007FA95D /* MandeSeuAloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandeSeuAloViewController.h; sourceTree = "<group>"; };
+		557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandeSeuAloViewController.m; sourceTree = "<group>"; };
 		55A14D9B18D7997000A583E6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		55A7623918C37E460084570E /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		55A7623A18C37E460084570E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				550C12C91813B60A00CD48E2 /* Main.storyboard */,
 				5549377E18E26C06004D2F04 /* Reachability.h */,
 				5549377F18E26C06004D2F04 /* Reachability.m */,
+				557E420A1A8BCCB1007FA95D /* MandeSeuAloViewController.h */,
+				557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */,
 				550C12CF1813B60A00CD48E2 /* Images.xcassets */,
 				A5FB35EF183EEAA2000844F2 /* iPad */,
 				550C12BE1813B60A00CD48E2 /* Supporting Files */,
@@ -742,6 +747,7 @@
 				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
 				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,
 				A5935AEE188B1DF500EF749D /* MiniPlayerViewController.m in Sources */,
+				557E420C1A8BCCB1007FA95D /* MandeSeuAloViewController.m in Sources */,
 				55A7623B18C37E460084570E /* Person.m in Sources */,
 				5507B5791813F474002B2368 /* VolumeView.m in Sources */,
 				A543D59C1882D2C0001BDD94 /* MuralTwitterCell.m in Sources */,

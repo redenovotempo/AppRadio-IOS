@@ -34,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Programação",@"Peça sua música",@"Equipe",@"História da Rádio",nil];
+    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Programação",@"Peça sua música",@"Equipe",@"História da Rádio",@"Mande seu alô",nil];
 
 }
 
