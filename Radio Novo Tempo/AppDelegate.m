@@ -238,6 +238,21 @@
         [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     }
+    //Mande Seu Alô
+    else if ([currentViewControllerName isEqualToString:@"Mande seu alô"]) {
+        MandeSeuAloViewController * current = (MandeSeuAloViewController*)[self.mainStoryboard
+                                                                 instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    }
     
     
     

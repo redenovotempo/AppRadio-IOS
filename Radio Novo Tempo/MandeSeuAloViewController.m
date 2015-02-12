@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 Novo Tempo. All rights reserved.
 //
 
+#import "MicView.h"
 #import "MandeSeuAloViewController.h"
 
 @interface MandeSeuAloViewController ()
+@property (weak, nonatomic) IBOutlet MicView *btnView;
 
 @end
 
@@ -17,21 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.btnView.backgroundColor = [UIColor clearColor];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)touchDown:(id)sender {
+    self.btnView.isPressed = YES;
+    [self.btnView setNeedsDisplay];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)beginRecord:(id)sender {
+    self.btnView.isPressed = NO;
+    [self.btnView setNeedsDisplay];
+    
+    NSLog(@"iniciando gravação");
 }
-*/
+
 
 @end

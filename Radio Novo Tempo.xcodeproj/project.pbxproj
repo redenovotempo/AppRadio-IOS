@@ -42,6 +42,8 @@
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
 		557E420C1A8BCCB1007FA95D /* MandeSeuAloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */; };
+		557E420F1A8C1142007FA95D /* NTStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E420E1A8C1142007FA95D /* NTStyleKit.m */; };
+		557E42151A8C44F3007FA95D /* MicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E42141A8C44F3007FA95D /* MicView.m */; };
 		55A14D9C18D7997000A583E6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55A14D9B18D7997000A583E6 /* bg.jpg */; };
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
@@ -158,6 +160,10 @@
 		556B291F18D78C1B009B696F /* bg_ipad_top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ipad_top.jpg; sourceTree = "<group>"; };
 		557E420A1A8BCCB1007FA95D /* MandeSeuAloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandeSeuAloViewController.h; sourceTree = "<group>"; };
 		557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandeSeuAloViewController.m; sourceTree = "<group>"; };
+		557E420D1A8C1142007FA95D /* NTStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTStyleKit.h; sourceTree = "<group>"; };
+		557E420E1A8C1142007FA95D /* NTStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTStyleKit.m; sourceTree = "<group>"; };
+		557E42131A8C44F3007FA95D /* MicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicView.h; sourceTree = "<group>"; };
+		557E42141A8C44F3007FA95D /* MicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MicView.m; sourceTree = "<group>"; };
 		55A14D9B18D7997000A583E6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		55A7623918C37E460084570E /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		55A7623A18C37E460084570E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -281,8 +287,8 @@
 		550C12AB1813B60A00CD48E2 = {
 			isa = PBXGroup;
 			children = (
-				55BDED1719A9D4DC0069BC82 /* Flurry */,
 				550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */,
+				55BDED1719A9D4DC0069BC82 /* Flurry */,
 				550C12B61813B60A00CD48E2 /* Frameworks */,
 				550C12B51813B60A00CD48E2 /* Products */,
 				79B551FFF2DD4490B6E88B83 /* Pods-Radio Novo Tempo.xcconfig */,
@@ -323,6 +329,8 @@
 		550C12BD1813B60A00CD48E2 /* Radio Novo Tempo */ = {
 			isa = PBXGroup;
 			children = (
+				557E420D1A8C1142007FA95D /* NTStyleKit.h */,
+				557E420E1A8C1142007FA95D /* NTStyleKit.m */,
 				550C12C61813B60A00CD48E2 /* AppDelegate.h */,
 				550C12C71813B60A00CD48E2 /* AppDelegate.m */,
 				5507B5771813F474002B2368 /* VolumeView.h */,
@@ -462,20 +470,22 @@
 		A53B6E571885CF9700FA0BD9 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				55A7623F18C391C10084570E /* Equipe */,
+				A53B6E5B1885CFF800FA0BD9 /* Mural */,
 				55403C4618EBACF4008EDAB8 /* CustomLabelFont.h */,
 				55403C4718EBACF4008EDAB8 /* CustomLabelFont.m */,
 				55403C5418EBB409008EDAB8 /* CustomBoldTextViewFont.h */,
 				55403C5518EBB409008EDAB8 /* CustomBoldTextViewFont.m */,
 				55403C5118EBB2A5008EDAB8 /* CustomTextViewFont.h */,
 				55403C5218EBB2A5008EDAB8 /* CustomTextViewFont.m */,
-				55A7623F18C391C10084570E /* Equipe */,
-				A53B6E5B1885CFF800FA0BD9 /* Mural */,
 				A53B6E651885D07100FA0BD9 /* Radio.h */,
 				A53B6E661885D07100FA0BD9 /* Radio.m */,
 				A5935AEC188B1DF500EF749D /* MiniPlayerViewController.h */,
 				A5935AED188B1DF500EF749D /* MiniPlayerViewController.m */,
 				55C1F0641952A1D700C88680 /* ProgramingItem.h */,
 				55C1F0651952A1D700C88680 /* ProgramingItem.m */,
+				557E42131A8C44F3007FA95D /* MicView.h */,
+				557E42141A8C44F3007FA95D /* MicView.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -742,10 +752,12 @@
 				A547877F187CCDA200AA3ECB /* MenuViewController.m in Sources */,
 				A58E948F1889A41B009E7071 /* MuralFacebook.m in Sources */,
 				55403C4818EBACF4008EDAB8 /* CustomLabelFont.m in Sources */,
+				557E420F1A8C1142007FA95D /* NTStyleKit.m in Sources */,
 				551DA134195248F20030DEF2 /* ProgramacaoViewController.m in Sources */,
 				550C12EE1813B9D300CD48E2 /* PlayerViewController.m in Sources */,
 				A53B6E611885D03D00FA0BD9 /* MuralInstagram.m in Sources */,
 				A53B6E6B1885DB2A00FA0BD9 /* MuralYoutubeCell.m in Sources */,
+				557E42151A8C44F3007FA95D /* MicView.m in Sources */,
 				A5935AEE188B1DF500EF749D /* MiniPlayerViewController.m in Sources */,
 				557E420C1A8BCCB1007FA95D /* MandeSeuAloViewController.m in Sources */,
 				55A7623B18C37E460084570E /* Person.m in Sources */,
