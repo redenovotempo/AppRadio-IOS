@@ -12,8 +12,38 @@
 @implementation MicView
 
 - (void)drawRect:(CGRect)rect {
-    [NTStyleKit drawIconWithIsPressed:_isPressed];
+    [NTStyleKit drawIconWithFrame:rect isPressed:_isPressed];
+    
 }
+
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//        self.isPressed = YES;
+//        [self setNeedsDisplay];
+//}
+//
+//-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+//        self.isPressed = NO;
+//        [self setNeedsDisplay];
+//}
+//
+//-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+//    self.isPressed = NO;
+//    [self setNeedsDisplay];
+//}
+//
+//
+//-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+//    UITouch *touch = [[event allTouches] anyObject];
+//    if ([touch self ]) {
+//        self.isPressed = YES;
+//        [self setNeedsDisplay];
+//    }else{
+//        self.isPressed = NO;
+//        [self setNeedsDisplay];
+//    }
+//    
+//}
+
 
 
 @end

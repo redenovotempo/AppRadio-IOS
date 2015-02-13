@@ -15,11 +15,11 @@
 @interface NTStyleKit : NSObject
 
 // Drawing Methods
-+ (void)drawIconWithIsPressed: (BOOL)isPressed;
++ (void)drawIconWithFrame: (CGRect)frame isPressed: (BOOL)isPressed;
 + (void)drawMicWhite;
 + (void)drawMic;
 
 // Generated Images
-+ (UIImage*)imageOfIconWithIsPressed: (BOOL)isPressed;
++ (UIImage*)imageOfIconWithFrame: (CGRect)frame isPressed: (BOOL)isPressed;
 
 @end

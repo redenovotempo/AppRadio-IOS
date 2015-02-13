@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MicView : UIControl
+@interface MicView : UIButton
 @property(nonatomic,assign)BOOL isPressed;
 @end

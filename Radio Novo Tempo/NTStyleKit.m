@@ -21,7 +21,7 @@
 
 #pragma mark Drawing Methods
 
-+ (void)drawIconWithIsPressed: (BOOL)isPressed
++ (void)drawIconWithFrame: (CGRect)frame isPressed: (BOOL)isPressed
 {
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -32,12 +32,18 @@
     //// Variable Declarations
     BOOL checkIsPressed = !isPressed;
 
+
+    //// Subframes
+    CGRect pressed = CGRectMake(CGRectGetMinX(frame) + 3, CGRectGetMinY(frame) + 2, floor((CGRectGetWidth(frame) - 3) * 0.99429 + 0.5), floor((CGRectGetHeight(frame) - 2) * 0.98864 + 0.5));
+    CGRect unpressed = CGRectMake(CGRectGetMinX(frame) + 3, CGRectGetMinY(frame) + 2, floor((CGRectGetWidth(frame) - 3) * 0.99429 + 0.5), floor((CGRectGetHeight(frame) - 2) * 0.98864 + 0.5));
+
+
     //// pressed
     {
         if (isPressed)
         {
             //// Oval 2 Drawing
-            UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(2, 2, 174, 174)];
+            UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(pressed) + floor(CGRectGetWidth(pressed) * 0.00000 + 0.5), CGRectGetMinY(pressed) + floor(CGRectGetHeight(pressed) * 0.00000 + 0.5), floor(CGRectGetWidth(pressed) * 1.00000 + 0.5) - floor(CGRectGetWidth(pressed) * 0.00000 + 0.5), floor(CGRectGetHeight(pressed) * 1.00000 + 0.5) - floor(CGRectGetHeight(pressed) * 0.00000 + 0.5))];
             [blue setFill];
             [oval2Path fill];
             [blue setStroke];
@@ -47,7 +53,7 @@
 
 
         //// Symbol 2 Drawing
-        CGRect symbol2Rect = CGRectMake(28.5, 28.5, 120, 120);
+        CGRect symbol2Rect = CGRectMake(CGRectGetMinX(pressed) + floor(CGRectGetWidth(pressed) * 0.15230) + 0.5, CGRectGetMinY(pressed) + floor(CGRectGetHeight(pressed) * 0.15230) + 0.5, floor(CGRectGetWidth(pressed) * 0.84195) - floor(CGRectGetWidth(pressed) * 0.15230), floor(CGRectGetHeight(pressed) * 0.84195) - floor(CGRectGetHeight(pressed) * 0.15230));
         CGContextSaveGState(context);
         UIRectClip(symbol2Rect);
         CGContextTranslateCTM(context, symbol2Rect.origin.x, symbol2Rect.origin.y);
@@ -63,7 +69,7 @@
         //// unpressed
         {
             //// Oval Drawing
-            UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(2, 2, 174, 174)];
+            UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(unpressed) + floor(CGRectGetWidth(unpressed) * 0.00000 + 0.5), CGRectGetMinY(unpressed) + floor(CGRectGetHeight(unpressed) * 0.00000 + 0.5), floor(CGRectGetWidth(unpressed) * 1.00000 + 0.5) - floor(CGRectGetWidth(unpressed) * 0.00000 + 0.5), floor(CGRectGetHeight(unpressed) * 1.00000 + 0.5) - floor(CGRectGetHeight(unpressed) * 0.00000 + 0.5))];
             [UIColor.whiteColor setFill];
             [ovalPath fill];
             [blue setStroke];
@@ -76,7 +82,7 @@
                 //// Group 3
                 {
                     //// Symbol Drawing
-                    CGRect symbolRect = CGRectMake(28.5, 29.5, 119, 119);
+                    CGRect symbolRect = CGRectMake(CGRectGetMinX(unpressed) + floor(CGRectGetWidth(unpressed) * 0.15230) + 0.5, CGRectGetMinY(unpressed) + floor(CGRectGetHeight(unpressed) * 0.15805) + 0.5, floor(CGRectGetWidth(unpressed) * 0.83621) - floor(CGRectGetWidth(unpressed) * 0.15230), floor(CGRectGetHeight(unpressed) * 0.84195) - floor(CGRectGetHeight(unpressed) * 0.15805));
                     CGContextSaveGState(context);
                     UIRectClip(symbolRect);
                     CGContextTranslateCTM(context, symbolRect.origin.x, symbolRect.origin.y);
@@ -200,10 +206,10 @@
 
 #pragma mark Generated Images
 
-+ (UIImage*)imageOfIconWithIsPressed: (BOOL)isPressed
++ (UIImage*)imageOfIconWithFrame: (CGRect)frame isPressed: (BOOL)isPressed
 {
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(178, 178), NO, 0.0f);
-    [NTStyleKit drawIconWithIsPressed: isPressed];
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0.0f);
+    [NTStyleKit drawIconWithFrame: frame isPressed: isPressed];
 
     UIImage* imageOfIcon = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
