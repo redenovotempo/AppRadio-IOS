@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVerticalBtnView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHorizontalBtnView;
 
+//Audio
+@property (strong, nonatomic) AVAudioRecorder *audioRecorder;
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+
 @end
 
 @implementation MandeSeuAloViewController
@@ -40,8 +44,78 @@
                                                object:nil];
     
     
+    
+    [self setupRecorder];
 
 }
+
+-(void)setupRecorder{
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    NSString *soundFilePath = [docsDir stringByAppendingPathComponent:@"sound.caf"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    
+    
+    NSLog(@"%@",soundFileURL);
+    
+    NSDictionary *recordSettings = [NSDictionary
+                                    dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:AVAudioQualityMin],
+                                    AVEncoderAudioQualityKey,
+                                    [NSNumber numberWithInt:16],
+                                    AVEncoderBitRateKey,
+                                    [NSNumber numberWithInt: 2],
+                                    AVNumberOfChannelsKey,
+                                    [NSNumber numberWithFloat:44100.0],
+                                    AVSampleRateKey,
+                                    nil];
+    
+    NSError *error = nil;
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
+                        error:nil];
+    
+    _audioRecorder = [[AVAudioRecorder alloc]
+                      initWithURL:soundFileURL
+                      settings:recordSettings
+                      error:&error];
+    
+    if (error)
+    {
+        NSLog(@"error: %@", [error localizedDescription]);
+        
+    } else {
+        [_audioRecorder prepareToRecord];
+    }
+
+}
+
+
+-(void)deleteSoundFile{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"sound.caf"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    
+    if (fileExists) {
+        NSError *error;
+        BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+        if (success) {
+            
+        }
+        else
+        {
+            NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+        }
+    }
+
+}
+
 
 - (IBAction)OpenMenuButtonPressed:(id)button{
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -54,6 +128,14 @@
 - (IBAction)touchDown:(id)sender {
     self.lblRecordDetail.text = @"Gravando: 00:00";
     [self StartTimer];
+    
+    //Recording
+    if (!_audioRecorder.recording)
+    {
+        [_audioRecorder record];
+    }
+    
+    
     self.btnView.isPressed = YES;
     [self.btnView setNeedsDisplay];
     [UIView animateWithDuration:0.5 animations:^{
@@ -65,10 +147,19 @@
 
 - (IBAction)cancelRecord:(id)sender {
     [self StopTimer];
+    
+    //Stop Record
+    if (_audioRecorder.recording)
+    {
+        [_audioRecorder stop];
+        [self deleteSoundFile];
+    }
+    
+    
     self.btnView.isPressed = NO;
     [self.btnView setNeedsDisplay];
     self.lblRecordDetail.textColor = [UIColor blackColor];
-    self.lblRecordDetail.text = @"Cancelado! Pressione novamente o botão abaixo para iniciar uma gravação.";
+    self.lblRecordDetail.text = @"Cancelado! Pressione novamente o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.";
     _constraintHorizontalBtnView.constant = -25;
     [self.view layoutIfNeeded];
     
@@ -80,6 +171,8 @@
     }];
     
     
+    
+    
     self.bodyContainerView.backgroundColor = [UIColor whiteColor];
 }
 
@@ -88,13 +181,23 @@
     self.btnView.isPressed = NO;
     [self.btnView setNeedsDisplay];
     
+    //Stop Record
+    if (_audioRecorder.recording)
+    {
+        [_audioRecorder stop];
+    }
+    
     self.lblRecordDetail.text = @"Gerando arquivo, aguarde.";
+    
+    [self sendEmail];
     
     [UIView animateWithDuration:0.5 animations:^{
         self.bodyContainerView.backgroundColor = [UIColor whiteColor];
         self.lblRecordDetail.textColor = [UIColor blackColor];
     }];
 }
+
+
 
 -(void)rotateBtnOpenMenu{
     
@@ -121,14 +224,12 @@ int timeSec = 0;
 int timeMin = 0;
 NSTimer *timer;
 
-//Call This to Start timer, will tick every second
 -(void) StartTimer
 {
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
-//Event called every time the NSTimer ticks.
 - (void)timerTick:(NSTimer *)timer
 {
     timeSec++;
@@ -144,7 +245,6 @@ NSTimer *timer;
     self.lblRecordDetail.text= timeNow;
 }
 
-//Call this to stop the timer event(could use as a 'Pause' or 'Reset')
 - (void) StopTimer
 {
     [timer invalidate];
@@ -157,4 +257,83 @@ NSTimer *timer;
     // [timeLabel setStringValue:timeNow];
     self.lblRecordDetail.text= timeNow;
 }
+
+-(void)sendEmail{
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        NSString * content = [[NSString alloc]init];
+        content = @"";
+        
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:@"#RADIO NT - MEU ALÔ"];
+        [mail setMessageBody:content isHTML:YES];
+        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
+        
+        
+        
+        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath = [documentsPath stringByAppendingPathComponent:@"sound.caf"];
+        
+        NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
+        NSData *dataToSend = [[NSData alloc] initWithContentsOfURL:fileURL];
+        
+        // Set up recipients
+        NSArray *toRecipients = nil;
+        NSArray *ccRecipients = nil;
+        NSArray *bccRecipients = nil;
+        
+        [mail setToRecipients:toRecipients];
+        [mail setCcRecipients:ccRecipients];
+        [mail setBccRecipients:bccRecipients];
+        
+        [mail setMessageBody:@"" isHTML:YES];
+        [mail addAttachmentData:dataToSend mimeType:@"audio/x-caf" fileName:[NSString stringWithFormat:@"%@.caf",[[UIDevice currentDevice] name]]];
+        
+        
+        
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"VC_SEM_CONTA", @"Você não possui  uma conta de e-mail configurada.") message:NSLocalizedString(@"ADICIONANDO_CONTA", @"Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente.") delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [alerta show];
+    }
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            [self cancelRecord:nil];
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            [self showSucessEmailSentMenssage];
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)showSucessEmailSentMenssage{
+    
+    self.lblRecordDetail.text = @"Pressione o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.";
+    
+    UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:@"Obrigado!" message:@"Sua mensagem foi enviada para nossa equipe com sucesso." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [alerta show];
+}
+
 @end

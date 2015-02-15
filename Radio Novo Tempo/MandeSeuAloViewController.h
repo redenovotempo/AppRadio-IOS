@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AVFoundation/AVFoundation.h"
+@import MessageUI;
 
-@interface MandeSeuAloViewController : UIViewController
+@interface MandeSeuAloViewController : UIViewController<AVAudioRecorderDelegate, AVAudioPlayerDelegate,MFMailComposeViewControllerDelegate>
 
 @end

@@ -88,7 +88,7 @@
         
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
-        [mail setSubject:@"Pedido de música"];
+        [mail setSubject:@"#RADIO NT - Pedido de música"];
         [mail setMessageBody:content isHTML:YES];
         [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
         
