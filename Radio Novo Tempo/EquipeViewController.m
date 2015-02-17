@@ -51,6 +51,9 @@ CGFloat PADDING_LEFT = 50;
 //Thread
 @property(nonatomic)BOOL canUpdateSelectedPersonElements;
 
+//JsonError
+@property(nonatomic,strong)UIAlertView * jsonFailAlertView;
+
 
 @end
 
@@ -173,6 +176,8 @@ CGFloat PADDING_LEFT = 50;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     NSError *jsonParsingError = nil;
     
     NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:self.urlData options:NSJSONReadingMutableContainers error:&jsonParsingError];
@@ -180,7 +185,9 @@ CGFloat PADDING_LEFT = 50;
     
     self.equipeArray = [resultados objectForKey:@"team"];
     
-    if (jsonParsingError || !self.equipeArray){
+    if (jsonParsingError || !self.equipeArray || self.equipeArray.count == 0){
+        _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:@"Desculpe" message:[NSString stringWithFormat:@"A rádio '%@' não possui uma equipe cadastrada.",appDel.radioCurrent.name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [_jsonFailAlertView show];
         NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
     }else{
         [self.loadingView removeFromSuperview];
@@ -621,8 +628,13 @@ CGFloat PADDING_LEFT = 50;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == [alertView cancelButtonIndex]) {
-        [self MainExecution];
+    
+    if (alertView == _jsonFailAlertView) {
+        [self OpenMenuButtonPressed:nil];
+    }else{
+        if (buttonIndex == [alertView cancelButtonIndex]) {
+            [self MainExecution];
+        }
     }
 }
 

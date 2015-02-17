@@ -33,6 +33,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tablePrograming;
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenMenu;
 
+//JsonError
+@property(nonatomic,strong)UIAlertView * jsonFailAlertView;
+
 
 @end
 
@@ -64,6 +67,9 @@
                                              selector:@selector(unRotateBtnOpenMenu)
                                                  name:@"GestureCloseMenu"
                                                object:nil];
+    
+    
+    self.programingItems = [[NSMutableArray alloc]init];
     
 }
 
@@ -108,15 +114,19 @@
     
     
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-        
-        NSError *jsonParsingError = nil;
+        AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSError *jsonParsingError = nil;
         
         NSDictionary *resultados = [NSJSONSerialization JSONObjectWithData:self.urlData options:NSJSONReadingMutableContainers error:&jsonParsingError];
         
         
-        _programingItems = [resultados objectForKey:@"daySchedule"];
+        self.programingItems = [resultados objectForKey:@"daySchedule"];
         
-        if (jsonParsingError || !_programingItems){
+        if (jsonParsingError || !self.programingItems || self.programingItems == (id)[NSNull null]){
+            _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:@"Desculpe" message:[NSString stringWithFormat:@"A rádio '%@' não possui programação disponível.",appDel.radioCurrent.name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [_jsonFailAlertView show];
+
             NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
         }else{
             [self.loadingView removeFromSuperview];
@@ -126,6 +136,13 @@
             [_tablePrograming reloadData];
         }
 
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (alertView == _jsonFailAlertView) {
+        [self OpenMenuButtonPressed:nil];
+    }
 }
 
 

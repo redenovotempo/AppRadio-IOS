@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProgramacaoViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface ProgramacaoViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIAlertViewDelegate>
 @property(nonatomic)BOOL needResetAnimation;
 @end
