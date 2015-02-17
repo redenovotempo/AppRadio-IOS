@@ -21,6 +21,7 @@
 @property(nonatomic,strong) NSString * longitude;
 @property(nonatomic,strong) NSString * language;
 @property(nonatomic,strong) NSString * apiLink;
+@property(nonatomic,strong) NSString * emailContact;
 
 
 +(Radio *)getFromDictionary: (NSDictionary *)dict;

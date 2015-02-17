@@ -75,12 +75,27 @@
 -(IBAction)sendRequest:(id)sender{
 
     [self sendEmail:_musicTextField.text artist:_artistTextField.text];
-
+  
 }
 
 
--(void)sendEmail:(NSString *)music artist:(NSString *)artist{
+-(void)showEmptyFieldsErrorAlert{
+    UIAlertView * alertV = [[UIAlertView alloc]initWithTitle:@"Dados incompletos" message:@"Antes de enviar o pedido você precisa preencher os campos com o artista e música desejada" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertV show];
+}
 
+
+
+-(void)sendEmail:(NSString *)music artist:(NSString *)artist{
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    if (![self isFieldsFilled] && ([music isEqual:@""] || [artist isEqual:@""])) {
+        [self showEmptyFieldsErrorAlert];
+        return;
+    }
+  
+    
     if ([MFMailComposeViewController canSendMail])
     {
         NSString * content = [[NSString alloc]init];
@@ -90,7 +105,7 @@
         mail.mailComposeDelegate = self;
         [mail setSubject:@"#RADIO NT - Pedido de música"];
         [mail setMessageBody:content isHTML:YES];
-        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
+        [mail setToRecipients:@[appDel.radioCurrent.emailContact]];
         
         [self presentViewController:mail animated:YES completion:NULL];
     }
@@ -355,6 +370,18 @@
     }
     
     [self sendEmail:_musicTextField.text artist:_artistTextField.text];
+    return YES;
+}
+
+-(BOOL)isFieldsFilled{
+    if ([_musicTextField.text isEqual:@""]) {
+        return NO;
+    }
+    
+    if ([_artistTextField.text isEqual:@""]) {
+        return NO;
+    }
+    
     return YES;
 }
 

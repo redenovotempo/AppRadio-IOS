@@ -259,7 +259,8 @@ NSTimer *timer;
 }
 
 -(void)sendEmail{
-    
+    AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+   
     if ([MFMailComposeViewController canSendMail])
     {
         NSString * content = [[NSString alloc]init];
@@ -267,9 +268,9 @@ NSTimer *timer;
         
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
-        [mail setSubject:@"#RADIO NT - MEU ALÔ"];
+        [mail setSubject:@"#RADIO NT - Meu alô"];
         [mail setMessageBody:content isHTML:YES];
-        [mail setToRecipients:@[@"mclopes.mail@gmail.com"]];
+        [mail setToRecipients:@[appDel.radioCurrent.emailContact]];
         
         
         

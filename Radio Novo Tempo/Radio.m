@@ -20,6 +20,8 @@
     [radio setLongitude:[dict objectForKey:@"longitude"]];
     [radio setLanguage:[dict objectForKey:@"language"]];
     [radio setApiLink:[dict objectForKey:@"apiLink"]];
+    [radio setEmailContact:[dict objectForKey:@"emailContact"]];
+    
     return radio;
 }
 @end
