@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIView *bodyContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblRecordDetail;
 
+//Botao Gravar.
+@property (weak, nonatomic) IBOutlet UIImageView *micPermissionImageView;
+@property (weak, nonatomic) IBOutlet UIButton *tryAgainMicPermissionProcess;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVerticalBtnView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHorizontalBtnView;
@@ -48,10 +51,15 @@
     [self setupRecorder];
 
 }
+- (IBAction)tryAgainSetupRecorder:(id)sender {
+    
+    [self setupRecorder];
+}
 
 -(void)setupRecorder{
     NSArray *dirPaths;
     NSString *docsDir;
+    
     
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = dirPaths[0];
@@ -78,6 +86,19 @@
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
                         error:nil];
+    
+    
+    if ([audioSession recordPermission] == AVAudioSessionRecordPermissionGranted) {
+        _lblRecordDetail.text=@"Pressione o botão abaixo para gravar e mandar o seu alô. Arraste seu dedo durante a gravação para cancelar o procedimento.";
+        _micPermissionImageView.hidden = YES;
+        _tryAgainMicPermissionProcess.hidden = YES;
+        _btnView.hidden = NO;
+    }else{
+        _lblRecordDetail.text=@"Você não autorizou este aplicativo para ter acesso ao microfone do seu device. Vá em Ajustes do iPhone(iPad) > Rádio NT e autorize como mostra na imagem abaixo:";
+        _micPermissionImageView.hidden = NO;
+        _tryAgainMicPermissionProcess.hidden = NO;
+        _btnView.hidden = YES;
+    }
     
     _audioRecorder = [[AVAudioRecorder alloc]
                       initWithURL:soundFileURL

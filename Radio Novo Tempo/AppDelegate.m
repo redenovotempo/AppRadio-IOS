@@ -253,6 +253,21 @@
         [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
         [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     }
+    //Outros Apps
+    else if ([currentViewControllerName isEqualToString:@"Outros apps"]) {
+        OutrosAppsViewController * current = (OutrosAppsViewController*)[self.mainStoryboard
+                                                                           instantiateViewControllerWithIdentifier:currentViewControllerName];
+        
+        self.drawerController = [[MMDrawerController alloc]
+                                 initWithCenterViewController:current
+                                 leftDrawerViewController:menu
+                                 rightDrawerViewController:nil];
+        
+        
+        //Habilitando gestos
+        [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    }
     
     
     

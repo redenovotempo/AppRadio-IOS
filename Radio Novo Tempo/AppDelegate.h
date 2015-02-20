@@ -21,6 +21,7 @@
 #import "Radio.h"
 #import "PedirMusicaViewController.h"
 #import "MandeSeuAloViewController.h"
+#import "OutrosAppsViewController.h"
 
 
 
