@@ -567,7 +567,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="93B2475A-D0FE-4952-B818-CEED991E9680" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9A514BCF-CF97-4C13-B0E3-16F2AC66018E" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="7om-tM-yXg"/>
@@ -1105,7 +1105,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F9F67AB7-D0AB-4C5A-841D-492099947CB0" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="58CB38DB-9CCF-4F5E-B200-33ABC4D8F9C5" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="tNO-HZ-jXt"/>
@@ -2443,6 +2443,74 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
             </objects>
             <point key="canvasLocation" x="-1688" y="1399"/>
         </scene>
+        <!--Outros Apps View Controller-->
+        <scene sceneID="1at-hv-wPe">
+            <objects>
+                <viewController storyboardIdentifier="Outros apps" id="h8x-OQ-Mew" customClass="OutrosAppsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dRJ-dH-J7u"/>
+                        <viewControllerLayoutGuide type="bottom" id="dQp-M7-Crn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZWr-iR-uPe">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_iPad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-JT-u48">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoMini.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Vd-4c-ptZ">
+                                <rect key="frame" x="365" y="23" width="39" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="HwA-Sm-7Nn"/>
+                                    <constraint firstAttribute="height" constant="36" id="Unc-EO-rn3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDa-IC-Mhe">
+                                <rect key="frame" x="20" y="29" width="26" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="LZN-BL-0Uv"/>
+                                    <constraint firstAttribute="height" constant="18" id="PX5-hX-b42"/>
+                                </constraints>
+                                <state key="normal" image="menuIcon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="OpenMenuButtonPressed:" destination="h8x-OQ-Mew" eventType="touchUpInside" id="e9I-LN-OtL"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="co6-Lg-Cy8">
+                                <rect key="frame" x="0.0" y="73" width="768" height="951"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h8x-OQ-Mew" id="ZUe-Dy-Wrd"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cDa-IC-Mhe" firstAttribute="leading" secondItem="ZWr-iR-uPe" secondAttribute="leadingMargin" id="0G3-D6-od7"/>
+                            <constraint firstItem="cDa-IC-Mhe" firstAttribute="top" secondItem="dRJ-dH-J7u" secondAttribute="bottom" constant="9" id="2J7-Lj-Mdn"/>
+                            <constraint firstItem="co6-Lg-Cy8" firstAttribute="leading" secondItem="ZWr-iR-uPe" secondAttribute="leadingMargin" constant="-20" id="I6F-vS-BdS"/>
+                            <constraint firstItem="3Mx-JT-u48" firstAttribute="leading" secondItem="ZWr-iR-uPe" secondAttribute="leadingMargin" constant="-20" id="LcD-rU-nQC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Mx-JT-u48" secondAttribute="trailing" constant="-20" id="NqC-Fw-0X1"/>
+                            <constraint firstAttribute="centerX" secondItem="1Vd-4c-ptZ" secondAttribute="centerX" id="Nss-20-0WG"/>
+                            <constraint firstItem="co6-Lg-Cy8" firstAttribute="top" secondItem="1Vd-4c-ptZ" secondAttribute="bottom" constant="14" id="aMd-HY-6SX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="co6-Lg-Cy8" secondAttribute="trailing" constant="-20" id="ief-Q0-PDR"/>
+                            <constraint firstItem="dQp-M7-Crn" firstAttribute="top" secondItem="co6-Lg-Cy8" secondAttribute="bottom" id="k1W-IJ-LII"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3Mx-JT-u48" secondAttribute="bottom" id="uTt-ei-Re1"/>
+                            <constraint firstItem="3Mx-JT-u48" firstAttribute="top" secondItem="ZWr-iR-uPe" secondAttribute="topMargin" id="udS-Hx-eBh"/>
+                            <constraint firstItem="1Vd-4c-ptZ" firstAttribute="top" secondItem="dRJ-dH-J7u" secondAttribute="bottom" constant="3" id="zLM-HO-t76"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnOpenMenu" destination="cDa-IC-Mhe" id="tdC-EK-cj0"/>
+                        <outlet property="webViewOtherApps" destination="co6-Lg-Cy8" id="2dA-60-8Ru"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7f-ti-3Oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-843" y="1394"/>
+        </scene>
         <!--Mini Player View Controller-->
         <scene sceneID="9jG-nn-iDC">
             <objects>
@@ -2522,7 +2590,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="93B2475A-D0FE-4952-B818-CEED991E9680" width="320" height="180">
+        <image name="58CB38DB-9CCF-4F5E-B200-33ABC4D8F9C5" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6434,7 +6502,7 @@ AAOSUAADklMAA5JYAAOSZwADkmsAA5JyAAOSegADkocAA5KMAAOSjgADkpAAA5KVAAOSnQADkqAAA5Kl
 AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
 </mutableData>
         </image>
-        <image name="F9F67AB7-D0AB-4C5A-841D-492099947CB0" width="320" height="180">
+        <image name="9A514BCF-CF97-4C13-B0E3-16F2AC66018E" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

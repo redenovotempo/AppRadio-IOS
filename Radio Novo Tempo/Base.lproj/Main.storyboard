@@ -959,7 +959,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C376A16C-6AAF-4B91-891C-580933816D7D" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A4E52575-B92A-4151-9AAB-B107B70874F8" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="wuv-WZ-yWo"/>
@@ -2064,14 +2064,14 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="OpenMenuButtonPressed:" destination="JNH-BO-nPe" eventType="touchUpInside" id="wkf-XK-orI"/>
+                                    <action selector="OpenMenuButtonPressed:" destination="Mvc-X0-LRP" eventType="touchUpInside" id="h9v-0g-N1Y"/>
                                 </connections>
                             </button>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56d-Dy-Rfq">
-                                <rect key="frame" x="-4" y="75" width="328" height="493"/>
+                                <rect key="frame" x="-4" y="73" width="328" height="493"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="delegate" destination="JNH-BO-nPe" id="bbO-mo-8nx"/>
+                                    <outlet property="delegate" destination="Mvc-X0-LRP" id="olL-Xf-ohZ"/>
                                 </connections>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoMini.png" translatesAutoresizingMaskIntoConstraints="NO" id="0ff-61-GyL">
@@ -2092,12 +2092,16 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                             <constraint firstItem="0ff-61-GyL" firstAttribute="top" secondItem="eIh-St-HTC" secondAttribute="bottom" constant="9" id="Jx8-0Q-sI8"/>
                             <constraint firstItem="D1M-oh-zHl" firstAttribute="leading" secondItem="vEO-2K-f11" secondAttribute="leadingMargin" constant="-20" id="MkC-0k-2dC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="D1M-oh-zHl" secondAttribute="trailing" constant="-20" id="NlY-rn-RKq"/>
-                            <constraint firstItem="56d-Dy-Rfq" firstAttribute="top" secondItem="0ff-61-GyL" secondAttribute="bottom" constant="10" id="ZEy-QZ-xt2"/>
+                            <constraint firstItem="56d-Dy-Rfq" firstAttribute="top" secondItem="0ff-61-GyL" secondAttribute="bottom" constant="8" id="ZEy-QZ-xt2"/>
                             <constraint firstItem="D1M-oh-zHl" firstAttribute="top" secondItem="vEO-2K-f11" secondAttribute="topMargin" id="dm1-Oy-r1p"/>
                             <constraint firstAttribute="bottomMargin" secondItem="D1M-oh-zHl" secondAttribute="bottom" id="tzd-DQ-Gmp"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="56d-Dy-Rfq" secondAttribute="bottom" id="u8f-e5-3AX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="56d-Dy-Rfq" secondAttribute="bottom" constant="2" id="u8f-e5-3AX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnOpenMenu" destination="ZgH-Sq-BzZ" id="LnE-EE-bXT"/>
+                        <outlet property="webViewOtherApps" destination="56d-Dy-Rfq" id="IGF-zp-481"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4Y-TQ-kyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2105,7 +2109,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="C376A16C-6AAF-4B91-891C-580933816D7D" width="320" height="180">
+        <image name="A4E52575-B92A-4151-9AAB-B107B70874F8" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
