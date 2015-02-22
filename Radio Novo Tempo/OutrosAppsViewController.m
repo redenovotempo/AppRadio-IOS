@@ -33,7 +33,16 @@
 
     [self StartLoading];
     
-    [self loadContent];
+    [self MainExecution];
+}
+
+-(void)MainExecution{
+    
+    if ([self CheckInternetConnection]) {
+        [self loadContent];
+    }else{
+        [self InternetConnectionErrorMessage];
+    }
 }
 
 
@@ -119,6 +128,26 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     [self.loadingView removeFromSuperview];
+}
+
+
+
+-(void)InternetConnectionErrorMessage{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    [alert show];
+}
+
+-(BOOL)CheckInternetConnection{
+    
+    //Check Internet Connection.
+    AppDelegate * apDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return apDel.CheckInternetConnection;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self MainExecution];
+    }
 }
 
 @end

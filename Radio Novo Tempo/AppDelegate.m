@@ -209,7 +209,7 @@
                                  rightDrawerViewController:nil];
     }
     //history
-    else if ([currentViewControllerName isEqualToString:@"História da Rádio"]) {
+    else if ([currentViewControllerName isEqualToString:@"Filosofia"]) {
         HistoryViewController * current = (HistoryViewController*)[self.mainStoryboard
                                                                  instantiateViewControllerWithIdentifier:currentViewControllerName];
         

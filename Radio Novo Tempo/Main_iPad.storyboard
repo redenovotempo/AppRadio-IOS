@@ -567,7 +567,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9A514BCF-CF97-4C13-B0E3-16F2AC66018E" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="864C4C5F-D595-4BCB-8C7D-7C63F6848349" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="7om-tM-yXg"/>
@@ -1105,7 +1105,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="58CB38DB-9CCF-4F5E-B200-33ABC4D8F9C5" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FB4982CB-C0DE-4085-9AF8-2ED72F023AB8" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="tNO-HZ-jXt"/>
@@ -1558,7 +1558,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         <!--History View Controller-->
         <scene sceneID="O7u-Gs-4D3">
             <objects>
-                <viewController storyboardIdentifier="História da Rádio" id="pWP-d0-0G9" customClass="HistoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Filosofia" id="pWP-d0-0G9" customClass="HistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mxy-wL-Dds"/>
                         <viewControllerLayoutGuide type="bottom" id="HMP-fa-3ax"/>
@@ -2590,7 +2590,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="58CB38DB-9CCF-4F5E-B200-33ABC4D8F9C5" width="320" height="180">
+        <image name="864C4C5F-D595-4BCB-8C7D-7C63F6848349" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6502,7 +6502,7 @@ AAOSUAADklMAA5JYAAOSZwADkmsAA5JyAAOSegADkocAA5KMAAOSjgADkpAAA5KVAAOSnQADkqAAA5Kl
 AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
 </mutableData>
         </image>
-        <image name="9A514BCF-CF97-4C13-B0E3-16F2AC66018E" width="320" height="180">
+        <image name="FB4982CB-C0DE-4085-9AF8-2ED72F023AB8" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
