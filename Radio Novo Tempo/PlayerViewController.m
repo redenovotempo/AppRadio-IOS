@@ -302,7 +302,7 @@
 }
 
 -(void)InternetConnectionErrorMessage{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso." delegate:self cancelButtonTitle:@"Tentar Novamente" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"INTERNET_ERRO_TITLE", @"Ops") message:NSLocalizedString(@"INTERNET_ERRO_MSG", @"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso.") delegate:self cancelButtonTitle:NSLocalizedString(@"TENTAR_NOVAMENTE", @"Tentar Novamente") otherButtonTitles: nil];
     [alert show];
 }
 

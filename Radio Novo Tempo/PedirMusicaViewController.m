@@ -80,7 +80,7 @@
 
 
 -(void)showEmptyFieldsErrorAlert{
-    UIAlertView * alertV = [[UIAlertView alloc]initWithTitle:@"Dados incompletos" message:@"Antes de enviar o pedido você precisa preencher os campos com o artista e música desejada" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView * alertV = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"DADOS_INCOMPLETOS_TITLE", @"Dados incompletos") message:NSLocalizedString(@"DADOS_INCOMPLETOS_MSG", @"Antes de enviar o pedido você precisa preencher os campos com o artista e música desejada") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alertV show];
 }
 
@@ -99,11 +99,11 @@
     if ([MFMailComposeViewController canSendMail])
     {
         NSString * content = [[NSString alloc]init];
-        content = [NSString stringWithFormat:@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido.<br><br> <b style='color:#126091;'>Música:</b><br>%@<br><br><b style='color:#126091;'>Artista:</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",music,artist];
+        content = [NSString stringWithFormat:@"%@<br><br> <b style='color:#126091;'>%@</b><br>%@<br><br><b style='color:#126091;'>%@</b><br>%@<br><br><i style='color:gray;'>App Rádio Novo Tempo <i>",NSLocalizedString(@"EMAIL_PEDIR_MUSICA_MSG",@"Olá pessoal da Novo Tempo, gostaria de fazer um pedido."),NSLocalizedString(@"MUSICA",@"Música:"),NSLocalizedString(@"ARTISTA",@"Artista:"),music,artist];
         
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
-        [mail setSubject:@"#RADIO NT - Pedido de música"];
+        [mail setSubject:NSLocalizedString(@"EMAIL_PEDIR_MUSICA_ASSUNTO", @"#RADIO NT - Pedido de música")];
         [mail setMessageBody:content isHTML:YES];
         [mail setToRecipients:@[appDel.radioCurrent.emailContact]];
         
@@ -111,7 +111,7 @@
     }
     else
     {
-        UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:@"Você não possui  uma conta de e-mail configurada." message:@"Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"EMAIL_SEM_ACESSO_TITLE", @"Você não possui  uma conta de e-mail configurada.") message:NSLocalizedString(@"EMAIL_SEM_ACESSO_MSG", @"Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente.") delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         [alerta show];
     }
@@ -275,7 +275,7 @@
     //Criando componentes
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
     UILabel * txt = [[UILabel alloc]init];
-    txt.text = @"Carregando...";
+    txt.text = NSLocalizedString(@"CARREGANDO",@"Carregando...");
     txt.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
     

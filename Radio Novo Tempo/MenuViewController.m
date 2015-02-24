@@ -8,12 +8,12 @@
 
 #import "MenuViewController.h"
 #import "MuralViewController.h"
+#import "MenuItem.h"
 
 @interface MenuViewController ()
+@property(nonatomic,strong)NSMutableArray * menuArray;
 
 @end
-
-
 
 
 @implementation MenuViewController
@@ -34,7 +34,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Programação",@"Peça sua música",@"Mande seu alô",@"Filosofia",@"Equipe",@"Outros apps",nil];
+    MenuItem * mural = [[MenuItem alloc]initWithKey:@"Mural" AndTitle:NSLocalizedString(@"MURAL", @"Mural")];
+    MenuItem * programacao = [[MenuItem alloc]initWithKey:@"Programação" AndTitle:NSLocalizedString(@"PROGRAMACAO", @"Programação")];
+    MenuItem * pecaSuaMusica = [[MenuItem alloc]initWithKey:@"Peça sua música" AndTitle:NSLocalizedString(@"PECA_SUA_MUSICA", @"Peça sua música")];
+    MenuItem * mandeSeuAlo = [[MenuItem alloc]initWithKey:@"Mande seu alô" AndTitle:NSLocalizedString(@"MANDE_SEU_ALO", @"Mande seu alô")];
+    MenuItem * filosofia = [[MenuItem alloc]initWithKey:@"Filosofia" AndTitle:NSLocalizedString(@"FILOSOFIA", @"Filosofia")];
+    MenuItem * equipe = [[MenuItem alloc]initWithKey:@"Equipe" AndTitle:NSLocalizedString(@"EQUIPE", @"Equipe")];
+    MenuItem * outrosApps = [[MenuItem alloc]initWithKey:@"Outros apps" AndTitle:NSLocalizedString(@"OUTROS_APPS", @"Outros apps")];
+    
+    
+//    menuArray = [NSMutableArray arrayWithObjects:@"Mural",@"Programação",@"Peça sua música",@"Mande seu alô",@"Filosofia",@"Equipe",@"Outros apps",nil];
+    self.menuArray = [[NSMutableArray alloc]init];
+    self.menuArray = [NSMutableArray arrayWithObjects:mural,programacao,pecaSuaMusica,mandeSeuAlo,filosofia,equipe,outrosApps,nil];
 
 }
 
@@ -51,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [menuArray count];
+    return [self.menuArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +72,9 @@
     MenuCell * cell = (MenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     
-    cell.lblText.text = [menuArray objectAtIndex:indexPath.row];
+    MenuItem * currentItem = (MenuItem *) [self.menuArray objectAtIndex:indexPath.row];
+    
+    cell.lblText.text = currentItem.title;
 
     //Limpando cor de fundo
     cell.backgroundColor = [UIColor clearColor];
@@ -78,9 +91,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AppDelegate * appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    MenuCell * cell = (MenuCell *)[menuTableView cellForRowAtIndexPath:indexPath];
 
-    [appDel ChangeRootViewController:cell.lblText.text needCloseEffect:YES];
+    MenuItem * currentItem = (MenuItem *) [self.menuArray objectAtIndex:indexPath.row];
+    
+    [appDel ChangeRootViewController:currentItem.key needCloseEffect:YES];
 
 }
 

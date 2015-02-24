@@ -11,8 +11,5 @@
 #import "MenuCell.h"
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-{
-    NSMutableArray * menuArray;
-}
 @property (nonatomic,retain) IBOutlet UITableView * menuTableView;
 @end

@@ -89,12 +89,12 @@
     
     
     if ([audioSession recordPermission] == AVAudioSessionRecordPermissionGranted) {
-        _lblRecordDetail.text=@"Pressione o botão abaixo para gravar e mandar o seu alô. Arraste seu dedo durante a gravação para cancelar o procedimento.";
+        _lblRecordDetail.text=NSLocalizedString(@"GRAVAR_MSG", @"Pressione o botão abaixo para gravar e mandar o seu alô. Arraste seu dedo durante a gravação para cancelar o procedimento.");
         _micPermissionImageView.hidden = YES;
         _tryAgainMicPermissionProcess.hidden = YES;
         _btnView.hidden = NO;
     }else{
-        _lblRecordDetail.text=@"Você não autorizou este aplicativo para ter acesso ao microfone do seu device. Vá em Ajustes do iPhone(iPad) > Rádio NT e autorize como mostra na imagem abaixo:";
+        _lblRecordDetail.text=NSLocalizedString(@"SEM_AUTORIZACAO_PARA_GRAVAR_MSG", @"Você não autorizou este aplicativo para ter acesso ao microfone do seu device. Vá em Ajustes do iPhone(iPad) > Rádio NT e autorize como mostra na imagem abaixo:");
         _micPermissionImageView.hidden = NO;
         _tryAgainMicPermissionProcess.hidden = NO;
         _btnView.hidden = YES;
@@ -147,7 +147,7 @@
 
 
 - (IBAction)touchDown:(id)sender {
-    self.lblRecordDetail.text = @"Gravando: 00:00";
+    self.lblRecordDetail.text = [NSString stringWithFormat:@"%@ 00:00",NSLocalizedString(@"GRAVANDO", @"Gravando: 00:00")];
     [self StartTimer];
     
     //Recording
@@ -180,7 +180,7 @@
     self.btnView.isPressed = NO;
     [self.btnView setNeedsDisplay];
     self.lblRecordDetail.textColor = [UIColor blackColor];
-    self.lblRecordDetail.text = @"Cancelado! Pressione novamente o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.";
+    self.lblRecordDetail.text = NSLocalizedString(@"GRAVAR_CANCELADO_MSG", @"Cancelado! Pressione novamente o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.");
     _constraintHorizontalBtnView.constant = -25;
     [self.view layoutIfNeeded];
     
@@ -208,7 +208,7 @@
         [_audioRecorder stop];
     }
     
-    self.lblRecordDetail.text = @"Gerando arquivo, aguarde.";
+    self.lblRecordDetail.text = NSLocalizedString(@"GERANDO_ARQUIVO_MSG", @"Gerando arquivo, aguarde.");
     
     [self sendEmail];
     
@@ -260,7 +260,7 @@ NSTimer *timer;
         timeMin++;
     }
     //Format the string 00:00
-    NSString* timeNow = [NSString stringWithFormat:@"Gravando: %02d:%02d", timeMin, timeSec];
+    NSString* timeNow = [NSString stringWithFormat:@"%@ %02d:%02d",NSLocalizedString(@"GRAVANDO", @"Gravando"),timeMin, timeSec];
     //Display on your label
     //[timeLabel setStringValue:timeNow];
     self.lblRecordDetail.text= timeNow;
@@ -273,7 +273,7 @@ NSTimer *timer;
     timeMin = 0;
     //Since we reset here, and timerTick won't update your label again, we need to refresh it again.
     //Format the string in 00:00
-    NSString* timeNow = [NSString stringWithFormat:@"Gravando: %02d:%02d", timeMin, timeSec];
+      NSString* timeNow = [NSString stringWithFormat:@"%@ %02d:%02d",NSLocalizedString(@"GRAVANDO", @"Gravando"),timeMin, timeSec];
     //Display on your label
     // [timeLabel setStringValue:timeNow];
     self.lblRecordDetail.text= timeNow;
@@ -289,7 +289,7 @@ NSTimer *timer;
         
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         mail.mailComposeDelegate = self;
-        [mail setSubject:@"#RADIO NT - Meu alô"];
+        [mail setSubject:NSLocalizedString(@"EMAIL_MEU_ALO_ASSUNTO", @"#RADIO NT - Meu alô")];
         [mail setMessageBody:content isHTML:YES];
         [mail setToRecipients:@[appDel.radioCurrent.emailContact]];
         
@@ -351,9 +351,9 @@ NSTimer *timer;
 
 -(void)showSucessEmailSentMenssage{
     
-    self.lblRecordDetail.text = @"Pressione o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.";
+    self.lblRecordDetail.text = NSLocalizedString(@"GRAVAR_MSG", @"Pressione o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.");
     
-    UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:@"Obrigado!" message:@"Sua mensagem foi enviada para nossa equipe com sucesso." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView * alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"OBRIGADO", @"Obrigado!") message:NSLocalizedString(@"GRAVACAO_SUCESSO_MSG", @"Sua mensagem foi enviada para nossa equipe com sucesso.") delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     
     [alerta show];
 }

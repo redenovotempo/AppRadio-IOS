@@ -545,7 +545,7 @@
 }
 
 -(void)InternetConnectionErrorMessage{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"Não é possível conectar. Talvez você não tenha conexão com a internet ou o conteúdo esteja indisponível, certifique-se disso." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Tentar Novamente" ,nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"INTERNET_ERRO_TITLE", @"Ops") message:NSLocalizedString(@"INTERNET_ERRO_MSG",@"Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso.") delegate:self cancelButtonTitle:NSLocalizedString(@"CANCELAR", @"Cancelar") otherButtonTitles:NSLocalizedString(@"TENTAR_NOVAMENTE", @"Tentar Novamente") ,nil];
     [alert show];
 }
 
@@ -567,7 +567,7 @@
     //Criando componentes
     UIImageView  * img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loading.png"]];
     UILabel * txt = [[UILabel alloc]init];
-    txt.text = @"Carregando...";
+    txt.text = NSLocalizedString(@"CARREGANDO",@"Carregando...");
     txt.font = [UIFont fontWithName:@"ProximaNova-Light" size:18];
     txt.textColor = [UIColor colorWithRed:(0/255.0) green:(91/255.0) blue:(149/255.0) alpha:1];
     
