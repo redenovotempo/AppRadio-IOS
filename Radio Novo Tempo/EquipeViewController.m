@@ -186,7 +186,7 @@ CGFloat PADDING_LEFT = 50;
     self.equipeArray = [resultados objectForKey:@"team"];
     
     if (jsonParsingError || !self.equipeArray || self.equipeArray.count == 0){
-        _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:@"Desculpe" message:[NSString stringWithFormat:@"%@ '%@' %@",NSLocalizedString(@"A_RADIO", @"A rádio"),appDel.radioCurrent.name,NSLocalizedString(@"NAO_POSSUI_EQUIPE_CADASTRADA", @"não possui uma equipe cadastrada.")] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"DESCULPE", @"Desculpe") message:[NSString stringWithFormat:@"%@ '%@' %@",NSLocalizedString(@"A_RADIO", @"A rádio"),appDel.radioCurrent.name,NSLocalizedString(@"NAO_POSSUI_EQUIPE_CADASTRADA", @"não possui uma equipe cadastrada.")] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [_jsonFailAlertView show];
         NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);
     }else{

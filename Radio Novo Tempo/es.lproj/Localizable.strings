@@ -9,49 +9,50 @@
 
 
 //GERAL
-"INTERNET_ERRO_MSG" = "Não é possível conectar. Talvez você não tenha conexão com a internet, certifique-se disso.";
+"INTERNET_ERRO_MSG" = "No es posible la conexión. Seguramente no está conectado a internet, por favor intente nuevamente.";
 "INTERNET_ERRO_TITLE" = "Ops";
-"TENTAR_NOVAMENTE" = "Tentar novamente";
-"VC_SEM_CONTA" = "Você não possui  uma conta de e-mail configurada.";
-"ADICIONANDO_CONTA" = "Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente.";
-"OBRIGADO" = "Obrigado!";
+"TENTAR_NOVAMENTE" = "Intente nuevamente";
+"VC_SEM_CONTA" = "Usted no tiene una cuenta de correo electrónico configurada.";
+"ADICIONANDO_CONTA" = "Añadir una cuenta ( configuración de su equipo > Mail, contactos, calendarios> Añadir cuenta ) e inténtelo de nuevo.";
+"OBRIGADO" = "Gracias!";
 "CANCELAR" = "Cancelar";
-"CARREGANDO" = "Carregando...";
-"A_RADIO" = "A rádio";
+"CARREGANDO" = "Cargando...";
+"A_RADIO" = "La radio";
+"DESCULPE" = "Discúlpeme";
 
 //MENUVIEWCONTROLLER
-"MURAL" = "Mural";
-"PROGRAMACAO" = "Programação";
-"PECA_SUA_MUSICA" = "Peça sua música";
-"MANDE_SEU_ALO" = "Mande seu alô";
-"FILOSOFIA" = "Filosofia";
-"EQUIPE" = "Equipe";
-"OUTROS_APPS" = "Outros apps";
+"MURAL" = "Muro";
+"PROGRAMACAO" = "Programación";
+"PECA_SUA_MUSICA" = "Pide tu música";
+"MANDE_SEU_ALO" = "Envía tus saludos";
+"FILOSOFIA" = "Acerca de Nosotros";
+"EQUIPE" = "Equipo";
+"OUTROS_APPS" = "Otras Apps";
 
 //EQUIPEVIEWCONTROLLER
-"NAO_POSSUI_EQUIPE_CADASTRADA" = "não possui uma equipe cadastrada.";
+"NAO_POSSUI_EQUIPE_CADASTRADA" = "no tiene un equipo registrado.";
 
 //PROGRAMACAOVIEWCONTROLLER
-"NAO_POSSUI_PROGRAMACAO" = "não possui programação disponível.";
+"NAO_POSSUI_PROGRAMACAO" = "no tiene programación disponible.";
 
 //OUTROSAPPSVIEWCONTROLLER
 "OUTROS_APPS_URL" = "http://nuevotiempo.org/mobile/";
 
 //MANDESEUALOVIEWCONTROLLER
-"GRAVAR_MSG" = "Pressione o botão abaixo para gravar e mandar o seu alô. Arraste seu dedo durante a gravação para cancelar o procedimento.";
-"SEM_AUTORIZACAO_PARA_GRAVAR_MSG" = "Você não autorizou este aplicativo para ter acesso ao microfone do seu device. Vá em Ajustes do iPhone(iPad) > Rádio NT e autorize como mostra na imagem abaixo:";
-"GRAVANDO" = "Gravando:";
-"GRAVAR_CANCELADO_MSG" = "Cancelado! Pressione novamente o botão abaixo para iniciar uma gravação. Arraste seu dedo durante a gravação para cancelar o procedimento.";
-"GERANDO_ARQUIVO_MSG" = "Gerando arquivo, aguarde.";
-"EMAIL_MEU_ALO_ASSUNTO" = "#RADIO NT - Meu alô";
-"GRAVACAO_SUCESSO_MSG" = "Sua mensagem foi enviada para nossa equipe com sucesso.";
+"GRAVAR_MSG" = "Presione el botón de abajo para grabar y enviar su saludo. Arrastre su dedo durante la grabación para cancelar el proceso.";
+"SEM_AUTORIZACAO_PARA_GRAVAR_MSG" = "Usted no permiten esta aplicación para acceder al micrófono de su dispositivo. Vaya a Configuración iPhone ( iPad) > Radio NT y autorizar como se muestra en la siguiente imagen:";
+"GRAVANDO" = "Grabando:";
+"GRAVAR_CANCELADO_MSG" = "Cancelado! Presione el botón de abajo para grabar y enviar su saludo. Arrastre su dedo durante la grabación para cancelar el proceso.";
+"GERANDO_ARQUIVO_MSG" = "Guardando...";
+"EMAIL_MEU_ALO_ASSUNTO" = "#RADIO NT – Mi saludo";
+"GRAVACAO_SUCESSO_MSG" = "Su mensaje fue enviado a nuestro equipo exitoso.";
 
 //PEDIRMUSICAVIEWCONTROLLER
-"DADOS_INCOMPLETOS_TITLE" = "Dados incompletos";
-"DADOS_INCOMPLETOS_MSG" = "Antes de enviar o pedido você precisa preencher os campos com o artista e música desejada";
-"EMAIL_PEDIR_MUSICA_MSG" = "Olá pessoal da Novo Tempo, gostaria de fazer um pedido.";
+"DADOS_INCOMPLETOS_TITLE" = "Datos incompletos";
+"DADOS_INCOMPLETOS_MSG" = "Antes de enviar la solicitud es necesario rellenar los campos con el artista y la canción que desea.";
+"EMAIL_PEDIR_MUSICA_MSG" = "Hola Nuevo Tiempo, me gustaría de hacer un pedido.";
 "MUSICA" = "Música:";
 "ARTISTA" = "Artista:";
-"EMAIL_PEDIR_MUSICA_ASSUNTO" = "#RADIO NT - Pedido de música";
-"EMAIL_SEM_ACESSO_TITLE" = "Você não possui  uma conta de e-mail configurada.";
-"EMAIL_SEM_ACESSO_MSG" = "Adicione uma conta ( Ajustes de seu aparelho > Mail,Contatos,Calendários > Adicionar Conta ) e tente novamente.";
+"EMAIL_PEDIR_MUSICA_ASSUNTO" = "#RADIO NT – Pedido de Música";
+"EMAIL_SEM_ACESSO_TITLE" = "Usted no tiene una cuenta de correo electrónico configurada.";
+"EMAIL_SEM_ACESSO_MSG" = "Añadir una cuenta ( configuración de su equipo > Mail, contactos, calendarios> Añadir cuenta ) e inténtelo de nuevo .";

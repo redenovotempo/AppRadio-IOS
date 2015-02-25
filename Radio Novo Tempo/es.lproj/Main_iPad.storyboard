@@ -99,7 +99,7 @@
                                     <constraint firstAttribute="height" constant="37" id="Ats-3w-alT"/>
                                     <constraint firstAttribute="width" constant="60" id="h8s-0f-8Pe"/>
                                 </constraints>
-                                <state key="normal" title="Pular">
+                                <state key="normal" title="Saltar">
                                     <color key="titleColor" white="0.98796622980000004" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -197,7 +197,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Carregando..." image="downArrow.png">
+                                <state key="normal" title="Cargando..." image="downArrow.png">
                                     <color key="titleColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -567,7 +567,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="864C4C5F-D595-4BCB-8C7D-7C63F6848349" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0222B5DD-F4F0-4261-BFFE-FC34FBB2F2E1" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="7om-tM-yXg"/>
@@ -743,13 +743,13 @@ bm92b3RlbXBvcmFkaW8AA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@clubmusic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t04-Dt-pHR" customClass="CustomLabelFont">
-                                                    <rect key="frame" x="52" y="34" width="118" height="21"/>
+                                                    <rect key="frame" x="52" y="34" width="118" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="às 10h25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9C-OC-dnH" customClass="CustomLabelFont">
-                                                    <rect key="frame" x="210" y="34" width="90" height="21"/>
+                                                    <rect key="frame" x="210" y="34" width="90" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="v7H-tc-ttK"/>
                                                     </constraints>
@@ -1105,7 +1105,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FB4982CB-C0DE-4085-9AF8-2ED72F023AB8" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DC77EDDB-7A7F-481A-B0C4-CE5D064BBD9D" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="tNO-HZ-jXt"/>
@@ -1272,13 +1272,13 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@clubmusic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VS4-Wl-GGM" customClass="CustomLabelFont">
-                                                    <rect key="frame" x="52" y="34" width="118" height="21"/>
+                                                    <rect key="frame" x="52" y="34" width="118" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="às 10h25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiF-hJ-Ihp" customClass="CustomLabelFont">
-                                                    <rect key="frame" x="210" y="34" width="90" height="21"/>
+                                                    <rect key="frame" x="210" y="34" width="90" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="KCs-X5-KTJ"/>
                                                     </constraints>
@@ -1653,7 +1653,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                     <action selector="OpenMenuButtonPressed:" destination="owW-p5-bel" eventType="touchUpInside" id="GyV-fP-0yc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EQUIPE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZW-nd-ljd" customClass="CustomLabelFont">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EQUIPO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZW-nd-ljd" customClass="CustomLabelFont">
                                 <rect key="frame" x="314" y="27" width="140" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="FVn-Gu-ZXH"/>
@@ -2206,7 +2206,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                             <constraint firstAttribute="width" constant="33" id="Fgu-va-H2u"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAIS PEDIDAS DA SEMANA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONS-qI-uWb">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MÁS PEDIDOS DE LA SEMANA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONS-qI-uWb">
                                         <rect key="frame" x="224" y="35" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="jfI-dk-9e6"/>
@@ -2216,7 +2216,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                         <color key="textColor" red="0.27450981740000002" green="0.49803924560000001" blue="0.65882354970000001" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toque sobre a música que deseja pedir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-8i-vTX">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toque sobre la música que desea pedir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-8i-vTX">
                                         <rect key="frame" x="224" y="55" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="LNh-2o-RwE"/>
@@ -2317,16 +2317,6 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X0m-hy-A5G">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mande seu alô" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF3-se-aXc" customClass="CustomLabelFont">
-                                <rect key="frame" x="314" y="27" width="140" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="9dk-4e-dTY"/>
-                                    <constraint firstAttribute="width" constant="140" id="x74-nf-vfC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-vM-pCO">
                                 <rect key="frame" x="0.0" y="73" width="768" height="888"/>
                                 <subviews>
@@ -2354,7 +2344,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CyQ-bh-BSz">
-                                        <rect key="frame" x="322.5" y="621" width="123" height="30"/>
+                                        <rect key="frame" x="322" y="621" width="123" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="123" id="KL5-Bf-ThD"/>
                                             <constraint firstAttribute="height" constant="30" id="tSh-b7-tuB"/>
@@ -2406,6 +2396,16 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                     <action selector="OpenMenuButtonPressed:" destination="4Bw-aS-3gg" eventType="touchUpInside" id="ebE-WM-sYk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENVÍA TUS SALUDOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF3-se-aXc" customClass="CustomLabelFont">
+                                <rect key="frame" x="292" y="26" width="184" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9dk-4e-dTY"/>
+                                    <constraint firstAttribute="width" constant="184" id="x74-nf-vfC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2423,9 +2423,9 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                             <constraint firstItem="Ug8-8P-fDP" firstAttribute="top" secondItem="Fqb-vM-pCO" secondAttribute="bottom" constant="63" id="VTc-y5-T38"/>
                             <constraint firstAttribute="centerX" secondItem="Iz0-E3-V6V" secondAttribute="centerX" id="bHh-EY-j64"/>
                             <constraint firstItem="X0m-hy-A5G" firstAttribute="top" secondItem="MDS-8q-v2c" secondAttribute="topMargin" id="cgp-dk-oJC"/>
-                            <constraint firstItem="Fqb-vM-pCO" firstAttribute="top" secondItem="nF3-se-aXc" secondAttribute="bottom" constant="25" id="hTo-1b-deh"/>
+                            <constraint firstItem="Fqb-vM-pCO" firstAttribute="top" secondItem="nF3-se-aXc" secondAttribute="bottom" constant="26" id="hTo-1b-deh"/>
                             <constraint firstAttribute="centerY" secondItem="Iz0-E3-V6V" secondAttribute="centerY" id="jGc-xH-6PB"/>
-                            <constraint firstItem="nF3-se-aXc" firstAttribute="top" secondItem="5Us-Wl-Cxj" secondAttribute="bottom" constant="7" id="mbc-Fs-r85"/>
+                            <constraint firstItem="nF3-se-aXc" firstAttribute="top" secondItem="5Us-Wl-Cxj" secondAttribute="bottom" constant="6" id="mbc-Fs-r85"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2590,7 +2590,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="864C4C5F-D595-4BCB-8C7D-7C63F6848349" width="320" height="180">
+        <image name="0222B5DD-F4F0-4261-BFFE-FC34FBB2F2E1" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6502,7 +6502,7 @@ AAOSUAADklMAA5JYAAOSZwADkmsAA5JyAAOSegADkocAA5KMAAOSjgADkpAAA5KVAAOSnQADkqAAA5Kl
 AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
 </mutableData>
         </image>
-        <image name="FB4982CB-C0DE-4085-9AF8-2ED72F023AB8" width="320" height="180">
+        <image name="DC77EDDB-7A7F-481A-B0C4-CE5D064BBD9D" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

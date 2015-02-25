@@ -124,7 +124,7 @@
         self.programingItems = [resultados objectForKey:@"daySchedule"];
         
         if (jsonParsingError || !self.programingItems || self.programingItems == (id)[NSNull null]){
-            _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:@"Desculpe" message:[NSString stringWithFormat:@"%@ '%@' %@",NSLocalizedString(@"A_RADIO", @"A rádio"),appDel.radioCurrent.name,NSLocalizedString(@"NAO_POSSUI_PROGRAMACAO", @"não possui programação disponível.")] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            _jsonFailAlertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"DESCULPE", @"Desculpe") message:[NSString stringWithFormat:@"%@ '%@' %@",NSLocalizedString(@"A_RADIO", @"A rádio"),appDel.radioCurrent.name,NSLocalizedString(@"NAO_POSSUI_PROGRAMACAO", @"não possui programação disponível.")] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [_jsonFailAlertView show];
 
             NSLog (@"JSON ERROR: %@", [jsonParsingError localizedDescription]);

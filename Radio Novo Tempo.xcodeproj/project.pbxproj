@@ -60,6 +60,7 @@
 		55C1F0611952987D00C88680 /* favIconSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0601952987D00C88680 /* favIconSearchBar.png */; };
 		55C1F0631952994F00C88680 /* favIconCrossSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */; };
 		55C1F0661952A1D700C88680 /* ProgramingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1F0651952A1D700C88680 /* ProgramingItem.m */; };
+		55C4BB8B1A9E35600069289F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C4BB8D1A9E35600069289F /* Main_iPad.storyboard */; };
 		55D067F01A9787710052E241 /* OutrosAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D067EF1A9787710052E241 /* OutrosAppsViewController.m */; };
 		55D2FB601A9752140035009E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D2FB621A9752140035009E /* Localizable.strings */; };
 		55EEDC2D194D8D12006D12F7 /* maxSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EEDC2C194D8D12006D12F7 /* maxSlider.png */; };
@@ -102,7 +103,6 @@
 		A5A6F87218455D6B0085BCA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A6F87118455D6B0085BCA8 /* SystemConfiguration.framework */; };
 		A5AE62D51892B78E00CF757B /* ArgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AE62D41892B78E00CF757B /* ArgButton.m */; };
 		A5AE62D71892C9BA00CF757B /* playMuralIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5AE62D61892C9BA00CF757B /* playMuralIcon.png */; };
-		A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,7 +129,6 @@
 		550C12C51813B60A00CD48E2 /* Radio Novo Tempo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Radio Novo Tempo-Prefix.pch"; sourceTree = "<group>"; };
 		550C12C61813B60A00CD48E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		550C12C71813B60A00CD48E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		550C12CA1813B60A00CD48E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		550C12CF1813B60A00CD48E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		550C12D51813B60A00CD48E2 /* Radio Novo TempoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Radio Novo TempoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550C12D61813B60A00CD48E2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -196,11 +195,16 @@
 		55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favIconCrossSearchBar.png; sourceTree = "<group>"; };
 		55C1F0641952A1D700C88680 /* ProgramingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramingItem.h; sourceTree = "<group>"; };
 		55C1F0651952A1D700C88680 /* ProgramingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramingItem.m; sourceTree = "<group>"; };
+		55C4BB951A9E35870069289F /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		55C4BB961A9E35880069289F /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		55C4BB971A9E358B0069289F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		55D067EE1A9787710052E241 /* OutrosAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutrosAppsViewController.h; sourceTree = "<group>"; };
 		55D067EF1A9787710052E241 /* OutrosAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutrosAppsViewController.m; sourceTree = "<group>"; };
 		55D2FB631A9752170035009E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55D2FB641A9752180035009E /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		55D2FB661A97538C0035009E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		55EB73A01A9E03E400ECAFF6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55EB73A21A9E03E500ECAFF6 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = pt; path = pt.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55EB73A31A9E03EF00ECAFF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55EEDC2C194D8D12006D12F7 /* maxSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maxSlider.png; sourceTree = "<group>"; };
 		55EEDC2E194D8D18006D12F7 /* minSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minSlider.png; sourceTree = "<group>"; };
 		6C09A56AC4B64EC6B11FC512 /* libPods-Radio Novo Tempo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Radio Novo Tempo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +267,6 @@
 		A5AE62D31892B78E00CF757B /* ArgButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgButton.h; sourceTree = "<group>"; };
 		A5AE62D41892B78E00CF757B /* ArgButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgButton.m; sourceTree = "<group>"; };
 		A5AE62D61892C9BA00CF757B /* playMuralIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playMuralIcon.png; sourceTree = "<group>"; };
-		A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,7 +570,7 @@
 		A5FB35EF183EEAA2000844F2 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				A5FB35ED183EE994000844F2 /* Main_iPad.storyboard */,
+				55C4BB8D1A9E35600069289F /* Main_iPad.storyboard */,
 				556B291F18D78C1B009B696F /* bg_ipad_top.jpg */,
 				556B291D18D78B82009B696F /* bg_iPad.jpg */,
 			);
@@ -671,7 +674,7 @@
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
 				55A73E451A93A41B00EA723D /* micPermission@3x.png in Resources */,
 				55D2FB601A9752140035009E /* Localizable.strings in Resources */,
-				A5FB35EE183EE994000844F2 /* Main_iPad.storyboard in Resources */,
+				55C4BB8B1A9E35600069289F /* Main_iPad.storyboard in Resources */,
 				A537129718A820C800A21646 /* iconFacebook.png in Resources */,
 				A53712A118A8321F00A21646 /* iconLoveBlue@2x.png in Resources */,
 				A53B6E4C1885830600FA0BD9 /* imageFake.png in Resources */,
@@ -824,10 +827,21 @@
 		550C12C91813B60A00CD48E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				550C12CA1813B60A00CD48E2 /* Base */,
-				55D2FB661A97538C0035009E /* es */,
+				55EB73A01A9E03E400ECAFF6 /* es */,
+				55EB73A21A9E03E500ECAFF6 /* pt */,
+				55EB73A31A9E03EF00ECAFF6 /* en */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55C4BB8D1A9E35600069289F /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55C4BB951A9E35870069289F /* es */,
+				55C4BB961A9E35880069289F /* pt */,
+				55C4BB971A9E358B0069289F /* en */,
+			);
+			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		55D2FB621A9752140035009E /* Localizable.strings */ = {
