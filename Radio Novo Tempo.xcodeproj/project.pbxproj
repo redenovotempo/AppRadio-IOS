@@ -960,7 +960,7 @@
 					"$(PROJECT_DIR)/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0b0cc156-25d9-474e-9426-97b159920ab8";
+				PROVISIONING_PROFILE = "3d846072-d1d3-421e-b3e2-47ceff819e05";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -975,7 +975,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rede Novo Tempo de Comunicacao (WC98H7S6CK)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Radio Novo Tempo/Radio Novo Tempo-Prefix.pch";
 				INFOPLIST_FILE = "Radio Novo Tempo/Radio Novo Tempo-Info.plist";
@@ -985,7 +985,7 @@
 					"$(PROJECT_DIR)/Flurry",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0b0cc156-25d9-474e-9426-97b159920ab8";
+				PROVISIONING_PROFILE = "3d846072-d1d3-421e-b3e2-47ceff819e05";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
