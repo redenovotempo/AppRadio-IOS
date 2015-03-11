@@ -287,7 +287,7 @@ CGFloat PADDING_LEFT = 50;
 -(void)updateScrollPosition{
     //Mandando scroll pro quadrado default
     if (self.isScrollNeedMove) {
-        [self.scroll setContentOffset:CGPointMake([self scrollStartPositionOnCenterItem], 0) animated:NO];
+        [self.scroll setContentOffset:CGPointMake(100, 0) animated:NO];
         self.isScrollNeedMove = NO;
     }
 
@@ -408,48 +408,50 @@ CGFloat PADDING_LEFT = 50;
         CheckerGDCProcess
         {
             
+            
+            
             //Atualizando dados
-            NSDictionary * cidadenatal =@{@"value": _selectedPerson.cidadenatal,@"name": @"cidade natal"};
+            NSDictionary * cidadenatal =@{@"value": _selectedPerson.cidadenatal,@"name": NSLocalizedString(@"CIDADE_NATAL", @"Cidade Natal")};
             CheckerGDCProcess
-            NSDictionary * conhecidocomo =@{@"value": _selectedPerson.conhecidocomo,@"name": @"conhecido como"};
+            NSDictionary * conhecidocomo =@{@"value": _selectedPerson.conhecidocomo,@"name": NSLocalizedString(@"CONHECIDO_COMO", @"Conhecido Como")};
             CheckerGDCProcess
             //NSDictionary * description =@{@"value": self.selectedPerson.description,@"name": @"description"};
             CheckerGDCProcess
-            NSDictionary * estadocivil =@{@"value": _selectedPerson.estadocivil,@"name": @"estado civil"};
+            NSDictionary * estadocivil =@{@"value": _selectedPerson.estadocivil,@"name": NSLocalizedString(@"ESTADO_CIVIL", @"Estado Civil")};
             CheckerGDCProcess
-            NSDictionary * familia =@{@"value": _selectedPerson.familia,@"name": @"familia"};
+            NSDictionary * familia =@{@"value": _selectedPerson.familia,@"name": NSLocalizedString(@"FAMILIA", @"Família")};
             CheckerGDCProcess
             //NSDictionary * _id =@{@"value": self.selectedPerson._id,@"name": @"_id"};
             CheckerGDCProcess
-            NSDictionary * idade =@{@"value": _selectedPerson.idade,@"name": @"idade"};
+            NSDictionary * idade =@{@"value": _selectedPerson.idade,@"name": NSLocalizedString(@"IDADE", @"Idade")};
             CheckerGDCProcess
             //NSDictionary * image =@{@"value": self.selectedPerson.image,@"name": @"image"};
             CheckerGDCProcess
-            NSDictionary * name =@{@"value": _selectedPerson.name,@"name": @"name"};
+            NSDictionary * name =@{@"value": _selectedPerson.name,@"name": NSLocalizedString(@"NOME", @"Nome")};
             CheckerGDCProcess
-            NSDictionary * naogostade =@{@"value": _selectedPerson.naogostade,@"name": @"nao gosta de"};
+            NSDictionary * naogostade =@{@"value": _selectedPerson.naogostade,@"name": NSLocalizedString(@"NAO_GOSTA_DE", @"Não Gosta De")};
             CheckerGDCProcess
-            NSDictionary * naosaidecasasem =@{@"value": _selectedPerson.naosaidecasasem,@"name": @"nao sai de casa sem"};
+            NSDictionary * naosaidecasasem =@{@"value": _selectedPerson.naosaidecasasem,@"name": NSLocalizedString(@"NAO_SAI_DE_CASA_SEM", @"Não Sai de Casa Sem")};
             CheckerGDCProcess
-            NSDictionary * ondejatrabalhou =@{@"value": _selectedPerson.ondejatrabalhou,@"name": @"onde ja trabalhou"};
+            NSDictionary * ondejatrabalhou =@{@"value": _selectedPerson.ondejatrabalhou,@"name": NSLocalizedString(@"ONDE_JA_TRABALHOU", @"Onde Já Trabalhou")};
             CheckerGDCProcess
-            NSDictionary * radionovotempo =@{@"value": _selectedPerson.radionovotempo,@"name": @"radio novotempo"};
+            //NSDictionary * radionovotempo =@{@"value": _selectedPerson.radionovotempo,@"name": @"radio novotempo"};
             CheckerGDCProcess
-            NSDictionary * senaotrabalhassenanovotemposeria =@{@"value": _selectedPerson.senaotrabalhassenanovotemposeria,@"name": @"se nao trabalhasse na novotempo seria"};
+            NSDictionary * senaotrabalhassenanovotemposeria =@{@"value": _selectedPerson.senaotrabalhassenanovotemposeria,@"name": NSLocalizedString(@"SE_NAO_TRABALHASSE_NA_NOVOTEMPO", @"Se Não Trabalhasse Na Novo Tempo Seria")};
             CheckerGDCProcess
-            NSDictionary * suafuncaonaradiont =@{@"value": _selectedPerson.suafuncaonaradiont,@"name": @"sua funcao na radio nt"};
+            NSDictionary * suafuncaonaradiont =@{@"value": _selectedPerson.suafuncaonaradiont,@"name": NSLocalizedString(@"SUA_FUNCAO_NA_RADIO", @"Sua Função Na Radio NT")};
             CheckerGDCProcess
-            NSDictionary * umadatainesquecivel =@{@"value": _selectedPerson.umadatainesquecivel,@"name": @"uma data inesquecivel"};
+            NSDictionary * umadatainesquecivel =@{@"value": _selectedPerson.umadatainesquecivel,@"name": NSLocalizedString(@"UMA_DATA_INESQUECIVEL", @"Uma Data Inesquecível")};
             CheckerGDCProcess
-            NSDictionary * umamusica =@{@"value": _selectedPerson.umamusica,@"name": @"uma musica"};
+            NSDictionary * umamusica =@{@"value": _selectedPerson.umamusica,@"name": NSLocalizedString(@"UMA_MUSICA", @"Uma Música")};
             CheckerGDCProcess
-            NSDictionary * umaviagem =@{@"value": _selectedPerson.umaviagem,@"name": @"uma viagem"};
+            NSDictionary * umaviagem =@{@"value": _selectedPerson.umaviagem,@"name": NSLocalizedString(@"UMA_VIAGEM", @"Uma Viagem")};
             CheckerGDCProcess
-            NSDictionary * umpresente =@{@"value": _selectedPerson.umpresente,@"name": @"um presente"};
+            NSDictionary * umpresente =@{@"value": _selectedPerson.umpresente,@"name": NSLocalizedString(@"UM_PRESENTE", @"Um Presente")};
             CheckerGDCProcess
-            NSDictionary * umrecadoparaosouvintes =@{@"value": _selectedPerson.umrecadoparaosouvintes,@"name": @"um recado para os ouvintes"};
+            NSDictionary * umrecadoparaosouvintes =@{@"value": _selectedPerson.umrecadoparaosouvintes,@"name": NSLocalizedString(@"UM_RECADO_PARA_OS_OUVINTES", @"Um Recado Para Os Ouvintes")};
             CheckerGDCProcess
-            NSDictionary * umsonho =@{@"value": _selectedPerson.umsonho,@"name": @"um sonho"};
+            NSDictionary * umsonho =@{@"value": _selectedPerson.umsonho,@"name": NSLocalizedString(@"UM_SONHO", @"Um Sonho")};
 
 
             CheckerGDCProcess
@@ -467,7 +469,7 @@ CGFloat PADDING_LEFT = 50;
                                              naogostade,
                                              naosaidecasasem,
                                              ondejatrabalhou,
-                                             radionovotempo,
+                                             //radionovotempo,
                                              senaotrabalhassenanovotemposeria,
                                              suafuncaonaradiont,
                                              umadatainesquecivel,

@@ -32,8 +32,34 @@
 //EQUIPEVIEWCONTROLLER
 "NAO_POSSUI_EQUIPE_CADASTRADA" = "does not have a registered team";
 
+"CONHECIDO_COMO" = "Nickname";
+"CIDADE_NATAL" = "Hometown";
+"IDADE" = "Age";
+"ESTADO_CIVIL" = "Maritual Status";
+"FAMILIA" = "Family";
+"NAO_SAI_DE_CASA_SEM" = "Do not leave home without";
+"UMA_VIAGEM" = "Dream trip";
+"UMA_DATA_INESQUECIVEL" = "Unforgettable date";
+"UMA_MUSICA" = "Favorite music";
+"UM_SONHO" = "A dream";
+"UM_PRESENTE" = "A gift";
+"NAO_GOSTA_DE" = "Doesn’t like";
+"SUA_FUNCAO_NA_RADIO" = "Role in work";
+"ONDE_JA_TRABALHOU" = "Where worked in  the past";
+"SE_NAO_TRABALHASSE_NA_NOVOTEMPO" = "If not worked at the Novo Tempo would be";
+"UM_RECADO_PARA_OS_OUVINTES" = "A message to listeners";
+"NOME" = "Name";
+
 //PROGRAMACAOVIEWCONTROLLER
 "NAO_POSSUI_PROGRAMACAO" = "has no program air available.";
+
+"DOMINGO" = "SUNDAY";
+"SEGUNDA" = "MONDAY";
+"TERÇA" = "TUESDAY";
+"QUARTA" = "WEDNESDAY";
+"QUINTA" = "THURSDAY";
+"SEXTA" = "FRIDAY";
+"SÁBADO" = "SABBATH";
 
 //OUTROSAPPSVIEWCONTROLLER
 "OUTROS_APPS_URL" = "http://www.novotempo.com/mobile";

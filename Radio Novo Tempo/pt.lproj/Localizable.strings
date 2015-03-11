@@ -32,8 +32,35 @@
 //EQUIPEVIEWCONTROLLER
 "NAO_POSSUI_EQUIPE_CADASTRADA" = "não possui uma equipe cadastrada.";
 
+"CONHECIDO_COMO" = "Conhecido Como";
+"CIDADE_NATAL" = "Cidade Natal";
+"IDADE" = "Idade";
+"ESTADO_CIVIL" = "Estado Civil";
+"FAMILIA" = "Família";
+"NAO_SAI_DE_CASA_SEM" = "Não Sai de Casa Sem";
+"UMA_VIAGEM" = "Uma Viagem";
+"UMA_DATA_INESQUECIVEL" = "Uma Data Inesquecível";
+"UMA_MUSICA" = "Uma Música";
+"UM_SONHO" = "Um Sonho";
+"UM_PRESENTE" = "Um Presente";
+"NAO_GOSTA_DE" = "Não Gosta De";
+"SUA_FUNCAO_NA_RADIO" = "Sua Função Na Radio NT";
+"ONDE_JA_TRABALHOU" = "Onde Já Trabalhou";
+"SE_NAO_TRABALHASSE_NA_NOVOTEMPO" = "Se Não Trabalhasse Na Novo Tempo Seria";
+"UM_RECADO_PARA_OS_OUVINTES" = "Um Recado Para Os Ouvintes";
+"NOME" = "Nome";
+
 //PROGRAMACAOVIEWCONTROLLER
 "NAO_POSSUI_PROGRAMACAO" = "não possui programação disponível.";
+
+"DOMINGO" = "DOMINGO";
+"SEGUNDA" = "SEGUNDA";
+"TERÇA" = "TERÇA";
+"QUARTA" = "QUARTA";
+"QUINTA" = "QUINTA";
+"SEXTA" = "SEXTA";
+"SÁBADO" = "SÁBADO";
+
 
 //OUTROSAPPSVIEWCONTROLLER
 "OUTROS_APPS_URL" = "http://www.novotempo.com/mobile";

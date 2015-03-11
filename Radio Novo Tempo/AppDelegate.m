@@ -22,6 +22,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    [self.locationManager requestWhenInUseAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
     
     _programingItems = [[NSMutableArray alloc]init];
     
@@ -348,8 +354,7 @@
         // Do any additional setup after loading the view from its nib.
         
         //Find Device Location.
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
+
         //Verificando a necessidade de acessar o GPS novamente para descobrir a localizaçao.
         [self.locationManager startUpdatingLocation];
         
@@ -399,11 +404,30 @@
 }
 
 
+-(NSString * )getCurrentLanguage{
+    
+    NSString * result = [[NSString alloc]init];
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    
+    if ([language isEqualToString:@"pt"]) {
+        result = @"pt";
+        return  result;
+    } else if ([language isEqualToString:@"es"]) {
+        result = @"es";
+        return  result;
+    }
+    
+    result = @"en";
+    
+    return result;
+}
+
 -(void)CallNovoTempoService{
     
     //Create Request Values
     NSString * action = @"radiolist";
-    NSString * language = @"pt";
+    NSString * language = [self getCurrentLanguage];
     
     
     //Chamando JSON

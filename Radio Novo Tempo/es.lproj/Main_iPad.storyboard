@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rch-6M-ktD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rch-6M-ktD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -21,7 +21,7 @@
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_iPad.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-nB-Ve6">
                                 <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="3bH-AL-qD1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEn.png" translatesAutoresizingMaskIntoConstraints="NO" id="3bH-AL-qD1">
                                 <rect key="frame" x="110" y="208" width="548" height="136"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="548" id="O9T-CB-yLt"/>
@@ -65,13 +65,6 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="x6H-6t-wDw">
-                                <rect key="frame" x="85" y="989" width="598" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="GX6-2P-8oJ"/>
-                                    <constraint firstAttribute="width" constant="598" id="qrJ-OS-gKZ"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Im6-LV-QoU" customClass="VolumeView">
                                 <rect key="frame" x="260" y="685" width="247" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,6 +203,13 @@
                                     <constraint firstAttribute="height" constant="28" id="Tjw-aE-Nqa"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.5499999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEn.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="x6H-6t-wDw">
+                                <rect key="frame" x="245" y="989" width="278" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="GX6-2P-8oJ"/>
+                                    <constraint firstAttribute="width" constant="278" id="Uz6-jL-Ysi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="5hP-TJ-mda" secondAttribute="trailing" constant="5" id="0Im-kx-bua"/>
@@ -316,15 +316,15 @@
                                     <outlet property="delegate" destination="xSc-xq-0ah" id="8zC-Sg-dOn"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-RS-Dm4">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEn.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-RS-Dm4">
                                 <rect key="frame" x="94" y="92" width="92" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Hr7-aX-Iwh"/>
                                     <constraint firstAttribute="height" constant="126" id="y2O-k8-sAJ"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-CH-MOU">
-                                <rect key="frame" x="65" y="960" width="150" height="22"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5499999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logoEn.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-CH-MOU">
+                                <rect key="frame" x="65" y="960" width="150" height="18"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.023529411760000001" green="0.16862745100000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -567,7 +567,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0222B5DD-F4F0-4261-BFFE-FC34FBB2F2E1" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5E99ACC8-3ECB-471E-BE64-9FFBF6D7C5DC" translatesAutoresizingMaskIntoConstraints="NO" id="lJ0-AV-mfa">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="7om-tM-yXg"/>
@@ -1105,7 +1105,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DC77EDDB-7A7F-481A-B0C4-CE5D064BBD9D" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E80433EA-8C82-4B6F-8A1B-8D781D91413F" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-q2-0p9">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="tNO-HZ-jXt"/>
@@ -2590,7 +2590,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="0222B5DD-F4F0-4261-BFFE-FC34FBB2F2E1" width="320" height="180">
+        <image name="5E99ACC8-3ECB-471E-BE64-9FFBF6D7C5DC" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6502,7 +6502,7 @@ AAOSUAADklMAA5JYAAOSZwADkmsAA5JyAAOSegADkocAA5KMAAOSjgADkpAAA5KVAAOSnQADkqAAA5Kl
 AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
 </mutableData>
         </image>
-        <image name="DC77EDDB-7A7F-481A-B0C4-CE5D064BBD9D" width="320" height="180">
+        <image name="E80433EA-8C82-4B6F-8A1B-8D781D91413F" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -10428,9 +10428,9 @@ AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
         <image name="imageFake.png" width="640" height="360"/>
         <image name="imageFake2.png" width="320" height="320"/>
         <image name="lineBg.png" width="640" height="57"/>
-        <image name="logo.com.png" width="211" height="22"/>
-        <image name="logo.png" width="156" height="213"/>
-        <image name="logoMini.png" width="75" height="69"/>
+        <image name="logoEn.com.png" width="211" height="18"/>
+        <image name="logoEn.png" width="106" height="150"/>
+        <image name="logoMini.png" width="53" height="49"/>
         <image name="menuIcon.png" width="23" height="15"/>
         <image name="micPermission.png" width="424" height="90"/>
         <image name="next.png" width="24" height="44"/>

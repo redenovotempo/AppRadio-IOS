@@ -32,8 +32,34 @@
 //EQUIPEVIEWCONTROLLER
 "NAO_POSSUI_EQUIPE_CADASTRADA" = "no tiene un equipo registrado.";
 
+"CONHECIDO_COMO" = "Conocido como";
+"CIDADE_NATAL" = "Ciudad de Nacimiento";
+"IDADE" = "Edad";
+"ESTADO_CIVIL" = "Estado Civil";
+"FAMILIA" = "Familia";
+"NAO_SAI_DE_CASA_SEM" = "No sale de casa sin...";
+"UMA_VIAGEM" = "Un Viaje";
+"UMA_DATA_INESQUECIVEL" = "La Fecha inolvidable";
+"UMA_MUSICA" = "Tu Música favorita";
+"UM_SONHO" = "Un sueño";
+"UM_PRESENTE" = "Un presente";
+"NAO_GOSTA_DE" = "No le gusta";
+"SUA_FUNCAO_NA_RADIO" = "Su función en la Radio NT";
+"ONDE_JA_TRABALHOU" = "Lugares donde ya Trabajó";
+"SE_NAO_TRABALHASSE_NA_NOVOTEMPO" = "Si no trabajaría en Nuevo Tiempo sería en";
+"UM_RECADO_PARA_OS_OUVINTES" = "Un consejo para los oyentes";
+"NOME" = "Nombre";
+
 //PROGRAMACAOVIEWCONTROLLER
 "NAO_POSSUI_PROGRAMACAO" = "no tiene programación disponible.";
+
+"DOMINGO" = "DOMINGO";
+"SEGUNDA" = "LUNES";
+"TERÇA" = "MARTES";
+"QUARTA" = "MIÉRCOLES";
+"QUINTA" = "JUEVES";
+"SEXTA" = "VIERNES";
+"SÁBADO" = "SÁBADO";
 
 //OUTROSAPPSVIEWCONTROLLER
 "OUTROS_APPS_URL" = "http://nuevotiempo.org/mobile/";

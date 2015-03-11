@@ -148,7 +148,7 @@
 
 -(void)setupScrollDays{
     
-    _scrollDays.contentSize = CGSizeMake(50*7 + 15, 56);
+    _scrollDays.contentSize = CGSizeMake(120*7 + 15, 56);
     _scrollDays.showsHorizontalScrollIndicator = NO;
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -156,40 +156,39 @@
     NSInteger weekday = [comps weekday];
 
     
-    
-    ArgButton * domingo = [[ArgButton alloc]initWithFrame:CGRectMake(0, 0, 70, 50)];
+    ArgButton * domingo = [[ArgButton alloc]initWithFrame:CGRectMake(20, 0, 70, 50)];
     domingo.ArgNumber1 = [NSNumber numberWithInt:1];
-    domingo.ArgString1 = @"Dom";
+    domingo.ArgString1 = NSLocalizedString(@"DOMINGO", @"DOMINGO");
     [self setupScrollDaysButton:domingo];
     (weekday  == [domingo.ArgNumber1 integerValue])?[self callJsonPrograming:domingo]: nil;
-    ArgButton * segunda = [[ArgButton alloc]initWithFrame:CGRectMake(50, 0, 70, 50)];
+    ArgButton * segunda = [[ArgButton alloc]initWithFrame:CGRectMake(120, 0, 70, 50)];
     segunda.ArgNumber1 = [NSNumber numberWithInt:2];
-    segunda.ArgString1 = @"Seg";
+    segunda.ArgString1 = NSLocalizedString(@"SEGUNDA", @"SEGUNDA");
     [self setupScrollDaysButton:segunda];
     (weekday  == [segunda.ArgNumber1 integerValue])?[self callJsonPrograming:segunda]: nil;
-    ArgButton * terca = [[ArgButton alloc]initWithFrame:CGRectMake(100, 0, 70, 50)];
+    ArgButton * terca = [[ArgButton alloc]initWithFrame:CGRectMake(220, 0, 70, 50)];
     terca.ArgNumber1 = [NSNumber numberWithInt:3];
-    terca.ArgString1 = @"Ter";
+    terca.ArgString1 = NSLocalizedString(@"TERÇA", @"TERÇA");
     [self setupScrollDaysButton:terca];
     (weekday  == [terca.ArgNumber1 integerValue])?[self callJsonPrograming:terca]: nil;
-    ArgButton * quarta = [[ArgButton alloc]initWithFrame:CGRectMake(150, 0, 70, 50)];
+    ArgButton * quarta = [[ArgButton alloc]initWithFrame:CGRectMake(320, 0, 70, 50)];
     quarta.ArgNumber1 = [NSNumber numberWithInt:4];
-    quarta.ArgString1 = @"Qua";
+    quarta.ArgString1 = NSLocalizedString(@"QUARTA", @"QUARTA");
     [self setupScrollDaysButton:quarta];
     (weekday  == [quarta.ArgNumber1 integerValue])?[self callJsonPrograming:quarta]: nil;
-    ArgButton * quinta = [[ArgButton alloc]initWithFrame:CGRectMake(200, 0, 70, 50)];
+    ArgButton * quinta = [[ArgButton alloc]initWithFrame:CGRectMake(420, 0, 70, 50)];
     quinta.ArgNumber1 = [NSNumber numberWithInt:5];
-    quinta.ArgString1 = @"Qui";
+    quinta.ArgString1 = NSLocalizedString(@"QUINTA", @"QUINTA");
     [self setupScrollDaysButton:quinta];
     (weekday  == [quinta.ArgNumber1 integerValue])?[self callJsonPrograming:quinta]: nil;
-    ArgButton * sexta = [[ArgButton alloc]initWithFrame:CGRectMake(250, 0, 70, 50)];
+    ArgButton * sexta = [[ArgButton alloc]initWithFrame:CGRectMake(520, 0, 70, 50)];
     sexta.ArgNumber1 = [NSNumber numberWithInt:6];
-    sexta.ArgString1 = @"Sex";
+    sexta.ArgString1 = NSLocalizedString(@"SEXTA", @"SEXTA");
     [self setupScrollDaysButton:sexta];
     (weekday  == [sexta.ArgNumber1 integerValue])?[self callJsonPrograming:sexta]: nil;
-    ArgButton * sabado = [[ArgButton alloc]initWithFrame:CGRectMake(300, 0, 70, 50)];
+    ArgButton * sabado = [[ArgButton alloc]initWithFrame:CGRectMake(620, 0, 70, 50)];
     sabado.ArgNumber1 = [NSNumber numberWithInt:7];
-    sabado.ArgString1 = @"Sáb";
+    sabado.ArgString1 = NSLocalizedString(@"SÁBADO", @"SÁBADO");
     [self setupScrollDaysButton:sabado];
     if(weekday  == [sabado.ArgNumber1 integerValue]){
         [self callJsonPrograming:sabado];

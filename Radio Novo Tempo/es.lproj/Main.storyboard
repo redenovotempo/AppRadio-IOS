@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -52,7 +52,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-ls-gA6">
                                 <rect key="frame" x="0.0" y="400" width="320" height="28"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="UQX-sS-U01">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEn.png" translatesAutoresizingMaskIntoConstraints="NO" id="UQX-sS-U01">
                                 <rect key="frame" x="120" y="50" width="79" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="0br-TY-oxh"/>
@@ -100,8 +100,12 @@
                                     <constraint firstAttribute="height" constant="30" id="rGz-kc-w6u"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="hnD-vf-3rf">
+                            <imageView userInteractionEnabled="NO" alpha="0.5499999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logoEn.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="hnD-vf-3rf">
                                 <rect key="frame" x="85" y="518" width="150" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="G2X-JR-ArD"/>
+                                    <constraint firstAttribute="height" constant="22" id="LDA-6g-Vlt"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVN-Xv-K7H">
                                 <rect key="frame" x="0.0" y="568" width="320" height="233"/>
@@ -204,7 +208,6 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hnD-vf-3rf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="85" id="00L-L7-FBM"/>
                             <constraint firstItem="DVN-Xv-K7H" firstAttribute="trailing" secondItem="2ZE-ls-gA6" secondAttribute="trailing" id="0mH-Zm-emt"/>
                             <constraint firstItem="bsX-J8-Rmr" firstAttribute="centerX" secondItem="hnD-vf-3rf" secondAttribute="centerX" id="3K5-y6-mDR"/>
                             <constraint firstItem="UQX-sS-U01" firstAttribute="centerX" secondItem="MTs-PQ-P75" secondAttribute="centerX" constant="-8" id="4MC-wv-hmB"/>
@@ -412,8 +415,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VUH-6A-wZU">
                                 <rect key="frame" x="0.0" y="-4" width="320" height="572"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logo.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tkh-33-GJQ">
+                            <imageView userInteractionEnabled="NO" alpha="0.5499999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="logoEn.com.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tkh-33-GJQ">
                                 <rect key="frame" x="85" y="518" width="150" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="SNK-5e-bN9"/>
+                                    <constraint firstAttribute="width" constant="150" id="Xsw-mI-S0F"/>
+                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ahH-rv-NuH">
                                 <rect key="frame" x="35" y="161" width="250" height="308"/>
@@ -452,7 +459,7 @@
                                     <outlet property="delegate" destination="ENQ-Su-ESk" id="V7R-ze-lOZ"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-eZ-3h3">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoEn.png" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-eZ-3h3">
                                 <rect key="frame" x="129" y="42" width="63" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="0Ap-UD-Qrv"/>
@@ -471,7 +478,6 @@
                             <constraint firstAttribute="trailing" secondItem="VUH-6A-wZU" secondAttribute="trailing" id="Vio-ff-jAc"/>
                             <constraint firstItem="ahH-rv-NuH" firstAttribute="leading" secondItem="xoI-ja-Rnq" secondAttribute="leading" constant="35" id="ZHk-uC-mUN"/>
                             <constraint firstItem="Tkh-33-GJQ" firstAttribute="centerX" secondItem="ahH-rv-NuH" secondAttribute="centerX" id="bV0-RS-jcX"/>
-                            <constraint firstItem="Tkh-33-GJQ" firstAttribute="leading" secondItem="xoI-ja-Rnq" secondAttribute="leading" constant="85" id="fVe-58-drA"/>
                             <constraint firstAttribute="bottom" secondItem="VUH-6A-wZU" secondAttribute="bottom" id="hPx-NK-Pou"/>
                             <constraint firstItem="VUH-6A-wZU" firstAttribute="centerX" secondItem="ahH-rv-NuH" secondAttribute="centerX" id="uRs-5H-Cjc"/>
                             <constraint firstItem="q2W-eZ-3h3" firstAttribute="centerX" secondItem="ahH-rv-NuH" secondAttribute="centerX" id="ze7-21-x2S"/>
@@ -959,7 +965,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FCD2689C-4A95-44A8-AFD6-7664D98CB7B6" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7B9B24E5-8C88-4A40-A4B4-CF1D890C5103" translatesAutoresizingMaskIntoConstraints="NO" id="lPM-bm-bG8">
                                                     <rect key="frame" x="0.0" y="63" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="wuv-WZ-yWo"/>
@@ -2109,7 +2115,7 @@ IGNsdWJlZGFtdXNpY2EhIEN1cnRpdT9EaXZ1bGd1ZSBuYXMgc3VhcyByZWRlcyBzb2NpYWlzISEhAA
         </scene>
     </scenes>
     <resources>
-        <image name="FCD2689C-4A95-44A8-AFD6-7664D98CB7B6" width="320" height="180">
+        <image name="7B9B24E5-8C88-4A40-A4B4-CF1D890C5103" width="320" height="180">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -6033,9 +6039,9 @@ AAOSrQADkrAAA5LCAAOSxQADksoAAAAAAAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAOSzA
         <image name="imageFake.png" width="640" height="360"/>
         <image name="imageFake2.png" width="320" height="320"/>
         <image name="lineBg.png" width="640" height="57"/>
-        <image name="logo.com.png" width="211" height="22"/>
-        <image name="logo.png" width="156" height="213"/>
-        <image name="logoMini.png" width="75" height="69"/>
+        <image name="logoEn.com.png" width="211" height="18"/>
+        <image name="logoEn.png" width="106" height="150"/>
+        <image name="logoMini.png" width="53" height="49"/>
         <image name="menuIcon.png" width="23" height="15"/>
         <image name="micPermission.png" width="424" height="90"/>
         <image name="next.png" width="24" height="44"/>
