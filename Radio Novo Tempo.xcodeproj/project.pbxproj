@@ -41,6 +41,7 @@
 		556B18831953B73A00A03843 /* PedirMusicaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */; };
 		556B291E18D78B82009B696F /* bg_iPad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291D18D78B82009B696F /* bg_iPad.jpg */; };
 		556B292018D78C1B009B696F /* bg_ipad_top.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 556B291F18D78C1B009B696F /* bg_ipad_top.jpg */; };
+		5573EF671AE7132900C1E32B /* micPermission@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5573EF661AE7132900C1E32B /* micPermission@3x.png */; };
 		557BE41C1A9E949E00089B23 /* logo.com.png in Resources */ = {isa = PBXBuildFile; fileRef = 557BE41E1A9E949E00089B23 /* logo.com.png */; };
 		557BE4221A9E95D200089B23 /* logoEn.com.png in Resources */ = {isa = PBXBuildFile; fileRef = 557BE4211A9E95D200089B23 /* logoEn.com.png */; };
 		557E420C1A8BCCB1007FA95D /* MandeSeuAloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E420B1A8BCCB1007FA95D /* MandeSeuAloViewController.m */; };
@@ -48,7 +49,6 @@
 		557E42151A8C44F3007FA95D /* MicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 557E42141A8C44F3007FA95D /* MicView.m */; };
 		5580D6B11A9B623F0032D80B /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5580D6B01A9B623F0032D80B /* MenuItem.m */; };
 		55A14D9C18D7997000A583E6 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55A14D9B18D7997000A583E6 /* bg.jpg */; };
-		55A73E451A93A41B00EA723D /* micPermission@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55A73E441A93A41B00EA723D /* micPermission@3x.png */; };
 		55A7623B18C37E460084570E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7623A18C37E460084570E /* Person.m */; };
 		55A7624218C392450084570E /* UIViewPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624118C392450084570E /* UIViewPerson.m */; };
 		55A7624518C3C84E0084570E /* EquipeDadosCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7624418C3C84E0084570E /* EquipeDadosCell.m */; };
@@ -162,6 +162,7 @@
 		556B18821953B73A00A03843 /* PedirMusicaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedirMusicaTableViewCell.m; sourceTree = "<group>"; };
 		556B291D18D78B82009B696F /* bg_iPad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_iPad.jpg; sourceTree = "<group>"; };
 		556B291F18D78C1B009B696F /* bg_ipad_top.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_ipad_top.jpg; sourceTree = "<group>"; };
+		5573EF661AE7132900C1E32B /* micPermission@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "micPermission@3x.png"; sourceTree = "<group>"; };
 		557BE4201A9E94A100089B23 /* pt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pt; path = pt.lproj/logo.com.png; sourceTree = "<group>"; };
 		557BE4211A9E95D200089B23 /* logoEn.com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoEn.com.png; sourceTree = "<group>"; };
 		557E420A1A8BCCB1007FA95D /* MandeSeuAloViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MandeSeuAloViewController.h; sourceTree = "<group>"; };
@@ -174,7 +175,6 @@
 		5580D6B01A9B623F0032D80B /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		5580D6B31A9BE1100032D80B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55A14D9B18D7997000A583E6 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
-		55A73E441A93A41B00EA723D /* micPermission@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "micPermission@3x.png"; path = "../../../../Downloads/micPermission@3x.png"; sourceTree = "<group>"; };
 		55A7623918C37E460084570E /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		55A7623A18C37E460084570E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		55A7624018C392450084570E /* UIViewPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewPerson.h; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 		A53B6E45188579B400FA0BD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				55A73E441A93A41B00EA723D /* micPermission@3x.png */,
+				5573EF661AE7132900C1E32B /* micPermission@3x.png */,
 				A53B6E46188579E800FA0BD9 /* Mural */,
 				A500953F188DB59F009A8059 /* loading@2x.png */,
 				55C1F0621952994F00C88680 /* favIconCrossSearchBar.png */,
@@ -675,7 +675,7 @@
 				A53B6E6D1885DE8A00FA0BD9 /* imageYoutube.png in Resources */,
 				550C12D01813B60A00CD48E2 /* Images.xcassets in Resources */,
 				550C12FE1813C9AF00CD48E2 /* soundMin.png in Resources */,
-				55A73E451A93A41B00EA723D /* micPermission@3x.png in Resources */,
+				5573EF671AE7132900C1E32B /* micPermission@3x.png in Resources */,
 				55D2FB601A9752140035009E /* Localizable.strings in Resources */,
 				55C4BB8B1A9E35600069289F /* Main_iPad.storyboard in Resources */,
 				A537129718A820C800A21646 /* iconFacebook.png in Resources */,

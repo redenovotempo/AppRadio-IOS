@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "ProgramingItem.h"
 
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
 @import Foundation;
 
 @interface AppDelegate()
@@ -25,7 +28,11 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    [self.locationManager requestWhenInUseAuthorization];
+    
+    if (!SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
     
     [self.locationManager startUpdatingLocation];
     
